@@ -1,0 +1,27 @@
+:root {
+  --Primary: #1b4b66;
+  --PrimaryTint: #639599;
+  --Error: #b00020;
+  --Highlight: #ff8c4b;
+  --Accent: #f4f4f4;
+  --Dark: #13101e;
+  --Bright: #ffffff;
+  --Grey: #f1f1f1;
+  --LightText: #b6b6b6;
+  --TypeHighEmphasis: #171520;
+  --TypeLowEmphasis: #626262;
+}
+
+p,
+a,
+button,
+input,
+select,
+span,
+h1,
+h2,
+h3,
+h4,
+textarea {
+  font-family: "Inter", sans-serif;
+}
