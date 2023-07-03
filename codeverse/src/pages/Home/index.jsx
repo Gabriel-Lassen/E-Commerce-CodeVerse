@@ -2,13 +2,11 @@ import React from "react";
 import HeroBannerHome from "../../components/heroBanner-home";
 
 const Home = () => {
-  return(
-  <>
-  <Header />
-  <HeroBannerHome />
-  <Footer /></>
+  return (
+    <>
+      <HeroBannerHome />
+    </>
   );
-
 };
 
 export default Home;

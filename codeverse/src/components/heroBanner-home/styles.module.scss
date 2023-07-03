@@ -1,3 +1,63 @@
-.HeroBannerHome{
- 
+.HeroBannerHomeContainer {
+  position: absolute;
+  top: 64px;
+  overflow-y: scroll;
+  display: flex;
+  width: 355px;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .banner1 {
+    width: 328px;
+    height: 120px;
+    flex-shrink: 0;
+    margin-left: 16px;
+
+    img {
+      border-radius: 8px;
+      background: #d8dbde;
+    }
+
+    .description {
+      position: absolute;
+      top: 10px;
+      left: 137px;
+      width: 207px;
+      height: 100px;
+      flex-shrink: 0;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      background: rgba(222, 222, 222, 0.7);
+      backdrop-filter: blur(2.5px);
+
+      h2 {
+        position: absolute;
+        top: 4px;
+        left: 10px;
+        color: var(--Primary);
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 26px;
+      }
+
+      p {
+        position: absolute;
+        top: 59px;
+        left: 10px;
+        color: var(--Primary);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+      }
+    }
+  }
+
+  .banner2 {
+    width: 343px;
+    height: 125px;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
 }
