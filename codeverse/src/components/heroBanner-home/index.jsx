@@ -17,6 +17,12 @@ const HeroBannerHome = () => {
       </div>
       <div className={styles.banner2}>
         <img src={banner2} alt="" />
+        <div className={styles.description_2}>
+          <h2>Spring Summer Collection</h2>
+          <div className={styles.promo}>
+            <h3>UPTO 20% OFF</h3>
+          </div>
+        </div>
       </div>
     </div>
   );
