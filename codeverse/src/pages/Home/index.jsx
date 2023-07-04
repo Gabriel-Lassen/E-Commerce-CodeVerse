@@ -1,4 +1,3 @@
-import React from "react";
 import HeroBannerHome from "../../components/heroBanner-home";
 
 const Home = () => {
