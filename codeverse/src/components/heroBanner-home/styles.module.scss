@@ -1,4 +1,4 @@
-@media screen and (min-width: 360px) {
+@media screen and (max-width: 720px) {
   .HeroBannerHomeContainer {
     position: absolute;
     top: 64px;
@@ -9,6 +9,7 @@
     align-items: flex-start;
 
     .banner1 {
+      position: relative;
       width: 328px;
       height: 120px;
       flex-shrink: 0;
@@ -17,14 +18,15 @@
       img {
         border-radius: 8px;
         background: #d8dbde;
+        image-rendering: auto;
       }
 
       .description {
         position: absolute;
         top: 10px;
-        left: 137px;
-        width: 207px;
-        height: 100px;
+        right: 0;
+        width: 60%;
+        height: 80%;
         flex-shrink: 0;
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
@@ -51,6 +53,9 @@
           font-style: normal;
           font-weight: 500;
           line-height: 16px;
+        }
+        .descriptionBtn {
+          display: none;
         }
       }
     }
@@ -94,6 +99,7 @@
           flex-shrink: 0;
           border-radius: 6px;
           background: #ffdd9d;
+
           h3 {
             color: #9c1c00;
             font-size: 13px;
@@ -108,58 +114,128 @@
       }
     }
   }
+}
+@media screen and (min-width: 721px) {
+  .HeroBannerHomeContainer {
+    position: absolute;
+    top: 154px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
 
-  @media screen and (min-width: 1400px) {
-    .HeroBannerHomeContainer {
-      .banner1 {
-        width: 1240px;
-        height: 400px;
-        flex-shrink: 0;
-        margin-left: 16px;
+    .banner1 {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: 90%;
+      height: 2%;
+      flex-shrink: 0;
+    }
+
+    .banner1 img {
+      width: 100%;
+      height: auto;
+      border-bottom-left-radius: 8px;
+    }
+
+    .description {
+      position: absolute;
+      top: 10%;
+      right: 0;
+      width: 60%;
+      height: 80%;
+      flex-shrink: 0;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      background: rgba(222, 222, 222, 0.7);
+      backdrop-filter: blur(2.5px);
+
+      h2 {
+        position: absolute;
+        top: 9%;
+        left: 8%;
+        color: var(--Primary);
+        font-size: 230%;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 26px;
+      }
+
+      p {
+        position: absolute;
+        top: 30%;
+        left: 8%;
+        color: var(--Primary);
+        font-size: 130%;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+      }
+
+      .descriptionBtn {
+        position: absolute;
+        bottom: 20%;
+        left: 8%;
+        width: 30%;
+        height: 20%;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 8px;
+        background: var(--Primary);
+        color: var(--Bright);
 
         img {
-          width: 100%;
-          height: auto;
-          border-bottom-left-radius: 8px;
-        }
-
-        .description {
-          position: absolute;
-          top: 10px;
-          left: 137px;
-          width: 207px;
-          height: 100px;
-          flex-shrink: 0;
-          border-top-left-radius: 8px;
-          border-bottom-left-radius: 8px;
-          background: rgba(222, 222, 222, 0.7);
-          backdrop-filter: blur(2.5px);
-
-          h2 {
-            position: absolute;
-            top: 4px;
-            left: 10px;
-            color: var(--Primary);
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 800;
-            line-height: 26px;
-          }
-
-          p {
-            position: absolute;
-            top: 59px;
-            left: 10px;
-            color: var(--Primary);
-            font-size: 12px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 16px;
-          }
+          max-width: 20%;
+          vertical-align: middle;
+          padding-right: 8px;
         }
       }
-      .banner2 {
-        display: none;
+    }
+
+    .banner2 {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .HeroBannerHomeContainer {
+    .description {
+      width: 60%;
+      height: 80%;
+      flex-shrink: 0;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      background: rgba(222, 222, 222, 0.7);
+      backdrop-filter: blur(2.5px);
+
+      h2 {
+        position: absolute;
+        top: 9%;
+        left: 8%;
+        color: var(--Primary);
+        font-size: 60px;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 84px;
+      }
+
+      p {
+        position: absolute;
+        top: 40%;
+        left: 8%;
+        color: var(--Primary);
+        font-size: 28px;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 38px;
+      }
+
+      .descriptionBtn {
+        bottom: 10%;
       }
     }
   }

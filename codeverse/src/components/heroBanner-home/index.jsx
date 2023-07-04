@@ -1,7 +1,7 @@
-import React from "react";
 import styles from "./styles.module.scss";
 import banner1 from "../../assetes/imgs/heroBannerHome.png";
 import banner2 from "../../assetes/imgs/heroBannerHome2.png";
+import arrow from "../../assetes/imgs/icon-arrow.svg";
 
 const HeroBannerHome = () => {
   return (
@@ -9,10 +9,13 @@ const HeroBannerHome = () => {
       <div className={styles.banner1}>
         <img src={banner1} alt="" />
         <div className={styles.description}>
-          <h2>
-            Carry your <br /> Funk
-          </h2>
+          <h2>Carry your Funk</h2>
           <p>Trendy handbags collection for your party animal</p>
+
+          <button className={styles.descriptionBtn}>
+            <img src={arrow} />
+            See more
+          </button>
         </div>
       </div>
       <div className={styles.banner2}>

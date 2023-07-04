@@ -26,6 +26,14 @@ textarea {
   font-family: "Inter", sans-serif;
 }
 
+button {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -35,38 +43,5 @@ textarea {
 @media only screen and (max-width: 576px) {
   body {
     overflow: hidden;
-    width: 360px;
-    height: 800px;
-    background: var(--bright);
   }
-}
-
-@media only screen and (max-width: 768px) {
-  body {
-    overflow: hidden;
-    width: 768px;
-    height: 800px;
-    background: var(--bright);
-  }
-}
-
-@media only screen and (max-width: 992px) {
-  body {
-    overflow: hidden;
-    width: 360px;
-    height: 800px;
-    background: var(--bright);
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  body {
-    overflow: hidden;
-    width: 360px;
-    height: 800px;
-    background: var(--bright);
-  }
-}
-
-@media only screen and (max-width: 1400px) {
 }
