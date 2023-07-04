@@ -1,0 +1,105 @@
+@media only screen and (max-width: 576px) {
+  .header {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 16px 0 0;
+
+    .header_left_mob {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-left: 16px;
+    }
+    h1 {
+      color: var(--Primary);
+      font-size: 20px;
+      font-style: normal;
+      font-family: Inter;
+      font-weight: 600;
+      line-height: 26px;
+    }
+    .header_right_mob {
+      display: flex;
+      gap: 24px;
+    }
+    .header_left_desktop,
+    .header_right_desktop {
+      display: none;
+    }
+  }
+}
+@media only screen and (min-width: 577px) {
+  .header_left_mob,
+  .header_right_mob {
+    display: none;
+  }
+  .header {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 28px 0 0;
+    .header_left_desktop {
+      display: flex;
+      h1 {
+        color: var(--Primary);
+        padding: 0 29px 0;
+      }
+
+      ul {
+        display: flex;
+        gap: 20px;
+        padding-left: 32px;
+        padding-top: 13px;
+      }
+      li {
+        color: var(--TypeHighEmphasis);
+        text-align: center;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+      }
+    }
+    .header_right_desktop {
+      display: flex;
+      div {
+        position: relative;
+        padding-right: 24px;
+
+        input {
+          width: 362px;
+          height: 44px;
+          flex-shrink: 1;
+          border-radius: 4px;
+          background: var(--Grey);
+          padding: 13px 40px;
+        border: 0;
+       
+        }
+        input::placeholder {
+          font-size: 14px;
+          font-style: normal;
+          font-family: Inter;
+          font-weight: 500;
+          line-height: 18px;
+          color: var(--TypeLowEmphasis);
+        }
+        .searchDk {
+          position: absolute;
+          left: 8px;
+          top: 10px;
+        }
+    }
+    nav {
+        display: flex;
+        grid-gap: 20px;
+      }
+   
+    }
+  }
+}
