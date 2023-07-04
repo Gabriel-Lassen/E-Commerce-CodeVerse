@@ -180,7 +180,7 @@
         height: 20%;
         justify-content: center;
         align-items: center;
-        gap: 8px;
+
         border-radius: 8px;
         background: var(--Primary);
         color: var(--Bright);
@@ -201,41 +201,40 @@
 
 @media screen and (min-width: 1000px) {
   .HeroBannerHomeContainer {
-    .description {
-      width: 60%;
-      height: 80%;
-      flex-shrink: 0;
-      border-top-left-radius: 8px;
-      border-bottom-left-radius: 8px;
-      background: rgba(222, 222, 222, 0.7);
-      backdrop-filter: blur(2.5px);
+    .banner1 {
+      max-height: 500px;
+      .description {
+        width: 60%;
+        height: 80%;
+        flex-shrink: 0;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        background: rgba(222, 222, 222, 0.7);
+        backdrop-filter: blur(2.5px);
 
-      h2 {
-        position: absolute;
-        top: 9%;
-        left: 8%;
-        color: var(--Primary);
-        font-size: 60px;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 800;
-        line-height: 84px;
-      }
+        h2 {
+          position: absolute;
+          top: 9%;
+          left: 8%;
+          color: var(--Primary);
+          font-size: 60px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 84px;
+        }
 
-      p {
-        position: absolute;
-        top: 40%;
-        left: 8%;
-        color: var(--Primary);
-        font-size: 28px;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 38px;
-      }
+        p {
+          top: 40%;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 38px;
+        }
 
-      .descriptionBtn {
-        bottom: 10%;
+        .descriptionBtn {
+          bottom: 10%;
+          max-width: 280px;
+        }
       }
     }
   }
