@@ -11,6 +11,7 @@ import fb from "../../assetes/imgs/fb logo.svg"
 const Footer = () => {
     return(
         <footer className={styles.footer}>
+            <div className={styles.container}>
             <div className={styles.category}>
                 <h4>Shop by Category</h4>
                 <ul className={styles.ulCategory}>
@@ -42,21 +43,23 @@ const Footer = () => {
                 <h4>Policy</h4>
                 <ul>
                     <li>
-                        <a href="#">Return |</a>
+                        <a href="#">
+                            Return <span className={styles.newWord}>Policy</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="#">Terms of use |</a>
+                        <a href="#">Terms of use</a>
                     </li>
                     <li>
-                        <a href="#">Sitemap |</a>
+                        <a href="#">Sitemap</a>
                     </li>
                     <li>
-                        <a href="#">Security |</a>
+                        <a href="#">Security</a>
                     </li>
                     <li>
-                        <a href="#">Privacy |</a>
+                        <a href="#">Privacy</a>
                     </li>
-                    <li>
+                    <li className={styles.lastItem}>
                         <a href="#">EPR Compliance</a>
                     </li>
                 </ul>
@@ -66,20 +69,22 @@ const Footer = () => {
                 <h4>About</h4>
                 <ul>
                     <li>
-                        <a href="#">Contact Us |</a>
+                        <a href="#">Contact Us</a>
                     </li>
                     <li>
-                        <a href="#">About Us |</a>
+                        <a href="#">About Us</a>
                     </li>
                     <li>
-                        <a href="#">Careers |</a>
+                        <a href="#">Careers</a>
                     </li>
-                    <li>
+                    <li className={styles.lastItem}>
                         <a href="#">Press</a>
                     </li>
                 </ul>
             </div>
+            </div>
 
+            <div className={styles.container2}>
             <div className={styles.divider}></div>
 
             <div className={styles.social}>
@@ -104,6 +109,7 @@ const Footer = () => {
             </div>
 
             <span>© 2021 | Cora Leviene All Rights Reserved</span>
+            </div>
         </footer>
     );
 };
