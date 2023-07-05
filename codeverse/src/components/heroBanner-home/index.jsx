@@ -12,7 +12,7 @@ const HeroBannerHome = () => {
       <div className={styles.HeroBannerHomeWeb}>
         <button className={styles.descriptionBtn}>
           <img src={arrow} alt="" />
-          see more
+          <p>see more</p>
         </button>
       </div>
       <div className={styles.HeroBannerHomeMob2}>
