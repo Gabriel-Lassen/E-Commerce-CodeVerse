@@ -7,7 +7,7 @@ const HeroBannerAbout = () => {
         <div className={styles.mask}>
             <div className={styles.content}>
               <h1 className={styles.title}>ABOUT</h1>
-              <span className={styles.text}>Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. </span>
+              <span className={styles.text}>Unleash the allure of fashion accessories with Cora'l - Your online destination to add charm and style to your look.</span>
             </div>
         </div>
     </div>
