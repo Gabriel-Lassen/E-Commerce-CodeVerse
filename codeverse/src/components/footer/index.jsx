@@ -1,5 +1,8 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import styles from "./styles.module.scss"
+
+import btnDown from "../../assetes/imgs/chevron-bottom.svg"
+import btnUp from  "../../assetes/imgs/chevron-up.svg"
 
 import location from "../../assetes/imgs/location.svg"
 
@@ -9,8 +12,40 @@ import youtube from "../../assetes/imgs/youtube.svg"
 import fb from "../../assetes/imgs/fb logo.svg"
 
 const Footer = () => {
+
+    const [showFooter, setShowFooter] = useState(false)
+
+    const handleClick = () => {
+        setShowFooter(!showFooter);
+    };
+    const handleResize = () => {
+        const windowWidth = window.innerWidth;
+        const breakpointWidth = 768;
+    
+        if (windowWidth <= breakpointWidth) {
+          setShowFooter(false);
+        } else {
+          setShowFooter(true);
+        }
+      };
+    
+      useEffect(() => {
+        handleResize(); 
+    
+        window.addEventListener("resize", handleResize); 
+    
+        return () => {
+          window.removeEventListener("resize", handleResize);
+        };
+      }, []);
+
     return(
-        <footer className={styles.footer}>
+        <div className={styles.showFooter}>
+            <h2>More about CORA’L</h2>
+            <button className={styles.showFooterBtn} onClick={handleClick}> 
+            <img src={showFooter ? btnUp : btnDown} /></button>
+            {showFooter && 
+            <footer className={styles.footer}>
             <div className={styles.container}>
             <div className={styles.category}>
                 <h4>Shop by Category</h4>
@@ -111,6 +146,8 @@ const Footer = () => {
             <span>© 2021 | Cora Leviene All Rights Reserved</span>
             </div>
         </footer>
+         }
+        </div>
     );
 };
 
