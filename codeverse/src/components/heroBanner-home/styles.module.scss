@@ -2,13 +2,14 @@
   .HeroBannerHomeContainer {
     position: absolute;
     top: 64px;
+    left: 16px;
     overflow-y: scroll;
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: flex-start;
 
-    .banner1 {
+    .HeroBannerHomeMob {
       position: relative;
       width: 328px;
       height: 120px;
@@ -20,101 +21,27 @@
         background: #d8dbde;
         image-rendering: auto;
       }
-
-      .description {
-        position: absolute;
-        top: 10px;
-        right: 0;
-        width: 60%;
-        height: 80%;
-        flex-shrink: 0;
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
-        background: rgba(222, 222, 222, 0.7);
-        backdrop-filter: blur(2.5px);
-
-        h2 {
-          position: absolute;
-          top: 4px;
-          left: 10px;
-          color: var(--Primary);
-          font-size: 24px;
-          font-style: normal;
-          font-weight: 800;
-          line-height: 26px;
-        }
-
-        p {
-          position: absolute;
-          top: 59px;
-          left: 10px;
-          color: var(--Primary);
-          font-size: 12px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 16px;
-        }
-        .descriptionBtn {
-          display: none;
-        }
-      }
     }
 
-    .banner2 {
-      position: relative;
-      width: 343px;
-      height: 125px;
-      flex-shrink: 0;
-      margin-left: 16px;
+    .HeroBannerHomeWeb {
+      display: none;
+    }
+  }
 
-      img {
-        border-radius: 8px;
-        background: #d8dbde;
-      }
+  .HeroBannerHomeMob2 {
+    position: relative;
+    width: 343px;
+    height: 125px;
+    flex-shrink: 0;
+    margin-left: 16px;
 
-      .description_2 {
-        position: absolute;
-        top: 20px;
-        left: 15px;
-        width: 154px;
-        height: 74px;
-        flex-shrink: 0;
-
-        h2 {
-          display: flex;
-          width: 153px;
-          flex-direction: column;
-          justify-content: center;
-          flex-shrink: 0;
-          color: #9c1c00;
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 800;
-          line-height: 20px;
-          padding-bottom: 8px;
-        }
-        .promo {
-          width: 111px;
-          height: 26px;
-          flex-shrink: 0;
-          border-radius: 6px;
-          background: #ffdd9d;
-
-          h3 {
-            color: #9c1c00;
-            font-size: 13px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 20px;
-            letter-spacing: -0.065px;
-            text-align: center;
-            padding: 3px;
-          }
-        }
-      }
+    img {
+      border-radius: 8px;
+      background: #d8dbde;
     }
   }
 }
+
 @media screen and (min-width: 721px) {
   .HeroBannerHomeContainer {
     position: absolute;
@@ -123,77 +50,18 @@
     width: 100%;
     justify-content: center;
 
-    .banner1 {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      width: 90%;
-      height: 2%;
-      flex-shrink: 0;
-    }
-
-    .banner1 img {
-      width: 100%;
-      height: auto;
+    .HeroBannerHomeWeb {
+      width: 328px;
+      height: 120px;
+      background: url("../../assetes/imgs/heroBannerHomeWeb.jpg");
+      background-position: right;
+      background-repeat: no-repeat;
+      background-size: cover;
       border-radius: 8px;
     }
 
-    .description {
-      position: absolute;
-      top: 10%;
-      right: 0;
-      width: 60%;
-      height: 80%;
-      flex-shrink: 0;
-      border-top-left-radius: 8px;
-      border-bottom-left-radius: 8px;
-      background: rgba(222, 222, 222, 0.7);
-      backdrop-filter: blur(2.5px);
-
-      h2 {
-        position: absolute;
-        top: 9%;
-        left: 8%;
-        color: var(--Primary);
-        font-size: 230%;
-        font-style: normal;
-        font-weight: 800;
-        line-height: 26px;
-      }
-
-      p {
-        position: absolute;
-        top: 30%;
-        left: 8%;
-        color: var(--Primary);
-        font-size: 130%;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 20px;
-      }
-
-      .descriptionBtn {
-        position: absolute;
-        bottom: 20%;
-        left: 8%;
-        width: 30%;
-        height: 20%;
-        justify-content: center;
-        align-items: center;
-
-        border-radius: 8px;
-        background: var(--Primary);
-        color: var(--Bright);
-
-        img {
-          max-width: 20%;
-          vertical-align: middle;
-          padding-right: 8px;
-        }
-      }
-    }
-
-    .banner2 {
+    .HeroBannerHomeMob,
+    .HeroBannerHomeMob2 {
       display: none;
     }
   }
@@ -201,40 +69,11 @@
 
 @media screen and (min-width: 1000px) {
   .HeroBannerHomeContainer {
-    .banner1 {
+    .HeroBannerHomeWeb {
       max-height: 500px;
-      .description {
-        width: 60%;
-        height: 80%;
-        flex-shrink: 0;
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
-        background: rgba(222, 222, 222, 0.7);
-        backdrop-filter: blur(2.5px);
-
-        h2 {
-          position: absolute;
-          top: 9%;
-          left: 8%;
-          color: var(--Primary);
-          font-size: 60px;
-          font-style: normal;
-          font-weight: 800;
-          line-height: 84px;
-        }
-
-        p {
-          top: 40%;
-          font-size: 28px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 38px;
-        }
-
-        .descriptionBtn {
-          bottom: 10%;
-          max-width: 280px;
-        }
+      .descriptionBtn {
+        bottom: 10%;
+        max-width: 280px;
       }
     }
   }
