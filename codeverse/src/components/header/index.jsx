@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./styles.module.scss";
-// import "./global.scss"
 import Add from "../../assetes/imgs/add-to-homescreen.svg";
 import Notification from "../../assetes/imgs/notification.svg";
 import Search from "../../assetes/imgs/search.svg";
@@ -23,11 +22,11 @@ const Header = () => {
             <h1>CORA'L</h1>
           <nav>
             <ul>
-              <li>Handbags</li>
-              <li>Watches</li>
-              <li>Skincare</li>
-              <li>Jewellery</li>
-              <li>Apparels</li>
+              <li> <a href=""></a> Handbags</li>
+              <li> <a href=""></a> Watches</li>
+              <li> <a href=""></a> Skincare</li>
+              <li> <a href=""></a> Jewellery</li>
+              <li> <a href=""></a> Apparels</li>
             </ul>
           </nav>
         </div>
