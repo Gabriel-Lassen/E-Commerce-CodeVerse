@@ -5,7 +5,6 @@ import Footer from "../../components/footer";
 const Home = () => {
   return(
   <>
-  <HeroBannerHome/>
   <Footer /></>
   );
 
