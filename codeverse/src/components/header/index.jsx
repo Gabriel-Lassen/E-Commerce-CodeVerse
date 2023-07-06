@@ -46,9 +46,9 @@ const Header = () => {
           <img className={styles.searchDk} src={SearchDk} />
         </div>
         <nav>
-          <img src={Fav} />
-          <img src={Profile} />
-          <img src={Bag} />
+          <img src={Fav} alt="Ícone de Favoritos" />
+          <img src={Profile} alt="Ícone de Perfil" />
+          <img src={Bag} alt="Ícone de Bolsa" />
         </nav>
       </div>
     </header>
