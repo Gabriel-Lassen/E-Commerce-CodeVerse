@@ -1,13 +1,13 @@
-import style from "../content-about/style.module.scss";
-import img1 from "../../assets/imgs/Rectangle531.jpg";
-import img2 from "../../assets/imgs/Rectangle532.jpg";
-import img3 from "../../assets/imgs/Rectangle533.jpg";
+import style from "./style.module.scss";
+import imagem1 from "../../assets/imgs/Rectangle531.png";
+import imagem2 from "../../assets/imgs/Rectangle532.png";
+import imagem3 from "../../assets/imgs/Rectangle533.png";
 
-function Content() {
+function ContentAbout() {
   return (
-    <div className={container}>
-      <div className={about}>
-        <div className={description}>
+    <div className={style.container}>
+      <div className={style.description}>
+        <div className={style.about}>
           <h1>About</h1>
           <p>
             Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is
@@ -18,9 +18,11 @@ function Content() {
           </p>
         </div>
       </div>
-      <div className={change.img1}>
-        <img src={img1} alt="" />
-        <div className={description1}>
+      <div className={style.description1}>
+        <div className={style.img1}>
+          <img src={imagem1} alt="" />
+        </div>
+        <div className={style.frame1}>
           <h1>About</h1>
           <p>
             Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is
@@ -31,9 +33,11 @@ function Content() {
           </p>
         </div>
       </div>
-      <div className={change.img2}>
-        <img src={img2} alt="" />
-        <div className={description2}>
+      <div className={style.description2}>
+        <div className={style.img2}>
+          <img src={imagem2} alt="" />
+        </div>
+        <div className={style.frame2}>
           <h1>About</h1>
           <p>
             Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is
@@ -44,9 +48,11 @@ function Content() {
           </p>
         </div>
       </div>
-      <div className={change.img3}>
-        <img src={img3} alt="" />
-        <div className={description3}>
+      <div className={style.description3}>
+        <div className={style.img3}>
+          <img src={imagem3} alt="" />
+        </div>
+        <div className={style.frame3}>
           <h1>About</h1>
           <p>
             Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is
@@ -60,3 +66,4 @@ function Content() {
     </div>
   );
 }
+export default ContentAbout;
