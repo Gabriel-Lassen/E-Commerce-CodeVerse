@@ -17,6 +17,7 @@
       font-size: 20px;
       font-weight: 600;
       line-height: 26px;
+      padding-bottom: 8px;
     }
 
     p {
@@ -51,6 +52,7 @@
       line-height: 26px;
       color: var(--TypeHighEmphasis);
       text-align: center;
+      padding-bottom: 8px;
     }
 
     p {
@@ -69,9 +71,12 @@
 }
 
 @media only screen and (min-width: 992px) {
-  .about {
+  .description {
+    text-align: center;
+    .about {
     width: 55.7vw;
-  }
+    }
+}
 
   .descriptionImage {
     flex-direction: row;
