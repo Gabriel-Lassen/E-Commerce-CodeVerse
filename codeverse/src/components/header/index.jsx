@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
+import Logo from '../../assets/imgs/logo.svg';
 import Add from "../../assets/imgs/add-to-homescreen.svg";
 import Notification from "../../assets/imgs/notification.svg";
 import Search from "../../assets/imgs/search.svg";
@@ -19,7 +20,7 @@ const Header = () => {
           <h1>Home</h1>
         </div>
         <div className={styles.header_left_desktop}>
-            <h1>CORA'L</h1>
+            <img src={Logo} alt="Cora'l" />
           <nav>
             <ul>
               <li> <a href=""></a> Handbags</li>
