@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-.HeroBannerHome{
-
-}
-=======
 @media screen and (max-width: 720px) {
   .HeroBannerHomeContainer {
-    position: absolute;
     top: 64px;
     left: 16px;
     overflow-y: scroll;
@@ -49,7 +43,6 @@
 
 @media screen and (min-width: 721px) {
   .HeroBannerHomeContainer {
-    position: absolute;
     top: 154px;
     display: flex;
     width: 98vw;
@@ -62,19 +55,18 @@
       max-width: 1240px;
       width: 98vw;
       height: 31.25vw;
-      background: url("../../assetes/imgs/heroBannerHomeWeb.jpg");
+      background: url("../../assets/imgs/heroBannerHomeWeb.jpg");
       background-position: right;
       background-repeat: no-repeat;
       background-size: cover;
       border-radius: 8px;
 
       .descriptionBtn {
-        position: absolute;
-        bottom: 23.7%;
         max-width: 180px;
         max-height: 44px;
         height: 5vw;
-        left: 47.5%;
+        margin-top: 20.7vw;
+        margin-left: 41.4vw;
         display: flex;
         max-width: 180px;
         padding: 0 37.5px;
@@ -107,4 +99,3 @@
     }
   }
 }
->>>>>>> feat/CVS-05

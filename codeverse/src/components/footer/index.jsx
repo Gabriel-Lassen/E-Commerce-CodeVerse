@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from "react"
 import styles from "./styles.module.scss"
 
-import btnDown from "../../assetes/imgs/chevron-bottom.svg"
-import btnUp from  "../../assetes/imgs/chevron-up.svg"
+import btnDown from "../../assets/imgs/chevron-bottom.svg"
+import btnUp from  "../../assets/imgs/chevron-up.svg"
 
-import location from "../../assetes/imgs/location.svg"
+import location from "../../assets/imgs/location.svg"
 
-import insta from "../../assetes/imgs/insta logo.svg"
-import twitter from "../../assetes/imgs/twitter.svg"
-import youtube from "../../assetes/imgs/youtube.svg"
-import fb from "../../assetes/imgs/fb logo.svg"
+import insta from "../../assets/imgs/insta logo.svg"
+import twitter from "../../assets/imgs/twitter.svg"
+import youtube from "../../assets/imgs/youtube.svg"
+import fb from "../../assets/imgs/fb logo.svg"
 
 const Footer = () => {
 

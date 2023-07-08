@@ -1,4 +1,4 @@
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1010px) {
   .header {
     width: 100%;
     height: 56px;
@@ -30,7 +30,7 @@
     }
   }
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1011px) {
   .header_left_mob,
   .header_right_mob {
     display: none;
@@ -69,7 +69,7 @@
         padding-right: 24px;
 
         input {
-          width: 362px;
+          width: 28vw;
           height: 44px;
           flex-shrink: 0;
           border-radius: 4px;

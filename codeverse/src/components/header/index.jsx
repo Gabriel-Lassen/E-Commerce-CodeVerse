@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import Add from "../../assetes/imgs/add-to-homescreen.svg";
-import Notification from "../../assetes/imgs/notification.svg";
-import Search from "../../assetes/imgs/search.svg";
-import Menu from "../../assetes/imgs/menu.svg";
+import Add from "../../assets/imgs/add-to-homescreen.svg";
+import Notification from "../../assets/imgs/notification.svg";
+import Search from "../../assets/imgs/search.svg";
+import Menu from "../../assets/imgs/menu.svg";
 
-import SearchDk from "../../assetes/imgs/search_desktop.svg";
-import Fav from "../../assetes/imgs/fav.svg";
-import Profile from "../../assetes/imgs/profile.svg";
-import Bag from "../../assetes/imgs/bag.svg";
+import SearchDk from "../../assets/imgs/search_desktop.svg";
+import Fav from "../../assets/imgs/fav.svg";
+import Profile from "../../assets/imgs/profile.svg";
+import Bag from "../../assets/imgs/bag.svg";
 
 const Header = () => {
   return (

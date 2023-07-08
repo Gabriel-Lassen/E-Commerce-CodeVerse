@@ -1,27 +1,27 @@
-import style from "./style.module.scss";
+import styles from "./styles.module.scss";
 import imagem1 from "../../assets/imgs/Rectangle531.png";
 import imagem2 from "../../assets/imgs/Rectangle532.png";
 import imagem3 from "../../assets/imgs/Rectangle533.png";
 
 function ContentAbout() {
   return (
-    <div className={style.container}>
-      <div className={style.description}>
-        <div className={style.about}>
+    <div className={styles.container}>
+      <div className={styles.description}>
+        <div className={styles.about}>
           <h1>About</h1>
           <p>
             Welcome to CORA'L! We are an e-commerce company based in the United
             States, dedicated to providing an exceptional shopping experience.
             Since our inception, we have been committed to offering a wide range
             of high-quality products to our customers worldwide. Our passion for
-            fashion, style, and beauty drives us to provide a carefully curated
+            fashion, styles, and beauty drives us to provide a carefully curated
             selection of products in the categories of Handbags, Watches,
             Skincare, Jewellery, and Apparels.
           </p>
         </div>
       </div>
-      <div className={style.descriptionImage}>
-        <div className={style.text}>
+      <div className={styles.descriptionImage}>
+        <div className={styles.text}>
           <h1>About</h1>
           <p>
             The history of CORA'L dates back to years of dedication and hard
@@ -38,9 +38,9 @@ function ContentAbout() {
         <img src={imagem1} alt="" />
       </div>
 
-      <div className={`${style.descriptionImage} ${style.invertImage}`}>
+      <div className={`${styles.descriptionImage} ${styles.invertImage}`}>
         <img src={imagem2} alt="" />
-        <div className={style.text}>
+        <div className={styles.text}>
           <h1>About</h1>
           <p>
             At CORA'L, customer satisfaction is our top priority. We strive to
@@ -53,8 +53,8 @@ function ContentAbout() {
           </p>
         </div>
       </div>
-      <div className={style.descriptionImage}>
-        <div className={style.text}>
+      <div className={styles.descriptionImage}>
+        <div className={styles.text}>
           <h1>About</h1>
           <p>
             Our dedication to quality and service is reflected in our product

@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
-import arrow from "../../assetes/imgs/icon-arrow.svg";
-import Banner1 from "../../assetes/imgs/heroBannerHomeMob.png";
-import Banner2 from "../../assetes/imgs/heroBannerHomeMob2.png";
+import arrow from "../../assets/imgs/icon-arrow.svg";
+import Banner1 from "../../assets/imgs/heroBannerHomeMob.png";
+import Banner2 from "../../assets/imgs/heroBannerHomeMob2.png";
 
 const HeroBannerHome = () => {
   return (
