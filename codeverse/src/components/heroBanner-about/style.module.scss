@@ -1,0 +1,58 @@
+.image {
+    width: 100vw;
+    height: 31.25vw;
+    min-height: 180px;
+    display: block;
+    background: url('../../assetes/imgs/heroBannerAbout.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mask {
+    width: 64.84vw;
+    min-width: 200px;
+    height: 100%;
+    display: block;
+    float: right;
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.80) 0%, rgba(217, 217, 217, 0.00) 100%);
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    float: right;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: clamp(11px, 2.57vw, 33px);
+    padding-right: clamp(11px, 5vw, 64px);
+}
+
+.title {
+    font-weight: 600;
+    font-size: clamp(25px, 3.9vw, 50px);
+    letter-spacing: 4.545px;
+    color: var(--Dark);
+    margin-bottom: clamp(0px, 0.9vw, 12px);
+}
+
+.text {
+    font-weight: 400;
+    font-size: clamp(12px, 1.25vw, 16px);
+    line-height: 20px;
+    line-height: clamp(16px, 1.5vw, 20px);
+    color: var(--TypeLowEmphasis);
+}
+
+@media only screen and (min-width: 220px){
+    .content {
+        width: 55vw;
+        min-width: 145px;
+    }
+}
+
+@media only screen and (min-width: 576px){
+    .content {
+        width: clamp(145px, 42.92vw, 550px);
+    }
+}
