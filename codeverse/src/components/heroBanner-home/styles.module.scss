@@ -1,3 +1,110 @@
+<<<<<<< HEAD
 .HeroBannerHome{
 
 }
+=======
+@media screen and (max-width: 720px) {
+  .HeroBannerHomeContainer {
+    position: absolute;
+    top: 64px;
+    left: 16px;
+    overflow-y: scroll;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .HeroBannerHomeMob {
+      position: relative;
+      width: 328px;
+      height: 120px;
+      flex-shrink: 0;
+      margin-left: 16px;
+
+      img {
+        border-radius: 8px;
+        background: #d8dbde;
+        image-rendering: auto;
+      }
+    }
+
+    .HeroBannerHomeWeb {
+      display: none;
+    }
+  }
+
+  .HeroBannerHomeMob2 {
+    position: relative;
+    width: 343px;
+    height: 125px;
+    flex-shrink: 0;
+    padding-left: 8px;
+
+    img {
+      border-radius: 8px;
+      background: #d8dbde;
+    }
+  }
+}
+
+@media screen and (min-width: 721px) {
+  .HeroBannerHomeContainer {
+    position: absolute;
+    top: 154px;
+    display: flex;
+    width: 98vw;
+    max-width: 1240px;
+    max-height: 400px;
+    justify-content: center;
+    padding-left: clamp(20px, 15vw, 60px);
+
+    .HeroBannerHomeWeb {
+      max-width: 1240px;
+      width: 98vw;
+      height: 31.25vw;
+      background: url("../../assetes/imgs/heroBannerHomeWeb.jpg");
+      background-position: right;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 8px;
+
+      .descriptionBtn {
+        position: absolute;
+        bottom: 23.7%;
+        max-width: 180px;
+        max-height: 44px;
+        height: 5vw;
+        left: 47.5%;
+        display: flex;
+        max-width: 180px;
+        padding: 0 37.5px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 8px;
+        background: var(--Primary);
+
+        img {
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+        }
+
+        p {
+          color: var(--Bright);
+          text-align: center;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+        }
+      }
+    }
+
+    .HeroBannerHomeMob,
+    .HeroBannerHomeMob2 {
+      display: none;
+    }
+  }
+}
+>>>>>>> feat/CVS-05
