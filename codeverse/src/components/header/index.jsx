@@ -5,7 +5,7 @@ import Add from "../../assets/imgs/add-to-homescreen.svg";
 import Notification from "../../assets/imgs/notification.svg";
 import Search from "../../assets/imgs/search.svg";
 import Menu from "../../assets/imgs/menu.svg";
-
+import { Link } from 'react-router-dom';
 import SearchDk from "../../assets/imgs/search_desktop.svg";
 import Fav from "../../assets/imgs/fav.svg";
 import Profile from "../../assets/imgs/profile.svg";
@@ -20,7 +20,9 @@ const Header = () => {
           <h1>Home</h1>
         </div>
         <div className={styles.header_left_desktop}>
+        <Link to="/">
             <img src={Logo} alt="Cora'l" />
+        </Link>
           <nav>
             <ul>
               <li> <a href=""></a> Handbags</li>
