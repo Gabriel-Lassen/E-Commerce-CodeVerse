@@ -43,18 +43,25 @@
 
 @media screen and (min-width: 721px) {
   .HeroBannerHomeContainer {
-    top: 154px;
     display: flex;
     width: 98vw;
     max-width: 1240px;
     max-height: 400px;
     justify-content: center;
-    padding-left: clamp(20px, 15vw, 60px);
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 24px;
 
     .HeroBannerHomeWeb {
+      display: flex;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       max-width: 1240px;
       width: 98vw;
       height: 31.25vw;
+      max-height: 400px;
       background: url("../../assets/imgs/heroBannerHomeWeb.jpg");
       background-position: right;
       background-repeat: no-repeat;
@@ -62,17 +69,17 @@
       border-radius: 8px;
 
       .descriptionBtn {
-        max-width: 180px;
         max-height: 44px;
+
         height: 5vw;
-        margin-top: 20.7vw;
-        margin-left: 41.4vw;
+        position: absolute;
+        bottom: 23.7%;
+        left: 43vw;
         display: flex;
-        max-width: 180px;
         padding: 0 37.5px;
         justify-content: center;
         align-items: center;
-        gap: 8px;
+        margin-left: 3vw;
         border-radius: 8px;
         background: var(--Primary);
 
@@ -96,6 +103,17 @@
     .HeroBannerHomeMob,
     .HeroBannerHomeMob2 {
       display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1666px) {
+  .HeroBannerHomeContainer {
+    .HeroBannerHomeWeb {
+      .descriptionBtn {
+        left: 560px;
+        padding: 0 190.5px;
+      }
     }
   }
 }
