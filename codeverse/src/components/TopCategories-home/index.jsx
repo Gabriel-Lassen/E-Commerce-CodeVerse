@@ -24,7 +24,7 @@ const TopCategories = () => {
         </div>
         <div>
           <img src={watch} alt="" />
-          <p>Watch</p>
+          <p>Watches</p>
         </div>
         <div>
           <img src={eyewear} alt="" />
