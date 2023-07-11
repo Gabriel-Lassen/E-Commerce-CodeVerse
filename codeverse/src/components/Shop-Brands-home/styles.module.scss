@@ -8,14 +8,13 @@
     .shop {
       display: flex;
       justify-content: space-between;
-
+      margin-bottom: 13px;
       h2 {
         font-size: 14px;
         font-style: normal;
         font-weight: 600;
         line-height: 16px;
         color: var(--TypeHighEmphasis);
-        margin-bottom: 13px;
       }
       div {
         display: flex;
