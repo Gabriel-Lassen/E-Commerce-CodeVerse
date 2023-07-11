@@ -31,7 +31,6 @@ const Brands = () => {
         <img src={zara} alt="zara" />
         <img src={DG} alt="D&G" />
         <img src={HM} alt="H&M" />
-     
         <img src={BIBA} alt="BIBA" />
         <img src={CHANEL} alt="CHANEL" />
         <img src={prada} alt="PRADA" />
@@ -41,14 +40,10 @@ const Brands = () => {
         <img src={zaraDesktop} alt="zara" />
         <img src={DgDesktop} alt="D&G" />
         <img src={HmDesktop} alt="H&M" />
-     
         <img src={chanelDesktop} alt="CHANEL" />
         <img src={pradaDesktop} alt="PRADA" />
         <img src={bibaDesktop} alt="BIBA" />
       </div>
-
-    
-
     </div>
   );
 };

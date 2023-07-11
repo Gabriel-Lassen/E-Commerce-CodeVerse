@@ -1,6 +1,5 @@
 @media screen and (max-width: 768px) {
   .brands {
-    margin-top: 50px;
     padding-left: 16px;
     padding-right: 16px;
     .row_desktop {
@@ -16,6 +15,7 @@
         font-weight: 600;
         line-height: 16px;
         color: var(--TypeHighEmphasis);
+        margin-bottom: 13px;
       }
       div {
         display: flex;
@@ -34,7 +34,7 @@
       grid-template-columns: repeat(3, 1fr);
       row-gap: 24px;
       column-gap: 15px;
-      
+      margin-bottom: 24px;
     }
   }
 }
