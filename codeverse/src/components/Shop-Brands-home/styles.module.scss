@@ -1,0 +1,113 @@
+@media screen and (max-width: 768px) {
+  .brands {
+    margin-top: 50px;
+    padding-left: 16px;
+    padding-right: 16px;
+    .row_desktop {
+      display: none;
+    }
+    .shop {
+      display: flex;
+      justify-content: space-between;
+
+      h2 {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+        color: var(--TypeHighEmphasis);
+      }
+      div {
+        display: flex;
+        align-items: center;
+        p {
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 18px;
+          color: var(--Primary);
+        }
+      }
+    }
+    .row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 24px;
+      column-gap: 15px;
+      
+    }
+  }
+}
+@media screen and (min-width: 460px) {
+  .brands {
+    .row {
+      grid-template-columns: repeat(auto-fill, minmax(96px, 2fr));
+      .row_desktop {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .brands {
+    margin-top: 50px;
+    .shop {
+      display: flex;
+      justify-content: space-between;
+
+      h2 {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+        color: var(--TypeHighEmphasis);
+      }
+      div {
+        display: flex;
+        align-items: center;
+        p {
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 18px;
+          color: var(--Primary);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .brands {
+    max-width: 100%;
+    .shop {
+      h2 {
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 44px;
+        color: var(--Dark);
+        padding-left: 21px;
+        padding-bottom: 24px;
+      }
+      div {
+        display: none;
+      }
+    }
+    .row {
+      display: none;
+    }
+    .row_desktop {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 0 20px;
+      padding-bottom: 64px;
+      img {
+        padding-bottom: 20px;
+     }
+    }
+  }
+}
