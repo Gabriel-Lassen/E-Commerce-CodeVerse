@@ -40,6 +40,7 @@ const ProductsCarousel = () => {
               url={item.url}
               popularity={item.popularity}
               addToBagBtn={false}
+              rating={false}
             />
           })
         }
