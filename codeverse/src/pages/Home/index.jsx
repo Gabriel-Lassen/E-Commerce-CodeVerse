@@ -4,7 +4,7 @@ import HeroBannerHome from "../../components/heroBanner-home";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [hidden, setHidden] = useState("");
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     const handleHidden = () => {
@@ -20,7 +20,7 @@ const Home = () => {
     <>
       <Header />
       <HeroBannerHome />
-      {hidden && <HeroBannerHome order="row-reverse"/>}
+      {hidden && <HeroBannerHome order="row-reverse" text={true} />}
       <Footer />
     </>
   );

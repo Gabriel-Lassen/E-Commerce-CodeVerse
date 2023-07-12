@@ -3,6 +3,17 @@
 }
 
 @media screen and (max-width: 720px) {
+  .secondBanner {
+    padding-bottom: 5px;
+    p {
+      margin-left: 16px;
+      color: var(--TypeHighEmphasis);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 16px;
+    }
+  }
   .HeroBannerHomeContainer {
     display: flex;
     overflow-y: scroll;
@@ -12,14 +23,8 @@
     align-items: flex-start;
     padding: 8px 8px 0 16px;
     gap: 8px;
+    margin-bottom: 25px;
 
-    p {
-      color: var(--TypeHighEmphasis);
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 16px;
-    }
     .HeroBannerHomeMob {
       position: relative;
       width: 328px;
