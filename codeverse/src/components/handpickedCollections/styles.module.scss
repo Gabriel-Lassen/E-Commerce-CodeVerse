@@ -1,7 +1,18 @@
 .container {
-  width: 360px;
-  height: 379px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+  padding: 18px 16px 14px 16px;
+  gap: clamp(13px, 1.87vw, 24px);
   background-color: var(--Primary);
+
+  .all {
+    display: flex;
+    flex-direction: column;
+    gap: 4.44vw;
+    margin-top: 0 auto;
+  }
 
   p {
     color: var(--Bright);
@@ -10,57 +21,57 @@
     font-style: normal;
     font-weight: 600;
     line-height: 16px;
-    top: 50px;
-    left: 50px;
   }
+
   .column {
     display: flex;
-    width: 328px;
-    height: 120px;
-
-    justify-content: space-between;
     align-items: flex-start;
+    gap: 4.44vw;
 
     img {
-      padding: 10px;
-      border-radius: 8px;
-      width: 156px;
-      height: 150px;
-      justify-content: space-between;
-      gap: 18px;
+      width: 43.33vw;
+      height: 41.66vw;
     }
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 420px) {
   .container {
-    width: 1280px;
-    height: 422px;
-    top: 1097px;
-    background-color: var(--Primary);
+    .all {
+      flex-direction: row;
+      margin: 0 auto;
+      max-width: 100%;
+      overflow: scroll;
+      gap: 2vw;
+    }
 
     p {
-      color: var(--Bright);
-      font-family: Inter;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 16px;
+      font-size: 2.64vw;
+      line-height: 3.43vw;
     }
+
     .column {
       display: flex;
       align-items: flex-start;
-      width: 1024px;
-      height: 280px;
-      top: 1097px;
-      left: 20px;
-      gap: 40px;
+      gap: 2vw;
 
       img {
-        border-radius: 16px;
-        width: 200px;
-        height: 200px;
-        left: 320px;
+        width: clamp(156px, 21.85vw, 284px);
+        height: clamp(156px, 21.85vw, 284px);
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 710px) {
+  .container {
+    margin-bottom: 67px;
+    .all {
+      overflow: unset;
+      gap: 3.1vw;
+
+      .column {
+        gap: 3.1vw;
       }
     }
   }
