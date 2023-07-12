@@ -1,12 +1,14 @@
 import Footer from "../../components/footer";
+import Handpicked from "../../components/handpickedCollections";
 import Header from "../../components/header";
 import HeroBannerHome from "../../components/heroBanner-home";
 
 const Home = () => {
-  return  (
+  return (
     <>
       <Header />
       <HeroBannerHome />
+      <Handpicked />
       <Footer />
     </>
   );
