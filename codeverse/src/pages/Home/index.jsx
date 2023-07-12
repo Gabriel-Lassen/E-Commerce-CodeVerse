@@ -1,12 +1,14 @@
+import ShortCut from "../../components/Shortcut-home";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import HeroBannerHome from "../../components/heroBanner-home";
 
 const Home = () => {
-  return  (
+  return (
     <>
       <Header />
       <HeroBannerHome />
+      <ShortCut />
       <Footer />
     </>
   );
