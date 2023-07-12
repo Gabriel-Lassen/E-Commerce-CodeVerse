@@ -1,3 +1,32 @@
-* {
-  border: 0;
+.container {
+  display: flex;
+  width: 360px;
+  height: 379px;
+  background-color: var(--Primary);
+}
+
+p {
+  color: var(--Bright);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.column {
+  display: flex;
+  width: 328px;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+img {
+  border-radius: 8px;
+  width: 156px;
+  height: 150px;
+}
+
+@media only screen and (min-width: 992px) {
 }
