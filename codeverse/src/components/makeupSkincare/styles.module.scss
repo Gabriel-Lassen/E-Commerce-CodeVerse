@@ -1,0 +1,50 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 clamp(16px, 1.56vw, 20px);
+    gap: clamp(13px, 3.12vw, 40px);
+    margin-bottom: 25px;
+
+    h2 {
+        color: var(--TypeHighemphasis);
+        font-size: clamp(14px, 3.88vw, 18px);
+        font-weight: 600;
+        line-height: clamp(16px, 4.44vw, 22px);
+    }
+}
+
+.bigBanner {
+    width: 100%;
+
+    img {
+        image-rendering: auto;
+        width: 100%;
+    }
+}
+
+.smallBanners {
+    display: flex;
+    max-width: 100%;
+    justify-content: space-between;
+
+    img {
+        width: 48%;
+        image-rendering: auto;
+    }
+}
+
+@media only screen and (min-width: 720px){
+    .wrapper {
+        margin-bottom: 68px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .wrapper {
+        h2 {
+            display: none;
+        }
+    }
+}
+
