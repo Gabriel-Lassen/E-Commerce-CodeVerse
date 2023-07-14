@@ -1,19 +1,35 @@
+.HeroBannerHomeContainer::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 720px) {
+  .secondBanner {
+    padding-bottom: 5px;
+    p {
+      margin-left: 16px;
+      color: var(--TypeHighEmphasis);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 16px;
+    }
+  }
   .HeroBannerHomeContainer {
-    top: 64px;
-    left: 16px;
+    display: flex;
     overflow-y: scroll;
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: flex-start;
+    padding: 8px 8px 0 16px;
+    gap: 8px;
+    margin-bottom: 25px;
 
     .HeroBannerHomeMob {
       position: relative;
       width: 328px;
       height: 120px;
       flex-shrink: 0;
-      margin-left: 16px;
 
       img {
         border-radius: 8px;
@@ -29,10 +45,9 @@
 
   .HeroBannerHomeMob2 {
     position: relative;
-    width: 343px;
+    width: 328px;
     height: 125px;
     flex-shrink: 0;
-    padding-left: 8px;
 
     img {
       border-radius: 8px;

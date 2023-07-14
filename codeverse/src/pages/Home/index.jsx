@@ -8,8 +8,21 @@ import HeroBannerHome from "../../components/heroBanner-home";
 import TopCategories from "../../components/TopCategories-home";
 import ProductsCarousel from "../../components/productsCarousel";
 import Navbar from "../../components/navbar";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    const handleHidden = () => {
+      setHidden(window.innerWidth <= 720);
+    };
+
+    handleHidden();
+
+    window.addEventListener("resize", handleHidden);
+  });
+
   return (
     <>
       <Header />
@@ -20,6 +33,7 @@ const Home = () => {
       <Handpicked />
       <Brands/>
       <ShortCut />
+      {hidden && <HeroBannerHome order="row-reverse" text={true} />}
       <Footer />
       <Navbar/>
     </>
