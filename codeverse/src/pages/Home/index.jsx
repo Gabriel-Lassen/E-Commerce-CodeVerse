@@ -34,8 +34,8 @@ const Home = () => {
       <Handpicked />
       <Brands/>
       <ShortCut />
-      {hidden && <HeroBannerHome order="row-reverse" text={true} />}
       <MakeupSkincare />
+      {hidden && <HeroBannerHome order="row-reverse" text={true} />}
       <Footer />
       <Navbar/>
     </>
