@@ -1,5 +1,6 @@
 import BannerMsg from "../../components/banner-msg";
 import Brands from "../../components/Shop-Brands-home";
+import ShortCut from "../../components/Shortcut-home";
 import Footer from "../../components/footer";
 import Handpicked from "../../components/handpickedCollections";
 import Header from "../../components/header";
@@ -18,6 +19,7 @@ const Home = () => {
       <ProductsCarousel />
       <Handpicked />
       <Brands/>
+      <ShortCut />
       <Footer />
       <Navbar/>
     </>
