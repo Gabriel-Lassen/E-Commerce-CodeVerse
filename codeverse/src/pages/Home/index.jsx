@@ -9,6 +9,7 @@ import TopCategories from "../../components/TopCategories-home";
 import ProductsCarousel from "../../components/productsCarousel";
 import Navbar from "../../components/navbar";
 import { useEffect, useState } from "react";
+import MakeupSkincare from "../../components/makeupSkincare";
 
 const Home = () => {
   const [hidden, setHidden] = useState(false);
@@ -34,6 +35,7 @@ const Home = () => {
       <Brands/>
       <ShortCut />
       {hidden && <HeroBannerHome order="row-reverse" text={true} />}
+      <MakeupSkincare />
       <Footer />
       <Navbar/>
     </>
