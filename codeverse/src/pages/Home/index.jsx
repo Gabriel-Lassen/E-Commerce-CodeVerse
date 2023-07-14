@@ -6,6 +6,7 @@ import Header from "../../components/header";
 import HeroBannerHome from "../../components/heroBanner-home";
 import TopCategories from "../../components/TopCategories-home";
 import ProductsCarousel from "../../components/productsCarousel";
+import Navbar from "../../components/navbar";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <Handpicked />
       <Brands/>
       <Footer />
+      <Navbar/>
     </>
   );
 };
