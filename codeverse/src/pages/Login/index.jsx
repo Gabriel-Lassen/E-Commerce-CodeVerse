@@ -10,13 +10,11 @@ const Login = () => {
         <h1>Welcome Back!</h1>
         <div className={styles.input_bx}>
           <input type="text" required="required" placeholder="Email" />
-          <GoMail/>
-          {/* <span>Email</span> */}
+          <GoMail className={styles.email}/>
         </div>
         <div className={styles.input_bx}>
           <input type="password" required="required" placeholder="Password" />
-          <GoLock/>
-          {/* <span>Password</span> */}
+          <GoLock className={styles.password}/>
         </div>
         <div className={styles.login}>
           <button>Sign in</button>
