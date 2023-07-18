@@ -1,9 +1,14 @@
-import React from 'react'
-
+import Footer from "../../components/footer";
+import Header from "../../components/header";
+import ProductImg from "../../components/Products/Products-imgs";
 const Products = () => {
   return (
-    <div>Products</div>
-  )
-}
+    <>
+      <Header />
+      <ProductImg />
+      <Footer />
+    </>
+  );
+};
 
 export default Products;
