@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
+
 const Login = () => {
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.modal}>
         <h1>Welcome Back!</h1>
         <div className={styles.input_bx}>
           <input type="text" required="required" placeholder="email" />
