@@ -9,11 +9,11 @@ const Login = () => {
       <div className={styles.modal}>
         <h1>Welcome Back!</h1>
         <div className={styles.input_bx}>
-          <input type="text" required="required" placeholder="email" />
+          <input type="text" required="required" placeholder="Email" />
           {/* <span>Email</span> */}
         </div>
         <div className={styles.input_bx}>
-          <input type="password" required="required" placeholder="password" />
+          <input type="password" required="required" placeholder="Password" />
           {/* <span>Password</span> */}
         </div>
         <div className={styles.login}>
