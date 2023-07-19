@@ -15,7 +15,7 @@ const Drawer = ({active}) => {
     <div className={styles.background} onClick={closeDrawer}>
       <nav className={styles.drawer}>
 
-        <Link className={styles.Link} to={'/about'}>
+        <Link className={styles.Link} to={'/profile'}>
           <div className={styles.boxProfile}>
             <img src={Avatar} alt="avatar" />
             <h2>Hello, User </h2>
