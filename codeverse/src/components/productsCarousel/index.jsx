@@ -39,6 +39,7 @@ const ProductsCarousel = () => {
               totalRatings={item.rating.totalRatings}
               url={item.url}
               popularity={item.popularity}
+              reviews={item.reviews}
               addToBagBtn={false}
               rating={false}
             />
