@@ -11,38 +11,41 @@ function Signup() {
           <h1>Create Account</h1>
           <div className={styles.avatar}>
             <img src={user} alt="" />
-            <button> Upload</button>
+            <label>
+              <span>Upload</span>
+              <input type="file" />
+            </label>
           </div>
         </div>
-        <div className={styles.labels}>
-        <div className={styles.row}>
+        <form className={styles.labels}>
+          <div className={styles.row}>
+            <label>
+              <span>First name:</span>
+              <input type="text" />
+            </label>
+            <label>
+              <span>Last name:</span>
+              <input type="text" />
+            </label>
+          </div>
           <label>
-            <span>First name:</span>
+            <span>Email:</span>
             <input type="text" />
           </label>
           <label>
-            <span>Last name:</span>
-            <input type="text" />
+            <span> Date of birth: </span>
+            <input type="date" />
           </label>
-        </div>
-        <label>
-          <span>Email:</span>
-          <input type="text" />
-        </label>
-        <label>
-          <span> Date of birth: </span>
-          <input type="date" />
-        </label>
-        <label>
-          <span>Password:</span>
-          <input type="password" />
-        </label>
-        <label>
-          <span>Confirm password:</span>
-          <input type="password" />
-          <button>Sign Up</button>
-        </label>
-        </div>
+          <label>
+            <span>Password:</span>
+            <input type="password" />
+          </label>
+          <label>
+            <span>Confirm password:</span>
+            <input type="password" />
+            <button>Sign Up</button>
+          </label>
+        </form>
       </div>
     </div>
   );
