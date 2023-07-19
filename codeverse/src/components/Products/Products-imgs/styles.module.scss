@@ -8,13 +8,16 @@
 .containerCarrossel::-webkit-scrollbar {
   display: none;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 767px) {
   .containerCarrossel {
+    margin-top: 8px;
     padding: 16px;
     .image {
       position: relative;
       img {
         width: 91vw;
+        max-width: 328px;
+        max-height: 340px;
         height: 42.5vh;
         border-radius: 8px;
       }
@@ -41,16 +44,35 @@
       img {
         width: 91vw;
         height: 42.5vh;
+        max-width: 328px;
+        max-height: 340px;
         border-radius: 8px;
       }
     }
   }
 }
-.image {
-  width: 332px;
-  height: 360px;
-  display: block;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
+@media screen and (min-width: 768px) {
+  .containerCarrossel {
+    padding: 0;
+
+    .image {
+      img {
+        width: 47.26vw;
+        height: 37.81vh;
+        max-width: 605px;
+        max-height: 605px;
+        border-radius: 16px;
+        margin: 19px 24px 24px 20px;
+      }
+
+      button {
+        display: none;
+      }
+    }
+
+    .imageMob {
+      display: none;
+    }
+  }
 }

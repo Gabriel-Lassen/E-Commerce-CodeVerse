@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../../../contexts/products";
-import btnImg from "../../../assets/imgs/icon-view-smilar.svg"
+import btnImg from "../../../assets/imgs/icon-view-smilar.svg";
 
 const ProductImg = () => {
   const { listProducts } = useContext(ProductsContext);
@@ -15,8 +15,6 @@ const ProductImg = () => {
 
       if (product) {
         setImageUrl(product.url);
-      } else {
-        console.error(`${productId} não encontrado.`);
       }
     }
   }, [listProducts]);
