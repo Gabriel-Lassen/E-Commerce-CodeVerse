@@ -11,18 +11,18 @@ function Handpicked() {
       <p>Handpicked Collections</p>
       <div className={styles.all}>
         <div className={styles.column}>
-          <Link to="/">
+          <Link to="/categories/personalcare">
             <img src={imag2} alt="" />
           </Link>
-          <Link to="/">
+          <Link to="/categories/handbags">
             <img src={imag1} alt="" />
           </Link>
         </div>
         <div className={styles.column}>
-          <Link to="/">
+          <Link to="/categories/watches">
             <img src={imag4} alt="" />
           </Link>
-          <Link to="/">
+          <Link to="/categories/eyewear">
             <img src={imag3} alt="" />
           </Link>
         </div>

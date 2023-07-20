@@ -25,11 +25,11 @@ const Header = () => {
         </Link>
           <nav>
             <ul>
-              <li> <a href=""></a> Handbags</li>
-              <li> <a href=""></a> Watches</li>
-              <li> <a href=""></a> Skincare</li>
-              <li> <a href=""></a> Jewellery</li>
-              <li> <a href=""></a> Apparels</li>
+              <li> <Link to='/categories/handbags'> Handbags</Link></li>
+              <li> <Link to='/categories/watches'> Watches</Link></li>
+              <li> <Link to='/categories/skincare'> Skincare</Link></li>
+              <li> <Link to='/categories/jewellery'> Jewellery</Link></li>
+              <li> <Link to='/categories/apparels'> Apparels</Link></li>
             </ul>
           </nav>
         </div>
@@ -49,9 +49,15 @@ const Header = () => {
           <img className={styles.searchDk} src={SearchDk} />
         </div>
         <nav>
-          <img src={Fav} alt="Ícone de Favoritos" />
-          <img src={Profile} alt="Ícone de Perfil" />
-          <img src={Bag} alt="Ícone de Bolsa" />
+          <Link to='/wishlist'>
+            <img src={Fav} alt="Ícone de Favoritos" />
+          </Link>
+          <Link to='/profile'>
+            <img src={Profile} alt="Ícone de Perfil" />
+          </Link>
+          <Link to='/mycart'>
+            <img src={Bag} alt="Ícone de Bolsa" />
+          </Link>
         </nav>
       </div>
     </header>

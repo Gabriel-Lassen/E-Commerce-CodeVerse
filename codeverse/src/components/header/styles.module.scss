@@ -50,7 +50,9 @@
       ul {
         display: none;
       }
-      li {
+      
+      a {
+        text-decoration: none;
         color: var(--TypeHighEmphasis);
         text-align: center;
         font-size: 14px;
@@ -58,6 +60,7 @@
         font-weight: 500;
         line-height: 18px;
       }
+    
     }
     .header_right_desktop {
       display: flex;
