@@ -4,6 +4,8 @@ import user from "../../assets/imgs/imagemUser.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth";
 import { useState } from "react";
+
+
 function Signup() {
   const {register} = useContext(AuthContext)
 
@@ -14,6 +16,26 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [birthdate, setBirthdate] = useState("");
+  const [avatar, setAvatar] = useState(null)
+  const [imageAvatar, setImageAvatar] = useState(null)
+
+
+  function handleFile(e) {
+    if(e.target.files[0]) {
+      const image = e.target.files[0]
+
+
+      if (image.type === 'image/jpeg' || image.type === 'image/png' ){
+        setImageAvatar(image)
+        setAvatar(URL.createObjectURL(image))
+      }else{
+        alert("envie uma imagem do tipo PNG")
+        setImageAvatar(null)
+        return;
+      }
+    }
+
+  }
 
 
   function formatBirthdate(input) {
@@ -37,11 +59,47 @@ function Signup() {
   function handleRegister(e) {
     e.preventDefault();
 
+    if (email !== "" && password !== "") {
 
+      const currentDate = new Date();
+      const birthdateInput = new Date(birthdate);
+      const ageDiffMilliseconds = currentDate - birthdateInput;
+      const ageDate = new Date(ageDiffMilliseconds);
+      const age = Math.abs(ageDate.getUTCFullYear() - 1970);
 
+      if (age < 18) {
+        alert("You must be at least 18 years old to register.");
+        return;
+      }
+    }
+      if (
+        email === "" ||
+        password === "" ||
+        firstName === "" ||
+        lastName === "" ||
+        birthdate === "" ||
+        confirmPassword === ""
+      ) {
+        alert("Fill in all fields please");
+        return;
+      }
+      if (!handleEmail(email)) {
+        alert("O email não atende aos requisitos");
+        return;
+      }
+      if (!handlePassword(password)) {
+        alert("A senha não atende aos requisitos");
+        return;
+      }
+      if (password != confirmPassword) {
+        alert("As senhas não correspondem.");
+        return;
+      }
 
-
-
+      if(imageAvatar === null) {
+        alert("Enviei uma imagem do tipo JPEG ou PNG")
+      }
+      register(email,password, birthdate, firstName, lastName, imageAvatar)
   }
 
   function capitalize(string) {
@@ -83,10 +141,14 @@ function Signup() {
         <div className={styles.user}>
           <h1>Create Account</h1>
           <div className={styles.avatar}>
-            <img src={user} alt="" />
+            {avatar === null ? (
+              <img src={user} alt="" />
+            ): (
+              <img src={avatar} alt="" />
+            )}
             <label>
               <span>Upload</span>
-              <input type="file" />
+              <input type="file" accept="image/*" onChange={handleFile}/>
             </label>
           </div>
         </div>
@@ -124,7 +186,8 @@ function Signup() {
           </label>
           <label>
             <span>Password:</span>
-            <input type="password" 
+            <input type="password" id="password"
+            
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             />
