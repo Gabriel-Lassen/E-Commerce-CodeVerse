@@ -98,6 +98,7 @@ function Signup() {
 
       if(imageAvatar === null) {
         alert("Enviei uma imagem do tipo JPEG ou PNG")
+        return
       }
       register(email,password, birthdate, firstName, lastName, imageAvatar)
   }
