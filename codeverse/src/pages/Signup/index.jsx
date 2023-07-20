@@ -1,19 +1,63 @@
 import React from "react";
-
 import styles from "./styles.module.scss";
 import user from "../../assets/imgs/imagemUser.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth";
-
+import { useState } from "react";
 function Signup() {
   const {register} = useContext(AuthContext)
+
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   
-  function handleClick(e) {
+
+  function handleRegister(e) {
     e.preventDefault();
 
 
-    register()
+
+
+
+
   }
+
+  function capitalize(string) {
+    const words = string.split(" ");
+
+    const capitalizedWords = words.map((word) => {
+      if (word === "") {
+        return word;
+      } else {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      }
+    });
+    return capitalizedWords.join(" ");
+  }
+
+  function handleEmail(email) {
+    let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (regexEmail.test(email)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  handleEmail();
+
+  function handlePassword(password) {
+    let regexPassword = /^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z])/;
+
+    return regexPassword.test(password);
+  }
+
+  handlePassword();
+
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
@@ -27,32 +71,50 @@ function Signup() {
             </label>
           </div>
         </div>
-        <form className={styles.labels} onSubmit={handleClick}>
+        <form className={styles.labels} onSubmit={handleRegister}>
           <div className={styles.row}>
             <label>
               <span>First name:</span>
-              <input type="text" />
+              <input type="text" 
+              value={firstName}
+              onChange={(e) => setFirstName(capitalize(e.target.value))}
+              />
+              
             </label>
             <label>
               <span>Last name:</span>
-              <input type="text" />
+              <input type="text" 
+              value={lastName}
+              onChange={(e) => setLastName(capitalize(e.target.value))}
+              />
             </label>
           </div>
           <label>
             <span>Email:</span>
-            <input type="text" />
+            <input type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            />
           </label>
           <label>
             <span> Date of birth: </span>
-            <input type="date" />
+            <input type="text" 
+          
+            />
           </label>
           <label>
             <span>Password:</span>
-            <input type="password" />
+            <input type="password" 
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            />
           </label>
           <label>
             <span>Confirm password:</span>
-            <input type="password" />
+            <input type="password" 
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            />
             <button>Sign Up</button>
           </label>
         </form>
