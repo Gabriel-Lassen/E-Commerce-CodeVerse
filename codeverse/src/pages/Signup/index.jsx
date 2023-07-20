@@ -29,7 +29,7 @@ function Signup() {
         setImageAvatar(image)
         setAvatar(URL.createObjectURL(image))
       }else{
-        alert("envie uma imagem do tipo PNG")
+        alert("Upload a png image")
         setImageAvatar(null)
         return;
       }
@@ -84,20 +84,20 @@ function Signup() {
         return;
       }
       if (!handleEmail(email)) {
-        alert("O email não atende aos requisitos");
+        alert("The email does not meet the requirements");
         return;
       }
       if (!handlePassword(password)) {
-        alert("A senha não atende aos requisitos");
+        alert("Password does not meet requirements");
         return;
       }
       if (password != confirmPassword) {
-        alert("As senhas não correspondem.");
+        alert("Passwords do not match.");
         return;
       }
 
       if(imageAvatar === null) {
-        alert("Enviei uma imagem do tipo JPEG ou PNG")
+        alert("I sent a JPEG or PNG image")
         return
       }
       register(email,password, birthdate, firstName, lastName, imageAvatar)

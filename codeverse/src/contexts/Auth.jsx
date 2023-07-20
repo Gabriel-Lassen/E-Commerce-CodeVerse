@@ -43,7 +43,7 @@ function AuthProvider({children}) {
             date: date
           })
           .then(()=> {
-                alert("registrado com sucesso")
+                alert("successfully registered")
                 navigate("/login")
                 handleUpload(image, uid)
             })
