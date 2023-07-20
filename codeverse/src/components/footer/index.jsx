@@ -11,6 +11,8 @@ import twitter from "../../assets/imgs/twitter.svg"
 import youtube from "../../assets/imgs/youtube.svg"
 import fb from "../../assets/imgs/fb logo.svg"
 
+import { Link } from 'react-router-dom'
+
 const Footer = () => {
 
     const [showFooter, setShowFooter] = useState(false)
@@ -51,25 +53,39 @@ const Footer = () => {
                 <h4>Shop by Category</h4>
                 <ul className={styles.ulCategory}>
                     <li>
-                        <a href="#">Skincare</a>
+                        <Link to='/categories/skincare' >
+                            <p>Skincare</p>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">Personal Care</a>
+                        <Link to='categories/personalcare'>
+                            <p>Personal Care</p>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">Handbags</a>
+                        <Link to='categories/handbags'>
+                            <p>Handbags</p>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">Apparels</a>
+                        <Link to='categories/apparels'>
+                            <p>Apparels</p>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">Watches</a>
+                        <Link to='categories/watches'>
+                            <p>Watches</p>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">Eye Wear</a>
+                        <Link to='categories/eyewear'>
+                            <p>Eye Wear</p>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">Jewellery</a>
+                        <Link to='categories/jewellery'>
+                            <p>Jewellery</p>
+                        </Link>
                     </li>
                 </ul>
             </div>
@@ -107,7 +123,9 @@ const Footer = () => {
                         <a href="#">Contact Us</a>
                     </li>
                     <li>
-                        <a href="#">About Us</a>
+                        <Link to='/about'>
+                            <p>About Us</p>
+                        </Link>
                     </li>
                     <li>
                         <a href="#">Careers</a>

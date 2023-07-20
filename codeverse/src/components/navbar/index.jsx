@@ -27,7 +27,7 @@ function Navbar() {
   
   
           <li>
-              <Link className={styles.navLink}  to="/">
+              <Link className={styles.navLink}  to="/categories">
                 <div className={styles.iconContainer}>
                     <img src={location.pathname === '/categories' ? categoriesActive : categories} alt={categories} />
                 </div>
@@ -37,7 +37,7 @@ function Navbar() {
   
   
           <li>
-              <Link className={styles.navLink} to="/">
+              <Link className={styles.navLink} to="/profile">
                 <div className={styles.iconContainer}>
                     <img src={location.pathname === '/profile' ? profileActive : profile} alt={profile} />
                 </div>
@@ -47,11 +47,11 @@ function Navbar() {
   
   
           <li>
-              <Link className={styles.navLink}  to="/">
+              <Link className={styles.navLink}  to="/mycart">
                 <div className={styles.iconContainer}>
-                    <img src={location.pathname === '/bag' ? bagActive : bag} alt={bag} />
+                    <img src={location.pathname === '/mycart' ? bagActive : bag} alt={bag} />
                 </div>
-                    <span className={location.pathname === '/bag' ? '' : styles.spanNone}>Bag</span>
+                    <span className={location.pathname === '/mycart' ? '' : styles.spanNone}>Bag</span>
               </Link>
           </li>
         </ul>
