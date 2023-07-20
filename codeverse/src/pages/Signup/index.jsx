@@ -2,8 +2,18 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 import user from "../../assets/imgs/imagemUser.jpg";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/Auth";
 
 function Signup() {
+  const {register} = useContext(AuthContext)
+  
+  function handleClick(e) {
+    e.preventDefault();
+
+
+    register()
+  }
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
@@ -17,7 +27,7 @@ function Signup() {
             </label>
           </div>
         </div>
-        <form className={styles.labels}>
+        <form className={styles.labels} onSubmit={handleClick}>
           <div className={styles.row}>
             <label>
               <span>First name:</span>
