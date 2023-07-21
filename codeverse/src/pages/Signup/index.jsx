@@ -187,15 +187,14 @@ function Signup() {
           </label>
           <label>
             <span>Password:</span>
-            <input type="password" id="password"
-            
+            <input type="password" id="password" maxLength="12"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             />
           </label>
           <label>
             <span>Confirm password:</span>
-            <input type="password" 
+            <input type="password"  maxLength="12"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             />
