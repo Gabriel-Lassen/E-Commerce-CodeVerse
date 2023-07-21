@@ -23,7 +23,7 @@
       display: flex;
       flex-direction: row;
       gap: 8px;
-
+      margin-bottom: 16px;
       h2 {
         color: var(--TypeHighEmphasis);
         font-size: 20px;
@@ -195,7 +195,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      margin: 32px 0 20px 0;
+      margin-bottom: 24px;
       span {
         color: var(--LightText);
         font-size: 16px;

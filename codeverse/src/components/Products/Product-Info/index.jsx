@@ -17,6 +17,7 @@ const ProductsInfo = () => {
   const [totalRatings, setTotalRatings] = useState("");
   const [averageStars, setAverageStars] = useState("");
   const [reviews, setReviews] = useState("");
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     if (listProducts) {
@@ -38,6 +39,17 @@ const ProductsInfo = () => {
       }
     }
   }, [listProducts]);
+
+  const plus = () => {
+    if (count < qty) {
+      setCount(count + 1);
+    }
+  };
+  const less = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  };
 
   function renderRatingStars(averageStars) {
     const stars = [];
@@ -105,7 +117,9 @@ const ProductsInfo = () => {
       <div className={styles.qty}>
         <span>Quantity:</span>
         <div className={styles.btn}>
-          <button>-</button>1<button>+</button>
+          <button onClick={less}>-</button>
+          {count}
+          <button onClick={plus}>+</button>
         </div>
       </div>
     </div>
