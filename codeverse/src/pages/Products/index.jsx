@@ -17,10 +17,11 @@ const Products = () => {
 
     window.addEventListener("resize", handleHidden);
   });
+
   return (
     <>
       {hidden && <Header />}
-      <div className={styles.teste}>
+      <div className={styles.wrapper}>
         <ProductImg />
         <ProductsInfo />
       </div>
