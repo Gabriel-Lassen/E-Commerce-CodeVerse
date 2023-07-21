@@ -61,7 +61,7 @@ const Login = () => {
         <div className={styles.login}>
           <button onClick={login}>Sign in</button>
           <p>
-            Dont have an account? <Link className={styles.link}>Sign up</Link>
+            Dont have an account? <Link to='/signup' className={styles.link}>Sign up</Link>
           </p>
         </div>
       </div>
