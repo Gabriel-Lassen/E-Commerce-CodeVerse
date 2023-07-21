@@ -1,7 +1,7 @@
 .containerCarrossel {
   width: 100%;
   display: flex;
-  overflow: scroll;
+
   gap: 8px;
 }
 
@@ -12,6 +12,7 @@
   .containerCarrossel {
     margin-top: 8px;
     padding: 16px;
+    overflow: scroll;
     .image {
       position: relative;
       img {
@@ -55,15 +56,17 @@
 @media screen and (min-width: 768px) {
   .containerCarrossel {
     padding: 0;
-
+    margin: 19px 0 24px 20px;
+    width: 45.26vw;
+    max-width: 605px;
+    max-height: 605px;
     .image {
       img {
-        width: 47.26vw;
+        width: 45.26vw;
         height: 37.81vw;
         max-width: 605px;
         max-height: 605px;
         border-radius: 16px;
-        margin: 19px 24px 24px 20px;
       }
 
       button {
