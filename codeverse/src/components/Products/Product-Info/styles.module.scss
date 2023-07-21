@@ -61,7 +61,7 @@
 
     h2 {
       order: 1;
-      margin-bottom: 4px;
+
       color: var(--TypeHighEmphasis);
       font-size: 34px;
       font-style: normal;
@@ -76,13 +76,18 @@
       font-style: normal;
       font-weight: 600;
       line-height: 26px;
-      margin-bottom: 10px;
+      margin-bottom: 32px;
+    }
+
+    .rating {
+      order: 3;
     }
 
     .priceContainer {
       display: flex;
       flex-direction: row;
       align-items: center;
+      margin-bottom: 24px;
       gap: 16px;
       order: 4;
 
@@ -111,19 +116,61 @@
         font-style: normal;
         font-weight: 600;
         line-height: 26px;
-        vertical-align: middle;
+        margin: 0;
         order: 3;
       }
     }
 
-    .rating {
-      order: 3;
+    .DeliveryDetails {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      order: 5;
+      margin-bottom: 40px;
+      p {
+        color: var(--TypeHighEmphasis);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+      }
+
+      span {
+        color: var(--TypeLowEmphasis);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+      }
+
+      .pin {
+        display: flex;
+        position: relative;
+
+        input {
+          padding: 18px 12px 18px 16px;
+          border-radius: 4px;
+          background: var(--Grey);
+          border: none;
+        }
+
+        button {
+          position: absolute;
+          right: 12px;
+          top: 18px;
+          color: var(--Primary);
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 16px;
+        }
+      }
     }
     .qty {
       display: flex;
       flex-direction: row;
+      margin-bottom: 50px;
       gap: 16px;
-      order: 5;
+      order: 6;
       .btn {
         display: flex;
 

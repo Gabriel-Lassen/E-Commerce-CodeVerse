@@ -56,6 +56,18 @@ const ProductsInfo = () => {
           <span>{totalRatings} Ratings</span>
         </div>
       )}
+
+      <div className={styles.DeliveryDetails}>
+        <div>
+          <p>Delivery Details</p>
+          <span>Check estimated delivery date/pickup option.</span>
+        </div>
+        <div className={styles.pin}>
+          <input type="text" placeholder="Apply Valid Pincode" />
+          <button>check</button>
+        </div>
+      </div>
+
       <div className={styles.qty}>
         <span>Quantity:</span>
         <div className={styles.btn}>
