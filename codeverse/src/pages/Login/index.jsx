@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
+import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { GoMail, GoLock } from "react-icons/go";
-import { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth";
 import { toast } from "react-toastify";
 
