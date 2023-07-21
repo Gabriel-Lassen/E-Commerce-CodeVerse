@@ -1,23 +1,6 @@
-.cupons {
-  max-width: 100%;
-  overflow: scroll;
-  display: flex;
-  padding: 0 16px;
-  gap: 16px;
-}
-
-.cupons::-webkit-scrollbar {
-  display: none;
-}
-
 @media screen and (min-width: 769px) {
   .wrapper {
     display: flex;
     flex-direction: row;
   }
-
-  .cupons {
-    max-width: 52vw;
-  }
 }
-

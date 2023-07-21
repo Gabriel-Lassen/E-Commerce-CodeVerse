@@ -1,3 +1,13 @@
+.cupons {
+  max-width: 100%;
+  overflow: scroll;
+  display: flex;
+  gap: 16px;
+  padding-right: 16px;
+}
+.cupons::-webkit-scrollbar {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   .container {
     margin-left: 16px;
@@ -94,6 +104,9 @@
       }
     }
 
+    .cupons {
+      margin-bottom: 24px;
+    }
     .DeliveryDetails {
       align-items: center;
       margin: 0 auto;
@@ -275,6 +288,10 @@
           background: var(--Grey);
           border: none;
           width: 30vw;
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+          }
         }
 
         button {
@@ -308,6 +325,12 @@
           padding: 4px 9px;
         }
       }
+    }
+
+    .cupons {
+      order: 7;
+      max-width: 52vw;
+      margin-bottom: 40px;
     }
     .productRatingMob {
       display: none;
