@@ -103,6 +103,8 @@ const ProductsInfo = () => {
         </div>
       </div>
 
+      <div className={styles.separator}></div>
+
       <div className={styles.DeliveryDetails}>
         <div className={styles.DeliveryText}>
           <p>Delivery Details</p>
