@@ -8,6 +8,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db } from "../../FirebaseConection";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -18,16 +19,21 @@ const Login = () => {
     e.preventDefault();
 
     if (email == "" || password == "") {
-      alert("Preencha todos os campos");
+      toast.warning("Fill in all fields");
       return;
     }
+
+    
     let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!regexEmail.test(email)) {
-      return alert("Insira um email válido");
+      return toast.warning("Enter a valid email");
     }
     signIn(email, password);
+    
   }
+
+  
 
   return (
     <div className={styles.container}>

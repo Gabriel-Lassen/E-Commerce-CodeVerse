@@ -88,7 +88,7 @@ function Signup() {
         return;
       }
       if (!handlePassword(password)) {
-        alert("Password does not meet requirements");
+        alert("Password does not meet requirements(A!1)");
         return;
       }
       if (password != confirmPassword) {

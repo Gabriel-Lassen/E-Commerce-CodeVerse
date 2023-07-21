@@ -6,6 +6,7 @@ import {signInWithEmailAndPassword} from 'firebase/auth'
 import { useNavigate } from "react-router-dom";
 import { async } from "@firebase/util";
 import { uploadBytes, ref, getDownloadURL } from "@firebase/storage";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext({});
 
@@ -52,7 +53,7 @@ function AuthProvider({ children }) {
           email: email,
           date: date,
         }).then(() => {
-          alert("successfully registered");
+          toast.success("successfully registered");
           navigate("/login");
           handleUpload(image, uid);
         });
@@ -83,16 +84,16 @@ function AuthProvider({ children }) {
         setUser(data);
         setLoadingAuth(false);
         localStorageUser(data);
-        alert("Bem vindo (a) de volta");
+        toast.success("Welcome back");
         navigate('/')
       })
       .catch((error) => {
         setLoadingAuth(false);
         if(error.code == 'auth/user-not-found'){
-          return  alert('User not found');
+          return  toast.error('User not found');
         }
         if(error.code == 'auth/wrong-password') {
-           return alert('Wrong password');
+           return toast.error('Wrong password');
         }
         
     })
