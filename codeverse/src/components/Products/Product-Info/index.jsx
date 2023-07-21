@@ -1,7 +1,10 @@
 import styles from "./styles.module.scss";
+
 import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../../../contexts/products";
+
 import Star from "../../../assets/imgs/star.svg";
+import StarLight from "../../../assets/imgs/Star-Light.svg";
 
 const ProductsInfo = () => {
   const { listProducts } = useContext(ProductsContext);
@@ -13,6 +16,7 @@ const ProductsInfo = () => {
   const [rating, setRating] = useState("");
   const [totalRatings, setTotalRatings] = useState("");
   const [averageStars, setAverageStars] = useState("");
+  const [reviews, setReviews] = useState("");
 
   useEffect(() => {
     if (listProducts) {
@@ -28,15 +32,25 @@ const ProductsInfo = () => {
         setDiscount(product.discount);
         setQty(product.qty);
         setRating(product.rating);
-        setTotalRatings(product.totalRatings);
-        setAverageStars(product.averageStars);
+        setAverageStars(product.rating.averageStars);
+        setTotalRatings(product.rating.totalRatings);
+        setReviews(product.reviews);
       }
     }
   }, [listProducts]);
 
-  let stars = [];
-  for (let i = 0; i < averageStars; ++i) {
-    stars.push(<img src={Star} key={i} />);
+  function renderRatingStars(averageStars) {
+    const stars = [];
+
+    for (let i = 1; i <= 5; i++) {
+      if (i <= averageStars) {
+        stars.push(<img src={Star} key={i} alt={`Star ${i}`} />);
+      } else {
+        stars.push(<img src={StarLight} key={i} alt={`Star ${i}`} />);
+      }
+    }
+
+    return stars;
   }
 
   return (
@@ -50,20 +64,40 @@ const ProductsInfo = () => {
         </span>
         <p>{discount * 100}% OFF</p>
       </div>
-      {rating && (
-        <div className={styles.rating}>
-          <div className={styles.stars}>{stars}</div>
-          <span>{totalRatings} Ratings</span>
+
+      <div className={styles.productRatingDesk}>
+        <div className={styles.ratingStarsDesk}>
+          {renderRatingStars(averageStars)}
         </div>
-      )}
+
+        <div className={styles.ratingReviewDesk}>
+          <span
+            className={styles.ratingsDesk}
+          >{`(${totalRatings}) Ratings`}</span>
+        </div>
+      </div>
+
+      <div className={styles.productRatingMob}>
+        <div className={styles.ratingStarsMob}>
+          <span>{averageStars}</span>
+          <img src={Star} alt="Rating" />
+        </div>
+
+        <div className={styles.ratingReviewMob}>
+          <span className={styles.avarage}>Average Rating</span>
+          <span className={styles.ratings}>
+            {totalRatings} Ratings & {reviews} Reviews
+          </span>
+        </div>
+      </div>
 
       <div className={styles.DeliveryDetails}>
-        <div>
+        <div className={styles.DeliveryText}>
           <p>Delivery Details</p>
           <span>Check estimated delivery date/pickup option.</span>
         </div>
         <div className={styles.pin}>
-          <input type="text" placeholder="Apply Valid Pincode" />
+          <input type="number" placeholder="Apply Valid Pincode" />
           <button>check</button>
         </div>
       </div>
