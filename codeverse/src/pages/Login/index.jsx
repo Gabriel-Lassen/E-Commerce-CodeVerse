@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { GoMail, GoLock } from "react-icons/go";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { async } from "@firebase/util";
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { auth, db } from "../../FirebaseConection";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth";
 import { toast } from "react-toastify";
@@ -32,8 +28,6 @@ const Login = () => {
     signIn(email, password);
     
   }
-
-  
 
   return (
     <div className={styles.container}>
