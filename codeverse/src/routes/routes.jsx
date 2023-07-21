@@ -12,7 +12,7 @@ import ProductsByCategoy from "../pages/ProductsByCategory";
 
 const Rotas = () => {
   return (
-    <BrowserRouter>
+    
       <Routes>
         <Route path="/categories" element={<Categories />} />
         <Route path="/categories/:category" element={<ProductsByCategoy />} />
@@ -25,7 +25,7 @@ const Rotas = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
       </Routes>
-    </BrowserRouter>
+    
   );
 };
 
