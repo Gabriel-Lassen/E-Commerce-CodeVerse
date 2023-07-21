@@ -8,12 +8,14 @@ import WishList from "../pages/Wishlist";
 import Profile from "../pages/Profile";
 import Categories from "../pages/Categories";
 import Products from "../pages/Products";
+import ProductsByCategoy from "../pages/ProductsByCategory";
 
 const Rotas = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/categories" element={<Categories />} />
+        <Route path="/categories/:category" element={<ProductsByCategoy />} />
         <Route path="/products/:id" element={<Products />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
