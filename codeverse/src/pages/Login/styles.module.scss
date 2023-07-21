@@ -90,13 +90,14 @@
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
       border-radius: 15px;
       width: 40%;
-      height: 55vh;
+      padding-bottom: 30px;
       position: absolute;
       top: 20%;
       left: 40px;
 
       h1 {
         background: linear-gradient(90deg, #416fb4 0%, #1a234b 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-size: clamp(34px, 2.88vw, 20px);
