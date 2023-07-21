@@ -1,7 +1,6 @@
 .containerCarrossel {
   width: 100%;
   display: flex;
-
   gap: 8px;
 }
 
@@ -10,7 +9,8 @@
 }
 @media screen and (max-width: 767px) {
   .containerCarrossel {
-    margin-top: 8px;
+    max-width: 360px;
+    margin: 8px auto 0;
     padding: 16px;
     overflow: scroll;
     .image {
@@ -44,7 +44,7 @@
     .imageMob {
       img {
         width: 91vw;
-        height: 42.5vh;
+        height: 91vw;
         max-width: 328px;
         max-height: 340px;
         border-radius: 8px;
