@@ -27,10 +27,6 @@ const Products = () => {
         <ProductImg />
         <div className={styles.productInfo}>
           <ProductsInfo />
-          <div className={styles.cupons}>
-            <ProductPromo/>
-            <ProductPromo/>
-          </div>
         </div>
       </div>
         

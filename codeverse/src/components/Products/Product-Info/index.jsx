@@ -5,6 +5,7 @@ import { ProductsContext } from "../../../contexts/products";
 
 import Star from "../../../assets/imgs/star.svg";
 import StarLight from "../../../assets/imgs/Star-Light.svg";
+import ProductPromo from "../Products-promo";
 
 const ProductsInfo = () => {
   const { listProducts } = useContext(ProductsContext);
@@ -102,7 +103,10 @@ const ProductsInfo = () => {
           </span>
         </div>
       </div>
-
+      <div className={styles.cupons}>
+        <ProductPromo />
+        <ProductPromo />
+      </div>
       <div className={styles.DeliveryDetails}>
         <div className={styles.DeliveryText}>
           <p>Delivery Details</p>
