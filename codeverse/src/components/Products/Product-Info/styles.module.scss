@@ -166,6 +166,10 @@
     .qty {
       display: none;
     }
+
+    .separato {
+      display: none;
+    }
   }
 }
 
@@ -255,11 +259,19 @@
       }
     }
 
+    .separator {
+      width: 49.77vw;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.12);
+      margin-bottom: 24px;
+      order: 5;
+    }
+
     .DeliveryDetails {
       display: inline-flex;
       align-items: center;
       gap: 16px;
-      order: 5;
+      order: 6;
       margin-bottom: 40px;
       margin-right: 20px;
       p {
@@ -311,7 +323,7 @@
       flex-direction: row;
       margin-bottom: 50px;
       gap: 16px;
-      order: 6;
+      order: 7;
       .btn {
         display: flex;
 
