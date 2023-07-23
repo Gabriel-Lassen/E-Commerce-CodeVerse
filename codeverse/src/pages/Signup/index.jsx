@@ -3,10 +3,10 @@ import user from "../../assets/imgs/imagemUser.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth";
 import { useState } from "react";
-import { toast } from "react-toastify";
 
 function Signup() {
   const { register } = useContext(AuthContext);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,7 +24,7 @@ function Signup() {
         setImageAvatar(image);
         setAvatar(URL.createObjectURL(image));
       } else {
-        toast.warning("Upload a png image");
+        alert("Upload a png image");
         setImageAvatar(null);
         return;
       }
@@ -59,7 +59,7 @@ function Signup() {
       const age = Math.abs(ageDate.getUTCFullYear() - 1970);
 
       if (age < 18) {
-        toast.error("You must be at least 18 years old to register.");
+        alert("You must be at least 18 years old to register.");
         return;
       }
     }
@@ -71,24 +71,24 @@ function Signup() {
       birthdate === "" ||
       confirmPassword === ""
     ) {
-      toast.warning("Fill in all fields please");
+      alert("Fill in all fields please");
       return;
     }
     if (!handleEmail(email)) {
-      toast.warning("The email does not meet the requirements");
+      alert("The email does not meet the requirements");
       return;
     }
     if (!handlePassword(password)) {
-      toast.info("Password does not meet requirements(A!1)");
+      alert("Password does not meet requirements(A!1)");
       return;
     }
     if (password != confirmPassword) {
-      toast.error("Passwords do not match.");
+      alert("Passwords do not match.");
       return;
     }
 
     if (imageAvatar === null) {
-      toast.warning("I sent a JPEG or PNG image");
+      alert("I sent a JPEG or PNG image");
       return;
     }
     register(email, password, birthdate, firstName, lastName, imageAvatar);
