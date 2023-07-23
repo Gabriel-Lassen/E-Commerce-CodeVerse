@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  padding-bottom: 68px;
+}
+
+.text {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  color: var(--Primary);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  display: flex;
+}
+
+.categorys {
+  img {
+    width: 100%;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
