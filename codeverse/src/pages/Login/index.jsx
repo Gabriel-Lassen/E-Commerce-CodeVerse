@@ -1,10 +1,7 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { GoMail, GoLock } from "react-icons/go";
-import { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth";
 import { toast } from "react-toastify";
 
@@ -56,7 +53,7 @@ const Login = () => {
           <button onClick={login}>Sign in</button>
           <p>
             Dont have an account?{" "}
-            <Link to='/signup' className={styles.link} to={"/signup"}>
+            <Link className={styles.link} to={"/signup"}>
               Sign up
             </Link>
           </p>

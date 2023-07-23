@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 
 function Signup() {
   const { register } = useContext(AuthContext);
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
