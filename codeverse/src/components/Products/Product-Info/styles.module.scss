@@ -1,0 +1,351 @@
+.cupons {
+  max-width: 100%;
+  overflow: scroll;
+  display: flex;
+  gap: 16px;
+  padding-right: 16px;
+}
+.cupons::-webkit-scrollbar {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    margin-left: 16px;
+
+    h2 {
+      font-size: 16px;
+      color: var(--TypeHighEmphasis);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+      margin-bottom: 4px;
+    }
+
+    p {
+      color: var(--TypeLowEmphasis);
+      font-size: 14px;
+      line-height: 18px;
+      font-style: normal;
+      margin-bottom: 10px;
+    }
+
+    .priceContainer {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      margin-bottom: 16px;
+      h2 {
+        color: var(--TypeHighEmphasis);
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 16px;
+      }
+      span {
+        color: var(--TypeLowEmphasis);
+        text-align: right;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+      }
+      p {
+        color: #e21d1d;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+      }
+    }
+
+    .productRatingMob {
+      display: flex;
+      gap: 16px;
+
+      .ratingStarsMob {
+        width: 74px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--Accent);
+        border-radius: 5px;
+        gap: 4px;
+
+        span {
+          color: var(--TypeHighEmphasis);
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 16px;
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .ratingReviewMob {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 24px;
+      .avarage {
+        color: var(--TypeHighEmphasis);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 16px;
+      }
+
+      .ratings {
+        color: var(--TypeLowEmphasis);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+      }
+    }
+
+    .cupons {
+      margin-bottom: 24px;
+    }
+    .DeliveryDetails {
+      align-items: center;
+      margin: 0 auto;
+      margin-bottom: 40px;
+      .DeliveryText {
+        margin-bottom: 8px;
+        p {
+          color: var(--TypeHighEmphasis);
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 26px;
+          margin-bottom: 4px;
+        }
+
+        span {
+          color: var(--TypeLowEmphasis);
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 20px;
+        }
+      }
+      .pin {
+        display: flex;
+        position: relative;
+        width: 91vw;
+        max-width: 350px;
+        input {
+          padding: 18px 12px 18px 16px;
+          border-radius: 4px;
+          background: var(--Grey);
+          border: none;
+          width: 91vw;
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+          }
+        }
+
+        button {
+          position: absolute;
+          right: 12px;
+          top: 18px;
+          color: var(--Primary);
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 16px;
+        }
+      }
+    }
+
+    .productRatingDesk {
+      display: none;
+    }
+
+    .qty {
+      display: none;
+    }
+
+    .separato {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .DeliveryDetails {
+    display: inline-flex;
+    gap: 8px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 19px;
+    margin: 19px 0 0 16px;
+
+    h2 {
+      order: 1;
+
+      color: var(--TypeHighEmphasis);
+      font-size: 34px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 44px;
+    }
+
+    p {
+      order: 2;
+      color: var(--TypeLowEmphasis);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 26px;
+      margin-bottom: 32px;
+    }
+
+    .productRatingDesk {
+      order: 3;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      span {
+        color: var(--LightText);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+      }
+    }
+
+    .priceContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 24px;
+      gap: 16px;
+      order: 4;
+
+      h2 {
+        color: var(--TypeHighEmphasis);
+        text-align: right;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 52px;
+        order: 1;
+      }
+      span {
+        color: var(--TypeLowEmphasis);
+        text-align: right;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+        order: 2;
+      }
+      p {
+        color: var(--MajorVibrant);
+        text-align: right;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+        margin: 0;
+        order: 3;
+      }
+    }
+
+    .separator {
+      width: 49.77vw;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.12);
+      margin-bottom: 24px;
+      order: 5;
+    }
+
+    .DeliveryDetails {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      order: 6;
+      margin-bottom: 40px;
+      margin-right: 20px;
+      p {
+        color: var(--TypeHighEmphasis);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+        margin-bottom: 8px;
+      }
+
+      span {
+        color: var(--TypeLowEmphasis);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+      }
+
+      .pin {
+        display: flex;
+        position: relative;
+
+        input {
+          padding: 18px 12px 18px 16px;
+          border-radius: 4px;
+          background: var(--Grey);
+          border: none;
+          width: 30vw;
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+          }
+        }
+
+        button {
+          position: absolute;
+          right: 12px;
+          top: 18px;
+          color: var(--Primary);
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 16px;
+        }
+      }
+    }
+    .qty {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 50px;
+      gap: 16px;
+      order: 7;
+      .btn {
+        display: flex;
+
+        border-radius: 4px;
+        border: 1px solid var(--Primary);
+        justify-content: center;
+        align-items: center;
+        button {
+          display: flex;
+          background: none;
+          padding: 4px 9px;
+        }
+      }
+    }
+
+    .cupons {
+      order: 7;
+      max-width: 52vw;
+      margin-bottom: 40px;
+    }
+    .productRatingMob {
+      display: none;
+    }
+  }
+}

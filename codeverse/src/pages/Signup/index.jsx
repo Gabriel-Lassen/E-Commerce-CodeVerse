@@ -1,11 +1,4 @@
-import React from "react";
-import styles from "./styles.module.scss";
-import user from "../../assets/imgs/imagemUser.jpg";
-import { useContext } from "react";
-import { AuthContext } from "../../contexts/Auth";
-import { useState } from "react";
-import { toast } from "react-toastify";
-
+import React from 'react'
 
 function Signup() {
   const {register} = useContext(AuthContext)
@@ -138,73 +131,8 @@ function Signup() {
   handlePassword();
 
   return (
-    <div className={styles.container}>
-      <div className={styles.modal}>
-        <div className={styles.user}>
-          <h1>Create Account</h1>
-          <div className={styles.avatar}>
-            {avatar === null ? (
-              <img src={user} alt="" />
-            ): (
-              <img src={avatar} alt="" />
-            )}
-            <label>
-              <span>Upload</span>
-              <input type="file" accept="image/*" onChange={handleFile}/>
-            </label>
-          </div>
-        </div>
-        <form className={styles.labels} onSubmit={handleRegister}>
-          <div className={styles.row}>
-            <label>
-              <span>First name:</span>
-              <input type="text" 
-              value={firstName}
-              onChange={(e) => setFirstName(capitalize(e.target.value))}
-              />
-              
-            </label>
-            <label>
-              <span>Last name:</span>
-              <input type="text" 
-              value={lastName}
-              onChange={(e) => setLastName(capitalize(e.target.value))}
-              />
-            </label>
-          </div>
-          <label>
-            <span>Email:</span>
-            <input type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
-          <label>
-            <span> Date of birth: </span>
-            <input type="text" 
-            value={formatBirthdate(birthdate)}
-            onChange={(e) => setBirthdate(e.target.value)}
-            />
-          </label>
-          <label>
-            <span>Password:</span>
-            <input type="password" id="password" maxLength="12"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
-          <label>
-            <span>Confirm password:</span>
-            <input type="password"  maxLength="12"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            <button>Sign Up</button>
-          </label>
-        </form>
-      </div>
-    </div>
-  );
+    <div>Signup</div>
+  )
 }
 
 export default Signup;
