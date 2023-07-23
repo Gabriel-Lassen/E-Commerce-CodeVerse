@@ -1,12 +1,14 @@
 @media screen and (max-width: 768px) {
   .user {
     h1 {
-      color: var(--Primary);
-      font-size: clamp(34px, 3.88vw, 18px);
+      background: linear-gradient(90deg, #416fb4 0%, #1a234b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: clamp(34px, 2.88vw, 20px);
       font-style: normal;
       font-weight: 700;
-      padding-top: 18px;
-      padding-bottom: 10px;
+      padding-top: 10px;
+      padding-bottom: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -16,17 +18,36 @@
       align-items: flex-end;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 25px;
+
       img {
         width: 129px;
         height: 135px;
       }
-     label {
-      display: none;
-     }
+      input[type="file"] {
+        display: none;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 37px;
+        border-radius: 8px;
+        background: var(--Primary);
+        color: var(--Grey);
+        font-size: 16px;
+        margin-bottom: 45px;
+        cursor: pointer;
+      }
+
+      label input[type="file"] {
+        display: none;
+      }
     }
   }
-  .container {
+  .labels {
     label {
       display: flex;
       flex-direction: column;
@@ -34,11 +55,11 @@
       margin: 0 auto;
       flex-direction: column;
       margin-bottom: 10px;
+
       span {
         display: flex;
         font-size: 16px;
         padding-bottom: 10px;
-        padding-top: 5px;
         background: linear-gradient(90deg, #2e5794 0%, #1a234b 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -55,6 +76,7 @@
         font-size: 1rem;
         border: 0;
       }
+
       button {
         margin-top: 15px;
         display: inline-block;
@@ -74,161 +96,154 @@
 }
 
 @media screen and (min-width: 769px) {
-    .container {
-        width: 100%;
-        height: 100vh;
-        background: url("../../assets/imgs/imagemRegister.jpeg");
-        background-repeat: no-repeat;
-        background-size: cover;
+  .container {
+    width: 100%;
+    height: 100vh;
+    background: url("../../assets/imgs/imagemRegister.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
 
-        .modal {
-            background-color: #fff;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            width: 40%;
-            height: 85vh;
-            position: absolute;
-            top: 7%;
-            left: 40px;
-        }
-        .user {
-            h1 {
-                background: linear-gradient(90deg, #416fb4 0%, #1a234b 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                font-size: clamp(34px, 2.88vw, 20px);
-                font-style: normal;
-                font-weight: 700;
-                padding-top: 10px;
-                padding-bottom: 25px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .avatar {
-                display: flex;
-                align-items: flex-end;
-                justify-content: center;
-                gap: 10px;
-                margin-bottom: 25px;
-                
-                img {
-                  width: 129px;
-                  height: 135px;
-                }
-                input[type="file"] {
-                  display: none;
-                }
-                
-                label {
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  width: 80px;
-                  height: 37px;
-                  border-radius: 8px;
-                  background: var(--Primary);
-                  color: var(--Grey);
-                  font-size: 16px;
-                  margin-bottom: 45px;
-                  cursor: pointer;
-                }
-                
-                label input[type="file"] {
-                  display: none;
-                }
-              }
-        }
-        .row {
-            display: flex;
-            flex-direction: row;
-            gap: 5px;
-        }
-        .labels {
-            width: 25vw;
-            margin-left:20px ;
-
-            label {
-                display: flex;
-                flex-direction: column;
-                width: 38vw;
-
-                span {
-                    display: flex;
-                    font-size: 16px;
-                    background: linear-gradient(90deg, #2e5794 0%, #1a234b 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                  }
-            
-                  input {
-                    width: 90%;
-                    min-width: 70%;
-                 
-                    border: 2px solid #7f8fa6;
-                    outline: none;
-                    border: none;
-                    border-bottom: 1px solid var(--Primary);
-                    padding-top: 10px;
-                    margin-bottom: 25px;
-                    
-                  }
-
-
-                  button {
-                    display: inline-block;
-                    padding: 0.95rem 5.25rem;
-                    border-radius: 10rem;
-                    color: var(--Bright);
-                    font-weight: bold;
-                    text-align: center;
-                    text-transform: uppercase;
-                    font-size: 1rem;
-                    letter-spacing: 0.15rem;
-                    transition: all 0.3s;
-                    position: relative;
-                    overflow: hidden;
-                    z-index: 1;
-                    border: 0;
-                    margin-top: 20px;
-                    width: 90%;
-              
-                    &:after {
-                      content: "";
-                      position: absolute;
-                      bottom: 0;
-                      left: 0;
-                      width: 100%;
-                      height: 100%;
-                      background: linear-gradient(90deg, #1a234b 0%, #416fb4 100%);
-                      border-radius: 10rem;
-                      z-index: -2;
-                    }
-                    &:before {
-                      content: "";
-                      position: absolute;
-                      bottom: 0;
-                      left: 0;
-                      width: 0%;
-                      height: 100%;
-                      background: linear-gradient(90deg, #6371ac 0%, #584cc4 100%);
-                      transition: all 0.3s;
-                      border-radius: 10rem;
-                      z-index: -1;
-                    }
-                    &:hover {
-                      color: var(--Bright);
-                      transform: scale(1.02);
-                      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-                      &:before {
-                        width: 100%;
-                      }
-                    }
-                  }
-
-
-            }
-        }
+    .modal {
+      background-color: #fff;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      width: 40%;
+      height: 85vh;
+      position: absolute;
+      top: 7%;
+      left: 40px;
     }
+    .user {
+      h1 {
+        background: linear-gradient(90deg, #416fb4 0%, #1a234b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: clamp(34px, 2.88vw, 20px);
+        font-style: normal;
+        font-weight: 700;
+        padding-top: 10px;
+        padding-bottom: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .avatar {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 25px;
 
+        img {
+          width: 129px;
+          height: 135px;
+        }
+        input[type="file"] {
+          display: none;
+        }
+
+        label {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 80px;
+          height: 37px;
+          border-radius: 8px;
+          background: var(--Primary);
+          color: var(--Grey);
+          font-size: 16px;
+          margin-bottom: 45px;
+          cursor: pointer;
+        }
+
+        label input[type="file"] {
+          display: none;
+        }
+      }
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+    }
+    .labels {
+      width: 25vw;
+      margin-left: 20px;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        width: 38vw;
+
+        span {
+          display: flex;
+          font-size: 16px;
+          background: linear-gradient(90deg, #2e5794 0%, #1a234b 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        input {
+          width: 90%;
+          min-width: 70%;
+          border: 2px solid #7f8fa6;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid var(--Primary);
+          padding-top: 10px;
+          margin-bottom: 25px;
+        }
+
+        button {
+          display: inline-block;
+          padding: 0.95rem 5.25rem;
+          border-radius: 10rem;
+          color: var(--Bright);
+          font-weight: bold;
+          text-align: center;
+          text-transform: uppercase;
+          font-size: 1rem;
+          letter-spacing: 0.15rem;
+          transition: all 0.3s;
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+          border: 0;
+          margin-top: 20px;
+          width: 90%;
+
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #1a234b 0%, #416fb4 100%);
+            border-radius: 10rem;
+            z-index: -2;
+          }
+          &:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #6371ac 0%, #584cc4 100%);
+            transition: all 0.3s;
+            border-radius: 10rem;
+            z-index: -1;
+          }
+          &:hover {
+            color: var(--Bright);
+            transform: scale(1.02);
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            &:before {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
 }
