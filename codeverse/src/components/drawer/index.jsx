@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 
 import Avatar from "../../assets/imgs/avatar.png";

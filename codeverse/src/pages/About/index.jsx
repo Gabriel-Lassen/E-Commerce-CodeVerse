@@ -1,4 +1,4 @@
-import React from "react";
+
 import ContentAbout from "../../components/Content-About";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
