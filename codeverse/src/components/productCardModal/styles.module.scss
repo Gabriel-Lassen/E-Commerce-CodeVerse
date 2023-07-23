@@ -1,0 +1,201 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px;
+    gap: 24px;
+    background-color: var(--Bright);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    bottom: 0;
+}
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.productInfo {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .infoText {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        .textName {
+            color: var(--typeHighemphasis);
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 16px;
+        }
+
+        .textDescription {
+            color: var(--typeLowemphasis);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 16px;
+        }
+
+        .textPrice {
+            color: var(--typeHighemphasis);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 16px;
+        }
+    }
+}
+
+.productRating {
+    display: flex;
+    gap: 16px;
+
+    .ratingStars {
+        width: 74px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--Accent);
+        border-radius: 5px;
+        gap: 4px;
+
+        span {
+            color: var(--typeHighemphasis);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 16px;
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .ratingReview {
+        display: flex;
+        gap: 40px;
+
+        .reviewText {
+            display: flex;
+            flex-direction: column;
+            
+            .avarage {
+                color: var(--typeHighemphasis);
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 16px;
+            }
+
+            .ratings {
+                color: var(--typeLowemphasis);
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 18px;
+            }
+        }
+
+        button {
+            background-color: transparent;
+
+            img {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+.productSize {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .sizeText {
+        display: flex;
+        gap: 5px;
+
+        .select {
+            color: var(--typeHighemphasis);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 16px;
+        }
+
+        .sizeType {
+            color: var(--typeLowemphasis);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+        }
+    }
+
+    .sizeSelect {
+        display: flex;
+        gap: 8px;
+
+        label {
+            color: var(--typeHighemphasis);
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 16px;
+            padding:  5px 8px;
+            background-color: var(--Bright);
+            border: 2px solid var(--LightText);
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        input {
+            display: none;
+          }
+          
+          input:checked+label {
+            background-color: #D9EFF1;
+            border-color: var(--Primary);
+          }
+    }
+}
+
+.modalActions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .addBagBtn {
+        display: flex;
+        width: 272px;
+        height: 36px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 8px;
+        border: 2px solid var(--Primary);
+        background: var(--Primary);
+    
+        span {
+            color: var(--Bright);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 24px;
+        }
+    }
+}
+
+@media only screen and (min-width: 769px){
+    .wrapper {
+        display: none;
+    }
+}
