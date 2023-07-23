@@ -25,7 +25,7 @@ function Signup() {
         setImageAvatar(image);
         setAvatar(URL.createObjectURL(image));
       } else {
-        alert("Upload a png image");
+        toast.warning("Upload a png image");
         setImageAvatar(null);
         return;
       }
@@ -60,7 +60,7 @@ function Signup() {
       const age = Math.abs(ageDate.getUTCFullYear() - 1970);
 
       if (age < 18) {
-        alert("You must be at least 18 years old to register.");
+        toast.error("You must be at least 18 years old to register.");
         return;
       }
     }
@@ -72,24 +72,24 @@ function Signup() {
       birthdate === "" ||
       confirmPassword === ""
     ) {
-      alert("Fill in all fields please");
+      toast.warning("Fill in all fields please");
       return;
     }
     if (!handleEmail(email)) {
-      alert("The email does not meet the requirements");
+      toast.warning("The email does not meet the requirements");
       return;
     }
     if (!handlePassword(password)) {
-      alert("Password does not meet requirements(A!1)");
+      toast.info("Password does not meet requirements(A!1)");
       return;
     }
     if (password != confirmPassword) {
-      alert("Passwords do not match.");
+      toast.error("Passwords do not match.");
       return;
     }
 
     if (imageAvatar === null) {
-      alert("I sent a JPEG or PNG image");
+      toast.warning("I sent a JPEG or PNG image");
       return;
     }
     register(email, password, birthdate, firstName, lastName, imageAvatar);
