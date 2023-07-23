@@ -3,6 +3,7 @@ import user from "../../assets/imgs/imagemUser.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 function Signup() {
   const { register } = useContext(AuthContext);
