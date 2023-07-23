@@ -2,10 +2,19 @@ import styles from "./styles.module.scss";
 import arrow from "../../assets/imgs/icon-arrow.svg";
 import Banner1 from "../../assets/imgs/heroBannerHomeMob.png";
 import Banner2 from "../../assets/imgs/heroBannerHomeMob2.png";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 // eslint-disable-next-line react/prop-types
 const HeroBannerHome = ({ order, text }) => {
+  const list = useRef(null);
+
+  useEffect(() => {
+    if (order == "row-reverse") {
+      list.current.scrollIntoView({ inline: "end" });
+    }
+  }, []);
+
   return (
     <div>
       {text && (
@@ -17,12 +26,12 @@ const HeroBannerHome = ({ order, text }) => {
         className={styles.HeroBannerHomeContainer}
         style={{ flexDirection: order }}
       >
-        <Link to='/categories/handbags'>
+        <Link to="/categories/handbags">
           <div className={styles.HeroBannerHomeMob}>
             <img src={Banner1} alt="" />
           </div>
         </Link>
-        <Link to='/categories/handbags'>
+        <Link to="/categories/handbags">
           <div className={styles.HeroBannerHomeWeb}>
             <button className={styles.descriptionBtn}>
               <img src={arrow} alt="" />
@@ -31,7 +40,7 @@ const HeroBannerHome = ({ order, text }) => {
           </div>
         </Link>
 
-        <div className={styles.HeroBannerHomeMob2}>
+        <div className={styles.HeroBannerHomeMob2} ref={list}>
           <img src={Banner2} alt="" />
         </div>
       </div>
