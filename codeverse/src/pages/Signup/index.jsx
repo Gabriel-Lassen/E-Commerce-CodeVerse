@@ -32,22 +32,7 @@ function Signup() {
     }
   }
 
-  function formatBirthdate(input) {
-    const onlyNumbers = input.replace(/[^\d]/g, "");
-    const day = onlyNumbers.slice(0, 2);
-    const month = onlyNumbers.slice(2, 4);
-    const year = onlyNumbers.slice(4, 8);
-
-    let formattedDate = day;
-    if (month.length > 0) {
-      formattedDate += `/${month}`;
-    }
-    if (year.length > 0) {
-      formattedDate += `/${year}`;
-    }
-
-    return formattedDate;
-  }
+ 
 
   function handleRegister(e) {
     e.preventDefault();
@@ -175,8 +160,8 @@ function Signup() {
           <label>
             <span> Date of birth: </span>
             <input
-              type="text"
-              value={formatBirthdate(birthdate)}
+              type="date"
+              value={(birthdate)}
               onChange={(e) => setBirthdate(e.target.value)}
             />
           </label>

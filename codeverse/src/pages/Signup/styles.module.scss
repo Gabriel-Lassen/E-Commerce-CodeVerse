@@ -82,6 +82,9 @@
         font-size: 1rem;
         border: 0;
       }
+      input::-webkit-calendar-picker-indicator{
+        display: none;
+    }
 
       button {
         margin-top: 15px;
@@ -198,6 +201,9 @@
           padding-top: 10px;
           margin-bottom: 25px;
         }
+        input::-webkit-calendar-picker-indicator{
+          display: none;
+      }
 
         button {
           display: inline-block;
