@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { GoMail, GoLock } from "react-icons/go";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { async } from "@firebase/util";
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { auth, db } from "../../FirebaseConection";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth";
 import { toast } from "react-toastify";
@@ -23,17 +19,13 @@ const Login = () => {
       return;
     }
 
-    
     let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!regexEmail.test(email)) {
       return toast.warning("Enter a valid email");
     }
     signIn(email, password);
-    
   }
-
-  
 
   return (
     <div className={styles.container}>
@@ -61,7 +53,10 @@ const Login = () => {
         <div className={styles.login}>
           <button onClick={login}>Sign in</button>
           <p>
-            Dont have an account? <Link className={styles.link}>Sign up</Link>
+            Dont have an account?{" "}
+            <Link className={styles.link} to={"/signup"}>
+              Sign up
+            </Link>
           </p>
         </div>
       </div>
