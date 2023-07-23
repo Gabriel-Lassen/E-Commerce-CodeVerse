@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../Categories/styles.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
