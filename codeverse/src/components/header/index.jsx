@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.scss";
 import Logo from '../../assets/imgs/logo.svg';
 import Add from "../../assets/imgs/add-to-homescreen.svg";
@@ -10,14 +10,20 @@ import SearchDk from "../../assets/imgs/search_desktop.svg";
 import Fav from "../../assets/imgs/fav.svg";
 import Profile from "../../assets/imgs/profile.svg";
 import Bag from "../../assets/imgs/bag.svg";
+import Drawer from "../drawer";
 
 const Header = () => {
+  const [drawer, setDrawer] = useState(false);
+
+  const showDrawer = () => setDrawer(!drawer)
+
   return (
     <header className={styles.header}>
       <div className={styles.header_left_container}>
         <div className={styles.header_left_mob}>
-          <img src={Menu} alt="menu_header" />
+          <img src={Menu} alt="menu_header" onClick={showDrawer}/>
           <h1>Home</h1>
+          {drawer && <Drawer active={setDrawer} />}
         </div>
         <div className={styles.header_left_desktop}>
         <Link to="/">
