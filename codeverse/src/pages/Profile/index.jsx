@@ -1,8 +1,14 @@
-
+import SideBarProfile from "../../components/SideBar-Profile"
+import Navbar from "../../components/navbar";
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+    <>
+      <div>
+        <SideBarProfile/>
+        <Navbar/>
+      </div>
+    </>
   )
 }
 
