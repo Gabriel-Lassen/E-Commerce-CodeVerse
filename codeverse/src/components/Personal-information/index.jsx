@@ -1,11 +1,13 @@
 import styles from "./styles.module.scss";
 import user from "../../assets/imgs/imagemUser.jpg";
+import arrow from "../../assets/imgs/arrow.svg";
 
 function ProfileInformation() {
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
         <h1>Personal Information</h1>
+        <img src={arrow}/>
         <div className={styles.avatar}>
           <img src={user} />
           <label>
