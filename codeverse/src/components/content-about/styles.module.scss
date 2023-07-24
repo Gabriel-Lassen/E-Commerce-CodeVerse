@@ -15,6 +15,8 @@
     width: 85vw;
 
     h1 {
+      display: flex;
+      justify-content: center;
       color: var(--TypeHighEmphasis);
       font-size: 20px;
       font-weight: 600;
@@ -80,9 +82,9 @@
   .description {
     text-align: center;
     .about {
-    width: 55.7vw;
+      width: 55.7vw;
     }
-}
+  }
 
   .descriptionImage {
     flex-direction: row;

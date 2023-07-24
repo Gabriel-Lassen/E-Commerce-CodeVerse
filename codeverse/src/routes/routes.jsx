@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Login from "../pages/Login";
@@ -12,20 +12,18 @@ import ProductsByCategoy from "../pages/ProductsByCategory";
 
 const Rotas = () => {
   return (
-    
-      <Routes>
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/categories/:category" element={<ProductsByCategoy />} />
-        <Route path="/products/:id" element={<Products />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/mycart" element={<MyCart />} />
-        <Route path="/wishlist" element={<WishList />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    
+    <Routes>
+      <Route path="/categories" element={<Categories />} />
+      <Route path="/categories/:category" element={<ProductsByCategoy />} />
+      <Route path="/products/:id" element={<Products />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/mycart" element={<MyCart />} />
+      <Route path="/wishlist" element={<WishList />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
   );
 };
 
