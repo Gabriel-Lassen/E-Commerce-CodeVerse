@@ -13,16 +13,23 @@ import ProductsByCategoy from "../pages/ProductsByCategory";
 const Rotas = () => {
   return (
     <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
       <Route path="/categories" element={<Categories />} />
       <Route path="/categories/:category" element={<ProductsByCategoy />} />
       <Route path="/products/:id" element={<Products />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/getstarted" element={''} />
       <Route path="/mycart" element={<MyCart />} />
-      <Route path="/wishlist" element={<WishList />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
+      <Route path="/profile/personalinformation" element={''} />
+      <Route path="/profile/referandearn" element={''} />
+      <Route path="/profile/myorders" element={''} />
+      <Route path="/profile/mywishlist" element={<WishList />} />
+      <Route path="/profile/myreviews" element={''} />
+      <Route path="/profile/myaddressbook" element={''} />
+      <Route path="/profile/mysavedcards" element={''} />
     </Routes>
   );
 };
