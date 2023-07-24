@@ -8,7 +8,7 @@ import fragrance from "../../assets/imgs/category-fragrance.png";
 import handbags from "../../assets/imgs/category-handbags.png";
 import eyewear from "../../assets/imgs/category-eyewear.png";
 import apparels from "../../assets/imgs/category-apparels.png";
-import Navbar from "../../components/navbar";
+import Navbar from "../../components/Navbar";
 
 const Categories = () => {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 import { ProductsContext } from '../../contexts/products';
 import { useContext, useEffect, useState } from 'react'
-import ProductCard from '../productCard';
+import ProductCard from '../ProductCard';
 import Chevron from '../../assets/imgs/chevron-right.svg'
 
 const ProductsCarousel = () => {

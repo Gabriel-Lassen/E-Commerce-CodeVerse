@@ -1,15 +1,15 @@
-import BannerMsg from "../../components/banner-msg";
+import BannerMsg from "../../components/Banner-msg";
 import Brands from "../../components/Shop-Brands-home";
 import ShortCut from "../../components/Shortcut-home";
-import Footer from "../../components/footer";
-import Handpicked from "../../components/handpickedCollections";
-import Header from "../../components/header";
-import HeroBannerHome from "../../components/heroBanner-home";
+import Footer from "../../components/Footer";
+import Handpicked from "../../components/HandpickedCollections";
+import Header from "../../components/Header";
+import HeroBannerHome from "../../components/HeroBanner-home";
 import TopCategories from "../../components/TopCategories-home";
-import ProductsCarousel from "../../components/productsCarousel";
-import Navbar from "../../components/navbar";
+import ProductsCarousel from "../../components/ProductsCarousel";
+import Navbar from "../../components/Navbar";
 import { useEffect, useState } from "react";
-import MakeupSkincare from "../../components/makeupSkincare";
+import MakeupSkincare from "../../components/MakeupSkincare";
 
 const Home = () => {
   const [hidden, setHidden] = useState(false);
@@ -27,17 +27,17 @@ const Home = () => {
   return (
     <>
       <Header />
-      <BannerMsg/>
+      <BannerMsg />
       <HeroBannerHome />
       <TopCategories />
       <ProductsCarousel />
       <Handpicked />
-      <Brands/>
+      <Brands />
       <ShortCut />
       <MakeupSkincare />
       {hidden && <HeroBannerHome order="row-reverse" text={true} />}
       <Footer />
-      <Navbar/>
+      <Navbar />
     </>
   );
 };

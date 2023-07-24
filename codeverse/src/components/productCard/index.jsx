@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 import Star from '../../assets/imgs/star.svg';
 import Wishlist from '../../assets/imgs/wishlist.svg';
 import Bag from '../../assets/imgs/bag.svg';
-import ProductCardModal from '../productCardModal';
+import ProductCardModal from '../ProductCardModal';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 

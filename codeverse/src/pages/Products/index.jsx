@@ -1,9 +1,8 @@
 import styles from "./styles.module.scss";
-import Footer from "../../components/footer";
-import Header from "../../components/header";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 import ProductsInfo from "../../components/Products/Product-Info";
 import ProductImg from "../../components/Products/Products-imgs";
-
 
 import { useState, useEffect } from "react";
 
@@ -29,7 +28,7 @@ const Products = () => {
           <ProductsInfo />
         </div>
       </div>
-        
+
       {hidden && <Footer />}
     </>
   );
