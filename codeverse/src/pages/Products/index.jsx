@@ -5,6 +5,7 @@ import ProductsInfo from "../../components/Products/Product-Info";
 import ProductImg from "../../components/Products/Products-imgs";
 
 import { useState, useEffect } from "react";
+import InviteAFriend from "../../components/Products/InviteAfriend";
 
 const Products = () => {
   const [hidden, setHidden] = useState(false);
@@ -26,6 +27,7 @@ const Products = () => {
         <ProductImg />
         <div className={styles.productInfo}>
           <ProductsInfo />
+          <InviteAFriend />
         </div>
       </div>
 
