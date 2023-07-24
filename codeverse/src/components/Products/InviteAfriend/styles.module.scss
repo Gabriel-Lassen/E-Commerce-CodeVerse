@@ -10,6 +10,7 @@
 
     div {
       margin-right: 19px;
+      width: 215px;
       h1 {
         color: var(--TypeHighEmphasis);
         font-size: 14px;
@@ -21,10 +22,10 @@
 
       p {
         color: var(--TypeLowEmphasis);
-        width: 215px;
+        font-size: 14px;
+        font-style: normal;
         font-weight: 500;
         line-height: 18px;
-        font-style: normal;
         margin-bottom: 8px;
       }
 
