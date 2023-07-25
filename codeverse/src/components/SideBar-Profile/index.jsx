@@ -1,56 +1,61 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
+import styles from "./styles.module.scss";
 
 const SideBarProfile = () => {
+
+    const location = useLocation();
+
   return (
     <div>
-        <nav>
+        <nav className={styles.sideBar}>
             <ul>
-                <Link to={'/about/'}>
-                    <li>
+                <Link className={styles.Link} to={'/about/'}>
+                    <li className={location.pathname === '/profile/personalinformation' ? styles.active : ''}>
                     Personal Information
-                    <Icon color='var(--Dark)' label="Personal Information" />
+                    <Icon color={location.pathname === "/profile/personalinformation" ? 'var(--Primary)' : 'var(--Dark)'} label="Personal Information" />
                     </li>
                 </Link>
             
-                <Link to={'/about/'}>
-                    <li>
+                <Link className={styles.Link} to={'/about/'}>
+                    <li className={location.pathname === '/profile/referandearn' ? styles.active : ''}>
                     Refer and Earn
-                    <Icon color='var(--Dark)' label="Refer and Earn"/>
+                    <Icon color={location.pathname === "/profile/referandearn" ? 'var(--Primary)' : 'var(--Dark)'} label="Refer and Earn"/>
                     </li>
                 </Link>
             
-                <Link to={'/about/'}>
-                    <li>
+                <Link className={styles.Link} to={'/about/'}>
+                    <li className={location.pathname === '/profile/myorders' ? styles.active : ''}>
                     My Orders
-                    <Icon color='var(--Dark)' label="My Orders"/>
+                    <Icon color={location.pathname === "/profile/myorders" ? 'var(--Primary)' : 'var(--Dark)'} label="My Orders"/>
                     </li>
                 </Link>
             
-                <Link to={'/about/'}>
-                    <li>
+                <Link className={styles.Link} to={'/about/'}>
+                    <li className={location.pathname === '/profile/mywishlist' ? styles.active : ''}>
                     My Wishlist
-                    <Icon color='var(--Dark)' label="My Wishlist"/>
+                    <Icon color={location.pathname === "/profile/mywishlist" ? 'var(--Primary)' : 'var(--Dark)'} label="My Wishlist"/>
                     </li>
                 </Link>
             
-                <Link to={'/about/'}>
-                    <li>
+                <Link className={styles.Link} to={'/about/'}>
+                    <li className={location.pathname === '/profile/myreviews' ? styles.active : ''}>
                     My Reviews
-                    <Icon color="var(--Dark)" label="My Reviews"/>
+                    <Icon color={location.pathname === "/profile/myreviews" ? 'var(--Primary)' : 'var(--Dark)'} label="My Reviews"/>
                     </li>
                 </Link>
             
-                <Link to={'/about/'}>
-                    <li>
+                <Link className={styles.Link} to={'/about/'}>
+                    <li className={location.pathname === '/profile/myaddressbook' ? styles.active : ''}>
                     My Address Book
-                    <Icon color='var(--Dark)' label="My Address Book"/>
+                    <Icon color={location.pathname === "/profile/myaddressbook" ? 'var(--Primary)' : 'var(--Dark)'} label="My Address Book"/>
                     </li>
                 </Link>
             
-                <Link to={'/about/'}>
-                    <li>
+                <Link className={styles.Link} to={'/about/'}>
+                    <li className={location.pathname === '/profile/mysavedcards' ? styles.active : ''}>
                     My Saved Cards
-                    <Icon color='var(--Dark)' label="My Saved Cards"/>    
+                    <Icon color={location.pathname === "/profile/mysavedcards" ? 'var(--Primary)' : 'var(--Dark)'} label="My Saved Cards"/>    
                     </li>
                 </Link>
             </ul>

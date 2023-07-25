@@ -1,0 +1,38 @@
+.sideBar{
+    width: 286px;
+    height: 504px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--Grey);
+
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        padding: 16px 7px;
+        align-items: flex-start;
+        gap: 24px;
+   
+        li{
+            width: 269px;
+            display: flex;
+            color: var(--Dark);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 16px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .active{
+            color: var(--Primary);
+        }
+    }
+
+
+    .Link{
+        text-decoration: none;
+    }
+
+
+}
