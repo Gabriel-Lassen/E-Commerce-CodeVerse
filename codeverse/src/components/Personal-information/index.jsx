@@ -45,7 +45,11 @@ function ProfileInformation() {
           <input type="date" />
         </label>
         <label>
-          <span>Password</span>
+          <span>Current Password</span>
+          <input type="password" maxLength="12" />
+        </label>
+        <label>
+          <span>New Password</span>
           <input type="password" maxLength="12" />
         </label>
         <label>
