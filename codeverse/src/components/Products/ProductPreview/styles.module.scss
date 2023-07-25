@@ -3,6 +3,10 @@
 }
 
 @media screen and (min-width: 769px) {
+  .imgs {
+    display: flex;
+    flex-direction: column;
+  }
   .container {
     display: flex;
     flex-direction: row;
