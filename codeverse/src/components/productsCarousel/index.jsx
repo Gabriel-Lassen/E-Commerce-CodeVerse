@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from 'react'
 import ProductCard from '../ProductCard';
 import Chevron from '../../assets/imgs/chevron-right.svg'
 
-const ProductsCarousel = ({keyToFilter, expectedOutcome}) => {
+const ProductsCarousel = ({keyToFilter, expectedOutcome, maxItems}) => {
   
   const { listProducts } = useContext(ProductsContext);
   const [filtredListProducts, setFiltredListProducts] = useState();
@@ -12,7 +12,12 @@ const ProductsCarousel = ({keyToFilter, expectedOutcome}) => {
   useEffect(() => {
     if(listProducts){
       const list = listProducts.filter((item) => {return item[keyToFilter].indexOf(expectedOutcome) !== -1});
-      setFiltredListProducts(list);
+      if(maxItems){
+        const newList = list.slice(0, maxItems);
+        setFiltredListProducts(newList)
+      } else {
+        setFiltredListProducts(list);
+      }
     }
   },[listProducts])
 
