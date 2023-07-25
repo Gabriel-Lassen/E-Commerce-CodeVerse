@@ -6,15 +6,19 @@ function ProfileInformation() {
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
-        <h1>Personal Information</h1>
-        <img src={arrow}/>
+        <div>
+          <img src={arrow} className={styles.arrow}/>
+          <h1>Personal Information</h1>
+        </div>
         <div className={styles.avatar}>
           <img src={user} />
           <label>
             <span>Upload</span>
             <input type="file" accept="image/*" />
-            <button>Delete</button>
           </label>
+          <div className={styles.buttonDelete}>
+            <button>Delete</button>
+          </div>
         </div>
       </div>
       <form className={styles.form}>
