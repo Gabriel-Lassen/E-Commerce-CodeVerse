@@ -1,0 +1,38 @@
+.addBagBtn {
+    display: flex;
+    width: 100%;
+    max-width: 330px;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 2px solid var(--Primary);
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 24px;
+    }
+}
+
+.light {
+    background: var(--Bright);
+
+    span {
+        color: var(--Primary);
+    }
+}
+
+.dark {
+    background: var(--Primary);
+
+    span {
+        color: var(--Bright);
+    }
+}
