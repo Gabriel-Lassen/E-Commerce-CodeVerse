@@ -12,9 +12,9 @@
 
         span {
             color: var(--TypeHighEmphasis);
-            font-size: 14px;
+            font-size: clamp(14px, 2.65vw, 18px);
             font-weight: 600;
-            line-height: 16px;
+            line-height: clamp(16px, 3.43vw, 20px);
         }
 
         img {
