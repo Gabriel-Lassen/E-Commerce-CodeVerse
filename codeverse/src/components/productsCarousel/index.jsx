@@ -4,15 +4,15 @@ import { useContext, useEffect, useState } from 'react'
 import ProductCard from '../ProductCard';
 import Chevron from '../../assets/imgs/chevron-right.svg'
 
-const ProductsCarousel = () => {
+const ProductsCarousel = ({keyToFilter, expectedOutcome}) => {
   
   const { listProducts } = useContext(ProductsContext);
-  const [newArrivals, setNewArrivals] = useState();
+  const [filtredListProducts, setFiltredListProducts] = useState();
 
   useEffect(() => {
     if(listProducts){
-      const list = listProducts.filter((item) => {return item.releaseDate.indexOf('2023-06') !== -1});
-      setNewArrivals(list);
+      const list = listProducts.filter((item) => {return item[keyToFilter].indexOf(expectedOutcome) !== -1});
+      setFiltredListProducts(list);
     }
   },[listProducts])
 
@@ -26,8 +26,8 @@ const ProductsCarousel = () => {
         </button>
       </div>
       <div className={styles.carousel}>
-        {newArrivals && 
-          newArrivals.map((item) => {
+        {filtredListProducts && 
+          filtredListProducts.map((item) => {
             return <ProductCard
               key={item.id}
               id={item.id}

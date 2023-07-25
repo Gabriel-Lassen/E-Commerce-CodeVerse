@@ -30,7 +30,7 @@ const Home = () => {
       <BannerMsg />
       <HeroBannerHome />
       <TopCategories />
-      <ProductsCarousel />
+      <ProductsCarousel keyToFilter='releaseDate' expectedOutcome='2023-06'/>
       <Handpicked />
       <Brands />
       <ShortCut />
