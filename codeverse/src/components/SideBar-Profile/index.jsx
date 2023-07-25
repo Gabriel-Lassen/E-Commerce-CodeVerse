@@ -6,56 +6,64 @@ const SideBarProfile = () => {
 
     const location = useLocation();
 
+    const personalInformation = location.pathname === "/profile/personalinformation";
+    const referAndEarn = location.pathname === "/profile/referandearn";
+    const myOrders = location.pathname === "/profile/myorders";
+    const myWishlist = location.pathname === "/profile/mywishlist";
+    const myReviews = location.pathname === "/profile/myreviews";
+    const myAddressBook = location.pathname === "/profile/myaddressbook";
+    const mySavedCards = location.pathname === "/profile/mysavedcards";
+
   return (
     <div>
         <nav className={styles.sideBar}>
             <ul>
                 <Link className={styles.Link} to={'/profile/personalinformation'}>
-                    <li className={location.pathname === '/profile/personalinformation' ? styles.active : ''}>
+                    <li className={personalInformation ? styles.active : ''}>
                         Personal Information
-                        <Icon color={location.pathname === "/profile/personalinformation" ? 'var(--Primary)' : 'var(--Dark)'} label="Personal Information" />
+                        <Icon color={personalInformation ? 'var(--Primary)' : 'var(--Dark)'} label="Personal Information" />
                     </li>
                 </Link>
             
                 <Link className={styles.Link} to={'/profile/referandearn'}>
-                    <li className={location.pathname === '/profile/referandearn' ? styles.active  : ''}>
+                    <li className={referAndEarn ? styles.active  : ''}>
                         Refer and Earn
-                        <Icon color={location.pathname === "/profile/referandearn" ? 'var(--Primary)' : 'var(--Dark)'} label="Refer and Earn"/>
+                        <Icon color={referAndEarn ? 'var(--Primary)' : 'var(--Dark)'} label="Refer and Earn"/>
                     </li>
                 </Link>
             
                 <Link className={styles.Link} to={'/profile/myorders'}>
-                    <li className={location.pathname === '/profile/myorders' ? styles.active  : ''}>
+                    <li className={myOrders ? styles.active  : ''}>
                         My Orders
-                        <Icon color={location.pathname === "/profile/myorders" ? 'var(--Primary)' : 'var(--Dark)'} label="My Orders"/>
+                        <Icon color={myOrders ? 'var(--Primary)' : 'var(--Dark)'} label="My Orders"/>
                     </li>
                 </Link>
             
                 <Link className={styles.Link} to={'/profile/mywishlist'}>
-                    <li className={location.pathname === '/profile/mywishlist' ? styles.active  : ''}>
+                    <li className={myWishlist ? styles.active  : ''}>
                         My Wishlist
-                        <Icon color={location.pathname === "/profile/mywishlist" ? 'var(--Primary)' : 'var(--Dark)'} label="My Wishlist"/>
+                        <Icon color={myWishlist ? 'var(--Primary)' : 'var(--Dark)'} label="My Wishlist"/>
                     </li>
                 </Link>
             
                 <Link className={styles.Link} to={'/profile/myreviews'}>
-                    <li className={location.pathname === '/profile/myreviews' ? styles.active  : ''}>
+                    <li className={myReviews ? styles.active  : ''}>
                         My Reviews
-                        <Icon color={location.pathname === "/profile/myreviews" ? 'var(--Primary)' : 'var(--Dark)'} label="My Reviews"/>
+                        <Icon color={myReviews ? 'var(--Primary)' : 'var(--Dark)'} label="My Reviews"/>
                     </li>
                 </Link>
             
                 <Link className={styles.Link} to={'/profile/myaddressbook'}>
-                    <li className={location.pathname === '/profile/myaddressbook' ? styles.active  : ''}>
+                    <li className={myAddressBook ? styles.active  : ''}>
                         My Address Book
-                        <Icon color={location.pathname === "/profile/myaddressbook" ? 'var(--Primary)' : 'var(--Dark)'} label="My Address Book"/>
+                        <Icon color={myAddressBook ? 'var(--Primary)' : 'var(--Dark)'} label="My Address Book"/>
                     </li>
                 </Link>
             
                 <Link className={styles.Link} to={'/profile/mysavedcards'}>
-                    <li className={location.pathname === '/profile/mysavedcards' ? styles.active  : ''}>
+                    <li className={mySavedCards ? styles.active  : ''}>
                         My Saved Cards
-                        <Icon color={location.pathname === "/profile/mysavedcards" ? 'var(--Primary)' : 'var(--Dark)'} label="My Saved Cards"/>    
+                        <Icon color={mySavedCards ? 'var(--Primary)' : 'var(--Dark)'} label="My Saved Cards"/>    
                     </li>
                 </Link>
             </ul>
