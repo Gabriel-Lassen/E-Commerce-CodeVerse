@@ -1,7 +1,7 @@
 .addBagBtn {
     display: flex;
     width: 100%;
-    max-width: 330px;
+    max-width: 270px;
     height: 36px;
     justify-content: center;
     align-items: center;
@@ -34,5 +34,11 @@
 
     span {
         color: var(--Bright);
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .addBagBtn {
+        max-width: 330px;
     }
 }
