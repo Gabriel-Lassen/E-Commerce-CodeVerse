@@ -51,8 +51,8 @@ function ProfileInformation() {
         <label>
           <span>Confirm password</span>
           <input type="password" maxLength="12" />
-          <button>Save Changes</button>
         </label>
+          <button>Save Changes</button>
       </form>
     </div>
   );

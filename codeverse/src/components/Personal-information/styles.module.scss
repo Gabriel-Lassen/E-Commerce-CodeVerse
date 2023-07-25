@@ -1,0 +1,110 @@
+@media screen and (max-width: 768px) {
+  .profile {
+    div {
+      display: flex;
+      padding-top: 5px;
+      .arrow {
+        padding-right: 10px;
+      }
+    }
+    .avatar {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      margin-top: 10px;
+      padding-left: 5px;
+      margin-bottom: 10px;
+      img {
+        width: 80px;
+        height: 80px;
+      }
+      input[type="file"] {
+        display: none;
+      }
+
+      label {
+        display: flex;
+        width: 80px;
+        padding: 10px 8px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 8px;
+        background: var(--Primary);
+      }
+
+      label input[type="file"] {
+        display: none;
+      }
+      span {
+        color: var(--Bright);
+        text-align: center;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+      }
+      .buttonDelete {
+        button {
+          display: flex;
+          width: 80px;
+          padding: 9px 8px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 8px;
+          border: 2px solid var(--Error);
+          background: var(--Bright);
+          color: var(--Error);
+          text-align: center;
+        }
+      }
+    }
+  }
+  .form {
+    label {
+      display: flex;
+      flex-direction: column;
+      width: 78vw;
+      margin: 0 auto;
+      flex-direction: column;
+      margin-bottom: 5px;
+
+      span {
+        color: var(--TypeHighEmphasis);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+      }
+
+      input {
+        display: flex;
+        padding: 12px 12px 12px 12px;
+        align-items: center;
+        gap: 12px;
+        align-self: stretch;
+        border-radius: 4px;
+        background: var(--Grey);
+        border: 0;
+      }
+      input::-webkit-calendar-picker-indicator {
+        display: none;
+      }
+    }
+    button {
+      display: flex;
+      width: 136px;
+      padding: 8px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 8px;
+      background: var(--primary, #1b4b66);
+      color: var(--Bright);
+      text-align: center;
+      margin: 20px auto 0;
+    }
+  }
+}
