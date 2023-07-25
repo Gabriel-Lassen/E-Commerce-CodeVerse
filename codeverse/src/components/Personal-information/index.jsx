@@ -36,9 +36,12 @@ function ProfileInformation() {
           <span>Email</span>
           <input type="text" />
         </label>
-        <label>
-          <span>Mobile Number</span>
-          <input type="number" />
+        <label className={styles.mobile_number}>
+        <span>Mobile Number</span>
+        <div className={styles.input_container}>
+          <input type="tel" maxLength="2" placeholder="DDD" className={styles.input_small} />
+          <input type="tel" maxLength="9" placeholder="Number" className={styles.input_large} />
+        </div>
         </label>
         <label>
           <span> Date of birth</span>
