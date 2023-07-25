@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    button {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px;
+        background-color: var(--Bright);
+
+        span {
+            color: var(--TypeHighEmphasis);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 16px;
+        }
+
+        img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .content {
+        padding: 0 16px 16px;
+    }
+}

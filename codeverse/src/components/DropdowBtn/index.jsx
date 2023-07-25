@@ -19,7 +19,7 @@ const DropdowBtn = ({children, title}) => {
   return (
     <div className={styles.wrapper}>
         <button onClick={handleClick}>
-            <h3>{title}</h3>
+            <span>{title}</span>
             <img src={image} alt="Dropdow Button" />
         </button>
         {show &&
