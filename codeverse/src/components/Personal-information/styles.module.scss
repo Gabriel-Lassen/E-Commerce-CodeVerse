@@ -3,6 +3,13 @@
     div {
       display: flex;
       padding-top: 15px;
+      h1 {
+        color: var(--Primary);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+      }
       .arrow {
         padding-right: 20px;
         padding-left: 16px;
@@ -83,9 +90,8 @@
 
       input {
         display: flex;
-        padding: 12px;
+        padding: 10px;
         align-items: center;
-        gap: 12px;
         align-self: stretch;
         border-radius: 4px;
         background: var(--Grey);
@@ -122,6 +128,33 @@
         .input_large {
           width: 100%;
           max-width: 200px;
+        }
+      }
+    }
+    .side {
+      display: flex;
+      padding: 16px 0px;
+      align-items: center;
+      .a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 5px;
+        flex: 1 0 0;
+        h1 {
+          color: var(--Dark);
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 26px;
+          margin: 0 auto;
+        }
+        .separator {
+          width: 80%;
+          height: 1px;
+          background: rgba(0, 0, 0, 0.12);
+          margin: 0 auto
         }
       }
     }

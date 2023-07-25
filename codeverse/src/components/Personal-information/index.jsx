@@ -47,6 +47,12 @@ function ProfileInformation() {
           <span> Date of birth</span>
           <input type="date" />
         </label>
+        <div className={styles.side}>
+          <div className={styles.a}>
+            <h1>Change Password</h1>
+            <hr className={styles.separator} />
+          </div>
+        </div>
         <label>
           <span>Current Password</span>
           <input type="password" maxLength="12" />
