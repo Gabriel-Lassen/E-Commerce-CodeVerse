@@ -17,9 +17,9 @@ const ProductDescription = ({id}) => {
             }
         }
     }, [listProducts]);
-    
+
   return (
-    <div>
+    <div className={styles.wrapper}>
         <p>{productDescription}</p>
     </div>
   )

@@ -1,0 +1,22 @@
+.wrapper {
+    width: 100%;
+    display: block;
+
+    p {
+        width: 100%;
+        max-width: 990px;
+        color: var(--TypeLowemphasis);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .wrapper {
+        p {
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+}
