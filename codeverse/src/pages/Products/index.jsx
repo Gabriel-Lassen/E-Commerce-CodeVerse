@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import ProductsInfo from "../../components/Products/Product-Info";
 import ProductImg from "../../components/Products/Products-imgs";
+import Preview from "../../components/Products/ProductPreview";
 
 import { useState, useEffect } from "react";
 
@@ -23,7 +24,10 @@ const Products = () => {
     <>
       {hidden && <Header />}
       <div className={styles.wrapper}>
-        <ProductImg />
+        <div className={styles.imgs}>
+          <ProductImg />
+          <Preview />
+        </div>
         <div className={styles.productInfo}>
           <ProductsInfo />
         </div>
