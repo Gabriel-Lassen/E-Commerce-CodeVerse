@@ -24,10 +24,7 @@ const Products = () => {
     <>
       {hidden && <Header />}
       <div className={styles.wrapper}>
-        <div className={styles.imgs}>
-          <ProductImg />
-          <Preview />
-        </div>
+        <Preview />
         <div className={styles.productInfo}>
           <ProductsInfo />
         </div>

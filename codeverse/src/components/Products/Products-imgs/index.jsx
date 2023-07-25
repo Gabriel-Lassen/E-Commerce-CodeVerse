@@ -3,19 +3,14 @@ import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../../../contexts/products";
 import btnImg from "../../../assets/imgs/icon-view-smilar.svg";
 
-const ProductImg = () => {
+const ProductImg = ({ selectImage }) => {
   const { listProducts } = useContext(ProductsContext);
-  const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
     if (listProducts) {
       const productId = window.location.pathname.split("/products/").pop();
 
       const product = listProducts.find((item) => item.id === productId);
-
-      if (product) {
-        setImageUrl(product.url);
-      }
     }
   }, [listProducts]);
 
@@ -23,13 +18,13 @@ const ProductImg = () => {
     <>
       <div className={styles.containerCarrossel}>
         <div className={styles.image}>
-          <img src={imageUrl} />
+          <img src={selectImage} />
           <button>
             <img src={btnImg} />
           </button>
         </div>
         <div className={styles.imageMob}>
-          <img src={imageUrl} />
+          <img src={selectImage} />
         </div>
       </div>
     </>
