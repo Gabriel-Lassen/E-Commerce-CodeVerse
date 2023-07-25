@@ -6,6 +6,7 @@
   .container {
     display: flex;
     flex-direction: row;
+    margin: 24px auto;
 
     .left {
       transform: rotate(180deg);
@@ -14,23 +15,28 @@
     div {
       display: flex;
       gap: 31px;
-
-      img {
-        width: 75px;
-        height: 75px;
+      button {
+        border-radius: 8px;
+        img {
+          width: 75px;
+          height: 75px;
+          border-radius: 8px;
+        }
       }
     }
+    .arrow {
+      margin: 16px;
+      display: flex;
+      align-items: center;
+      button {
+        width: 24px;
+        height: 24px;
+        background: none;
 
-    button {
-      width: 24px;
-      height: 24px;
-      background: none;
-
-      img {
-        display: flex;
-        align-items: center;
-        width: auto;
-        height: auto;
+        img {
+          width: auto;
+          height: auto;
+        }
       }
     }
   }
