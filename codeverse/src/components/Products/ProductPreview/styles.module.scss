@@ -1,0 +1,37 @@
+.container {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+
+    .left {
+      transform: rotate(180deg);
+    }
+
+    div {
+      display: flex;
+      gap: 31px;
+
+      img {
+        width: 75px;
+        height: 75px;
+      }
+    }
+
+    button {
+      width: 24px;
+      height: 24px;
+      background: none;
+
+      img {
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+}
