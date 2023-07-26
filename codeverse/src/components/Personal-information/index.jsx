@@ -6,9 +6,10 @@ function ProfileInformation() {
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
-        <div>
-          <img src={arrow} className={styles.arrow}/>
+        <div className={styles.personal}>
+          <img src={arrow} className={styles.arrow} />
           <h1>Personal Information</h1>
+          <hr className={styles.separator} />
         </div>
         <div className={styles.avatar}>
           <img src={user} />
@@ -32,40 +33,52 @@ function ProfileInformation() {
             <input type="text" />
           </label>
         </div>
-        <label>
+        <label className={styles.email}>
           <span>Email</span>
           <input type="text" />
         </label>
         <label className={styles.mobile_number}>
-        <span>Mobile Number</span>
-        <div className={styles.input_container}>
-          <input type="tel" maxLength="2" placeholder="DDD" className={styles.input_small} />
-          <input type="tel" maxLength="9" placeholder="Number" className={styles.input_large} />
-        </div>
+          <span>Mobile Number</span>
+          <div className={styles.input_container}>
+            <input
+              type="number"
+              maxLength="2"
+              placeholder="DDD"
+              className={styles.input_small}
+            />
+            <input
+              type="number"
+              maxLength="9"
+              placeholder="Number"
+              className={styles.input_large}
+            />
+          </div>
         </label>
-        <label>
+        <label className={styles.birth}>
           <span> Date of birth</span>
           <input type="date" />
         </label>
         <div className={styles.side}>
-          <div className={styles.a}>
+          <div>
             <h1>Change Password</h1>
             <hr className={styles.separator} />
           </div>
         </div>
-        <label>
-          <span>Current Password</span>
-          <input type="password" maxLength="12" />
-        </label>
-        <label>
-          <span>New Password</span>
-          <input type="password" maxLength="12" />
-        </label>
-        <label>
-          <span>Confirm password</span>
-          <input type="password" maxLength="12" />
-        </label>
+        <div className={styles.password}>
+          <label>
+            <span>Current Password</span>
+            <input type="password" maxLength="12" />
+          </label>
+          <label>
+            <span>New Password</span>
+            <input type="password" maxLength="12" />
+          </label>
+          <label>
+            <span>Confirm password</span>
+            <input type="password" maxLength="12" />
+          </label>
           <button>Save Changes</button>
+        </div>
       </form>
     </div>
   );
