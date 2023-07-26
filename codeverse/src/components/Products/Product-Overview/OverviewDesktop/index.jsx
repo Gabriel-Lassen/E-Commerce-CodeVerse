@@ -6,9 +6,10 @@ import ProductRating from '../../../ProductRating';
 import ProductsCarousel from '../../../productsCarousel';
 
 const OverviewDesktop = () => {
+  const { listProducts } = useContext(ProductsContext);
     const [componentInView, setComponentInview] = useState('Description');
-    const { listProducts } = useContext(ProductsContext);
     const [productCategory, setProductCategory] = useState('')
+    const [btnActive, setBtnActive] = useState('Description')
 
     useEffect(() => {
         if (listProducts) {
@@ -22,14 +23,34 @@ const OverviewDesktop = () => {
         }
     }, [listProducts]);
 
+    function handleclick(text){
+      setComponentInview(text);
+      setBtnActive(text);
+    }
+
   return (
-    <div>
-        <div>
-            <button onClick={() => setComponentInview('Description')}>Product Description</button>
-            <button onClick={() => setComponentInview('Related')}>Related Products</button>
-            <button onClick={() => setComponentInview('Ratings')}>Ratings and Reviews</button>
+    <div className={styles.wrapper}>
+        <div className={styles.btns}>
+            <button
+              onClick={() => handleclick('Description')}
+              className={btnActive == 'Description' ? styles.btnActive : ''}
+            >
+                Product Description
+            </button>
+            <button
+              onClick={() => handleclick('Related')}
+              className={btnActive == 'Related' ? styles.btnActive : ''}
+            >
+              Related Products
+            </button>
+            <button
+              onClick={() => handleclick('Ratings')}
+              className={btnActive == 'Ratings' ? styles.btnActive : ''}
+            >
+              Ratings and Reviews
+            </button>
         </div>
-        <div>
+        <div className={styles.inView}>
           { componentInView === 'Description' &&
             <ProductDescription />
           }
