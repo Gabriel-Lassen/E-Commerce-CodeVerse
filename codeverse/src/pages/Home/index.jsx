@@ -10,6 +10,7 @@ import ProductsCarousel from "../../components/productsCarousel";
 import Navbar from "../../components/Navbar";
 import { useEffect, useState } from "react";
 import MakeupSkincare from "../../components/MakeupSkincare";
+import styles from './styles.module.scss';
 
 const Home = () => {
   const [hidden, setHidden] = useState(false);
@@ -30,12 +31,14 @@ const Home = () => {
       <BannerMsg />
       <HeroBannerHome />
       <TopCategories />
-      <ProductsCarousel
-        title='New Arrivals'
-        showViewAll={true}
-        keyToFilter='releaseDate'
-        expectedOutcome='2023-06'
-      />
+      <div className={styles.carousel}>
+        <ProductsCarousel
+          title='New Arrivals'
+          showViewAll={true}
+          keyToFilter='releaseDate'
+          expectedOutcome='2023-06'
+        />
+      </div>
       <Handpicked />
       <Brands />
       <ShortCut />

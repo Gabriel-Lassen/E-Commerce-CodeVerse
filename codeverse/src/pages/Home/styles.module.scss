@@ -1,0 +1,12 @@
+.carousel {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+    .carousel {
+        margin-top: 68px;
+        margin-bottom: 40px;
+    }
+}
