@@ -1,12 +1,3 @@
-@media screen and (max-width: 768px) {
-  .separator {
-    width: 100vw;
-    height: 8px;
-    background: var(--Grey);
-    flex-shrink: 0;
-    margin-bottom: 16px;
-  }
-}
 @media screen and (min-width: 769px) {
   .wrapper {
     display: flex;

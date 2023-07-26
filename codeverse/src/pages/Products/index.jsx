@@ -27,9 +27,7 @@ const Products = () => {
         <ProductImg />
         <div className={styles.productInfo}>
           <ProductsInfo />
-          <div className={styles.separator}></div>
           <InviteAFriend />
-          <div className={styles.separator}></div>
         </div>
       </div>
 
