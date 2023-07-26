@@ -1,7 +1,19 @@
+.btns {
+  display: none;
+}
+
 @media screen and (min-width: 769px) {
   .wrapper {
     display: flex;
     flex-direction: row;
     margin-bottom: 55px;
+  }
+
+  .btns {
+    max-width: 592px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 0 24px;
   }
 }

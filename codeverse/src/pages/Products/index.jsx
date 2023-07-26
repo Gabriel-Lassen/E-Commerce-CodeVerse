@@ -9,6 +9,8 @@ import { useState, useEffect } from "react";
 import ProductOverview from "../../components/Products/Product-Overview";
 
 import { useLocation } from 'react-router-dom';
+import BtnAddToBag from "../../components/BtnAddToBag";
+import BtnAddToWishlist from "../../components/BtnAddToWishlist";
 
 const Products = () => {
   const [hidden, setHidden] = useState(false);
@@ -35,6 +37,10 @@ const Products = () => {
         <Preview />
         <div className={styles.productInfo}>
           <ProductsInfo />
+          <div className={styles.btns}>
+            <BtnAddToBag />
+            <BtnAddToWishlist type='big' />
+          </div>
         </div>
       </div>
       <ProductOverview />
