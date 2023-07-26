@@ -1,11 +1,21 @@
 import styles from './styles.module.scss';
 import Wishlist from '../../assets/imgs/fav.svg';
 
-const BtnAddToWishlist = () => {
+const BtnAddToWishlist = ({type}) => {
   return (
-    <button className={styles.wishBtn}>
-        <img src={Wishlist} alt="Add to Wishlist" />
-    </button>
+    <>
+      { type === 'small' &&
+        <button className={styles.wishBtnSmall}>
+          <img src={Wishlist} alt="Add to Wishlist" />
+        </button>
+      }
+      { type === 'big' &&
+        <button className={styles.wishBtnBig}>
+          <img src={Wishlist} alt="Add to Wishlist" />
+          <span>Add To Wishlist</span>
+        </button>
+      }
+    </>
   )
 }
 

@@ -1,4 +1,4 @@
-.wishBtn {
+.wishBtnSmall {
     width: 44px;
     height: 44px;
     display: flex;
@@ -6,10 +6,35 @@
     align-items: center;
     gap: 8px;
     border-radius: 8px;
-    background: var(--accent, #F4F4F4);
+    background: var(--Accent);
 
     img {
         width: 24px;
         height: 24px;
+    }
+}
+
+.wishBtnBig {
+    width: 100%;
+    max-width: 240px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 2px solid var(--Primary);
+    background: var(--Bright);
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+
+    span {
+        color: var(--Primary);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 24px;
     }
 }
