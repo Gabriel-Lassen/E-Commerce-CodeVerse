@@ -9,6 +9,8 @@ import ProductsCarousel from '../../../productsCarousel';
 import styles from './styles.module.scss';
 import { ProductsContext } from '../../../../contexts/products';
 import { useContext, useEffect, useState } from 'react'
+import InviteAFriend from '../../InviteAfriend';
+
 
 const OverviewMobile = () => {
     const { listProducts } = useContext(ProductsContext);
@@ -36,6 +38,8 @@ const OverviewMobile = () => {
         <DropdowBtn title='Ratings & Reviews'>
             <ProductRating />
         </DropdowBtn>
+        <MobileSeparator />
+        <InviteAFriend />
         <MobileSeparator />
         <div className={styles.carousel}>
             <ProductsCarousel
