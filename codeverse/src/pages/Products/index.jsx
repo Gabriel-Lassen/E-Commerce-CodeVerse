@@ -7,8 +7,12 @@ import ProductImg from "../../components/Products/Products-imgs";
 import { useState, useEffect } from "react";
 import ProductOverview from "../../components/Products/Product-Overview";
 
+import { useLocation } from 'react-router-dom';
+
 const Products = () => {
   const [hidden, setHidden] = useState(false);
+  const [key, setKey] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
     const handleHidden = () => {
@@ -17,11 +21,14 @@ const Products = () => {
 
     handleHidden();
 
+    let newKey = key + 1;
+    setKey(newKey);
+
     window.addEventListener("resize", handleHidden);
-  });
+  }, [location]);
 
   return (
-    <>
+    <div key={key}>
       {hidden && <Header />}
       <div className={styles.wrapper}>
         <ProductImg />
@@ -31,7 +38,7 @@ const Products = () => {
       </div>
       <ProductOverview />
       {hidden && <Footer />}
-    </>
+    </div>
   );
 };
 
