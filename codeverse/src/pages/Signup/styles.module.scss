@@ -24,11 +24,11 @@
       align-items: flex-end;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
 
       img {
-        width: 129px;
-        height: 135px;
+        width: 80px;
+        height: 80px;
       }
       input[type="file"] {
         display: none;
@@ -44,7 +44,7 @@
         background: var(--Primary);
         color: var(--Grey);
         font-size: 16px;
-        margin-bottom: 45px;
+        margin-bottom: 20px;
         cursor: pointer;
       }
 
@@ -159,11 +159,11 @@
         align-items: flex-end;
         justify-content: center;
         gap: 10px;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
 
         img {
-          width: 129px;
-          height: 135px;
+          width: 80px;
+          height: 80px;
         }
         input[type="file"] {
           display: none;
@@ -179,7 +179,7 @@
           background: var(--Primary);
           color: var(--Grey);
           font-size: 16px;
-          margin-bottom: 45px;
+          margin-bottom: 23px;
           cursor: pointer;
         }
 
@@ -271,6 +271,28 @@
             &:before {
               width: 100%;
             }
+          }
+        }
+      }
+      .mobile_number {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .input_container {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          select {
+            width: 45px;
+            outline: none;
+            border: none !important;
+            border-bottom: 1px solid var(--Primary) !important;
+            padding-top: 10px;
+            margin-bottom: 25px;
+            appearance: none;
+          }
+          .input_large {
+            width: 270px;
           }
         }
       }

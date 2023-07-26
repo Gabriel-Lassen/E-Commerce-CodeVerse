@@ -16,6 +16,8 @@ function Signup() {
   const [birthdate, setBirthdate] = useState("");
   const [avatar, setAvatar] = useState(null);
   const [imageAvatar, setImageAvatar] = useState(null);
+  const [ddd, setDdd] = useState('');
+  const [number, setNumber] = useState('');
 
   function handleFile(e) {
     if (e.target.files[0]) {
@@ -55,7 +57,9 @@ function Signup() {
       firstName === "" ||
       lastName === "" ||
       birthdate === "" ||
-      confirmPassword === ""
+      confirmPassword === "" ||
+      ddd === "" ||
+      number === ""
     ) {
       toast.warning("Fill in all fields please");
       return;
@@ -77,7 +81,7 @@ function Signup() {
       toast.warning("I sent a JPEG or PNG image");
       return;
     }
-    register(email, password, birthdate, firstName, lastName, imageAvatar);
+    register(email, password, birthdate, firstName, lastName, imageAvatar, ddd, number);
   }
 
   function capitalize(string) {
@@ -113,6 +117,16 @@ function Signup() {
 
   handlePassword();
 
+  const verifyLenght = (e) => {
+    const inputValue = e.target.value;
+    const maxLength = 9;
+
+    if (inputValue.length <= maxLength) {
+      setNumber(inputValue);
+    } else {
+      setNumber(inputValue.slice(0, maxLength));
+    }
+  };
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
@@ -160,16 +174,29 @@ function Signup() {
           <label className={styles.mobile_number}>
           <span>Mobile Number</span>
           <div className={styles.input_container}>
-            <input
+            <select
               type="tel"
-              maxLength="2"
               placeholder="DDD"
-              className={styles.input_small}
-            />
+              value={ddd}
+              onChange={(e) => setDdd(e.target.value)}
+            >
+              <option value="">DDD</option>
+              <option value={1}>+1</option>
+              <option value={7}>+7</option>
+              <option value={33}>+33</option>
+              <option value={44}>+44</option>
+              <option value={49}>+49</option>
+              <option value={55}>+55</option>
+              <option value={81}>+81</option>
+              <option value={86}>+86</option>
+              <option value={91}>+91</option>
+            </select >
             <input
-              type="tel"
-              maxLength="9"
+              type="number"
+            
               placeholder="Number"
+              value={number}
+              onChange={verifyLenght}
               className={styles.input_large}
             />
           </div>

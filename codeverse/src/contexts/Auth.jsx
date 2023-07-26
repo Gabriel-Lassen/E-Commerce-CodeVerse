@@ -43,7 +43,7 @@ function AuthProvider({ children }) {
     });
   }
 
-  async function register(email, password, date, firstName, lastName, image) {
+  async function register(email, password, date, firstName, lastName, image, ddd, number) {
     await createUserWithEmailAndPassword(auth, email, password)
       .then(async (value) => {
         let uid = value.user.uid;
@@ -52,6 +52,8 @@ function AuthProvider({ children }) {
           lastName: lastName,
           email: email,
           date: date,
+          ddd: ddd,
+          number: number
         }).then(() => {
           toast.success("successfully registered");
           navigate("/login");
