@@ -19,7 +19,7 @@ const ProductsCarousel = ({title, showViewAll, keyToFilter, expectedOutcome, max
         setFiltredListProducts(list);
       }
     }
-  },[listProducts])
+  },[listProducts, keyToFilter, expectedOutcome])
 
   return (
     <div className={styles.wrapper}>
