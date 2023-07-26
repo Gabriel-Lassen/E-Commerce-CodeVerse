@@ -21,6 +21,8 @@ const ProductDescription = ({id}) => {
   return (
     <div className={styles.wrapper}>
         <p>{productDescription}</p>
+        <p>{productDescription}</p>
+        <p>{productDescription}</p>
     </div>
   )
 }
