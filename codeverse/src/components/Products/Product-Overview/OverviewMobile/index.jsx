@@ -7,8 +7,25 @@ import ProductDescription from '../../../ProductDescription';
 import ProductRating from '../../../ProductRating';
 import ProductsCarousel from '../../../productsCarousel';
 import styles from './styles.module.scss';
+import { ProductsContext } from '../../../../contexts/products';
+import { useContext, useEffect, useState } from 'react'
 
 const OverviewMobile = () => {
+    const { listProducts } = useContext(ProductsContext);
+    const [productCategory, setProductCategory] = useState('')
+
+    useEffect(() => {
+        if (listProducts) {
+            const productId = window.location.pathname.split("/products/").pop();
+
+            const product = listProducts.find((item) => item.id === productId);
+
+            if (product) {
+                setProductCategory(product.category);
+            }
+        }
+    }, [listProducts]);
+
   return (
     <div className={styles.wrapper}>
         <MobileSeparator />
@@ -25,7 +42,7 @@ const OverviewMobile = () => {
                 title='You Might Also Like'
                 showViewAll={false}
                 keyToFilter='category'
-                expectedOutcome='Handbags'
+                expectedOutcome={productCategory}
                 maxItems={6}
             />
         </div>
