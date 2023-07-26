@@ -1,8 +1,6 @@
 .wrapper {
-    width: 100vw;
+    width: 100%;
     max-width: 1280px;
-    margin: 0 auto;
-    margin-bottom: 24px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -38,7 +36,7 @@
 }
 
 .carousel {
-    width: 100vw;
+    width: 100%;
     max-width: 1280px;
     display: flex;
     overflow: scroll;
@@ -53,8 +51,6 @@
 @media only screen and (min-width: 768px) {
     .wrapper {
         gap: 24px;
-        margin-top: 68px;
-        margin-bottom: 40px;
     }
 
     .viewAll {

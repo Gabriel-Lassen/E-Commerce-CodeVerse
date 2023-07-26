@@ -4,30 +4,37 @@ import { useContext, useEffect, useState } from 'react'
 import ProductCard from '../ProductCard';
 import Chevron from '../../assets/imgs/chevron-right.svg'
 
-const ProductsCarousel = () => {
+const ProductsCarousel = ({title, showViewAll, keyToFilter, expectedOutcome, maxItems}) => {
   
   const { listProducts } = useContext(ProductsContext);
-  const [newArrivals, setNewArrivals] = useState();
+  const [filtredListProducts, setFiltredListProducts] = useState();
 
   useEffect(() => {
     if(listProducts){
-      const list = listProducts.filter((item) => {return item.releaseDate.indexOf('2023-06') !== -1});
-      setNewArrivals(list);
+      const list = listProducts.filter((item) => {return item[keyToFilter].indexOf(expectedOutcome) !== -1});
+      if(maxItems){
+        const newList = list.slice(0, maxItems);
+        setFiltredListProducts(newList)
+      } else {
+        setFiltredListProducts(list);
+      }
     }
-  },[listProducts])
+  },[listProducts, keyToFilter, expectedOutcome])
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.viewAll}>
-        <h2>New Arrivals</h2>
-        <button>
-          <span>View All</span>
-          <img src={Chevron} alt="" />
-        </button>
+        <h2>{title}</h2>
+        {showViewAll &&
+          <button>
+            <span>View All</span>
+            <img src={Chevron} alt="" />
+          </button>
+        }
       </div>
       <div className={styles.carousel}>
-        {newArrivals && 
-          newArrivals.map((item) => {
+        {filtredListProducts && 
+          filtredListProducts.map((item) => {
             return <ProductCard
               key={item.id}
               id={item.id}

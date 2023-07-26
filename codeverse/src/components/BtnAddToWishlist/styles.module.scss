@@ -1,0 +1,15 @@
+.wishBtn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: var(--accent, #F4F4F4);
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}

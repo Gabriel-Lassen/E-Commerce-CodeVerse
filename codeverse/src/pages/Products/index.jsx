@@ -6,22 +6,30 @@ import ProductImg from "../../components/Products/Products-imgs";
 import Preview from "../../components/Products/ProductPreview";
 
 import { useState, useEffect } from "react";
+import ProductOverview from "../../components/Products/Product-Overview";
+
+import { useLocation } from 'react-router-dom';
 
 const Products = () => {
   const [hidden, setHidden] = useState(false);
+  const [key, setKey] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
     const handleHidden = () => {
-      setHidden(window.innerWidth >= 768);
+      setHidden(window.innerWidth >= 769);
     };
 
     handleHidden();
 
+    let newKey = key + 1;
+    setKey(newKey);
+
     window.addEventListener("resize", handleHidden);
-  });
+  }, [location]);
 
   return (
-    <>
+    <div key={key}>
       {hidden && <Header />}
       <div className={styles.wrapper}>
         <Preview />
@@ -29,9 +37,9 @@ const Products = () => {
           <ProductsInfo />
         </div>
       </div>
-
+      <ProductOverview />
       {hidden && <Footer />}
-    </>
+    </div>
   );
 };
 
