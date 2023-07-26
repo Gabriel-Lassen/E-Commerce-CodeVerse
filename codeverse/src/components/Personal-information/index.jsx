@@ -41,13 +41,13 @@ function ProfileInformation() {
           <span>Mobile Number</span>
           <div className={styles.input_container}>
             <input
-              type="number"
+              type="tel"
               maxLength="2"
               placeholder="DDD"
               className={styles.input_small}
             />
             <input
-              type="number"
+              type="tel"
               maxLength="9"
               placeholder="Number"
               className={styles.input_large}
