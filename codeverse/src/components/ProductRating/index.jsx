@@ -44,7 +44,7 @@ const ProductRating = () => {
           <div className={styles.starQtyDefault}>
             <div
               className={styles.starQtyDynamic}
-              style={{width: `${(productRating.fiveStars * 100) / productRating.totalRatings}%`}}>
+              style={{width: `${(productRating.fiveStars * 500) / productRating.totalRatings}%`}}>
               </div>
           </div>
         </div>
@@ -53,7 +53,7 @@ const ProductRating = () => {
           <div className={styles.starQtyDefault}>
             <div
               className={styles.starQtyDynamic}
-              style={{width: `${(productRating.fourStars * 100) / productRating.totalRatings}%`}}>
+              style={{width: `${(productRating.fourStars * 500) / productRating.totalRatings}%`}}>
               </div>
           </div>
         </div>
@@ -62,7 +62,7 @@ const ProductRating = () => {
           <div className={styles.starQtyDefault}>
             <div
               className={styles.starQtyDynamic}
-              style={{width: `${(productRating.threeStars * 100) / productRating.totalRatings}%`}}>
+              style={{width: `${(productRating.threeStars * 500) / productRating.totalRatings}%`}}>
               </div>
           </div>
         </div>
@@ -71,7 +71,7 @@ const ProductRating = () => {
           <div className={styles.starQtyDefault}>
             <div
               className={styles.starQtyDynamic}
-              style={{width: `${(productRating.twoStars * 100) / productRating.totalRatings}%`}}>
+              style={{width: `${(productRating.twoStars * 500) / productRating.totalRatings}%`}}>
               </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ const ProductRating = () => {
           <div className={styles.starQtyDefault}>
             <div
               className={styles.starQtyDynamic}
-              style={{width: `${(productRating.oneStars * 100) / productRating.totalRatings}%`}}>
+              style={{width: `${(productRating.oneStars * 500) / productRating.totalRatings}%`}}>
               </div>
           </div>
         </div>
