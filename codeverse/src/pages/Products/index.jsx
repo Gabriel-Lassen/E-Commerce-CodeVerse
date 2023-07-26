@@ -23,7 +23,7 @@ const Products = () => {
   return (
     <>
       {hidden && <Header />}
-      {!hidden && <BtnBackForPage/>}
+      {!hidden && <BtnBackForPage text={'Clique para voltar'}/>}
       <div className={styles.wrapper}>
         <ProductImg />
         <div className={styles.productInfo}>
