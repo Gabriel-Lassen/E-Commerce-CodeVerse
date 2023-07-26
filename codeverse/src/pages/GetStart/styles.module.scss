@@ -9,7 +9,7 @@
   .linearBg {
     position: absolute;
     bottom: 0;
-    width: 360px;
+    width: 100vw;
     height: 398px;
     background: linear-gradient(
       180deg,
@@ -18,11 +18,12 @@
     );
     .component {
       display: flex;
-      position: absolute;
+      margin: 0 auto;
       bottom: 32px;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      transform: translateY(200px);
       h1 {
         color: var(--TypeHighEmphasis);
         font-size: 30px;
