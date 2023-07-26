@@ -7,10 +7,22 @@ import { AuthContext } from "../../contexts/Auth";
 function ProfileInformation() {
   const {user, setUser} = useContext(AuthContext)
   const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
 
   useEffect(() => {
     if (user ) {
       setFirstName(user.firstName)
+    }
+  }, [user])
+  useEffect(()=> {
+    if (user) {
+      setLastName(user.lastName)
+    }
+  }, [user])
+  useEffect(()=> {
+    if (user) {
+      setEmail(user.email)
     }
   }, [user])
   return (
@@ -42,12 +54,16 @@ function ProfileInformation() {
           </label>
           <label>
             <span>Last name</span>
-            <input type="text" />
+            <input type="text"
+            value={lastName}
+            onChange={(e)=> setLastName(e.target.value)} />
           </label>
         </div>
         <label className={styles.email}>
           <span>Email</span>
-          <input type="text" />
+          <input type="text" 
+          value={email}
+          onChange={(e)=> setEmail(e.target.value)}/>
         </label>
         <label className={styles.mobile_number}>
           <span>Mobile Number</span>
