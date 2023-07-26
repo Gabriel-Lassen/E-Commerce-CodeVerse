@@ -52,7 +52,7 @@ const OverviewMobile = () => {
         </div>
         <MobileFixedBottomBar>
             <div className={styles.btns}>
-                <BtnAddToWishlist />
+                <BtnAddToWishlist type='small' />
                 <BtnAddToBag theme='dark'/>
             </div>
         </MobileFixedBottomBar>
