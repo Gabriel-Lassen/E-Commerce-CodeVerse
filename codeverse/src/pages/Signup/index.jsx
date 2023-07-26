@@ -157,6 +157,23 @@ function Signup() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
+          <label className={styles.mobile_number}>
+          <span>Mobile Number</span>
+          <div className={styles.input_container}>
+            <input
+              type="tel"
+              maxLength="2"
+              placeholder="DDD"
+              className={styles.input_small}
+            />
+            <input
+              type="tel"
+              maxLength="9"
+              placeholder="Number"
+              className={styles.input_large}
+            />
+          </div>
+        </label>
           <label>
             <span> Date of birth: </span>
             <input
