@@ -10,6 +10,8 @@ function ProfileInformation() {
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
 
+  const [date, setDate] = useState('')
+
   useEffect(() => {
     if (user ) {
       setFirstName(user.firstName)
@@ -23,6 +25,12 @@ function ProfileInformation() {
   useEffect(()=> {
     if (user) {
       setEmail(user.email)
+    }
+  }, [user])
+
+  useEffect(()=> {
+    if (user) {
+      setDate(user.date)
     }
   }, [user])
   return (
@@ -84,7 +92,9 @@ function ProfileInformation() {
         </label>
         <label className={styles.birth}>
           <span> Date of birth</span>
-          <input type="date" />
+          <input type="text"
+          value={date}
+          onChange={(e)=> setDate(e.target.value)} />
         </label>
         <div className={styles.side}>
           <div>
