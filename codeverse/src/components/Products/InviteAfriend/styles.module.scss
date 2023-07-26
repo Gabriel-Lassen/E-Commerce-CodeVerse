@@ -1,16 +1,17 @@
 @media screen and (max-width: 768px) {
   .container {
     display: grid;
-    width: 328px;
+    width: 91.11vw;
+    max-width: 328px;
     height: 94px;
-    flex-shrink: 0;
     margin: 0 auto;
     margin-bottom: 16px;
     grid-template-columns: repeat(2, 1fr);
 
     div {
       margin-right: 19px;
-      width: 215px;
+      width: 59.72vw;
+      max-width: 215px;
       h1 {
         color: var(--TypeHighEmphasis);
         font-size: 14px;
@@ -47,6 +48,13 @@
         font-weight: 600;
         line-height: 24px;
       }
+    }
+
+    .rectangle {
+      width: 26.11vw;
+      max-width: 94px;
+      height: 26.11vw;
+      max-height: 94px;
     }
   }
 }

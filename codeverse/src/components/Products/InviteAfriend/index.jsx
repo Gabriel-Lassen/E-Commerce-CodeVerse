@@ -14,7 +14,7 @@ const InviteAFriend = () => {
           <img src={arrow} alt="" />
         </button>
       </div>
-      <img src={rectangle} alt="" />
+      <img src={rectangle} alt="" className={styles.rectangle}/>
     </div>
   );
 };
