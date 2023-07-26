@@ -9,6 +9,7 @@ import Profile from "../pages/Profile";
 import Categories from "../pages/Categories";
 import Products from "../pages/Products";
 import ProductsByCategoy from "../pages/ProductsByCategory";
+import GetStart from "../pages/GetStart";
 
 const Rotas = () => {
   return (
@@ -20,7 +21,7 @@ const Rotas = () => {
       <Route path="/products/:id" element={<Products />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/getstarted" element={''} />
+      <Route path="/getstarted" element={<GetStart/>} />
       <Route path="/mycart" element={<MyCart />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/profile/personalinformation" element={''} />
