@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: row;
     margin: 24px auto;
-
+    width: 45.26vw;
     .left {
       transform: rotate(180deg);
     }
@@ -22,8 +22,8 @@
       button {
         border-radius: 8px;
         img {
-          width: 75px;
-          height: 75px;
+          width: 5.85vw;
+          height: 5.85vw;
           border-radius: 8px;
         }
       }
