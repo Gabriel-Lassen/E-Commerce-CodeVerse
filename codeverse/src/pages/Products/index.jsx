@@ -16,7 +16,7 @@ const Products = () => {
 
   useEffect(() => {
     const handleHidden = () => {
-      setHidden(window.innerWidth >= 768);
+      setHidden(window.innerWidth >= 769);
     };
 
     handleHidden();
