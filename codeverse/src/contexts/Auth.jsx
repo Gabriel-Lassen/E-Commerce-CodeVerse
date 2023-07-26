@@ -22,7 +22,7 @@ function AuthProvider({ children }) {
     const storageUser = localStorage.getItem("CodeVerse");
     if (storageUser) {
       setUser(JSON.parse(storageUser));
-      navigate('/')
+      //navigate('/')
     }
   }
 
@@ -104,7 +104,7 @@ function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ register, signIn, user }}>
+    <AuthContext.Provider value={{ register, signIn, user, setUser }}>
       {children}
     </AuthContext.Provider>
   );

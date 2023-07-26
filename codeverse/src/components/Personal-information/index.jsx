@@ -1,8 +1,18 @@
 import styles from "./styles.module.scss";
-import user from "../../assets/imgs/imagemUser.jpg";
+import userImg from "../../assets/imgs/imagemUser.jpg";
 import arrow from "../../assets/imgs/arrow.svg";
+import { useContext, useState, useEffect } from "react";
+import { AuthContext } from "../../contexts/Auth";
 
 function ProfileInformation() {
+  const {user, setUser} = useContext(AuthContext)
+  const [firstName, setFirstName] = useState('')
+
+  useEffect(() => {
+    if (user ) {
+      setFirstName(user.firstName)
+    }
+  }, [user])
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
@@ -12,7 +22,7 @@ function ProfileInformation() {
           <hr className={styles.separator} />
         </div>
         <div className={styles.avatar}>
-          <img src={user} />
+          <img src={userImg} />
           <label>
             <span>Upload</span>
             <input type="file" accept="image/*" />
@@ -26,7 +36,9 @@ function ProfileInformation() {
         <div className={styles.row}>
           <label>
             <span>First name</span>
-            <input type="text" />
+            <input type="text"
+            value={firstName}
+            onChange={(e)=> setFirstName(e.target.value)}/>
           </label>
           <label>
             <span>Last name</span>
