@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import ProductOverview from "../../components/Products/Product-Overview";
 
 import { useLocation } from 'react-router-dom';
+import InviteAFriend from "../../components/Products/InviteAfriend";
 
 const Products = () => {
   const [hidden, setHidden] = useState(false);
@@ -34,6 +35,7 @@ const Products = () => {
         <ProductImg />
         <div className={styles.productInfo}>
           <ProductsInfo />
+          <InviteAFriend />
         </div>
       </div>
       <ProductOverview />
