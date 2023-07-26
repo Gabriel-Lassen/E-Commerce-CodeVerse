@@ -92,7 +92,7 @@ function ProfileInformation() {
         </label>
         <label className={styles.birth}>
           <span> Date of birth</span>
-          <input type="text"
+          <input type="date"
           value={date}
           onChange={(e)=> setDate(e.target.value)} />
         </label>
