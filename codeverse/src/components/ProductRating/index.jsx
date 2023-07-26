@@ -25,16 +25,18 @@ const ProductRating = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.productInfo}>
-        <span className={styles.productName}>{productName}</span>
-        <span className={styles.productDetails}>{productDetails}</span>
-      </div>
-      <div className={styles.productRating}>
-        <div className={styles.averageRating}>
-          <span>{productRating.averageStars}</span>
-          <img src={Star} alt="Average Rating" />
+      <div className={styles.product}>
+        <div className={styles.productInfo}>
+          <span className={styles.productName}>{productName}</span>
+          <span className={styles.productDetails}>{productDetails}</span>
         </div>
-        <span>Average Rating</span>
+        <div className={styles.productRating}>
+          <div className={styles.averageRating}>
+            <span>{productRating.averageStars}</span>
+            <img src={Star} alt="Average Rating" />
+          </div>
+          <span>Average Rating</span>
+        </div>
       </div>
       <div className={styles.ratingStars}>
         <div className={styles.starQtyWrapper}>
