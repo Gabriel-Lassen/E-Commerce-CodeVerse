@@ -1,0 +1,38 @@
+.btn{
+    width: 100%;
+    height: 56px;
+    background-color: var(--Bright);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+
+    .svg{
+        padding: 0 20px 0 16px;
+    }
+
+    .boxRight{
+        width: 91vw;
+        display: flex;
+        justify-content: space-between;
+
+        span{
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 26px;
+            color: var(--Primary);
+        }
+    
+        img{
+            margin-right: 16px;
+        }
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .btn{ 
+        display: none;
+    }
+}
