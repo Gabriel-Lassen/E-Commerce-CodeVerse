@@ -6,17 +6,24 @@ import { AuthContext } from "../../contexts/Auth";
 import { toast } from "react-toastify";
 
 function ProfileInformation() {
-  const {user, setUser, localStorageUser, handleDelete, handleUpdateImg, handleUpload} = useContext(AuthContext)
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [ddd, setDdd] = useState('')
-  const [number, setNumber] = useState('')
-  const [password, setPassword] = useState('')
-  const [avatar, setAvatar] = useState('')
-  const [imageAvatar, setImageAvatar] = useState('')
-  const [date, setDate] = useState('')
-
+  const {
+    user,
+    setUser,
+    localStorageUser,
+    handleDelete,
+    handleUpdateImg,
+    handleUpload,
+    handleUpdate,
+  } = useContext(AuthContext);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [ddd, setDdd] = useState("");
+  const [number, setNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [avatar, setAvatar] = useState("");
+  const [imageAvatar, setImageAvatar] = useState("");
+  const [date, setDate] = useState("");
 
   function handleFile(e) {
     if (e.target.files[0]) {
@@ -25,8 +32,8 @@ function ProfileInformation() {
       if (image.type === "image/jpeg" || image.type === "image/png") {
         setImageAvatar(image);
         setAvatar(URL.createObjectURL(image));
-        handleUpload(image, user.uid)
-        toast.success('successfully updated image')
+        handleUpload(image, user.uid);
+        toast.success("successfully updated image");
       } else {
         toast.warning("Upload a png image");
         setImageAvatar(null);
@@ -49,9 +56,20 @@ function ProfileInformation() {
   }, [user]);
 
   function handleDeleteImg() {
-    handleDelete()
-    setAvatar('https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e')
-    
+    handleDelete();
+    setAvatar(
+      "https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e"
+    );
+  }
+
+  function handleUpdateData(e) {
+    e.preventDefault()
+    if (firstName === "" || lastName === "" || ddd === "" || number === "") {
+    toast.warning('fill in all fields')
+    }
+    else {
+      handleUpdate(firstName, lastName, ddd, number)
+    }
   }
 
   return (
@@ -63,41 +81,47 @@ function ProfileInformation() {
           <hr className={styles.separator} />
         </div>
         <div className={styles.avatar}>
-        {avatar === null ? (
-              <img src={userImg} alt="" />
-            ) : (
-              <img src={avatar} alt="" />
-            )}
+          {avatar === null ? (
+            <img src={userImg} alt="" />
+          ) : (
+            <img src={avatar} alt="" />
+          )}
           <label>
             <span>Upload</span>
-            <input type="file" accept="image/*"
-            onChange={handleFile} />
+            <input type="file" accept="image/*" onChange={handleFile} />
           </label>
           <div className={styles.buttonDelete}>
             <button onClick={handleDeleteImg}>Delete</button>
           </div>
         </div>
       </div>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleUpdateData}>
         <div className={styles.row}>
           <label>
             <span>First name</span>
-            <input type="text"
-            value={firstName}
-            onChange={(e)=> setFirstName(e.target.value)}/>
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
           </label>
           <label>
             <span>Last name</span>
-            <input type="text"
-            value={lastName}
-            onChange={(e)=> setLastName(e.target.value)} />
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
           </label>
         </div>
         <label className={styles.email}>
           <span>Email</span>
-          <input type="text" 
-          value={email}
-          onChange={(e)=> setEmail(e.target.value)} disabled={true}/>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            disabled={true}
+          />
         </label>
         <label className={styles.mobile_number}>
           <span>Mobile Number</span>
@@ -107,7 +131,7 @@ function ProfileInformation() {
               maxLength="2"
               placeholder="DDD"
               value={ddd}
-              onChange={(e)=> setDdd(e.target.value)}
+              onChange={(e) => setDdd(e.target.value)}
               className={styles.input_small}
             />
             <input
@@ -115,16 +139,19 @@ function ProfileInformation() {
               maxLength="9"
               //placeholder="Number"
               value={number}
-              onChange={(e)=> setNumber(e.target.value)}
+              onChange={(e) => setNumber(e.target.value)}
               className={styles.input_large}
             />
           </div>
         </label>
         <label className={styles.birth}>
           <span> Date of birth</span>
-          <input type="date"
-          value={date}
-          onChange={(e)=> setDate(e.target.value)} />
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            disabled={true}
+          />
         </label>
         <div className={styles.side}>
           <div>
@@ -135,10 +162,12 @@ function ProfileInformation() {
         <div className={styles.password}>
           <label>
             <span>Current Password</span>
-            <input type="password" maxLength="12"
-            value={password} 
-            onChange={(e)=> setPassword(e.target.value)}
-            disabled={true}
+            <input
+              type="password"
+              maxLength="12"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={true}
             />
           </label>
           <label>
@@ -149,7 +178,7 @@ function ProfileInformation() {
             <span>Confirm password</span>
             <input type="password" maxLength="12" />
           </label>
-          <button>Save Changes</button>
+          <button type="submit">Save Changes</button>
         </div>
       </form>
     </div>

@@ -20,7 +20,6 @@ function AuthProvider({ children }) {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loadingAuth, setLoadingAuth] = useState(false);
-  const storage = getStorage();
 
   useEffect(() => {
     loadUser();
@@ -129,31 +128,53 @@ function AuthProvider({ children }) {
 
     deleteObject(desertRef)
       .then(() => {
-        toast.success('successfully deleted')
+        toast.success("successfully deleted");
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       });
   }
 
-  async function handleUpdateImg(imagem) {
-    const useref = doc(db, 'users', user.uid)
+  async function handleUpdate(firstName, lastName, ddd, number) {
+    const useref = doc(db, "users", user.uid);
 
     await updateDoc(useref, {
-      avatar: imagem
+      firstName: firstName,
+      lastName: lastName,
+      ddd: ddd,
+      number: number,
     })
-    .then(()=> {
-      let data = ({...user, avatar: imagem})
-      setUser(data)
-      localStorageUser(data)
-      loadUser()
-      toast.success('successfully updated image')
-    }) 
+      .then(() => {
+        let data = {
+          ...user,
+          firstName: firstName,
+          lastName: lastName,
+          ddd: ddd,
+          number: number,
+        };
+
+        setUser(data);
+        localStorageUser(data);
+        loadUser();
+        toast.success("data updated successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
     <AuthContext.Provider
-      value={{ register, signIn, user, setUser, localStorageUser, handleDelete,  handleUpload }}
+      value={{
+        register,
+        signIn,
+        user,
+        setUser,
+        localStorageUser,
+        handleDelete,
+        handleUpload,
+        handleUpdate,
+      }}
     >
       {children}
     </AuthContext.Provider>
