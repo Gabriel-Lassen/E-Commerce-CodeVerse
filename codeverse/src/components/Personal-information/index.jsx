@@ -6,12 +6,7 @@ import { AuthContext } from "../../contexts/Auth";
 import { toast } from "react-toastify";
 
 function ProfileInformation() {
-  const {
-    user,
-    handleDelete,
-    handleUpload,
-    handleUpdate,
-  } = useContext(AuthContext);
+  const { user, handleDelete, handleUpload, handleUpdate } = useContext(AuthContext);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,7 +21,6 @@ function ProfileInformation() {
   function handleFile(e) {
     if (e.target.files[0]) {
       const image = e.target.files[0];
-
       if (image.type === "image/jpeg" || image.type === "image/png") {
         setAvatar(URL.createObjectURL(image));
         handleUpload(image, user.uid);
@@ -52,10 +46,11 @@ function ProfileInformation() {
   }, [user]);
 
   function handleDeleteImg() {
-    handleDelete();
-    setAvatar(
-      "https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e"
-    );
+    const imgDefault = "https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e"
+    if (avatar !== imgDefault) {
+      handleDelete();
+      setAvatar(imgDefault);
+    }
   }
 
   function handleUpdateData(e) {
@@ -123,7 +118,7 @@ function ProfileInformation() {
           <div className={styles.input_container}>
             <input
               type="tel"
-              minLength='2'
+              minLength="2"
               maxLength="2"
               placeholder="DDD"
               value={ddd}
@@ -133,7 +128,7 @@ function ProfileInformation() {
             <input
               type="tel"
               maxLength="9"
-              minLength='9'
+              minLength="9"
               value={number}
               onChange={(e) => setNumber(e.target.value)}
               className={styles.input_large}

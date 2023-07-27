@@ -1,17 +1,11 @@
 import { auth, db, storage } from "../FirebaseConection";
 import { createContext, useState, useEffect } from "react";
 import { createUserWithEmailAndPassword, updatePassword } from "@firebase/auth";
-import { setDoc, doc, updateDoc, getDoc } from "@firebase/firestore";
+import { setDoc, doc, updateDoc, getDoc, onSnapshot  } from "@firebase/firestore";
 import { signInWithEmailAndPassword} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import {
-  uploadBytes,
-  ref,
-  getDownloadURL,
-  deleteObject
-} from "@firebase/storage";
+import { uploadBytes, ref, getDownloadURL, deleteObject } from "@firebase/storage";
 import { toast } from "react-toastify";
-
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
@@ -22,41 +16,38 @@ function AuthProvider({ children }) {
   useEffect(() => {
     loadUser();
   }, []);
+
   function loadUser() {
     const storageUser = localStorage.getItem("CodeVerse");
     if (storageUser) {
       setUser(JSON.parse(storageUser));
-      //navigate('/')
     }
   }
 
   async function handleUpload(image, uid) {
     const currentUid = uid;
-
     const uploadRef = ref(storage, `images/${currentUid}`);
-
     const uploadTask = uploadBytes(uploadRef, image).then((snapshot) => {
       getDownloadURL(snapshot.ref).then(async (downloadURL) => {
         let urlFoto = downloadURL;
-
         const docRef = doc(db, "users", uid);
         await updateDoc(docRef, {
           avatar: urlFoto,
-        });
+        })
+        .then(()=> {
+          let data = {
+            ...user,
+            avatar: urlFoto
+          }
+          setUser(data);
+          localStorageUser(data);
+          loadUser();
+        })
       });
     });
   }
 
-  async function register(
-    email,
-    password,
-    date,
-    firstName,
-    lastName,
-    image,
-    ddd,
-    number
-  ) {
+  async function register(email, password, date, firstName, lastName, image, ddd, number) {
     await createUserWithEmailAndPassword(auth, email, password)
       .then(async (value) => {
         let uid = value.user.uid;
@@ -80,16 +71,12 @@ function AuthProvider({ children }) {
   }
 
   async function signIn(email, password) {
-
     setLoadingAuth(true);
-
-
     await signInWithEmailAndPassword(auth, email, password)
       .then(async (value) => {
         let uid = value.user.uid;
         const docRef = doc(db, "users", uid);
         const docSnap = await getDoc(docRef);
-
         let data = {
           uid: uid,
           firstName: docSnap.data().firstName,
@@ -107,7 +94,6 @@ function AuthProvider({ children }) {
         localStorageUser(data);
         toast.success("Welcome back");
         navigate("/");
-
       })
       .catch((error) => {
         setLoadingAuth(false);
@@ -118,7 +104,6 @@ function AuthProvider({ children }) {
           return toast.error("Wrong password");
         }
       });
-
   }
 
   function localStorageUser(user) {
@@ -127,26 +112,41 @@ function AuthProvider({ children }) {
 
   async function handleDelete() {
     const desertRef = ref(storage, `images/${user.uid}`);
-
+    const useref = doc(db, "users", user.uid);
     deleteObject(desertRef)
       .then(() => {
         toast.success("successfully deleted");
       })
+
       .catch((error) => {
         console.log(error);
       });
+
+    await updateDoc(useref, {
+      avatar: 'https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e'
+    })
+    .then(() => {
+      let data = {
+        ...user,
+        avatar:'https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e'
+
+      }
+      setUser(data);
+      localStorageUser(data);
+      loadUser()
+    })
   }
+
 
   async function handleUpdate(firstName, lastName, ddd, number) {
     const useref = doc(db, "users", user.uid);
-
     await updateDoc(useref, {
       firstName: firstName,
       lastName: lastName,
       ddd: ddd,
       number: number,
     })
-      .then(() => {
+    .then(() => {
         let data = {
           ...user,
           firstName: firstName,
@@ -167,7 +167,6 @@ function AuthProvider({ children }) {
 
   async function handleUpdatePassword(password) {
     const user = auth.currentUser;
-
     updatePassword(user, password)
       .then(() => {
         toast.success("successfully updated password");
@@ -176,6 +175,7 @@ function AuthProvider({ children }) {
         console.log(error);
       });
   }
+
 
   return (
     <AuthContext.Provider
