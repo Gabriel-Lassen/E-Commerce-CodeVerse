@@ -136,9 +136,24 @@ function AuthProvider({ children }) {
       });
   }
 
+  async function handleUpdateImg(imagem) {
+    const useref = doc(db, 'users', user.uid)
+
+    await updateDoc(useref, {
+      avatar: imagem
+    })
+    .then(()=> {
+      let data = ({...user, avatar: imagem})
+      setUser(data)
+      localStorageUser(data)
+      loadUser()
+      toast.success('successfully updated image')
+    }) 
+  }
+
   return (
     <AuthContext.Provider
-      value={{ register, signIn, user, setUser, localStorageUser, handleDelete }}
+      value={{ register, signIn, user, setUser, localStorageUser, handleDelete,  handleUpload }}
     >
       {children}
     </AuthContext.Provider>

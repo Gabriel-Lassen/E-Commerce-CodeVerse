@@ -3,16 +3,17 @@ import userImg from "../../assets/imgs/imagemUser.jpg";
 import arrow from "../../assets/imgs/arrow.svg";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../contexts/Auth";
+import { toast } from "react-toastify";
 
 function ProfileInformation() {
-  const {user, setUser, localStorageUser, handleDelete} = useContext(AuthContext)
+  const {user, setUser, localStorageUser, handleDelete, handleUpdateImg, handleUpload} = useContext(AuthContext)
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [ddd, setDdd] = useState('')
   const [number, setNumber] = useState('')
   const [password, setPassword] = useState('')
-  const [avatar, setAvatarUrl] = useState('')
+  const [avatar, setAvatar] = useState('')
   const [imageAvatar, setImageAvatar] = useState('')
   const [date, setDate] = useState('')
 
@@ -23,7 +24,9 @@ function ProfileInformation() {
 
       if (image.type === "image/jpeg" || image.type === "image/png") {
         setImageAvatar(image);
-        setAvatarUrl(URL.createObjectURL(image));
+        setAvatar(URL.createObjectURL(image));
+        handleUpload(image, user.uid)
+        toast.success('successfully updated image')
       } else {
         toast.warning("Upload a png image");
         setImageAvatar(null);
@@ -41,13 +44,13 @@ function ProfileInformation() {
       setPassword(user.password);
       setDdd(user.ddd);
       setNumber(user.number);
-      setAvatarUrl(user.avatar);
+      setAvatar(user.avatar);
     }
   }, [user]);
 
   function handleDeleteImg() {
     handleDelete()
-    setAvatarUrl('https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e')
+    setAvatar('https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e')
     
   }
 
