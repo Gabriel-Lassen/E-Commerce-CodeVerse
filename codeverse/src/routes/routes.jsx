@@ -9,6 +9,7 @@ import Profile from "../pages/Profile";
 import Categories from "../pages/Categories";
 import Products from "../pages/Products";
 import ProductsByCategoy from "../pages/ProductsByCategory";
+import ReferandEarn from "../components/Refer-Earn";
 
 const Rotas = () => {
   return (
