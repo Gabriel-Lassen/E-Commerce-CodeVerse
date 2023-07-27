@@ -1,16 +1,14 @@
 import { auth, db, storage } from "../FirebaseConection";
 import { createContext, useState, useEffect } from "react";
-import { createUserWithEmailAndPassword } from "@firebase/auth";
+import { createUserWithEmailAndPassword, updatePassword } from "@firebase/auth";
 import { setDoc, doc, updateDoc, getDoc } from "@firebase/firestore";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { async } from "@firebase/util";
 import {
   uploadBytes,
   ref,
   getDownloadURL,
-  deleteObject,
-  getStorage,
+  deleteObject
 } from "@firebase/storage";
 import { toast } from "react-toastify";
 
@@ -82,12 +80,13 @@ function AuthProvider({ children }) {
   }
 
   async function signIn(email, password) {
+
     setLoadingAuth(true);
+
 
     await signInWithEmailAndPassword(auth, email, password)
       .then(async (value) => {
         let uid = value.user.uid;
-
         const docRef = doc(db, "users", uid);
         const docSnap = await getDoc(docRef);
 
@@ -102,11 +101,13 @@ function AuthProvider({ children }) {
           ddd: docSnap.data().ddd,
           number: docSnap.data().number,
         };
+
         setUser(data);
         setLoadingAuth(false);
         localStorageUser(data);
         toast.success("Welcome back");
         navigate("/");
+
       })
       .catch((error) => {
         setLoadingAuth(false);
@@ -117,6 +118,7 @@ function AuthProvider({ children }) {
           return toast.error("Wrong password");
         }
       });
+
   }
 
   function localStorageUser(user) {
@@ -163,6 +165,18 @@ function AuthProvider({ children }) {
       });
   }
 
+  async function handleUpdatePassword(password) {
+    const user = auth.currentUser;
+
+    updatePassword(user, password)
+      .then(() => {
+        toast.success("successfully updated password");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -174,6 +188,7 @@ function AuthProvider({ children }) {
         handleDelete,
         handleUpload,
         handleUpdate,
+        handleUpdatePassword,
       }}
     >
       {children}

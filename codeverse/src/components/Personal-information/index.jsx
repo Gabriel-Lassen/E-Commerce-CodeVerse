@@ -8,10 +8,7 @@ import { toast } from "react-toastify";
 function ProfileInformation() {
   const {
     user,
-    setUser,
-    localStorageUser,
     handleDelete,
-    handleUpdateImg,
     handleUpload,
     handleUpdate,
   } = useContext(AuthContext);
@@ -22,21 +19,20 @@ function ProfileInformation() {
   const [number, setNumber] = useState("");
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState("");
-  const [imageAvatar, setImageAvatar] = useState("");
   const [date, setDate] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   function handleFile(e) {
     if (e.target.files[0]) {
       const image = e.target.files[0];
 
       if (image.type === "image/jpeg" || image.type === "image/png") {
-        setImageAvatar(image);
         setAvatar(URL.createObjectURL(image));
         handleUpload(image, user.uid);
         toast.success("successfully updated image");
       } else {
         toast.warning("Upload a png image");
-        setImageAvatar(null);
         return;
       }
     }
@@ -63,12 +59,11 @@ function ProfileInformation() {
   }
 
   function handleUpdateData(e) {
-    e.preventDefault()
+    e.preventDefault();
     if (firstName === "" || lastName === "" || ddd === "" || number === "") {
-    toast.warning('fill in all fields')
-    }
-    else {
-      handleUpdate(firstName, lastName, ddd, number)
+      toast.warning("fill in all fields");
+    } else {
+      handleUpdate(firstName, lastName, ddd, number);
     }
   }
 
@@ -128,6 +123,7 @@ function ProfileInformation() {
           <div className={styles.input_container}>
             <input
               type="tel"
+              minLength='2'
               maxLength="2"
               placeholder="DDD"
               value={ddd}
@@ -137,7 +133,7 @@ function ProfileInformation() {
             <input
               type="tel"
               maxLength="9"
-              //placeholder="Number"
+              minLength='9'
               value={number}
               onChange={(e) => setNumber(e.target.value)}
               className={styles.input_large}
@@ -172,11 +168,21 @@ function ProfileInformation() {
           </label>
           <label>
             <span>New Password</span>
-            <input type="password" maxLength="12" />
+            <input
+              type="password"
+              maxLength="12"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
           </label>
           <label>
             <span>Confirm password</span>
-            <input type="password" maxLength="12" />
+            <input
+              type="password"
+              maxLength="12"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
           </label>
           <button type="submit">Save Changes</button>
         </div>
