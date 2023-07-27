@@ -32,50 +32,18 @@ function ProfileInformation() {
     }
   }
 
-
   useEffect(() => {
-    if (user ) {
-      setFirstName(user.firstName)
-    }
-  }, [user])
-  useEffect(()=> {
     if (user) {
-      setLastName(user.lastName)
+      setFirstName(user.firstName);
+      setLastName(user.lastName);
+      setEmail(user.email);
+      setDate(user.date);
+      setPassword(user.password);
+      setDdd(user.ddd);
+      setNumber(user.number);
+      setAvatarUrl(user.avatar);
     }
-  }, [user])
-  useEffect(()=> {
-    if (user) {
-      setEmail(user.email)
-    }
-  }, [user])
-
-  useEffect(()=> {
-    if (user) {
-      setDate(user.date)
-    }
-  }, [user])
-
-  useEffect(()=> {
-    if (user) {
-      setPassword(user.password)
-    }
-  }, [user])
-
-  useEffect(()=> {
-    if (user) {
-      setDdd(user.ddd)
-    }
-  }, [user])
-  useEffect(()=> {
-    if (user) {
-      setNumber(user.number)
-    }
-  }, [user])
-  useEffect(()=> {
-    if (user) {
-      setAvatarUrl(user.avatar)
-    }
-  }, [user])
+  }, [user]);
 
   return (
     <div className={styles.container}>
