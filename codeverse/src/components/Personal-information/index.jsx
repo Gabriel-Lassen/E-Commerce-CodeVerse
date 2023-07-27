@@ -129,6 +129,7 @@ function ProfileInformation() {
             <input type="password" maxLength="12"
             value={password} 
             onChange={(e)=> setPassword(e.target.value)}
+            disabled={true}
             />
           </label>
           <label>
