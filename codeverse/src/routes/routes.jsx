@@ -9,7 +9,7 @@ import Profile from "../pages/Profile";
 import Categories from "../pages/Categories";
 import Products from "../pages/Products";
 import ProductsByCategoy from "../pages/ProductsByCategory";
-import ReferandEarn from "../components/Refer-Earn";
+import ReferAndEarn from "../pages/ReferAndEarn";
 
 const Rotas = () => {
   return (
@@ -25,7 +25,7 @@ const Rotas = () => {
       <Route path="/mycart" element={<MyCart />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/profile/personalinformation" element={""} />
-      <Route path="/profile/referandearn" element={<ReferandEarn />} />
+      <Route path="/profile/referandearn" element={<ReferAndEarn />} />
       <Route path="/profile/myorders" element={""} />
       <Route path="/profile/mywishlist" element={<WishList />} />
       <Route path="/profile/myreviews" element={""} />
