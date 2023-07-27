@@ -9,6 +9,9 @@ function ProfileInformation() {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
+  const [ddd, setDdd] = useState('')
+  const [number, setNumber] = useState('')
+  const [password, setPassword] = useState('')
 
   const [date, setDate] = useState('')
 
@@ -33,6 +36,24 @@ function ProfileInformation() {
       setDate(user.date)
     }
   }, [user])
+
+  useEffect(()=> {
+    if (user) {
+      setPassword(user.password)
+    }
+  }, [user])
+
+  useEffect(()=> {
+    if (user) {
+      setDdd(user.ddd)
+    }
+  }, [user])
+  useEffect(()=> {
+    if (user) {
+      setNumber(user.number)
+    }
+  }, [user])
+
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
@@ -71,7 +92,7 @@ function ProfileInformation() {
           <span>Email</span>
           <input type="text" 
           value={email}
-          onChange={(e)=> setEmail(e.target.value)}/>
+          onChange={(e)=> setEmail(e.target.value)} disabled={true}/>
         </label>
         <label className={styles.mobile_number}>
           <span>Mobile Number</span>
@@ -80,12 +101,15 @@ function ProfileInformation() {
               type="tel"
               maxLength="2"
               placeholder="DDD"
+              value={ddd}
               className={styles.input_small}
             />
             <input
               type="tel"
               maxLength="9"
-              placeholder="Number"
+              //placeholder="Number"
+              value={number}
+              onChange={(e)=> setNumber(e.target.value)}
               className={styles.input_large}
             />
           </div>
@@ -105,7 +129,10 @@ function ProfileInformation() {
         <div className={styles.password}>
           <label>
             <span>Current Password</span>
-            <input type="password" maxLength="12" />
+            <input type="password" maxLength="12"
+            value={password} 
+            onChange={(e)=> setPassword(e.target.value)}
+            />
           </label>
           <label>
             <span>New Password</span>

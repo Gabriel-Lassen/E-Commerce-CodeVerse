@@ -48,6 +48,7 @@ function AuthProvider({ children }) {
       .then(async (value) => {
         let uid = value.user.uid;
         await setDoc(doc(db, "users", uid), {
+          password: password,
           firstName: firstName,
           lastName: lastName,
           email: email,
@@ -82,6 +83,9 @@ function AuthProvider({ children }) {
           email: docSnap.data().email,
           date: docSnap.data().date,
           avatar: docSnap.data().avatar,
+          password: docSnap.data().password,
+          ddd: docSnap.data().ddd,
+          number: docSnap.data().number,
         };
         setUser(data);
         setLoadingAuth(false);
