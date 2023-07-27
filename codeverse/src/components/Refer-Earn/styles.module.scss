@@ -1,98 +1,155 @@
-.container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 
-  img {
-    margin-top: 66px;
-    padding: 0 66px;
+    img {
+      margin: 0 auto;
+      width: 60vw;
+      margin-top: 66px;
+      padding: 0 66px;
+    }
+
+    .invite {
+      width: 228px;
+      margin: 0 auto;
+
+      p {
+        margin-top: 20px;
+        height: 36px;
+        color: var(--TypeHighEmphasis);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+        text-align: center;
+      }
+    }
+
+    .text {
+      margin: 0 auto;
+      width: 324px;
+      padding-left: 40px;
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        text-align: start;
+
+        li {
+          color: var(--TypeLowEmphasis);
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 18px;
+          list-style: disc;
+        }
+      }
+    }
+
+    input {
+      padding: 10px 10px;
+      width: 229px;
+      height: 39px;
+      border: 2px dashed #000;
+      margin-top: 36px;
+      border-radius: 8px;
+      margin-left: 2px;
+      margin-bottom: 12px;
+    }
+
+    .copycode {
+      p {
+        width: 100%;
+        font-family: Inter;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 16px;
+        text-align: center;
+        color: var(--TypeLowEmphasis);
+        margin-bottom: 12px;
+      }
+    }
+    .content {
+      margin: 0 auto;
+    }
+    .tittle {
+      h3 {
+        width: 206px;
+        font-family: Inter;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+        margin-top: 25px;
+        margin-left: 16px;
+        color: var(--TypeHighEmphasis);
+        margin-bottom: 10px;
+      }
+    }
+
+    button {
+      margin: 16px;
+      width: 320px;
+      height: 44px;
+      background-color: var(--Primary);
+      border-radius: 8px;
+      color: var(--Bright);
+      font-weight: 600;
+      align-items: center;
+    }
   }
 
-  .invite {
-    width: 228px;
-    margin: 0 auto;
-
-    p {
-      margin-top: 20px;
-      height: 36px;
-      color: var(--TypeHighEmphasis);
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 18px;
-      text-align: center;
-    }
+  img {
+    padding: 0 20px;
   }
 
   .text {
-    width: 324px;
-    padding-left: 40px;
-    ul {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-      text-align: start;
-
-      li {
-        color: var(--TypeLowEmphasis);
-        font-family: Inter;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 18px;
-        list-style: disc;
-      }
-    }
+    width: 100%;
+    padding-left: 20px;
   }
 
   input {
-    padding: 10px 10px;
-    width: 229px;
-    height: 39px;
-    border: 2px dashed #000;
-    margin-top: 36px;
-    border-radius: 8px;
-    margin-left: 2px;
-    margin-bottom: 12px;
-  }
-
-  .copycode {
-    p {
-      width: 100%;
-      font-family: Inter;
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 16px;
-      text-align: center;
-      color: var(--TypeLowEmphasis);
-      margin-bottom: 12px;
-    }
+    width: 100%;
   }
 
   .tittle {
     h3 {
-      width: 206px;
-      font-family: Inter;
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 16px;
-      margin-top: 25px;
-      margin-left: 16px;
-      color: var(--TypeHighEmphasis);
-      margin-bottom: 10px;
+      width: 100%;
+      margin-left: 0;
     }
   }
 
   button {
-    margin: 16px;
-    width: 320px;
-    height: 44px;
-    background-color: var(--Primary);
-    border-radius: 8px;
-    color: var(--Bright);
-    font-weight: 600;
-    align-items: center;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    margin-left: 23px;
+    justify-content: flex-end;
+
+    input {
+      margin: 0 auto;
+      padding: 10px 10px;
+      width: 229px;
+      height: 39px;
+      border: 2px dashed #000;
+      margin-top: 36px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+  }
+  img {
+    display: flex;
+    justify-content: center;
+  }
+
+  .content {
+    margin: 0 auto;
   }
 }

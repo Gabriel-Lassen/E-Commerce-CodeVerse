@@ -1,6 +1,5 @@
 import styles from "../Refer-Earn/styles.module.scss";
 import imgRE from "../../assets/imgs/Refer&Earn.png";
-import { Link } from "react-router-dom";
 
 const ReferandEarn = () => {
   return (
@@ -15,20 +14,22 @@ const ReferandEarn = () => {
       <div className={styles.copycode}>
         <p>Tap to copy the code.</p>
       </div>
-      <div className={styles.tittle}>
-        <h3>How does this works?</h3>
+      <div className={styles.content}>
+        <div className={styles.tittle}>
+          <h3>How does this works?</h3>
+        </div>
+        <div className={styles.text}>
+          <ul>
+            <li>Invite your friends to CORAL</li>
+            <li>
+              Ask your friends to place their order with your code & get $20
+              discount
+            </li>
+            <li>Once the order gets delivered you get the discount as well.</li>
+          </ul>
+        </div>
+        <button className={styles.button}>Invite now</button>
       </div>
-      <div className={styles.text}>
-        <ul>
-          <li>Invite your friends to CORAL</li>
-          <li>
-            Ask your friends to place their order with your code & get $20
-            discount
-          </li>
-          <li>Once the order gets delivered you get the discount as well.</li>
-        </ul>
-      </div>
-      <button className={styles.button}>Invite now</button>
     </div>
   );
 };
