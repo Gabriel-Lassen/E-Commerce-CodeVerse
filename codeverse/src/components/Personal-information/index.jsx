@@ -5,15 +5,33 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../contexts/Auth";
 
 function ProfileInformation() {
-  const {user, setUser} = useContext(AuthContext)
+  const {user, setUser, localStorageUser} = useContext(AuthContext)
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [ddd, setDdd] = useState('')
   const [number, setNumber] = useState('')
   const [password, setPassword] = useState('')
-
+  const [avatar, setAvatarUrl] = useState('')
+  const [imageAvatar, setImageAvatar] = useState('')
   const [date, setDate] = useState('')
+
+
+  function handleFile(e) {
+    if (e.target.files[0]) {
+      const image = e.target.files[0];
+
+      if (image.type === "image/jpeg" || image.type === "image/png") {
+        setImageAvatar(image);
+        setAvatarUrl(URL.createObjectURL(image));
+      } else {
+        toast.warning("Upload a png image");
+        setImageAvatar(null);
+        return;
+      }
+    }
+  }
+
 
   useEffect(() => {
     if (user ) {
@@ -53,6 +71,11 @@ function ProfileInformation() {
       setNumber(user.number)
     }
   }, [user])
+  useEffect(()=> {
+    if (user) {
+      setAvatarUrl(user.avatar)
+    }
+  }, [user])
 
   return (
     <div className={styles.container}>
@@ -63,10 +86,15 @@ function ProfileInformation() {
           <hr className={styles.separator} />
         </div>
         <div className={styles.avatar}>
-          <img src={userImg} />
+        {avatar === null ? (
+              <img src={userImg} alt="" />
+            ) : (
+              <img src={avatar} alt="" />
+            )}
           <label>
             <span>Upload</span>
-            <input type="file" accept="image/*" />
+            <input type="file" accept="image/*"
+            onChange={handleFile} />
           </label>
           <div className={styles.buttonDelete}>
             <button>Delete</button>
@@ -102,6 +130,7 @@ function ProfileInformation() {
               maxLength="2"
               placeholder="DDD"
               value={ddd}
+              onChange={(e)=> setDdd(e.target.value)}
               className={styles.input_small}
             />
             <input

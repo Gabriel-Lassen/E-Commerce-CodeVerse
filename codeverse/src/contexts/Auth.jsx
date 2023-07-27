@@ -86,6 +86,7 @@ function AuthProvider({ children }) {
           password: docSnap.data().password,
           ddd: docSnap.data().ddd,
           number: docSnap.data().number,
+
         };
         setUser(data);
         setLoadingAuth(false);
@@ -110,7 +111,7 @@ function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ register, signIn, user, setUser }}>
+    <AuthContext.Provider value={{ register, signIn, user, setUser, localStorageUser }}>
       {children}
     </AuthContext.Provider>
   );
