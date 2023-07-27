@@ -5,7 +5,7 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../contexts/Auth";
 
 function ProfileInformation() {
-  const {user, setUser, localStorageUser} = useContext(AuthContext)
+  const {user, setUser, localStorageUser, handleDelete} = useContext(AuthContext)
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -45,6 +45,12 @@ function ProfileInformation() {
     }
   }, [user]);
 
+  function handleDeleteImg() {
+    handleDelete()
+    setAvatarUrl('https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e')
+    
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
@@ -65,7 +71,7 @@ function ProfileInformation() {
             onChange={handleFile} />
           </label>
           <div className={styles.buttonDelete}>
-            <button>Delete</button>
+            <button onClick={handleDeleteImg}>Delete</button>
           </div>
         </div>
       </div>
