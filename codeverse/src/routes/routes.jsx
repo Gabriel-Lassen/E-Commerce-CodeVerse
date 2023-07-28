@@ -9,6 +9,7 @@ import Profile from "../pages/Profile";
 import Categories from "../pages/Categories";
 import Products from "../pages/Products";
 import ProductsByCategoy from "../pages/ProductsByCategory";
+import ReferAndEarn from "../pages/ReferAndEarn";
 import ProfileInformation from "../components/Personal-information";
 
 const Rotas = () => {
@@ -21,16 +22,19 @@ const Rotas = () => {
       <Route path="/products/:id" element={<Products />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/getstarted" element={''} />
+      <Route path="/getstarted" element={""} />
       <Route path="/mycart" element={<MyCart />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/profile/personalinformation" element={""} />
+      <Route path="/profile/referandearn" element={<ReferAndEarn />} />
+      <Route path="/profile/myorders" element={""} />
       <Route path="/profile/personalinformation" element={<ProfileInformation/>} />
       <Route path="/profile/referandearn" element={''} />
       <Route path="/profile/myorders" element={''} />
       <Route path="/profile/mywishlist" element={<WishList />} />
-      <Route path="/profile/myreviews" element={''} />
-      <Route path="/profile/myaddressbook" element={''} />
-      <Route path="/profile/mysavedcards" element={''} />
+      <Route path="/profile/myreviews" element={""} />
+      <Route path="/profile/myaddressbook" element={""} />
+      <Route path="/profile/mysavedcards" element={""} />
     </Routes>
   );
 };

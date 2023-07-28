@@ -2,7 +2,8 @@ import styles from "./styles.module.scss";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import ProductsInfo from "../../components/Products/Product-Info";
-import ProductImg from "../../components/Products/Products-imgs";
+import BtnBackForPage from "../../components/BtnBackForPage";
+import ArrowSvg from "../../components/ArrowSvg";
 import Preview from "../../components/Products/ProductPreview";
 
 import { useState, useEffect } from "react";
@@ -33,6 +34,7 @@ const Products = () => {
   return (
     <div key={key}>
       {hidden && <Header />}
+     <BtnBackForPage svg={<ArrowSvg color='var(--Dark)' direction='left'/>} />
       <div className={styles.wrapper}>
         <Preview />
         <div className={styles.productInfo}>
