@@ -22,7 +22,6 @@ function AuthProvider({ children }) {
     const storageUser = localStorage.getItem("CodeVerse");
     if (storageUser) {
       setUser(JSON.parse(storageUser));
-      navigate('/')
     }
   }
 
