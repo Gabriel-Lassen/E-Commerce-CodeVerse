@@ -59,6 +59,7 @@ function AuthProvider({ children }) {
           date: date,
           ddd: ddd,
           number: number,
+          inviteCode: Math.random().toString(36).slice(3).toUpperCase(),
         }).then(() => {
           toast.success("successfully registered");
           navigate("/login");
