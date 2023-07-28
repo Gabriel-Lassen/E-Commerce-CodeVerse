@@ -1,16 +1,27 @@
 import styles from "../Refer-Earn/styles.module.scss";
 import imgRE from "../../assets/imgs/Refer&Earn.png";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../contexts/Auth";
 
 const ReferandEarn = () => {
+  const { user } = useContext(AuthContext);
+  const [inviteCode, setInviteCode] = useState('');
+
+  useEffect(() => {
+    if(user){
+      setInviteCode(user.inviteCode);
+    }
+  }, [user])
+
   return (
     <div className={styles.container}>
       <img src={imgRE} alt="" />
       <div className={styles.invite}>
         <p>Invite your friend and earn $20 on every invite</p>
       </div>
-      <div className={styles.boxcode}>
-        <input type="text" />
-      </div>
+      <button className={styles.boxcode} onClick={() => {navigator.clipboard.writeText(inviteCode)}}>
+        <span>{inviteCode}</span>
+      </button>
       <div className={styles.copycode}>
         <p>Tap to copy the code.</p>
       </div>
