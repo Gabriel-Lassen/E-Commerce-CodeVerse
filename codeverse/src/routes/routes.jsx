@@ -11,7 +11,7 @@ import Products from "../pages/Products";
 import ProductsByCategoy from "../pages/ProductsByCategory";
 import GetStart from "../pages/GetStart";
 import ReferAndEarn from "../pages/ReferAndEarn";
-import ProfileInformation from "../components/Personal-information";
+import PersonalInformation from "../pages/PersonalInformation";
 
 const Rotas = () => {
   return (
@@ -26,7 +26,7 @@ const Rotas = () => {
       <Route path="/getstarted" element={<GetStart/>} />
       <Route path="/mycart" element={<MyCart />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/profile/personalinformation" element={<ProfileInformation/>} />
+      <Route path="/profile/personalinformation" element={<PersonalInformation/>} />
       <Route path="/profile/referandearn" element={<ReferAndEarn />} />
       <Route path="/profile/myorders" element={""} />
       <Route path="/profile/mywishlist" element={<WishList />} />
