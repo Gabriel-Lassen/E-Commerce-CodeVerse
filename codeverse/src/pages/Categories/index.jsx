@@ -37,19 +37,19 @@ const Categories = () => {
         <h1>Categories</h1>
       </div>
       <div className={styles.categorys}>
-        <Link to="/">
+        <Link to="/categories/skincare">
           <img src={skincare} alt="" />
         </Link>
-        <Link to="/">
+        <Link to="/categories/fragrance">
           <img src={fragrance} alt="" />
         </Link>
-        <Link to="/">
+        <Link to="/categories/handbags">
           <img src={handbags} alt="" />
         </Link>
-        <Link to="/">
+        <Link to="/categories/eyewear">
           <img src={eyewear} alt="" />
         </Link>
-        <Link to="/">
+        <Link to="/categories/apparels">
           <img src={apparels} alt="" />
         </Link>
       </div>

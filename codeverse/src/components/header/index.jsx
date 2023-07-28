@@ -70,7 +70,7 @@ const Header = () => {
           <img className={styles.searchDk} src={SearchDk} />
         </div>
         <nav>
-          <Link to="/wishlist">
+          <Link to="/profile/mywishlist">
             <img src={Fav} alt="Ícone de Favoritos" />
           </Link>
           <Link to="/profile">

@@ -16,7 +16,7 @@ const Drawer = ({active}) => {
     <div className={styles.background} onClick={closeDrawer}>
       <nav className={styles.drawer}>
 
-        <Link className={styles.Link} to={'/about'}>
+        <Link className={styles.Link} to={'/profile'}>
           <div className={styles.boxProfile}>
             <img src={Avatar} alt="avatar" />
             <h2>Hello, User </h2>
@@ -29,49 +29,49 @@ const Drawer = ({active}) => {
         <ul>
           <span>Top Categories</span>
 
-            <Link className={styles.Link} to={'/categories/'}>
+            <Link className={styles.Link} to={'/categories/skincare'}>
             <li>
             Skincare
             <ArrowSvg color='var(--TypeLowEmphasis)' label="Skincare" />
             </li>
             </Link>
             
-            <Link className={styles.Link} to={'/categories/'}>
+            <Link className={styles.Link} to={'/categories/apparels'}>
             <li>
             Apparels
             <ArrowSvg color='var(--TypeLowEmphasis)' label="Apparels"/>
             </li>
             </Link>
             
-            <Link className={styles.Link} to={'/categories/'}>
+            <Link className={styles.Link} to={'/categories/jwellery'}>
             <li>
             Jwellery
             <ArrowSvg color='var(--TypeLowEmphasis)' label="Jwellery"/>
             </li>
             </Link>
             
-            <Link className={styles.Link} to={'/categories/'}>
+            <Link className={styles.Link} to={'/categories/handbags'}>
             <li>
             Handbags
             <ArrowSvg color='var(--TypeLowEmphasis)' label="Handbags"/>
             </li>
             </Link>
            
-            <Link className={styles.Link} to={'/categories/'}>
+            <Link className={styles.Link} to={'/categories/eyeware'}>
             <li>
             Eyeware
             <ArrowSvg color="var(--TypeLowEmphasis)" label="Eyeware"/> 
             </li>
             </Link>
             
-            <Link className={styles.Link} to={'/categories/'}>
+            <Link className={styles.Link} to={'/categories/fragrance'}>
             <li>
             Fragrance
             <ArrowSvg color='var(--TypeLowEmphasis)' label="Fragrance"/> 
             </li>
             </Link>
            
-            <Link className={styles.Link} to={'/categories/'}>
+            <Link className={styles.Link} to={'/categories/watches'}>
             <li>
             Watches
             <ArrowSvg color='var(--TypeLowEmphasis)' label="Watches"/>    
