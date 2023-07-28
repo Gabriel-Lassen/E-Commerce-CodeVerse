@@ -1,9 +1,9 @@
-
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import BtnBackForPage from "../../components/BtnBackForPage";
 import ArrowSvg from "../../components/ArrowSvg";
-
+import styles from './styles.module.scss'
+import SideBarProfile from "../../components/SideBar-Profile";
 import { useState, useEffect } from "react";
 import ProfileInformation from "../../components/Personal-information";
 
@@ -12,7 +12,7 @@ const PersonalInformation = () => {
 
   useEffect(() => {
     const handleHidden = () => {
-      setHidden(window.innerWidth >= 768);
+      setHidden(window.innerWidth >= 769);
     };
 
     handleHidden();
@@ -26,7 +26,10 @@ const PersonalInformation = () => {
         svg={<ArrowSvg color="var(--Primary)" direction="left" />}
         text="Personal Information"
       />
-      <ProfileInformation />
+      <div className={styles.wrapper}>
+        {hidden && <SideBarProfile />}
+        <ProfileInformation />
+      </div>
       {hidden && <Footer />}
     </div>
   );
