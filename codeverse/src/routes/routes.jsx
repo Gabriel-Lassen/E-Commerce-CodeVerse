@@ -26,12 +26,9 @@ const Rotas = () => {
       <Route path="/getstarted" element={<GetStart/>} />
       <Route path="/mycart" element={<MyCart />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/profile/personalinformation" element={""} />
+      <Route path="/profile/personalinformation" element={<ProfileInformation/>} />
       <Route path="/profile/referandearn" element={<ReferAndEarn />} />
       <Route path="/profile/myorders" element={""} />
-      <Route path="/profile/personalinformation" element={<ProfileInformation/>} />
-      <Route path="/profile/referandearn" element={''} />
-      <Route path="/profile/myorders" element={''} />
       <Route path="/profile/mywishlist" element={<WishList />} />
       <Route path="/profile/myreviews" element={""} />
       <Route path="/profile/myaddressbook" element={""} />
