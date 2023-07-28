@@ -88,6 +88,7 @@ function AuthProvider({ children }) {
           password: docSnap.data().password,
           ddd: docSnap.data().ddd,
           number: docSnap.data().number,
+          inviteCode: docSnap.data().inviteCode
         };
 
         setUser(data);
