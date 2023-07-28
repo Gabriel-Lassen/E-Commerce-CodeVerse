@@ -1,4 +1,4 @@
-import arrow from "../../../assets/imgs/arrow.svg";
+import arrow from "../../../assets/imgs/arrowLong.svg";
 import styles from "./styles.module.scss";
 import rectangle from "../../../assets/imgs/rectangle.png";
 
