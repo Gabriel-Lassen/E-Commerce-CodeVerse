@@ -6,7 +6,8 @@ import { AuthContext } from "../../contexts/Auth";
 import { toast } from "react-toastify";
 
 function ProfileInformation() {
-  const { user, handleDelete, handleUpload, handleUpdate } = useContext(AuthContext);
+  const { user, handleDelete, handleUpload, handleUpdate } =
+    useContext(AuthContext);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -46,7 +47,8 @@ function ProfileInformation() {
   }, [user]);
 
   function handleDeleteImg() {
-    const imgDefault = "https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e"
+    const imgDefault =
+      "https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e";
     if (avatar !== imgDefault) {
       handleDelete();
       setAvatar(imgDefault);
@@ -179,7 +181,9 @@ function ProfileInformation() {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </label>
-          <button type="submit">Save Changes</button>
+          <div>
+            <button type="submit">Save Changes</button>
+          </div>
         </div>
       </form>
     </div>
