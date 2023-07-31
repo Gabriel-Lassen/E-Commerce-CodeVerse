@@ -4,6 +4,7 @@ import ArrowSvg from "../ArrowSvg";
 
 import SearchIcon from "../../assets/imgs/search_desktop.svg";
 
+// eslint-disable-next-line react/prop-types
 const Search = ({ active }) => {
   const close = () => {
     active(false);
@@ -23,8 +24,10 @@ const Search = ({ active }) => {
         </div>
       </div>
 
-      <ul>
-       
+      <ul className={styles.recentSearchs}>
+        <li>Womens Wrist Watches</li>
+        <li>Chanel Perfumes</li>
+        <li>Claute Bags</li>
       </ul>
 
       <div className={styles.carousel}>
