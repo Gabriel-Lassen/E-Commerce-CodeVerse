@@ -24,11 +24,14 @@ const Search = ({ active }) => {
         </div>
       </div>
 
-      <ul className={styles.recentSearchs}>
-        <li>Womens Wrist Watches</li>
-        <li>Chanel Perfumes</li>
-        <li>Claute Bags</li>
-      </ul>
+      <div className={styles.recentSearchs}>
+        <h2>Recent Searchs</h2>
+        <ul>
+          <li>Womens Wrist Watches</li>
+          <li>Chanel Perfumes</li>
+          <li>Claute Bags</li>
+        </ul>
+      </div>
 
       <div className={styles.carousel}>
         <ProductsCarousel

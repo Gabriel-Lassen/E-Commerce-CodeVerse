@@ -42,34 +42,45 @@
       }
     }
   }
-
   .recentSearchs {
-    display: flex;
-    justify-content: center;
-
-    flex-wrap: wrap;
-    gap: 7px;
-
+    
     h2 {
       color: var(--TypeHighEmphasis);
-
       font-size: 14px;
       font-style: normal;
       font-weight: 600;
       line-height: 16px;
+      margin-bottom: 8px;
+      margin-left: 16px;
     }
 
-    li {
+    ul {
       display: flex;
-      flex-direction: row;
-      padding: 7px 12px;
-      align-items: flex-start;
-      gap: 4px;
-      border-radius: 8px;
-      background: var(--Accent);
+      justify-content: center;
+
+      flex-wrap: wrap;
+      gap: 7px;
+
+      h2 {
+        color: var(--TypeHighEmphasis);
+
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+      }
+
+      li {
+        display: flex;
+        flex-direction: row;
+        padding: 7px 12px;
+        align-items: flex-start;
+        gap: 4px;
+        border-radius: 8px;
+        background: var(--Accent);
+      }
     }
   }
-
   .carousel {
     display: flex;
     justify-content: center;
