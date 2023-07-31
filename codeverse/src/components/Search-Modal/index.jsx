@@ -4,32 +4,32 @@ import ArrowSvg from "../ArrowSvg";
 
 import SearchIcon from "../../assets/imgs/search_desktop.svg";
 
-import { useNavigate } from "react-router-dom";
-
 const Search = ({ active }) => {
-  const navigate = useNavigate();
-
-  const handleBackPage = () => {
-    navigate(-1);
+  const close = () => {
+    active(false);
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.topBar}>
-        <button className={styles.btn} onClick={handleBackPage}>
+        <button className={styles.btn} onClick={close}>
           <ArrowSvg color="var(--Dark)" direction="left" />
         </button>
         <div>
-          <input type="search" name="" id="" />
+          <input type="search" placeholder="Search" id="" />
           <button>
             <img src={SearchIcon} alt="" />
           </button>
         </div>
       </div>
+
+      <ul>
+       
+      </ul>
+
       <div className={styles.carousel}>
         <ProductsCarousel
           title="New Arrivals"
-          showViewAll={true}
           keyToFilter="releaseDate"
           expectedOutcome="2023-06"
         />
