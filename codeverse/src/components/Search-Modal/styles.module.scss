@@ -41,6 +41,43 @@
         top: 8px;
       }
     }
+
+    .optionsContainer {
+      position: fixed;
+      top: 71px;
+      left: 0;
+
+      display: flex;
+      background: var(--Bright);
+      flex-direction: column;
+      width: 100%;
+      max-height: 190px;
+      overflow: hidden;
+      overflow-y: auto;
+
+      .options {
+        display: flex;
+        justify-content: space-between;
+        padding: 13px 16px;
+        a {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          color: var(--TypeHighEmphasis);
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+        }
+        div {
+          display: flex;
+          gap: 8px;
+        }
+      }
+    }
+    .optionsContainer::-webkit-scrollbar {
+      display: none;
+    }
   }
   .recentSearchs {
     h2 {

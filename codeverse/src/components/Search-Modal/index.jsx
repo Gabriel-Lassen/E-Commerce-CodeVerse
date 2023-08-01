@@ -2,10 +2,13 @@ import styles from "./styles.module.scss";
 import ProductsCarousel from "../ProductsCarousel";
 import ArrowSvg from "../ArrowSvg";
 
+import closeIcon from "../../assets/imgs/menu-icon-cross-small.svg";
+import arrow from "../../assets/imgs/menu-icon-auto-fill.svg";
 import SearchIcon from "../../assets/imgs/search_desktop.svg";
 
 import { useState, useContext } from "react";
 import { ProductsContext } from "../../contexts/products";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Search = ({ active }) => {
@@ -38,20 +41,24 @@ const Search = ({ active }) => {
           <input
             type="search"
             placeholder="Search"
-            list="options"
             onChange={(e) => setSearch(e.target.value)}
           />
-          <datalist id="options">
-            {filteredSearch.map((product) => {
-              return (
-                <option value={product.name} key={product.id}>
-                  {product.name}
-                </option>
-              );
-            })}
-          </datalist>
+          <div className={styles.optionsContainer}>
+            {filteredSearch.map((product) => (
+              <div key={product.id} className={styles.options}>
+                <Link to={`/products/${product.id}`}>
+                  <div>
+                    <img src={closeIcon} />
+                    <p>{product.name}</p>
+                  </div>
+
+                  <img src={arrow} />
+                </Link>
+              </div>
+            ))}
+          </div>
           <button>
-            <img src={SearchIcon} alt="" />
+            <img src={SearchIcon} />
           </button>
         </div>
       </header>
