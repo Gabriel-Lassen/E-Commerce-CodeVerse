@@ -9,23 +9,22 @@ import SearchIcon from "../../assets/imgs/search_desktop.svg";
 import { useState, useContext } from "react";
 import { ProductsContext } from "../../contexts/products";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/Auth";
 
 // eslint-disable-next-line react/prop-types
 const Search = ({ active }) => {
   const [search, setSearch] = useState("");
   const { listProducts } = useContext(ProductsContext);
+  const { handleSearch } = useContext(AuthContext);
 
   const filteredSearch =
     search.length > 0
       ? listProducts.filter(
           (product) =>
-            product.brand.includes(search) ||
             product.name.includes(search) ||
             product.description.includes(search)
         )
       : [];
-
-  console.log(listProducts);
 
   const close = () => {
     active(false);
@@ -44,8 +43,12 @@ const Search = ({ active }) => {
             onChange={(e) => setSearch(e.target.value)}
           />
           <div className={styles.optionsContainer}>
-            {filteredSearch.map((product) => (
-              <div key={product.id} className={styles.options}>
+            {filteredSearch.map((product, brand, index) => (
+              <div
+                onClick={() => handleSearch(product.name, brand)}
+                key={product.id}
+                className={styles.options}
+              >
                 <Link to={`/products/${product.id}`}>
                   <div>
                     <img src={closeIcon} />
@@ -57,7 +60,7 @@ const Search = ({ active }) => {
               </div>
             ))}
           </div>
-          <button>
+          <button onClick={() => handleSearch(search)}>
             <img src={SearchIcon} />
           </button>
         </div>
@@ -65,11 +68,7 @@ const Search = ({ active }) => {
 
       <div className={styles.recentSearchs}>
         <h2>Recent Searchs</h2>
-        <ul>
-          <li>teste</li>
-          <li>teste</li>
-          <li>teste</li>
-        </ul>
+        <ul></ul>
       </div>
 
       <div className={styles.carousel}>

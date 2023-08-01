@@ -1,10 +1,21 @@
 import { auth, db, storage } from "../FirebaseConection";
 import { createContext, useState, useEffect } from "react";
 import { createUserWithEmailAndPassword, updatePassword } from "@firebase/auth";
-import { setDoc, doc, updateDoc, getDoc, onSnapshot  } from "@firebase/firestore";
-import { signInWithEmailAndPassword} from "firebase/auth";
+import {
+  setDoc,
+  doc,
+  updateDoc,
+  getDoc,
+  onSnapshot,
+} from "@firebase/firestore";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { uploadBytes, ref, getDownloadURL, deleteObject } from "@firebase/storage";
+import {
+  uploadBytes,
+  ref,
+  getDownloadURL,
+  deleteObject,
+} from "@firebase/storage";
 import { toast } from "react-toastify";
 export const AuthContext = createContext({});
 
@@ -33,21 +44,29 @@ function AuthProvider({ children }) {
         const docRef = doc(db, "users", uid);
         await updateDoc(docRef, {
           avatar: urlFoto,
-        })
-        .then(()=> {
+        }).then(() => {
           let data = {
             ...user,
-            avatar: urlFoto
-          }
+            avatar: urlFoto,
+          };
           setUser(data);
           localStorageUser(data);
           loadUser();
-        })
+        });
       });
     });
   }
 
-  async function register(email, password, date, firstName, lastName, image, ddd, number) {
+  async function register(
+    email,
+    password,
+    date,
+    firstName,
+    lastName,
+    image,
+    ddd,
+    number
+  ) {
     await createUserWithEmailAndPassword(auth, email, password)
       .then(async (value) => {
         let uid = value.user.uid;
@@ -88,7 +107,7 @@ function AuthProvider({ children }) {
           password: docSnap.data().password,
           ddd: docSnap.data().ddd,
           number: docSnap.data().number,
-          inviteCode: docSnap.data().inviteCode
+          inviteCode: docSnap.data().inviteCode,
         };
 
         setUser(data);
@@ -125,20 +144,19 @@ function AuthProvider({ children }) {
       });
 
     await updateDoc(useref, {
-      avatar: 'https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e'
-    })
-    .then(() => {
+      avatar:
+        "https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e",
+    }).then(() => {
       let data = {
         ...user,
-        avatar:'https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e'
-
-      }
+        avatar:
+          "https://firebasestorage.googleapis.com/v0/b/codeverse-9b38c.appspot.com/o/images%2FimagemUser.jpg?alt=media&token=981ed2ce-ed0d-4b49-afdc-fcd42878390e",
+      };
       setUser(data);
       localStorageUser(data);
-      loadUser()
-    })
+      loadUser();
+    });
   }
-
 
   async function handleUpdate(firstName, lastName, ddd, number) {
     const useref = doc(db, "users", user.uid);
@@ -148,7 +166,7 @@ function AuthProvider({ children }) {
       ddd: ddd,
       number: number,
     })
-    .then(() => {
+      .then(() => {
         let data = {
           ...user,
           firstName: firstName,
@@ -178,6 +196,11 @@ function AuthProvider({ children }) {
       });
   }
 
+  async function handleSearch(search) {
+    await setDoc(doc(db, `users/${user.uid}/search`, search), {
+      search: search,
+    });
+  }
 
   return (
     <AuthContext.Provider
@@ -191,6 +214,7 @@ function AuthProvider({ children }) {
         handleUpload,
         handleUpdate,
         handleUpdatePassword,
+        handleSearch,
       }}
     >
       {children}
