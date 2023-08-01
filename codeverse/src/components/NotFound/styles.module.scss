@@ -1,24 +1,6 @@
 @media screen and (max-width: 768px) {
   .container {
     .section {
-       width: 100%;
-      display: flex;
-      padding: 16px 16px 0 16px;
-      padding-bottom: 81px;
-
-      h1 {
-        color: var(--Primary);
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 26px;
-        padding-left: 20px;
-      }
-      .option {
-        padding-left: 120px;
-      }
-    }
-    .a {
       width: 100%;
       margin: 0 auto;
       display: flex;
@@ -42,7 +24,6 @@
         padding-bottom: 16px;
       }
       p {
-       // width: 285px;
         color: var(--Dark);
         text-align: center;
         font-size: 14px;
@@ -55,7 +36,7 @@
         display: flex;
         position: fixed;
         bottom: 11px;
-        
+
         padding: 10px 120px;
         justify-content: center;
         align-items: center;
