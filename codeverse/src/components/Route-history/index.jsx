@@ -1,6 +1,6 @@
 import { useLocation, Link } from 'react-router-dom';
-
-import arrow from "../../assets/imgs/chevron-right-small.svg";
+import styles from './styles.module.scss';
+import Arrow from "../../assets/imgs/chevron-right-small.svg";
 
 const RouteHistory = () => {
 
@@ -16,6 +16,7 @@ const RouteHistory = () => {
     myreviews: 'My Reviews',
     myaddressbook: 'My Address Book',
     mysavedcards: 'My Saved Cards',
+    mycart: 'My Cart',
   };
 
   const breadcrumbItems = pathnames.map((pathname, index) => {
@@ -26,17 +27,29 @@ const RouteHistory = () => {
     return { label, link: routeTo };
   });
 
+  const ShowImg = (index, label) => {
+
+    const Conditions = label === 'User Profile' && pathnames[pathnames.length - 1] === 'personalinformation';
+
+    return index !== breadcrumbItems.length - 1 && 
+    !(index === breadcrumbItems.length - 2 && Conditions);
+  };
+
   return (
     <nav>
-      <ul>
+      <ul className={styles.breadcrumb}>
         {breadcrumbItems.map((step, index) => (
-          <li key={index}>
-            {step.label !== 'personalinformation' ? (
-              <Link to={step.link}>
+          <li key={index}> 
+          {step.label !== 'personalinformation' && (
+              <Link to={step.link} className={step.label === 'Home' ? styles.home : styles.link}>
                 {step.label}
-                <img src={arrow} alt="" />
+
+                {ShowImg(index, step.label) && (
+                    <img src={Arrow} alt="" />
+                 )}
+
               </Link>
-            ) : null}
+            )}
           </li>
         ))}
       </ul>
