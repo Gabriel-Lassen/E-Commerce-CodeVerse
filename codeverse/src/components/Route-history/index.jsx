@@ -1,5 +1,7 @@
 import { useLocation, Link } from 'react-router-dom';
 
+import arrow from "../../assets/imgs/chevron-right-small.svg";
+
 const RouteHistory = () => {
 
   const location = useLocation();
@@ -32,6 +34,7 @@ const RouteHistory = () => {
             {step.label !== 'personalinformation' ? (
               <Link to={step.link}>
                 {step.label}
+                <img src={arrow} alt="" />
               </Link>
             ) : null}
           </li>
