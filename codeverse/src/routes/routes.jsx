@@ -12,6 +12,7 @@ import ProductsByCategoy from "../pages/ProductsByCategory";
 import GetStart from "../pages/GetStart";
 import ReferAndEarn from "../pages/ReferAndEarn";
 import PersonalInformation from "../pages/PersonalInformation";
+import NotFound from "../components/NotFound";
 
 const Rotas = () => {
   return (
@@ -33,6 +34,7 @@ const Rotas = () => {
       <Route path="/profile/myreviews" element={""} />
       <Route path="/profile/myaddressbook" element={""} />
       <Route path="/profile/mysavedcards" element={""} />
+      <Route path="notFound" element={<NotFound/>} />
     </Routes>
   );
 };
