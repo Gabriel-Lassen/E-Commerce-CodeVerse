@@ -41,6 +41,20 @@ const Search = ({ active }) => {
     console.log(searchHistory);
   }, [searchHistory]);
 
+
+  function capitalize(string) {
+    const words = string.split(" ");
+
+    const capitalizedWords = words.map((word) => {
+      if (word === "") {
+        return word;
+      } else {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      }
+    });
+    return capitalizedWords.join(" ");
+  }
+
   return (
     <div className={styles.container}>
       <header className={styles.topBar}>
@@ -49,9 +63,10 @@ const Search = ({ active }) => {
         </button>
         <div>
           <input
-            type="search"
+            type="text"
             placeholder="Search"
-            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+            onChange={(e) => setSearch(capitalize(e.target.value))}
           />
           <div className={styles.optionsContainer}>
             {filteredSearch?.products &&
