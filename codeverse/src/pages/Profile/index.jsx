@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import SideBarProfile from "../../components/SideBar-Profile"
 import Navbar from "../../components/navbar";
+import Logout from "../../components/BtnLogout";
 
 const Profile = () => {
 
@@ -37,6 +38,7 @@ const Profile = () => {
     <>
       <div>
         <SideBarProfile/>
+        <Logout/>
         <Navbar/>
       </div>
     </>
