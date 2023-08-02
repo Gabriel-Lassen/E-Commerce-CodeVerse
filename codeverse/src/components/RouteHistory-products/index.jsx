@@ -1,5 +1,5 @@
 import Arrow from "../../assets/imgs/chevron-right-small.svg";
-4;
+import styles from "./styles.module.scss";
 
 import { useEffect, useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -37,22 +37,21 @@ const RouteHistProd = () => {
     return { label, link: routeTo };
   });
 
-  const ShowImg = (index) => {
-    return index !== breadcrumbItems.length - 1;
-  };
-
   return (
     <nav>
-      <ul>
+      <ul className={styles.bread}>
         {breadcrumbItems.map((step, index) => (
           <li key={index}>
-            {step.label !== "" && (
-              <Link to={step.link}>
-                {step.label}
+            <Link
+              to={step.link}
+              className={step.label === "Home" ? styles.home : styles.link}
+            >
+              {step.label}
 
-                {ShowImg(index) && <img src={Arrow} alt="" />}
-              </Link>
-            )}
+              {index !== breadcrumbItems.length - 1 && (
+                <img src={Arrow} alt="" />
+              )}
+            </Link>
           </li>
         ))}
       </ul>
