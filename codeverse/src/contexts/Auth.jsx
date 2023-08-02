@@ -6,10 +6,11 @@ import {
   doc,
   updateDoc,
   getDoc,
-  onSnapshot,
+  orderBy,
   collection,
   getDocs,
-  query
+  query,
+  limit,
 } from "@firebase/firestore";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -33,7 +34,7 @@ function AuthProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    if(user){
+    if (user) {
       handleGetSearchs();
     }
   }, [user]);
@@ -207,23 +208,28 @@ function AuthProvider({ children }) {
   }
 
   async function handleSearch(search) {
+    const currentTime = new Date();
     await setDoc(doc(db, `users/${user.uid}/search`, search), {
       search: search,
-    })
+      time: currentTime,
+    });
     handleGetSearchs();
   }
 
-  async function handleGetSearchs(){
+  async function handleGetSearchs() {
     let list = [];
-    const q = query(collection(db, `/users/${user.uid}/search`));
+    const q = query(
+      collection(db, `/users/${user.uid}/search`),
+      orderBy("time", "desc"),
+      limit(5)
+    );
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((item) => {
       const newItem = item.data();
       list = [...list, newItem];
-    })
+    });
     setSearchHistory(list);
   }
-
 
   return (
     <AuthContext.Provider

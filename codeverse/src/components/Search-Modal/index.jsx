@@ -39,7 +39,7 @@ const Search = ({ active }) => {
 
   useEffect(() => {
     console.log(searchHistory);
-  }, [searchHistory])
+  }, [searchHistory]);
 
   return (
     <div className={styles.container}>
@@ -98,7 +98,13 @@ const Search = ({ active }) => {
       <div className={styles.recentSearchs}>
         <h2>Recent Searchs</h2>
         <ul>
-          
+          {searchHistory && searchHistory.length > 0 ? (
+            searchHistory.map((search, index) => (
+              <li key={index}>{search.search}</li>
+            ))
+          ) : (
+            <li>No recent searches found.</li>
+          )}
         </ul>
       </div>
 
