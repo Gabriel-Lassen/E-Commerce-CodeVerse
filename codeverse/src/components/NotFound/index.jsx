@@ -4,8 +4,6 @@ import option from "../../assets/imgs/ellipses.svg";
 import BtnBackForPage from "../BtnBackForPage";
 import ArrowSvg from "../ArrowSvg";
 
-
-
 const NotFound = () => {
   return (
     <div className={styles.container}>
