@@ -1,6 +1,6 @@
 import { auth, db, storage } from "../FirebaseConection";
 import { createContext, useState, useEffect } from "react";
-import { createUserWithEmailAndPassword, updatePassword } from "@firebase/auth";
+import { createUserWithEmailAndPassword, updatePassword, signOut } from "@firebase/auth";
 import { setDoc, doc, updateDoc, getDoc, onSnapshot  } from "@firebase/firestore";
 import { signInWithEmailAndPassword} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -178,6 +178,12 @@ function AuthProvider({ children }) {
       });
   }
 
+  async function logout() {
+    await signOut(auth)
+    localStorage.removeItem("CodeVerse")
+    setUser(null)
+  }
+
 
   return (
     <AuthContext.Provider
@@ -191,6 +197,7 @@ function AuthProvider({ children }) {
         handleUpload,
         handleUpdate,
         handleUpdatePassword,
+        logout
       }}
     >
       {children}
