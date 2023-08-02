@@ -9,9 +9,10 @@ import Preview from "../../components/Products/ProductPreview";
 import { useState, useEffect } from "react";
 import ProductOverview from "../../components/Products/Product-Overview";
 
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import BtnAddToBag from "../../components/BtnAddToBag";
 import BtnAddToWishlist from "../../components/BtnAddToWishlist";
+import RouteHistoryProducts from "../../components/RouteHistory-products";
 
 const Products = () => {
   const [hidden, setHidden] = useState(false);
@@ -34,14 +35,15 @@ const Products = () => {
   return (
     <div key={key}>
       {hidden && <Header />}
-     <BtnBackForPage svg={<ArrowSvg color='var(--Dark)' direction='left'/>} />
+      <RouteHistoryProducts />
+      <BtnBackForPage svg={<ArrowSvg color="var(--Dark)" direction="left" />} />
       <div className={styles.wrapper}>
         <Preview />
         <div className={styles.productInfo}>
           <ProductsInfo />
           <div className={styles.btns}>
             <BtnAddToBag />
-            <BtnAddToWishlist type='big' />
+            <BtnAddToWishlist type="big" />
           </div>
         </div>
       </div>
