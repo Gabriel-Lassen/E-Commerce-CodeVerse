@@ -14,17 +14,24 @@ import { AuthContext } from "../../contexts/Auth";
 // eslint-disable-next-line react/prop-types
 const Search = ({ active }) => {
   const [search, setSearch] = useState("");
-  const { listProducts } = useContext(ProductsContext);
+  const { listProducts, listBrands } = useContext(ProductsContext);
   const { handleSearch } = useContext(AuthContext);
 
-  const filteredSearch =
-    search.length > 0
-      ? listProducts.filter(
-          (product) =>
-            product.name.includes(search) ||
-            product.description.includes(search)
-        )
-      : [];
+  const filteredSearch = search.length > 0 ? handleFilter(search) : null;
+
+  function handleFilter(search) {
+    const productByName = listProducts.filter((product) =>
+      product.name.includes(search)
+    );
+    const brands = listBrands.filter((brand) => brand.includes(search));
+
+    const filterList = {
+      products: productByName,
+      brands: brands,
+    };
+
+    return filterList;
+  }
 
   const close = () => {
     active(false);
@@ -43,22 +50,40 @@ const Search = ({ active }) => {
             onChange={(e) => setSearch(e.target.value)}
           />
           <div className={styles.optionsContainer}>
-            {filteredSearch.map((product, brand, index) => (
-              <div
-                onClick={() => handleSearch(product.name, brand)}
-                key={product.id}
-                className={styles.options}
-              >
-                <Link to={`/products/${product.id}`}>
-                  <div>
-                    <img src={closeIcon} />
-                    <p>{product.name}</p>
-                  </div>
+            {filteredSearch?.products &&
+              filteredSearch?.products.map((product) => (
+                <div
+                  onClick={() => handleSearch(product.name)}
+                  key={product.id}
+                  className={styles.options}
+                >
+                  <Link to={`/products/${product.id}`}>
+                    <div>
+                      <img src={closeIcon} />
+                      <p>{product.name}</p>
+                    </div>
 
-                  <img src={arrow} />
-                </Link>
-              </div>
-            ))}
+                    <img src={arrow} />
+                  </Link>
+                </div>
+              ))}
+            {filteredSearch?.brands &&
+              filteredSearch?.brands.map((brand) => (
+                <div
+                  onClick={() => handleSearch(brand)}
+                  key={brand}
+                  className={styles.options}
+                >
+                  <Link to={`/categories/`}>
+                    <div>
+                      <img src={closeIcon} />
+                      <p>{brand}</p>
+                    </div>
+
+                    <img src={arrow} />
+                  </Link>
+                </div>
+              ))}
           </div>
           <button onClick={() => handleSearch(search)}>
             <img src={SearchIcon} />
@@ -68,7 +93,9 @@ const Search = ({ active }) => {
 
       <div className={styles.recentSearchs}>
         <h2>Recent Searchs</h2>
-        <ul></ul>
+        <ul>
+          
+        </ul>
       </div>
 
       <div className={styles.carousel}>
