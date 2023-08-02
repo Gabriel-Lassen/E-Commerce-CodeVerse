@@ -6,7 +6,7 @@ import closeIcon from "../../assets/imgs/menu-icon-cross-small.svg";
 import arrow from "../../assets/imgs/menu-icon-auto-fill.svg";
 import SearchIcon from "../../assets/imgs/search_desktop.svg";
 
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { ProductsContext } from "../../contexts/products";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/Auth";
@@ -15,7 +15,7 @@ import { AuthContext } from "../../contexts/Auth";
 const Search = ({ active }) => {
   const [search, setSearch] = useState("");
   const { listProducts, listBrands } = useContext(ProductsContext);
-  const { handleSearch } = useContext(AuthContext);
+  const { handleSearch, searchHistory } = useContext(AuthContext);
 
   const filteredSearch = search.length > 0 ? handleFilter(search) : null;
 
@@ -36,6 +36,10 @@ const Search = ({ active }) => {
   const close = () => {
     active(false);
   };
+
+  useEffect(() => {
+    console.log(searchHistory);
+  }, [searchHistory])
 
   return (
     <div className={styles.container}>

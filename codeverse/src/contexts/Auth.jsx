@@ -7,6 +7,9 @@ import {
   updateDoc,
   getDoc,
   onSnapshot,
+  collection,
+  getDocs,
+  query
 } from "@firebase/firestore";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -23,10 +26,17 @@ function AuthProvider({ children }) {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loadingAuth, setLoadingAuth] = useState(false);
+  const [searchHistory, setSearchHistory] = useState([]);
 
   useEffect(() => {
     loadUser();
   }, []);
+
+  useEffect(() => {
+    if(user){
+      handleGetSearchs();
+    }
+  }, [user]);
 
   function loadUser() {
     const storageUser = localStorage.getItem("CodeVerse");
@@ -199,8 +209,21 @@ function AuthProvider({ children }) {
   async function handleSearch(search) {
     await setDoc(doc(db, `users/${user.uid}/search`, search), {
       search: search,
-    });
+    })
+    handleGetSearchs();
   }
+
+  async function handleGetSearchs(){
+    let list = [];
+    const q = query(collection(db, `/users/${user.uid}/search`));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((item) => {
+      const newItem = item.data();
+      list = [...list, newItem];
+    })
+    setSearchHistory(list);
+  }
+
 
   return (
     <AuthContext.Provider
@@ -215,6 +238,7 @@ function AuthProvider({ children }) {
         handleUpdate,
         handleUpdatePassword,
         handleSearch,
+        searchHistory,
       }}
     >
       {children}
