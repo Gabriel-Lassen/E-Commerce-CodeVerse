@@ -1,0 +1,45 @@
+@media screen and (max-width: 768px) {
+  .aaa {
+    display: flex;
+    width: 328px;
+    padding: 10px 120px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 2px solid var(--Primary);
+    background: var(--Bright);
+    margin: 0 auto;
+    button {
+      color: var(--Primary);
+      text-align: center;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .aaa {
+    display: flex;
+    width: 136px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--Primary);
+    background: var(--Bright);
+    margin: 0 auto;
+    button {
+      color: var(--Primary);
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
+    }
+  }
+}
