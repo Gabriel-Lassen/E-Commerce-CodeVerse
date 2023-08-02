@@ -1,24 +1,30 @@
 .bread {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  padding: 0 0 30px 20px;
-  .link,
-  .home {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .bread {
     display: flex;
-    align-items: center;
-    color: var(--TypeLowEmphasis);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20px;
-    height: 24px;
-  }
+    flex-direction: row;
+    gap: 8px;
+    padding: 0 0 0 20px;
+    .link,
+    .home {
+      display: flex;
+      align-items: center;
+      color: var(--TypeLowEmphasis);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      height: 24px;
+    }
 
-  .home {
-    color: var(--Primary);
-  }
+    .home {
+      color: var(--Primary);
+    }
 
-  img {
-    padding-left: 8px;
+    img {
+      padding-left: 8px;
+    }
   }
 }
