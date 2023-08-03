@@ -12,7 +12,6 @@ import ProductsByCategoy from "../pages/ProductsByCategory";
 import GetStart from "../pages/GetStart";
 import ReferAndEarn from "../pages/ReferAndEarn";
 import PersonalInformation from "../pages/PersonalInformation";
-import NotFound from "../components/NotFound";
 
 const Rotas = () => {
   return (
@@ -24,17 +23,19 @@ const Rotas = () => {
       <Route path="/products/:id" element={<Products />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/getstarted" element={<GetStart/>} />
+      <Route path="/getstarted" element={<GetStart />} />
       <Route path="/mycart" element={<MyCart />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/profile/personalinformation" element={<PersonalInformation/>} />
+      <Route
+        path="/profile/personalinformation"
+        element={<PersonalInformation />}
+      />
       <Route path="/profile/referandearn" element={<ReferAndEarn />} />
       <Route path="/profile/myorders" element={""} />
       <Route path="/profile/mywishlist" element={<WishList />} />
       <Route path="/profile/myreviews" element={""} />
       <Route path="/profile/myaddressbook" element={""} />
       <Route path="/profile/mysavedcards" element={""} />
-      <Route path="notFound" element={<NotFound/>} />
     </Routes>
   );
 };
