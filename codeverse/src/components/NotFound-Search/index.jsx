@@ -1,16 +1,24 @@
 import styles from "./styles.module.scss";
 import search from "../../assets/imgs/search.png";
 import option from "../../assets/imgs/ellipses.svg";
-import BtnBackForPage from "../BtnBackForPage";
+
 import ArrowSvg from "../ArrowSvg";
 
-const NotFound = () => {
+const NotFound = ({ active }) => {
+  const close = () => {
+    active(false);
+  };
   return (
     <div className={styles.container}>
-      <BtnBackForPage
-        svg={<ArrowSvg color="var(--Primary)" direction="left" />}
-        text="Search results" 
-        secondSvg={option} />
+      <header className={styles.topBar}>
+        <div>
+          <button onClick={close}>
+            <ArrowSvg color="var(--Primary)" direction="left" />
+          </button>
+          <h1>Search Results</h1>
+        </div>
+        <img src={option} alt="" />
+      </header>
       <div className={styles.section}>
         <img src={search} />
         <h2>Whoops!</h2>
