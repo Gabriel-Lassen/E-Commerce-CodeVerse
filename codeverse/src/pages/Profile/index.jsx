@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import SideBarProfile from "../../components/SideBar-Profile"
 import Navbar from "../../components/navbar";
+import UserInfo from "../../components/User-info";
 
 const Profile = () => {
 
@@ -36,6 +37,7 @@ const Profile = () => {
   return (
     <>
       <div>
+        <UserInfo type="FullInfo"/>
         <SideBarProfile/>
         <Navbar/>
       </div>
