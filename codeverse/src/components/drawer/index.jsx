@@ -5,6 +5,7 @@ import Avatar from "../../assets/imgs/avatar.png";
 
 import styles from './styles.module.scss'
 import ArrowSvg from '../ArrowSvg';
+import UserInfo from '../User-info';
 
 const Drawer = ({active}) => {
 
@@ -17,11 +18,7 @@ const Drawer = ({active}) => {
       <nav className={styles.drawer}>
 
         <Link className={styles.Link} to={'/profile'}>
-          <div className={styles.boxProfile}>
-            <img src={Avatar} alt="avatar" />
-            <h2>Hello, User </h2>
-            <ArrowSvg color='var(--Dark)'/>
-          </div>
+        <UserInfo type="BasicInfo"/>
         </Link>
 
       <div className={styles.divider}></div>
