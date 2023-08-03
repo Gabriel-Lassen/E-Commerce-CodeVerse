@@ -6,6 +6,7 @@ import { ProductsContext } from "../../../contexts/products";
 import Star from "../../../assets/imgs/star.svg";
 import StarLight from "../../../assets/imgs/Star-Light.svg";
 import ProductPromo from "../Products-promo";
+import Qty from "../Qty";
 
 const ProductsInfo = () => {
   const { listProducts } = useContext(ProductsContext);
@@ -18,7 +19,6 @@ const ProductsInfo = () => {
   const [totalRatings, setTotalRatings] = useState("");
   const [averageStars, setAverageStars] = useState("");
   const [reviews, setReviews] = useState("");
-  const [count, setCount] = useState(1);
 
   useEffect(() => {
     if (listProducts) {
@@ -40,17 +40,6 @@ const ProductsInfo = () => {
       }
     }
   }, [listProducts]);
-
-  const plus = () => {
-    if (count < qty) {
-      setCount(count + 1);
-    }
-  };
-  const less = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
-  };
 
   function renderRatingStars(averageStars) {
     const stars = [];
@@ -119,15 +108,7 @@ const ProductsInfo = () => {
           <button>check</button>
         </div>
       </div>
-
-      <div className={styles.qty}>
-        <span>Quantity:</span>
-        <div className={styles.btn}>
-          <button onClick={less}>-</button>
-          {count}
-          <button onClick={plus}>+</button>
-        </div>
-      </div>
+      <Qty qty={qty} />
     </div>
   );
 };
