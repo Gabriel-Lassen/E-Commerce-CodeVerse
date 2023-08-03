@@ -318,26 +318,7 @@
         }
       }
     }
-    .qty {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 50px;
-      gap: 16px;
-      order: 7;
-      .btn {
-        display: flex;
-
-        border-radius: 4px;
-        border: 1px solid var(--Primary);
-        justify-content: center;
-        align-items: center;
-        button {
-          display: flex;
-          background: none;
-          padding: 4px 9px;
-        }
-      }
-    }
+    
 
     .cupons {
       order: 8;

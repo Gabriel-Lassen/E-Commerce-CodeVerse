@@ -1,7 +1,8 @@
 import styles from "./styles.module.scss";
 import { useState } from "react";
 
-const Qty = ({ qty }) => {
+// eslint-disable-next-line react/prop-types
+const Qty = ({ qty, text }) => {
   const [count, setCount] = useState(1);
 
   const plus = () => {
@@ -18,7 +19,7 @@ const Qty = ({ qty }) => {
 
   return (
     <div className={styles.qty}>
-      <span>Quantity:</span>
+      <span>{text}</span>
       <div className={styles.btn}>
         <button onClick={less}>-</button>
         {count}

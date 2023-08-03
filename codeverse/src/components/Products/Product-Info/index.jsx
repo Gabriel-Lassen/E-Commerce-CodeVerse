@@ -108,7 +108,7 @@ const ProductsInfo = () => {
           <button>check</button>
         </div>
       </div>
-      <Qty qty={qty} />
+      <Qty qty={qty} text={"Quantity:"} />
     </div>
   );
 };
