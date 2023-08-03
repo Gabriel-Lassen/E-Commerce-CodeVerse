@@ -1,27 +1,30 @@
 import { createContext, useEffect, useState } from "react";
-import db from '../data/db.json'
+import db from "../data/db.json";
 
 export const ProductsContext = createContext({});
 
-function ProductsProvider({children}){
+function ProductsProvider({ children }) {
+  const [listProducts, setListProducts] = useState();
+  const [listBrands, setListBrands] = useState();
 
-    const [listProducts, setListProducts] = useState();
+  useEffect(() => {
+    const products = db.products;
+    setListProducts(products);
 
-    useEffect(() => {
-        const products = db.products;
-        setListProducts(products);
-        console
-    }, [])
+    const brands = db.brands;
+    setListBrands(brands);
+  }, []);
 
-    return (
-        <ProductsContext.Provider
-            value={{
-                listProducts,
-            }}
-        >
-            {children}
-        </ProductsContext.Provider>
-      )
+  return (
+    <ProductsContext.Provider
+      value={{
+        listProducts,
+        listBrands,
+      }}
+    >
+      {children}
+    </ProductsContext.Provider>
+  );
 }
 
-export default ProductsProvider
+export default ProductsProvider;

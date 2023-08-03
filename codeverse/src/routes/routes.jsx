@@ -23,10 +23,13 @@ const Rotas = () => {
       <Route path="/products/:id" element={<Products />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/getstarted" element={<GetStart/>} />
+      <Route path="/getstarted" element={<GetStart />} />
       <Route path="/mycart" element={<MyCart />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/profile/personalinformation" element={<PersonalInformation/>} />
+      <Route
+        path="/profile/personalinformation"
+        element={<PersonalInformation />}
+      />
       <Route path="/profile/referandearn" element={<ReferAndEarn />} />
       <Route path="/profile/myorders" element={""} />
       <Route path="/profile/mywishlist" element={<WishList />} />
