@@ -1,12 +1,13 @@
 import styles from "./styles.module.scss";
 import ProductsCarousel from "../ProductsCarousel";
 import ArrowSvg from "../ArrowSvg";
+import NotFound from "../NotFound-Search";
 
 import closeIcon from "../../assets/imgs/menu-icon-cross-small.svg";
 import arrow from "../../assets/imgs/menu-icon-auto-fill.svg";
 import SearchIcon from "../../assets/imgs/search_desktop.svg";
 
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { ProductsContext } from "../../contexts/products";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/Auth";
@@ -16,7 +17,7 @@ const Search = ({ active }) => {
   const [search, setSearch] = useState("");
   const { listProducts, listBrands } = useContext(ProductsContext);
   const { handleSearch, searchHistory } = useContext(AuthContext);
-
+  const [notFound, setNotFound] = useState(false);
   const filteredSearch = search.length > 0 ? handleFilter(search) : null;
 
   function handleFilter(search) {
@@ -37,11 +38,6 @@ const Search = ({ active }) => {
     active(false);
   };
 
-  useEffect(() => {
-    console.log(searchHistory);
-  }, [searchHistory]);
-
-
   function capitalize(string) {
     const words = string.split(" ");
 
@@ -55,8 +51,21 @@ const Search = ({ active }) => {
     return capitalizedWords.join(" ");
   }
 
+  function handleClick(e) {
+    if (
+      filteredSearch &&
+      (filteredSearch.products.length > 0 || filteredSearch.brands.length > 0)
+    ) {
+      handleSearch(e);
+    } else {
+      setNotFound(true);
+      setSearch("");
+    }
+  }
+
   return (
     <div className={styles.container}>
+      {notFound && <NotFound active={setNotFound} />}
       <header className={styles.topBar}>
         <button className={styles.btn} onClick={close}>
           <ArrowSvg color="var(--Dark)" direction="left" />
@@ -72,7 +81,7 @@ const Search = ({ active }) => {
             {filteredSearch?.products &&
               filteredSearch?.products.map((product) => (
                 <div
-                  onClick={() => handleSearch(product.name)}
+                  onClick={() => handleClick(product.name)}
                   key={product.id}
                   className={styles.options}
                 >
@@ -89,7 +98,7 @@ const Search = ({ active }) => {
             {filteredSearch?.brands &&
               filteredSearch?.brands.map((brand) => (
                 <div
-                  onClick={() => handleSearch(brand)}
+                  onClick={() => handleClick(brand)}
                   key={brand}
                   className={styles.options}
                 >
@@ -104,7 +113,7 @@ const Search = ({ active }) => {
                 </div>
               ))}
           </div>
-          <button onClick={() => handleSearch(search)}>
+          <button onClick={() => handleClick(search)}>
             <img src={SearchIcon} />
           </button>
         </div>
