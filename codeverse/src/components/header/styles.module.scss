@@ -62,6 +62,11 @@
     }
     .header_right_desktop {
       display: flex;
+
+      button {
+        background: none;
+      }
+      
       div {
         position: relative;
         padding-right: 24px;

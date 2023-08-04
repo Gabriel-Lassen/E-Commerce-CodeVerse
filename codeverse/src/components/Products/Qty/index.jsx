@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-const Qty = ({ qty, text }) => {
+const Qty = ({ qty, text, gap }) => {
   const [count, setCount] = useState(1);
 
   const plus = () => {
@@ -18,7 +18,7 @@ const Qty = ({ qty, text }) => {
   };
 
   return (
-    <div className={styles.qty}>
+    <div className={styles.qty} style={{ gap: gap }}>
       <span>{text}</span>
       <div className={styles.btn}>
         <button onClick={less}>-</button>

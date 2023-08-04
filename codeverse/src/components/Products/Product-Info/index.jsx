@@ -108,7 +108,7 @@ const ProductsInfo = () => {
           <button>check</button>
         </div>
       </div>
-      <Qty qty={qty} text={"Quantity:"} />
+      <Qty qty={qty} text={"Quantity:"} gap={"16px"} />
     </div>
   );
 };
