@@ -1,0 +1,24 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  .containerLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 68px;
+    .labels {
+      display: flex;
+
+      justify-content: space-between;
+      div {
+        display: inline-flex;
+        row-gap: 67px;
+      }
+    }
+    .separador {
+      width: 710px;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.12);
+      margin-bottom: 24px;
+    }
+  }
+}
