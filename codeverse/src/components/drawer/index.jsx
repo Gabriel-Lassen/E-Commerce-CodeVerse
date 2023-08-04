@@ -1,6 +1,8 @@
 
 import { Link } from 'react-router-dom'
 
+import { useContext } from 'react';
+import { AuthContext } from "../../contexts/Auth";
 import Avatar from "../../assets/imgs/avatar.png";
 
 import styles from './styles.module.scss'
@@ -8,6 +10,8 @@ import ArrowSvg from '../ArrowSvg';
 import UserInfo from '../User-info';
 
 const Drawer = ({active}) => {
+
+  const { user } = useContext(AuthContext);
 
     const closeDrawer = () => {
         active(false)
@@ -17,9 +21,18 @@ const Drawer = ({active}) => {
     <div className={styles.background} onClick={closeDrawer}>
       <nav className={styles.drawer}>
 
-        <Link className={styles.Link} to={'/profile'}>
+      {!user ? 
+      <Link className={styles.boxProfile} to='/getstarted'>
+        <img src={Avatar} alt="avatar" />
+          <h2>Faça login </h2>
+        <ArrowSvg color='var(--Dark)'/>
+      </Link> 
+      : 
+      <Link className={styles.Link} to='/profile'>
         <UserInfo type="BasicInfo"/>
-        </Link>
+      </Link>
+      }
+
 
       <div className={styles.divider}></div>
 
