@@ -4,7 +4,7 @@ import Wishlist from '../../assets/imgs/wishlist.svg';
 import Bag from '../../assets/imgs/bag.svg';
 import ProductCardModal from '../ProductCardModal';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const ProductCard = ({id, name, info, price, discount, averageStars, totalRatings, url, popularity, addToBagBtn, rating, reviews}) => {
     let stars = [];
@@ -14,21 +14,20 @@ const ProductCard = ({id, name, info, price, discount, averageStars, totalRating
     const [showModal, setShowModal] = useState(false);
     const [redirect, setRedirect] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation()
 
     const handleClick = () => {
         if(redirect){
            navigate(`/products/${id}`);
         } else {
-            if(showModal){
-                setShowModal(false);
-            } else (setShowModal(true))
+            (setShowModal(true))
         }
     }
 
     const handleResize = () => {
         const windowWidth = window.innerWidth;
         const breakpointWidth = 769;
-        if(windowWidth >= breakpointWidth){
+        if(windowWidth >= breakpointWidth || location.pathname !== '/'){
             setRedirect(true);
             setShowModal(false);
         } else {
