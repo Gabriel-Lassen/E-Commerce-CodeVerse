@@ -6,6 +6,7 @@ import ArrowSvg from "../../components/ArrowSvg";
 import styles from './styles.module.scss'
 import { useState, useEffect } from "react";
 import SideBarProfile from "../../components/SideBar-Profile";
+import TitlePage from "../../components/Title-pages";
 
 const ReferAndEarn = () => {
   const [hidden, setHidden] = useState(false);
@@ -26,6 +27,7 @@ const ReferAndEarn = () => {
         svg={<ArrowSvg color="var(--Primary)" direction="left" />}
         text="Refer & Earn"
       />
+      <TitlePage/>
       <div className={styles.wrapper}>
         {hidden && <SideBarProfile />}
         <ReferandEarn />

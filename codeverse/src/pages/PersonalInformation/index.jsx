@@ -6,6 +6,7 @@ import styles from './styles.module.scss'
 import SideBarProfile from "../../components/SideBar-Profile";
 import { useState, useEffect } from "react";
 import ProfileInformation from "../../components/Personal-information";
+import TitlePage from "../../components/Title-pages";
 
 const PersonalInformation = () => {
   const [hidden, setHidden] = useState(false);
@@ -26,6 +27,7 @@ const PersonalInformation = () => {
         svg={<ArrowSvg color="var(--Primary)" direction="left" />}
         text="Personal Information"
       />
+      <TitlePage/>
       <div className={styles.wrapper}>
         {hidden && <SideBarProfile />}
         <ProfileInformation />
