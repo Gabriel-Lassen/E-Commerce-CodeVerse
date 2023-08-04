@@ -2,10 +2,11 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import BtnBackForPage from "../../components/BtnBackForPage";
 import ArrowSvg from "../../components/ArrowSvg";
-import styles from './styles.module.scss'
+import styles from "./styles.module.scss";
 import SideBarProfile from "../../components/SideBar-Profile";
 import { useState, useEffect } from "react";
 import ProfileInformation from "../../components/Personal-information";
+import TitlePage from "../../components/Title-pages";
 import RouteHistory from "../../components/Route-history";
 
 const PersonalInformation = () => {
@@ -27,7 +28,8 @@ const PersonalInformation = () => {
         svg={<ArrowSvg color="var(--Primary)" direction="left" />}
         text="Personal Information"
       />
-      <RouteHistory/>
+      <RouteHistory />
+      <TitlePage />
       <div className={styles.wrapper}>
         {hidden && <SideBarProfile />}
         <ProfileInformation />

@@ -1,0 +1,17 @@
+.container{
+    display: none;
+}
+@media screen and (min-width: 769px) {
+    .container{
+        width: 400px;
+        height: 44px;
+        display: flex;
+        margin: 0 0 24px 20px;
+        h1{
+            color: var(--Primary);
+            font-size: 34px;
+            font-weight: 600;
+            line-height: 44px;
+        }
+    }
+}
