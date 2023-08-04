@@ -20,23 +20,24 @@ const BagModal = ({ active }) => {
           <h1>Back</h1>
         </nav>
       </header>
+      <div className={styles.cardContainer}>
+        <div className={styles.card}>
+          <img src="" alt="" />
 
-      <div className={styles.card}>
-        <img src="" alt="" />
-
-        <div className={styles.prodDesc}>
-          <span>Coach</span>
-          <span>Leather Coach Bag</span>
-          <Qty />
+          <div className={styles.prodDesc}>
+            <span>Coach</span>
+            <span>Leather Coach Bag</span>
+            <Qty />
+          </div>
+          <div className={styles.cardRight}>
+            <button>
+              <img src={X} alt="" />
+            </button>
+            <span>$54.69</span>
+          </div>
         </div>
-        <div className={styles.cardRight}>
-          <button>
-            <img src={X} alt="" />
-          </button>
-          <span>$54.69</span>
-        </div>
+        <div className={styles.separator}></div>
       </div>
-
       <div className={styles.price}>
         <div className={styles.subTotal}>
           <p>Subtotal: </p>
