@@ -13,6 +13,7 @@ import GetStart from "../pages/GetStart";
 import ReferAndEarn from "../pages/ReferAndEarn";
 import PersonalInformation from "../pages/PersonalInformation";
 import MyBagFound from "../components/NotFoundMyBag";
+import MyAnddress from "../components/NotFoundMyAnddress";
 
 const Rotas = () => {
   return (
@@ -35,6 +36,7 @@ const Rotas = () => {
       <Route path="/profile/myaddressbook" element={""} />
       <Route path="/profile/mysavedcards" element={""} />
       <Route path="/mybagfound" element={<MyBagFound/>} />
+      <Route path="/myanddress" element={<MyAnddress/>} />
     </Routes>
   );
 };
