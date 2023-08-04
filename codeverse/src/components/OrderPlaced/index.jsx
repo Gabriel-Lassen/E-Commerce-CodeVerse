@@ -7,7 +7,7 @@ export const OrderPlaced = () => {
     <div className={styles.container}>
       <BtnBackForPage
         svg={<img src={ArrowSvg} alt="Arrow" style={{ color: "var(--Primary)" }} />}
-        text="My Bag"
+        text="Order Placed"
       />
       <div className={styles.section}>
         <img src={orderPlaced} />

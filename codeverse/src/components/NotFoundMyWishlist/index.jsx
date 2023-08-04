@@ -8,7 +8,7 @@ const MyWishlistNotFound = () => {
     <div className={styles.container}>
       <BtnBackForPage
         svg={<ArrowSvg color="var(--Primary)" direction="left" />}
-        text="My Bag"
+        text="My Wishlist"
       />
       <div className={styles.section}>
         <img src={imgWishlist} />
