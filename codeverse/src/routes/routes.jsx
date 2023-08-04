@@ -12,10 +12,6 @@ import ProductsByCategoy from "../pages/ProductsByCategory";
 import GetStart from "../pages/GetStart";
 import ReferAndEarn from "../pages/ReferAndEarn";
 import PersonalInformation from "../pages/PersonalInformation";
-import MyBagFound from "../components/NotFoundMyBag";
-import MyAnddress from "../components/NotFoundMyAnddress";
-import MyWishlistNotFound from "../components/NotFoundMyWishlist";
-import { OrderPlaced } from "../components/OrderPlaced";
 
 const Rotas = () => {
   return (
@@ -40,10 +36,6 @@ const Rotas = () => {
       <Route path="/profile/myreviews" element={""} />
       <Route path="/profile/myaddressbook" element={""} />
       <Route path="/profile/mysavedcards" element={""} />
-      <Route path="/mybagfound" element={<MyBagFound/>} />
-      <Route path="/myanddress" element={<MyAnddress/>} />
-      <Route path="/mywishlist" element={<MyWishlistNotFound/>} />
-      <Route path="/orderplaced" element={<OrderPlaced/>} />
     </Routes>
   );
 };
