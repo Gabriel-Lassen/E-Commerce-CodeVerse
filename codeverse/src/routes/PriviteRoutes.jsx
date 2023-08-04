@@ -1,13 +1,13 @@
-import { useContext} from 'react';
-import { Navigate} from 'react-router-dom';
-import { AuthContext } from '../contexts/Auth';
+import { Navigate } from "react-router-dom";
 
-const PriviteRoutes = ({children}) => {
-    const { signed } = useContext(AuthContext);
-    if(!signed){
-        return <Navigate to='/getstarted' />
-    }
-    return children;
-}
+const PriviteRoutes = ({ children }) => {
+  const storageUser = localStorage.getItem("CodeVerse");
 
-export default PriviteRoutes
+  if (!storageUser) {
+    return <Navigate to="/getstarted" />;
+  }
+
+  return children;
+};
+
+export default PriviteRoutes;
