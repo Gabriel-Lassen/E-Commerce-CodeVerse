@@ -1,24 +1,41 @@
-.container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  .containerLeft {
-    display: flex;
-    flex-direction: column;
-    gap: 68px;
-    .labels {
-      display: flex;
+@media screen and (max-width: 768px) {
+  .container {
+    .products {
+      margin-top: 56px;
+      height: 58.5vh;
+      background: var(--Accent);
+      overflow-y: scroll;
+      .cards {
+        display: flex;
+        width: 91vw;
+        border-radius: 8px;
+        background-color: var(--Bright);
+        margin: 0 auto;
+        margin-top: 16px;
 
-      justify-content: space-between;
-      div {
-        display: inline-flex;
-        row-gap: 67px;
+        .prodDesc {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .separator {
+          width: 95vw;
+          height: 1px;
+          background: var(--Seperator);
+        }
       }
     }
-    .separador {
-      width: 710px;
-      height: 1px;
-      background: rgba(0, 0, 0, 0.12);
-      margin-bottom: 24px;
+    .bg {
+      width: 100vw;
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    .bg {
+      display: none;
     }
   }
 }
