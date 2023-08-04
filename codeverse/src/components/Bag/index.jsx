@@ -1,20 +1,21 @@
 import styles from "./styles.module.scss";
-
+import background from "../../assets/imgs/frame-6.png";
+import teste from "../../assets/imgs/bag-white.svg";
 const Bag = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.containerLeft}>
-        <div className={styles.labels}>
-          <h2>Product Name</h2>
-          <div>
-            <h2>Price</h2>
-            <h2>Qty</h2>
-            <h2>Subtotal</h2>
+      <section className={styles.products}>
+        <div className={styles.cards}>
+          <img src={teste} alt="" />
+
+          <div className={styles.prodDesc}>
+            <span>Coach</span>
+            <span>Leather Coach Bag</span>
+            <span>qty</span>
           </div>
         </div>
-        <div className={styles.separador}></div>
-      </div>
-      <div className={styles.containerRight}></div>
+      </section>
+      <img src={background} alt="" className={styles.bg} />
     </div>
   );
 };
