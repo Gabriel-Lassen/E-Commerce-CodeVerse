@@ -105,23 +105,21 @@
     display: flex;
     flex-direction: column;
     margin: 0 19.5px 24px;
+    gap: 12px;
 
     .subTotal {
       display: inline-flex;
       justify-content: space-between;
-      margin-bottom: 12px;
     }
 
     .tax {
       display: inline-flex;
       justify-content: space-between;
-      margin-bottom: 12px;
     }
 
     .total {
       display: inline-flex;
       justify-content: space-between;
-      margin-bottom: 12px;
     }
   }
 
