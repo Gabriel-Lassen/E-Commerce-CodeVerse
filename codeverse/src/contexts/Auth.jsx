@@ -218,6 +218,7 @@ function AuthProvider({ children }) {
         register,
         signIn,
         user,
+        signed: user,
         setUser,
         localStorageUser,
         handleDelete,
