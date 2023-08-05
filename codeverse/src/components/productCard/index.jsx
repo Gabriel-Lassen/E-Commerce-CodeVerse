@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import BtnAddToBag from '../BtnAddToBag';
 import BtnAddToWishlist from '../BtnAddToWishlist';
+import ModalBottomMobile from '../ModalBottomMobile/indes';
 
 const ProductCard = ({id, name, info, price, discount, averageStars, totalRatings, url, popularity, addToBagBtn, rating, reviews}) => {
     let stars = [];
@@ -22,7 +23,7 @@ const ProductCard = ({id, name, info, price, discount, averageStars, totalRating
         if(redirect){
            navigate(`/products/${id}`);
         } else {
-            (setShowModal(true))
+            setShowModal(true)
         }
     }
 
@@ -47,8 +48,8 @@ const ProductCard = ({id, name, info, price, discount, averageStars, totalRating
         };
     }, []);
   return (
-    <div className={styles.card} onClick={handleClick}>
-        <div className={styles.image} style={{backgroundImage: `url(${url})`}}>
+    <div className={styles.card}>
+        <div className={styles.image} style={{backgroundImage: `url(${url})`}} onClick={handleClick} >
             {popularity > 7 &&
                 <button>Trending</button>
             }
@@ -80,19 +81,21 @@ const ProductCard = ({id, name, info, price, discount, averageStars, totalRating
         {addToBagBtn &&
             <BtnAddToBag theme='light' />
         }
-        <div className={showModal ? styles.show : styles.hide} onClick={handleClick}>
-            <ProductCardModal
-                id={id}
-                name={name}
-                info={info}
-                price={price}
-                discount={discount}
-                averageStars={averageStars}
-                totalRatings={totalRatings}
-                url={url}
-                reviews={reviews}
-            />
-        </div>
+        {showModal &&
+            <ModalBottomMobile setShowModal={setShowModal}>
+                <ProductCardModal
+                    id={id}
+                    name={name}
+                    info={info}
+                    price={price}
+                    discount={discount}
+                    averageStars={averageStars}
+                    totalRatings={totalRatings}
+                    url={url}
+                    reviews={reviews}
+                />
+            </ModalBottomMobile> 
+        }
     </div>
   )
 }
