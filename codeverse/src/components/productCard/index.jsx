@@ -6,6 +6,7 @@ import ProductCardModal from '../ProductCardModal';
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import BtnAddToBag from '../BtnAddToBag';
+import BtnAddToWishlist from '../BtnAddToWishlist';
 
 const ProductCard = ({id, name, info, price, discount, averageStars, totalRatings, url, popularity, addToBagBtn, rating, reviews}) => {
     let stars = [];
@@ -72,9 +73,9 @@ const ProductCard = ({id, name, info, price, discount, averageStars, totalRating
                     <span className={styles.discount}>{discount*100}% OFF</span>
                </div>
             </div>
-            <button className={styles.wishBtn}>
-                <img src={Wishlist} alt="" />
-            </button>
+            <div className={styles.wishBtn}>
+                <BtnAddToWishlist type='small'/>
+            </div>
         </div>
         {addToBagBtn &&
             <BtnAddToBag theme='light' />
