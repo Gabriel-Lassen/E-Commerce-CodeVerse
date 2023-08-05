@@ -9,6 +9,11 @@ const BtnAddToWishlist = ({type}) => {
           <img src={Wishlist} alt="Add to Wishlist" />
         </button>
       }
+      { type === 'medium' &&
+        <button className={styles.wishBtnMedium}>
+          <img src={Wishlist} alt="Add to Wishlist" />
+        </button>
+      }
       { type === 'big' &&
         <button className={styles.wishBtnBig}>
           <img src={Wishlist} alt="Add to Wishlist" />
