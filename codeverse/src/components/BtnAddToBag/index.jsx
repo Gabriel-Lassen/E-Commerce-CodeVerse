@@ -11,6 +11,14 @@ const BtnAddToBag = ({theme, id}) => {
   const [image, setImage] = useState(theme === 'light' ? Bag : BagWhite);
   const [isInBag, setIsinBag] = useState(userBag.some(bag => bag.productId === id));
 
+  useEffect(() => {
+    setIsinBag(userBag.some(bag => bag.productId === id));
+  }, []);
+
+  useEffect(() => {
+    setIsinBag(userBag.some(bag => bag.productId === id));
+  }, [userBag]);
+
   function handleClick(){
     if(userBag.some(bag => bag.productId === id)){
       handleDeleteOneProductUserBag(id);
@@ -19,15 +27,7 @@ const BtnAddToBag = ({theme, id}) => {
       handleaddToUserBag(id);
       setIsinBag(true);
     }
-  }
-
-  useEffect(() => {
-    setIsinBag(userBag.some(bag => bag.productId === id));
-  }, [])
-
-  useEffect(() => {
-    setIsinBag(userBag.some(bag => bag.productId === id));
-  }, [userBag])
+  };
     
   return (
     <button className={`${styles.addBagBtn} ${styles[themeClassName]}`} onClick={handleClick}>
