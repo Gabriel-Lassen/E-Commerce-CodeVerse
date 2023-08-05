@@ -1,31 +1,11 @@
 import { auth, db, storage } from "../FirebaseConection";
 import { createContext, useState, useEffect } from "react";
-import {
-  createUserWithEmailAndPassword,
-  updatePassword,
-  signOut,
-  signInWithEmailAndPassword,
-} from "@firebase/auth";
-import {
-  setDoc,
-  doc,
-  updateDoc,
-  getDoc,
-  orderBy,
-  collection,
-  getDocs,
-  query,
-  limit,
-  onSnapshot,
-} from "@firebase/firestore";
+import { createUserWithEmailAndPassword, updatePassword, signOut, signInWithEmailAndPassword } from "@firebase/auth";
+import { setDoc, doc, updateDoc, getDoc, orderBy, collection, getDocs, query, limit } from "@firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import {
-  uploadBytes,
-  ref,
-  getDownloadURL,
-  deleteObject,
-} from "@firebase/storage";
+import { uploadBytes, ref, getDownloadURL, deleteObject } from "@firebase/storage";
 import { toast } from "react-toastify";
+
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
@@ -73,16 +53,7 @@ function AuthProvider({ children }) {
     });
   }
 
-  async function register(
-    email,
-    password,
-    date,
-    firstName,
-    lastName,
-    image,
-    ddd,
-    number
-  ) {
+  async function register( email, password, date, firstName, lastName, image, ddd, number) {
     await createUserWithEmailAndPassword(auth, email, password)
       .then(async (value) => {
         let uid = value.user.uid;
