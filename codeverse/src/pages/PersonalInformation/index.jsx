@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import ProfileInformation from "../../components/Personal-information";
 import TitlePage from "../../components/Title-pages";
 import RouteHistory from "../../components/Route-history";
+import Logout from "../../components/BtnLogout";
 
 const PersonalInformation = () => {
   const [hidden, setHidden] = useState(false);
@@ -29,7 +30,12 @@ const PersonalInformation = () => {
         text="Personal Information"
       />
       <RouteHistory />
-      <TitlePage />
+      {hidden && 
+        <div className={styles.container}>
+          <TitlePage />
+          <Logout/>
+        </div>
+      }
       <div className={styles.wrapper}>
         {hidden && <SideBarProfile />}
         <ProfileInformation />
