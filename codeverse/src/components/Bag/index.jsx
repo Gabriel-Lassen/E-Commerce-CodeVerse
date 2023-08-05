@@ -4,6 +4,14 @@ import teste from "../../assets/imgs/imgUser.jpg";
 const Bag = () => {
   return (
     <div className={styles.container}>
+      <div className={styles.label}>
+        <span>Product Name</span>
+        <div>
+          <span>Price</span>
+          <span>Qty</span>
+          <span>Subtotal</span>
+        </div>
+      </div>
       <section className={styles.products}>
         <div className={styles.cards}>
           <div className={styles.imgAndDesc}>

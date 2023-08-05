@@ -1,5 +1,8 @@
 @media screen and (max-width: 768px) {
   .container {
+    .label {
+      display: none;
+    }
     .products {
       margin-top: 7vh;
       height: 58.5vh;
@@ -249,6 +252,14 @@
 
 @media screen and (min-width: 769px) {
   .container {
+    width: 710px;
+    height: 466px;
+    overflow: hidden;
+    margin-left: 20px;
+    .label {
+      display: flex;
+      justify-content: space-between;
+    }
     .bg {
       display: none;
     }
