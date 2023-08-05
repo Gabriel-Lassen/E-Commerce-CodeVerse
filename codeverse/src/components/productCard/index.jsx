@@ -1,23 +1,35 @@
-import styles from './styles.module.scss';
-import Star from '../../assets/imgs/star.svg';
-import Wishlist from '../../assets/imgs/wishlist.svg';
-import Bag from '../../assets/imgs/bag.svg';
-import ProductCardModal from '../ProductCardModal';
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+
+import styles from './styles.module.scss';
+
+import ProductCardModal from '../ProductCardModal';
 import BtnAddToBag from '../BtnAddToBag';
 import BtnAddToWishlist from '../BtnAddToWishlist';
 import ModalBottomMobile from '../ModalBottomMobile/indes';
 
+import Star from '../../assets/imgs/star.svg';
+
 const ProductCard = ({id, name, info, price, discount, averageStars, totalRatings, url, popularity, addToBagBtn, rating, reviews}) => {
+    useEffect(() => {
+        handleResize(); 
+
+        window.addEventListener("resize", handleResize); 
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    const [showModal, setShowModal] = useState(false);
+    const [redirect, setRedirect] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+
     let stars = [];
     for (let i = 0; i < averageStars; ++i) {
         stars.push(<img src={Star} key={i}/>)
     }
-    const [showModal, setShowModal] = useState(false);
-    const [redirect, setRedirect] = useState(false);
-    const navigate = useNavigate();
-    const location = useLocation()
 
     const handleClick = () => {
         if(redirect){
@@ -37,16 +49,7 @@ const ProductCard = ({id, name, info, price, discount, averageStars, totalRating
             setRedirect(false);
         }
     };
-    
-    useEffect(() => {
-        handleResize(); 
 
-        window.addEventListener("resize", handleResize); 
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
   return (
     <div className={styles.card}>
         <div className={styles.image} style={{backgroundImage: `url(${url})`}} onClick={handleClick} >
@@ -75,11 +78,11 @@ const ProductCard = ({id, name, info, price, discount, averageStars, totalRating
                </div>
             </div>
             <div className={styles.wishBtn}>
-                <BtnAddToWishlist type='small'/>
+                <BtnAddToWishlist type='small' id={id}/>
             </div>
         </div>
         {addToBagBtn &&
-            <BtnAddToBag theme='light' />
+            <BtnAddToBag theme='light' id={id} />
         }
         {showModal &&
             <ModalBottomMobile setShowModal={setShowModal}>
