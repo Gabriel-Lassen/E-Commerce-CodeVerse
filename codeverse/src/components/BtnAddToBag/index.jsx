@@ -13,11 +13,7 @@ const BtnAddToBag = ({theme, id}) => {
 
   useEffect(() => {
     setIsinBag(userBag.some(bag => bag.productId === id));
-  }, []);
-
-  useEffect(() => {
-    setIsinBag(userBag.some(bag => bag.productId === id));
-  }, [userBag]);
+  }, [id, userBag]);
 
   function handleClick(){
     if(userBag.some(bag => bag.productId === id)){

@@ -10,11 +10,7 @@ const BtnAddToWishlist = ({type, id}) => {
 
   useEffect(() => {
     setIsinWishlist(userWishlist.some(wishlist => wishlist.productId === id));
-  }, []);
-
-  useEffect(() => {
-    setIsinWishlist(userWishlist.some(wishlist => wishlist.productId === id));
-  }, [userWishlist]);
+  }, [id, userWishlist]);
 
   function handleClick(){
     if(userWishlist.some(wishlist => wishlist.productId === id)){
