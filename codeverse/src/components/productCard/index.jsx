@@ -5,6 +5,7 @@ import Bag from '../../assets/imgs/bag.svg';
 import ProductCardModal from '../ProductCardModal';
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import BtnAddToBag from '../BtnAddToBag';
 
 const ProductCard = ({id, name, info, price, discount, averageStars, totalRatings, url, popularity, addToBagBtn, rating, reviews}) => {
     let stars = [];
@@ -76,10 +77,7 @@ const ProductCard = ({id, name, info, price, discount, averageStars, totalRating
             </button>
         </div>
         {addToBagBtn &&
-            <button className={styles.addBagBtn}>
-                <img src={Bag} alt="" />
-                <span>Add to bag</span>
-            </button>
+            <BtnAddToBag theme='light' />
         }
         <div className={showModal ? styles.show : styles.hide} onClick={handleClick}>
             <ProductCardModal
