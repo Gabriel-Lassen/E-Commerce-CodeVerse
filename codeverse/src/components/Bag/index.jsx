@@ -41,6 +41,32 @@ const Bag = () => {
         </div>
       </section>
       <img src={background} alt="" className={styles.bg} />
+      <div className={styles.order}>
+        <h2>Order Details</h2>
+        <div>
+          <p>Sub Total</p>
+          <span>$119.69</span>
+        </div>
+        <div>
+          <p>Discount</p>
+          <span>-$13.40</span>
+        </div>
+        <div>
+          <p>Delivery</p>
+          <span>-$0.00</span>
+        </div>
+        <div>
+          <h2>Grand Total</h2>
+          <span>$106.29</span>
+        </div>
+      </div>
+      <div className={styles.bottom}>
+        <div>
+          <p>Total Bag Amount</p>
+          <span>$106.29</span>
+        </div>
+        <button>Place Order</button>
+      </div>
     </div>
   );
 };
