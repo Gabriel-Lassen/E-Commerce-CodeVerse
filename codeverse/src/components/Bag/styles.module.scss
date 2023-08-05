@@ -1,27 +1,168 @@
 @media screen and (max-width: 768px) {
   .container {
     .products {
-      margin-top: 56px;
+      margin-top: 7vh;
       height: 58.5vh;
       background: var(--Accent);
       overflow-y: scroll;
       .cards {
-        display: flex;
         width: 91vw;
+        max-width: 462px;
         border-radius: 8px;
         background-color: var(--Bright);
         margin: 0 auto;
         margin-top: 16px;
+        position: relative;
 
-        .prodDesc {
+        .imgAndDesc {
           display: flex;
-          flex-direction: column;
-        }
+          flex-direction: row;
+          img {
+            margin: 8px 0 0 9px;
+            width: 29vw;
+            max-width: 145px;
+            height: 29vw;
+            max-height: 145px;
+            margin-bottom: 11px;
+          }
 
+          .prodDesc {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 8px 0 14px 11px;
+            width: auto;
+
+            .name {
+              color: var(--TypeHighEmphasis);
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 16px;
+              margin-bottom: 2px;
+              width: 120px;
+            }
+
+            .desc {
+              color: var(--TypeLowEmphasis);
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 16px;
+              width: 120px;
+              margin-bottom: 7px;
+            }
+
+            .qtyContainer {
+              display: inline-flex;
+              gap: 5px;
+              border-radius: 4px;
+              background: var(--Grey);
+              padding: 2px 3px 2px 5px;
+              width: 15vw;
+              max-width: 50.4px;
+              margin-bottom: 9px;
+
+              .qty {
+                color: var(--TypeLowEmphasis);
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 18px;
+              }
+              span {
+                color: var(--TypeHighEmphasis);
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 18px;
+              }
+            }
+
+            .priceContainer {
+              display: inline-flex;
+              gap: 6px;
+              width: 42.3vw;
+              h2 {
+                color: var(--TypeHighEmphasis);
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 16px;
+              }
+
+              .originPrice {
+                color: var(--TypeLowEmphasis);
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 16px;
+              }
+
+              .off {
+                color: #e21d1d;
+
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 16px;
+              }
+            }
+          }
+        }
         .separator {
-          width: 95vw;
+          width: 86.6vw;
+          max-width: 434.7px;
+          margin: 0 auto;
           height: 1px;
           background: var(--Seperator);
+        }
+
+        .btns {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          gap: 11.5px;
+
+          .wish {
+            width: 136px;
+            padding: 10px 8px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px;
+            background: rgba(23, 73, 77, 0);
+            color: var(--Primary);
+            text-align: center;
+
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px;
+          }
+
+          .column {
+            width: 1px;
+            height: 24px;
+            flex-shrink: 0;
+            background: var(--Seperator);
+            margin-top: 6px;
+          }
+
+          .remove {
+            width: 136px;
+            padding: 10px 8px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            color: var(--Primary);
+            text-align: center;
+            background: rgba(23, 73, 77, 0);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px;
+          }
         }
       }
     }
@@ -34,6 +175,8 @@
 
 @media screen and (min-width: 769px) {
   .container {
+    
+    
     .bg {
       display: none;
     }
