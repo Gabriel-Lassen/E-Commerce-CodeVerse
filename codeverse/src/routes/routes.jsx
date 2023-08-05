@@ -14,6 +14,8 @@ import ReferAndEarn from "../pages/ReferAndEarn";
 import PersonalInformation from "../pages/PersonalInformation";
 
 import PriviteRoutes from "./PriviteRoutes";
+import MyOrders from "../pages/MyOrders";
+import MyAddressBook from "../pages/MyAddressBook";
 
 const Rotas = () => {
   return (
@@ -28,13 +30,13 @@ const Rotas = () => {
       <Route path="/getstarted" element={<GetStart />} />
       <Route path="/mycart" element={<MyCart />} />
       
-      <Route path="/profile" element={<PriviteRoutes><Profile /></PriviteRoutes>} />
-      <Route path="/profile/personalinformation" element={<PriviteRoutes><PersonalInformation /></PriviteRoutes>} />
-      <Route path="/profile/referandearn" element={<PriviteRoutes><ReferAndEarn /></PriviteRoutes>} />
-      <Route path="/profile/myorders" element={""} />
-      <Route path="/profile/mywishlist" element={<PriviteRoutes><WishList /></PriviteRoutes>} />
+      <Route path="/profile" element={<PriviteRoutes> <Profile/> </PriviteRoutes>} />
+      <Route path="/profile/personalinformation" element={<PriviteRoutes> <PersonalInformation/> </PriviteRoutes>} />
+      <Route path="/profile/referandearn" element={<PriviteRoutes> <ReferAndEarn/> </PriviteRoutes>} />
+      <Route path="/profile/myorders" element={<PriviteRoutes> <MyOrders/> </PriviteRoutes>} />
+      <Route path="/profile/mywishlist" element={<PriviteRoutes> <WishList /> </PriviteRoutes>} />
       <Route path="/profile/myreviews" element={""} />
-      <Route path="/profile/myaddressbook" element={""} />
+      <Route path="/profile/myaddressbook" element={<PriviteRoutes> <MyAddressBook/> </PriviteRoutes>} />
       <Route path="/profile/mysavedcards" element={""} />
     </Routes>
   );

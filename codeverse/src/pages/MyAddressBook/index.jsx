@@ -7,19 +7,19 @@ import SideBarProfile from "../../components/SideBar-Profile";
 import TitlePage from "../../components/Title-pages";
 import RouteHistory from "../../components/Route-history";
 
-const WishList = () => {
-  const [hidden, setHidden] = useState(false);
+const MyAddressBook = () => {
+    const [hidden, setHidden] = useState(false);
 
-  useEffect(() => {
-    const handleHidden = () => {
-      setHidden(window.innerWidth >= 769);
-    };
-
-    handleHidden();
-
-    window.addEventListener("resize", handleHidden);
-  });
-  return (
+    useEffect(() => {
+      const handleHidden = () => {
+        setHidden(window.innerWidth >= 769);
+      };
+  
+      handleHidden();
+  
+      window.addEventListener("resize", handleHidden);
+    });
+return (
     <div>
       {hidden && <Header />}
       <BtnBackForPage
@@ -34,4 +34,4 @@ const WishList = () => {
   );
 };
 
-export default WishList;
+export default MyAddressBook
