@@ -4,6 +4,7 @@ import Chevron from '../../assets/imgs/chevron-up.svg';
 import Wishlist from '../../assets/imgs/fav.svg';
 import Bag from '../../assets/imgs/bag-light.svg';
 import { useNavigate } from 'react-router-dom';
+import BtnAddToWishlist from '../BtnAddToWishlist';
 
 const ProductCardModal = ({id, name, info, price, discount, averageStars, totalRatings, url, reviews}) => {
     const navigate = useNavigate();
@@ -50,9 +51,7 @@ const ProductCardModal = ({id, name, info, price, discount, averageStars, totalR
                 </div>
             </div>
             <div className={styles.modalActions}>
-                <button>
-                    <img src={Wishlist} alt="add to wishlist" />
-                </button>
+                <BtnAddToWishlist type='medium' />
                 <button className={styles.addBagBtn}>
                     <img src={Bag} alt="add to bag" />
                     <span>Add to bag</span>
