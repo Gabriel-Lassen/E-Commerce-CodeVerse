@@ -4,9 +4,9 @@ import { db } from "../FirebaseConection";
 import { AuthContext } from "./Auth";
 import { toast } from "react-toastify";
 
-export const UserActionsContext = createContext({});
+export const BagActionsContext = createContext({});
 
-const UserActionsProvider = ({children}) => {
+const BagActionsProvider = ({children}) => {
     const { user } = useContext(AuthContext)
     const [userBag, setUserBag] = useState([]);
 
@@ -59,7 +59,7 @@ const UserActionsProvider = ({children}) => {
     };
 
   return (
-    <UserActionsContext.Provider 
+    <BagActionsContext.Provider 
         value={{
             userBag,
             handleaddToUserBag,
@@ -69,9 +69,9 @@ const UserActionsProvider = ({children}) => {
         }}
     >
         {children}
-    </UserActionsContext.Provider>
+    </BagActionsContext.Provider>
     
   )
 }
 
-export default UserActionsProvider;
+export default BagActionsProvider;

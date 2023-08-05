@@ -3,10 +3,10 @@ import Bag from '../../assets/imgs/bag.svg';
 import BagWhite from '../../assets/imgs/bag-white.svg';
 import Close from '../../assets/imgs/remove.svg';
 import { useContext, useEffect, useState } from 'react';
-import { UserActionsContext } from '../../contexts/UserActions';
+import { BagActionsContext } from '../../contexts/bagActions';
 
 const BtnAddToBag = ({theme, id}) => {
-  const { handleaddToUserBag, handleDeleteOneProductUserBag, userBag } = useContext(UserActionsContext)
+  const { handleaddToUserBag, handleDeleteOneProductUserBag, userBag } = useContext(BagActionsContext)
   const [themeClassName, setThemeClassName] = useState(theme === 'light' ? 'light' : 'dark');
   const [image, setImage] = useState(theme === 'light' ? Bag : BagWhite);
   const [isInBag, setIsinBag] = useState(userBag.some(bag => bag.productId === id));
