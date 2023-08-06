@@ -31,7 +31,7 @@ const Bag = () => {
           </div>
         </div>
         <div className={styles.separator}></div>
-        {/* <div className={styles.cards}>
+        <div className={styles.cards}>
           <div className={styles.imgAndDesc}>
             <img src={teste} alt="" />
 
@@ -55,7 +55,7 @@ const Bag = () => {
                 <s>${price}</s>
               </span>
               <p>{discount * 100}% OFF</p>
-            </div>
+            </div>*/}
             </div>
           </div>
           <div className={styles.separator}></div>
@@ -64,14 +64,14 @@ const Bag = () => {
             <div className={styles.column}></div>
             <button className={styles.remove}>Remove</button>
           </div>
-        </div>*/}
-        <Cupom />
+        </div>
+        {reverse && <Cupom />}
 
-        <DropdowBtn title="Apply Coupon Code">
+        {hidden && <DropdowBtn title="Apply Coupon Code" divisor={true}>
           <Cupom />
-        </DropdowBtn>
+        </DropdowBtn>}
       </section>
-      {/*<img src={background} alt="" className={styles.bg} />
+      <img src={background} alt="" className={styles.bg} />
       <div className={styles.order}>
         <h2>Order Details</h2>
         <div>
@@ -97,7 +97,7 @@ const Bag = () => {
           <span>$106.29</span>
         </div>
         <button>Place Order</button>
-      </div>*/}
+      </div>
     </div>
   );
 };

@@ -33,6 +33,7 @@
 @media screen and (min-width: 769px) {
   .cupom {
     display: flex;
+
     position: relative;
     width: 28vw;
 
@@ -41,6 +42,7 @@
       height: 56px;
       border: none;
       padding: 10px;
+      background: var(--Grey);
     }
 
     button {
@@ -53,6 +55,7 @@
       line-height: 16px;
       color: var(--Primary);
       background: none;
+      padding: 0;
     }
   }
 }
