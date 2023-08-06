@@ -98,34 +98,43 @@ export const Payment = () => {
       {ContentVisible && (
         <>
           <div className={styles.container}>
-            <div className={styles.contentPayment}>
-              <div className={styles.box}>
-                <img src={googlePlay} alt="" />
-              </div>
-              <span>Google Pay</span>
-            </div>
-            <img src={payment === "debit" ? select : selectCheckbox} />
-          </div>
+      <div className={styles.contentPayment}>
+        <div className={styles.box}>
+          <img src={googlePlay} alt="" />
+        </div>
+        <span>Google Pay</span>
+      </div>
+      <img
+        src={payment === "googlePay" ? select : selectCheckbox}
+        onClick={() => setPayment("googlePay")}
+      />
+    </div>
 
-          <div className={styles.container}>
-            <div className={styles.contentPayment}>
-              <div className={styles.box}>
-                <img src={phone} alt="" />
-              </div>
-              <span>Phone Pe</span>
-            </div>
-            <img src={payment === "debit" ? select : selectCheckbox} />
-          </div>
+    <div className={styles.container}>
+      <div className={styles.contentPayment}>
+        <div className={styles.box}>
+          <img src={phone} alt="" />
+        </div>
+        <span>Phone Pe</span>
+      </div>
+      <img
+        src={payment === "phonePe" ? select : selectCheckbox}
+        onClick={() => setPayment("phonePe")} 
+      />
+    </div>
 
-          <div className={styles.container}>
-            <div className={styles.contentPayment}>
-              <div className={styles.box}>
-                <img src={pay} alt="" />
-              </div>
-              <span>Paytm</span>
-            </div>
-            <img src={payment === "debit" ? select : selectCheckbox} />
-          </div>
+    <div className={styles.container}>
+      <div className={styles.contentPayment}>
+        <div className={styles.box}>
+          <img src={pay} alt="" />
+        </div>
+        <span>Paytm</span>
+      </div>
+      <img
+        src={payment === "paytm" ? select : selectCheckbox}
+        onClick={() => setPayment("paytm")} 
+      />
+    </div>
         </>
       )}
       <div className={styles.center}>
