@@ -27,6 +27,7 @@
     flex-direction: column;
     gap: 12px;
     margin-top: 12px;
+    margin-bottom: 7px;
     .option {
       display: flex;
       justify-content: space-between;
@@ -43,11 +44,12 @@
       width: 100%;
       display: flex;
       align-items: center;
-      //justify-content: space-between;
-
       gap: 12px;
 
       .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 32px;
         height: 32px;
 
@@ -80,13 +82,13 @@
     left: 16px;
 
     p {
-        color: var(--LightText);
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 18px;
-        margin-top: 2px;
-      }
+      color: var(--LightText);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+      margin-top: 2px;
+    }
 
     input {
       display: flex;
@@ -104,7 +106,6 @@
       font-weight: 500;
       line-height: 20px;
     }
-   
   }
   .checkbox {
     display: flex;
@@ -112,5 +113,4 @@
     margin-top: 20px;
     gap: 8px;
   }
-
 }
