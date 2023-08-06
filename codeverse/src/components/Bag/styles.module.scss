@@ -3,11 +3,17 @@
     .label {
       display: none;
     }
+
+    .products::-webkit-scrollbar {
+      display: none;
+    }
     .products {
       margin-top: 7vh;
       height: 58.5vh;
       background: var(--Accent);
       overflow-y: scroll;
+      z-index: 1;
+
       .cards {
         width: 91vw;
         max-width: 462px;
@@ -27,6 +33,7 @@
             height: 29vw;
             max-height: 145px;
             margin-bottom: 11px;
+            border-radius: 8px;
           }
 
           .prodDesc {

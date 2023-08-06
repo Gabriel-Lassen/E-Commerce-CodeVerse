@@ -4,10 +4,11 @@
     position: absolute;
     position: relative;
     width: 91vw;
-
-    top: 40%;
+    padding-bottom: 20px;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -20%);
+    z-index: 1;
 
     input {
       width: 100%;
