@@ -15,14 +15,44 @@
     border-radius: 12px;
     border: 1px solid #e3e3e3;
     background: var(--Bright);
-    h1 {
+    .credit {
       color: var(--TypeHighEmphasis);
       text-align: center;
       font-size: 16px;
       font-style: normal;
       font-weight: 500;
       line-height: normal;
-      margin-top: 9px;
+      margin-top: 17px;
+    }
+
+    .upi {
+      color: var(--TypeHighEmphasis);
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-top: 10px;
+    }
+
+    .apple {
+      color: var(--TypeHighEmphasis);
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-top: 10px;
+    }
+
+    .amazon {
+      color: var(--TypeHighEmphasis);
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-top: 14px;
     }
 
     .content {
@@ -44,8 +74,7 @@
   border: 1px solid var(--Primary);
   width: 709px;
   height: 203px;
-
   margin: 0 auto;
   margin-top: 63px;
-
 }
+
