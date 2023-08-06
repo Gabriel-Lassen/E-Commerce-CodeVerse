@@ -1,0 +1,36 @@
+@media only screen and (max-width: 768px) {
+  .payment {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    .toggleContainer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      h1 {
+        color: var(--TypeHighEmphasis);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+      }
+      img {
+        margin-left: 8px;
+      }
+    }
+  }
+  .optionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+    .option {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 15px;
+    }
+  }
+}
