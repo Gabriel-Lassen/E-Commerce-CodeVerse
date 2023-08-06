@@ -1,41 +1,16 @@
-import styles from './styles.module.scss';
-import Star from '../../assets/imgs/star.svg';
-import Wishlist from '../../assets/imgs/wishlist.svg';
-import Bag from '../../assets/imgs/bag.svg';
-import ProductCardModal from '../ProductCardModal';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+
+import styles from './styles.module.scss';
+
+import ProductCardModal from '../ProductCardModal';
+import BtnAddToBag from '../BtnAddToBag';
+import BtnAddToWishlist from '../BtnAddToWishlist';
+import ModalBottomMobile from '../ModalBottomMobile/indes';
+
+import Star from '../../assets/imgs/star.svg';
 
 const ProductCard = ({id, name, info, price, discount, averageStars, totalRatings, url, popularity, addToBagBtn, rating, reviews}) => {
-    let stars = [];
-    for (let i = 0; i < averageStars; ++i) {
-        stars.push(<img src={Star} key={i}/>)
-    }
-    const [showModal, setShowModal] = useState(false);
-    const [redirect, setRedirect] = useState(false);
-    const navigate = useNavigate();
-
-    const handleClick = () => {
-        if(redirect){
-           navigate(`/products/${id}`);
-        } else {
-            if(showModal){
-                setShowModal(false);
-            } else (setShowModal(true))
-        }
-    }
-
-    const handleResize = () => {
-        const windowWidth = window.innerWidth;
-        const breakpointWidth = 769;
-        if(windowWidth >= breakpointWidth){
-            setRedirect(true);
-            setShowModal(false);
-        } else {
-            setRedirect(false);
-        }
-    };
-    
     useEffect(() => {
         handleResize(); 
 
@@ -45,9 +20,39 @@ const ProductCard = ({id, name, info, price, discount, averageStars, totalRating
             window.removeEventListener("resize", handleResize);
         };
     }, []);
+
+    const [showModal, setShowModal] = useState(false);
+    const [redirect, setRedirect] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    let stars = [];
+    for (let i = 0; i < averageStars; ++i) {
+        stars.push(<img src={Star} key={i}/>)
+    }
+
+    const handleClick = () => {
+        if(redirect){
+           navigate(`/products/${id}`);
+        } else {
+            setShowModal(true)
+        }
+    }
+
+    const handleResize = () => {
+        const windowWidth = window.innerWidth;
+        const breakpointWidth = 769;
+        if(windowWidth >= breakpointWidth || location.pathname !== '/'){
+            setRedirect(true);
+            setShowModal(false);
+        } else {
+            setRedirect(false);
+        }
+    };
+
   return (
-    <div className={styles.card} onClick={handleClick}>
-        <div className={styles.image} style={{backgroundImage: `url(${url})`}}>
+    <div className={styles.card}>
+        <div className={styles.image} style={{backgroundImage: `url(${url})`}} onClick={handleClick} >
             {popularity > 7 &&
                 <button>Trending</button>
             }
@@ -72,29 +77,28 @@ const ProductCard = ({id, name, info, price, discount, averageStars, totalRating
                     <span className={styles.discount}>{discount*100}% OFF</span>
                </div>
             </div>
-            <button className={styles.wishBtn}>
-                <img src={Wishlist} alt="" />
-            </button>
+            <div className={styles.wishBtn}>
+                <BtnAddToWishlist type='small' id={id}/>
+            </div>
         </div>
         {addToBagBtn &&
-            <button className={styles.addBagBtn}>
-                <img src={Bag} alt="" />
-                <span>Add to bag</span>
-            </button>
+            <BtnAddToBag theme='light' id={id} />
         }
-        <div className={showModal ? styles.show : styles.hide} onClick={handleClick}>
-            <ProductCardModal
-                id={id}
-                name={name}
-                info={info}
-                price={price}
-                discount={discount}
-                averageStars={averageStars}
-                totalRatings={totalRatings}
-                url={url}
-                reviews={reviews}
-            />
-        </div>
+        {showModal &&
+            <ModalBottomMobile setShowModal={setShowModal}>
+                <ProductCardModal
+                    id={id}
+                    name={name}
+                    info={info}
+                    price={price}
+                    discount={discount}
+                    averageStars={averageStars}
+                    totalRatings={totalRatings}
+                    url={url}
+                    reviews={reviews}
+                />
+            </ModalBottomMobile> 
+        }
     </div>
   )
 }

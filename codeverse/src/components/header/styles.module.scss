@@ -23,6 +23,10 @@
       display: flex;
       gap: 24px;
       padding-right: 16px;
+
+      button {
+        background: none;
+      }
     }
     .header_left_desktop,
     .header_right_desktop {

@@ -1,0 +1,32 @@
+.bread {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .bread {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 0 0 0 20px;
+    .textGray,
+    .textBlue {
+      display: flex;
+      align-items: center;
+      color: var(--TypeLowEmphasis);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      height: 24px;
+    }
+
+    .textBlue {
+      color: var(--Primary);
+    }
+    
+    .link{
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+    }
+  }
+}

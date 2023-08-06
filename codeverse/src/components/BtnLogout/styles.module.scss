@@ -1,0 +1,40 @@
+@media screen and (max-width: 768px) {
+  .logout {
+    display: flex;
+    width: 91.11vw;
+    padding: 10px 120px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 2px solid var(--Primary);
+    background: var(--Bright);
+    margin: 26px auto 0;
+    color: var(--Primary);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .logout {
+    display: flex;
+    width: 136px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--Primary);
+    background: var(--Bright);
+    color: var(--Primary);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
+}
