@@ -1,19 +1,37 @@
 import styles from "./styles.module.scss";
 import background from "../../assets/imgs/frame-6.png";
 import teste from "../../assets/imgs/imgUser.jpg";
+import DropdowBtn from "../DropdowBtn";
+import { useState, useEffect } from "react";
+import Cupom from "../CupomInput";
+
 const Bag = () => {
+  const [hidden, setHidden] = useState(false);
+  const [reverse, setReverse] = useState(true);
+  useEffect(() => {
+    const handleHidden = () => {
+      setHidden(window.innerWidth >= 769);
+      !setReverse(window.innerWidth <= 768);
+    };
+
+    handleHidden();
+
+    window.addEventListener("resize", handleHidden);
+  });
+
   return (
     <div className={styles.container}>
-      <div className={styles.label}>
-        <span>Product Name</span>
-        <div>
-          <span>Price</span>
-          <span>Qty</span>
-          <span>Subtotal</span>
-        </div>
-      </div>
       <section className={styles.products}>
-        <div className={styles.cards}>
+        <div className={styles.label}>
+          <span>Product Name</span>
+          <div>
+            <span>Price</span>
+            <span>Qty</span>
+            <span>Subtotal</span>
+          </div>
+        </div>
+        <div className={styles.separator}></div>
+        {/* <div className={styles.cards}>
           <div className={styles.imgAndDesc}>
             <img src={teste} alt="" />
 
@@ -37,7 +55,7 @@ const Bag = () => {
                 <s>${price}</s>
               </span>
               <p>{discount * 100}% OFF</p>
-            </div>*/}
+            </div>
             </div>
           </div>
           <div className={styles.separator}></div>
@@ -46,9 +64,14 @@ const Bag = () => {
             <div className={styles.column}></div>
             <button className={styles.remove}>Remove</button>
           </div>
-        </div>
+        </div>*/}
+        <Cupom />
+
+        <DropdowBtn title="Apply Coupon Code">
+          <Cupom />
+        </DropdowBtn>
       </section>
-      <img src={background} alt="" className={styles.bg} />
+      {/*<img src={background} alt="" className={styles.bg} />
       <div className={styles.order}>
         <h2>Order Details</h2>
         <div>
@@ -74,7 +97,7 @@ const Bag = () => {
           <span>$106.29</span>
         </div>
         <button>Place Order</button>
-      </div>
+      </div>*/}
     </div>
   );
 };

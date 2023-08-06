@@ -168,6 +168,36 @@
           }
         }
       }
+
+      .cupom {
+        display: flex;
+        position: absolute;
+        position: relative;
+        width: 91vw;
+
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+
+        input {
+          width: 100%;
+          height: 46px;
+          border: none;
+          padding: 10px;
+        }
+
+        button {
+          position: absolute;
+          top: 14px;
+          right: 12px;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 16px;
+          color: var(--Primary);
+          background: none;
+        }
+      }
     }
     .bg {
       width: 100vw;
@@ -252,13 +282,41 @@
 
 @media screen and (min-width: 769px) {
   .container {
-    width: 710px;
-    height: 466px;
-    overflow: hidden;
-    margin-left: 20px;
-    .label {
-      display: flex;
-      justify-content: space-between;
+
+    .products {
+      width: 55.4vw;
+      height: 466px;
+      overflow: hidden;
+      margin-left: 20px;
+
+      .label {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+          color: var(--TypeLowEmphasis);
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+        }
+
+        div {
+          display: inline-flex;
+          gap: 67px;
+        }
+      }
+
+      .separator {
+        width: 55.4vw;
+        height: 1px;
+        background: var(--Seperator);
+        margin-bottom: 24px;
+      }
+
+      .cards{
+        
+      }
     }
     .bg {
       display: none;

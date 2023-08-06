@@ -1,0 +1,58 @@
+@media screen and (max-width: 768px) {
+  .cupom {
+    display: flex;
+    position: absolute;
+    position: relative;
+    width: 91vw;
+
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+
+    input {
+      width: 100%;
+      height: 46px;
+      border: none;
+      padding: 10px;
+    }
+
+    button {
+      position: absolute;
+      top: 14px;
+      right: 12px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 16px;
+      color: var(--Primary);
+      background: none;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .cupom {
+    display: flex;
+    position: relative;
+    width: 28vw;
+
+    input {
+      width: 100%;
+      height: 56px;
+      border: none;
+      padding: 10px;
+    }
+
+    button {
+      position: absolute;
+      top: 18px;
+      right: 12px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 16px;
+      color: var(--Primary);
+      background: none;
+    }
+  }
+}
