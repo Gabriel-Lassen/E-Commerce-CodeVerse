@@ -19,6 +19,7 @@ const ProductsInfo = () => {
   const [totalRatings, setTotalRatings] = useState("");
   const [averageStars, setAverageStars] = useState("");
   const [reviews, setReviews] = useState("");
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     if (listProducts) {
@@ -53,6 +54,10 @@ const ProductsInfo = () => {
     }
 
     return stars;
+  }
+
+  function handleQuantityChange(newQuantity) {
+    setQuantity(newQuantity);
   }
 
   return (
@@ -108,7 +113,13 @@ const ProductsInfo = () => {
           <button>check</button>
         </div>
       </div>
-      <Qty qty={qty} text={"Quantity:"} gap={"16px"} />
+      <Qty
+        qty={qty}
+        text={"Quantity:"}
+        gap={"16px"}
+        quantity={quantity}
+        onQuantityChange={handleQuantityChange}
+      />
     </div>
   );
 };
