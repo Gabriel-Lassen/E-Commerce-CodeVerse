@@ -5,6 +5,8 @@ import minusIcon from "../../assets/imgs/minus-icon.png";
 import select from "../../assets/imgs/selecionado.png";
 import selectCheckbox from "../../assets/imgs/select.png";
 import googlePlay from "../../assets/imgs/googlePlay.png";
+import pay from '../../assets/imgs/payTm.png'
+import phone from '../../assets/imgs/phonePe.png'
 
 export const Payment = () => {
   const [isContentVisible, setIsContentVisible] = useState(false);
@@ -108,9 +110,9 @@ export const Payment = () => {
           <div className={styles.container}>
             <div className={styles.contentPayment}>
               <div className={styles.box}>
-                <img src={googlePlay} alt="" />
+                <img src={phone} alt="" />
               </div>
-              <span>Google Pay</span>
+              <span>Phone Pe</span>
             </div>
             <img src={payment === "debit" ? select : selectCheckbox} />
           </div>
@@ -118,9 +120,9 @@ export const Payment = () => {
           <div className={styles.container}>
             <div className={styles.contentPayment}>
               <div className={styles.box}>
-                <img src={googlePlay} alt="" />
+                <img src={pay} alt="" />
               </div>
-              <span>Google Pay</span>
+              <span>Paytm</span>
             </div>
             <img src={payment === "debit" ? select : selectCheckbox} />
           </div>
