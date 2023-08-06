@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  gap: 20px;
+
+  .payment {
+    display: flex;
+    align-items: flex-start;
+  }
+  .box {
+    width: 160px;
+    height: 143px;
+    border-radius: 12px;
+    border: 1px solid #e3e3e3;
+    background: var(--Bright);
+    h1 {
+      color: var(--TypeHighEmphasis);
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-top: 9px;
+    }
+
+    .content {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 15px;
+      padding-top: 12px;
+    }
+    .center {
+      padding-top: 19px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
