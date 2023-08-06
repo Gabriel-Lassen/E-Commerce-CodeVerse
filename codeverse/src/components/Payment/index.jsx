@@ -4,14 +4,15 @@ import plusIcon from "../../assets/imgs/small-plus.png";
 import minusIcon from "../../assets/imgs/minus-icon.png";
 import select from "../../assets/imgs/selecionado.png";
 import selectCheckbox from "../../assets/imgs/select.png";
+import googlePlay from '../../assets/imgs/googlePlay.png'
 
 export const Payment = () => {
   const [isContentVisible, setIsContentVisible] = useState(false);
   const [isDivClicked, setIsDivClicked] = useState(false);
   const [paymentOption, setPaymentOption] = useState("");
   const [ContentVisible, setContentVisible] = useState(false);
-  const [divClicked, setDivClicked] = useState(false)
-  const [payment, setPayment] = useState('')
+  const [divClicked, setDivClicked] = useState(false);
+  const [payment, setPayment] = useState("");
 
   const handleToggleClick = () => {
     setIsContentVisible(!isContentVisible);
@@ -75,8 +76,8 @@ export const Payment = () => {
         </div>
       )}
 
-
- <div className={`${styles.payment} ${divClicked ? styles.clickedDiv : ""}`}
+      <div
+        className={`${styles.payment} ${divClicked ? styles.clickedDiv : ""}`}
         onClick={handleClick}
         style={{
           background: divClicked ? "var(--Grey)" : "none",
@@ -92,9 +93,41 @@ export const Payment = () => {
           />
         </div>
       </div>
+      {ContentVisible && (
+        <>
+        <div className={styles.container}>
+            <div className={styles.contentPayment}>
+                <div className={styles.box}>
+                    <img src={googlePlay} alt="" />
+                </div>
+                <span>Google Pay</span>
+            </div>
+            <img src={payment === "debit" ? select : selectCheckbox} />
+      </div>
 
 
+      <div className={styles.container}>
+            <div className={styles.contentPayment}>
+                <div className={styles.box}>
+                    <img src={googlePlay} alt="" />
+                </div>
+                <span>Google Pay</span>
+            </div>
+            <img src={payment === "debit" ? select : selectCheckbox} />
+      </div>
 
+      <div className={styles.container}>
+            <div className={styles.contentPayment}>
+                <div className={styles.box}>
+                    <img src={googlePlay} alt="" />
+                </div>
+                <span>Google Pay</span>
+            </div>
+            <img src={payment === "debit" ? select : selectCheckbox} />
+      </div>
+
+      </> 
+)}
     </>
   );
 };
