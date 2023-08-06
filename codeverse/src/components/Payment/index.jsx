@@ -85,7 +85,7 @@ export const Payment = () => {
         <div className={styles.toggleContainer} onClick={handleToggle}>
           <h1>UPI</h1>
           <img
-            src={isContentVisible ? minusIcon : plusIcon}
+            src={ContentVisible ? minusIcon : plusIcon}
             className={styles.toggleIcon}
             id="toggleIcon"
             onClick={handleToggle}
