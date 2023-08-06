@@ -5,6 +5,7 @@ import DropdowBtn from "../DropdowBtn";
 import { useState, useEffect } from "react";
 import Cupom from "../CupomInput";
 
+
 const Bag = () => {
   const [hidden, setHidden] = useState(false);
   const [reverse, setReverse] = useState(true);
@@ -67,9 +68,11 @@ const Bag = () => {
         </div>
         {reverse && <Cupom />}
 
-        {hidden && <DropdowBtn title="Apply Coupon Code" divisor={true}>
-          <Cupom />
-        </DropdowBtn>}
+        {hidden && (
+          <DropdowBtn title="Apply Coupon Code" divisor={true}>
+            <Cupom />
+          </DropdowBtn>
+        )}
       </section>
       <img src={background} alt="" className={styles.bg} />
       <div className={styles.order}>

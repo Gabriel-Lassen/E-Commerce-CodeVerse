@@ -12,6 +12,9 @@ const BagModal = ({ active }) => {
   const { userBag, handleDeleteOneProductUserBag } =
     useContext(BagActionsContext);
   const [productQty, setProductQty] = useState({});
+  const [subTotal, setSubTotal] = useState(0);
+  const [taxToPay, setTaxToPay] = useState(0);
+  const [pay, setPay] = useState(0);
 
   const close = () => {
     active(false);
@@ -21,24 +24,34 @@ const BagModal = ({ active }) => {
     return listProducts.find((product) => product.id === productId);
   };
 
-  const handleProductQuantityChange = (productId, quantity) => {
+  const handleQtyChange = (productId, quantity) => {
     setProductQty((prevQty) => ({
       ...prevQty,
       [productId]: quantity,
     }));
   };
 
-  const getProductTotalPrice = (productId) => {
+  const discountedPrice = (productId) => {
     const product = getProductById(productId);
     const quantity = productQty[productId] || 1;
-    return product.price * quantity;
+    return product.price * (1 - product.discount) * quantity;
   };
 
+  const tax = (userBag) => userBag.length;
+
   useEffect(() => {
-    const totalPrice = userBag.reduce(
-      (totalPrice, item) => totalPrice + getProductTotalPrice(item.productId),
+    const Price = userBag.reduce(
+      (totalPrice, item) => totalPrice + discountedPrice(item.productId),
       0
     );
+
+    const Tax = tax(userBag) * 1;
+
+    const total = Price + Tax;
+
+    setSubTotal(Price);
+    setTaxToPay(Tax);
+    setPay(total);
   }, [userBag, productQty]);
 
   return (
@@ -58,12 +71,11 @@ const BagModal = ({ active }) => {
             return null;
           }
 
-          const productTotalPrice = getProductTotalPrice(item.productId);
+          const price = discountedPrice(item.productId);
 
           const handleRemoveFromBag = () => {
             handleDeleteOneProductUserBag(item.productId);
           };
-          const discountedPrice = productTotalPrice * (1 - product.discount);
 
           return (
             <>
@@ -78,7 +90,7 @@ const BagModal = ({ active }) => {
                     qty={product.qty}
                     quantity={productQty[item.productId] || 1}
                     onQuantityChange={(quantity) =>
-                      handleProductQuantityChange(item.productId, quantity)
+                      handleQtyChange(item.productId, quantity)
                     }
                   />
                 </div>
@@ -86,7 +98,7 @@ const BagModal = ({ active }) => {
                   <button onClick={handleRemoveFromBag}>
                     <img src={X} alt="Remove" />
                   </button>
-                  <span>${discountedPrice.toFixed(2)}</span>
+                  <span>${price.toFixed(2)}</span>
                 </div>
               </div>
               <div className={styles.separator}></div>
@@ -98,15 +110,15 @@ const BagModal = ({ active }) => {
       <div className={styles.price}>
         <div className={styles.subTotal}>
           <p>Subtotal: </p>
-          <span>$109.38</span>
+          <span>${subTotal.toFixed(2)}</span>
         </div>
         <div className={styles.tax}>
           <p>Tax: </p>
-          <span>$2.00</span>
+          <span>${taxToPay.toFixed(2)}</span>
         </div>
         <div className={styles.total}>
           <p>Total: </p>
-          <span>$111.38</span>
+          <span>${pay.toFixed(2)}</span>
         </div>
       </div>
 
