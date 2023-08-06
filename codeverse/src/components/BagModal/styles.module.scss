@@ -66,10 +66,10 @@
 
     .card {
       display: flex;
-      width: 383px;
+      width: 378px;
       height: 114px;
-      padding: 0px 4px;
-      justify-content: center;
+      padding: 0px 15px;
+      justify-content: flex-start;
       align-items: flex-start;
       gap: 16px;
 
@@ -83,6 +83,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        justify-content: end;
         gap: 40px;
 
         button {
@@ -98,6 +99,7 @@
       }
       .prodDesc {
         display: flex;
+        width: 220px;
         height: 114px;
         flex-direction: column;
         gap: 8px;

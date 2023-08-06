@@ -84,8 +84,8 @@ const BagModal = ({ active }) => {
                   <img src={product.url} alt={product.name} />
                 </Link>
                 <div className={styles.prodDesc}>
-                  <span>{product.brand}</span>
                   <span>{product.name}</span>
+                  <span>{product.info}</span>
                   <Qty
                     qty={product.qty}
                     quantity={productQty[item.productId] || 1}
