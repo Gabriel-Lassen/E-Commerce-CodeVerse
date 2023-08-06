@@ -52,6 +52,13 @@ export const PaymentDesktop = () => {
         </div>
       </div>
     </div>
+
+    <div className={styles.contentPay}>
+        <div className={styles.active}>
+
+        </div>
+    </div>
     </>
+    
   );
 };
