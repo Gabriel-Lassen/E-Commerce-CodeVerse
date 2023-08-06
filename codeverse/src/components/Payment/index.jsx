@@ -20,50 +20,49 @@ export const Payment = () => {
   };
 
   return (
-    <div className={`${styles.payment} ${isDivClicked ? styles.clickedDiv : ""}`}
-      onClick={handleDivClick}
-      style={{
-        width: isDivClicked ? "360px" : "auto",
-        height: isDivClicked ? "48px" : "auto",
-        background: isDivClicked ? "var(--Grey)" : "none",
-      }}
-    >
-      <div className={styles.toggleContainer} onClick={handleToggleClick}>
-        <h1>Debit Card/Credit Card</h1>
-        <img
-          className={styles.toggleIcon}
-          id="toggleIcon"
-          src={isContentVisible ? minusIcon : plusIcon}
-          onClick={handleToggleClick}
-        />
+    <>
+      <div className={`${styles.payment} ${isDivClicked ? styles.clickedDiv : ""}`}
+        onClick={handleDivClick}
+        style={{
+         
+          background: isDivClicked ? "var(--Grey)" : "none",
+        }}
+      >
+        <div className={styles.toggleContainer} onClick={handleToggleClick}>
+          <h1>Debit Card/Credit Card</h1>
+          <img
+            src={isContentVisible ? minusIcon : plusIcon}
+            className={styles.toggleIcon}
+            id="toggleIcon"
+            onClick={handleToggleClick}
+          />
+        </div>
       </div>
+
       {isContentVisible && (
-        <div className={styles.content}>
-          <h2></h2>
           <div className={styles.optionsContainer}>
-          <p>Debit Card</p>
             <div
               className={`${styles.option} ${
                 paymentOption === "debit" ? styles.selected : ""
               }`}
-              onClick={() => setPaymentOption("debit")} >
+              onClick={() => setPaymentOption("debit")}
+            >
+              <p>Debit Card</p>
               <img src={paymentOption === "debit" ? select : selectCheckbox} />
-             
             </div>
-            
+
             <div
               className={`${styles.option} ${
                 paymentOption === "credit" ? styles.selected : ""
               }`}
-              
-              onClick={() => setPaymentOption("credit")}>
-                 <p>Credit Card</p>
+              onClick={() => setPaymentOption("credit")}
+            >
+              <p>Credit Card</p>
               <img src={paymentOption === "credit" ? select : selectCheckbox} />
-             
             </div>
           </div>
-        </div>
+       
       )}
-    </div>
+    </>
   );
 };
