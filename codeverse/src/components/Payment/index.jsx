@@ -21,10 +21,10 @@ export const Payment = () => {
 
   return (
     <>
-      <div className={`${styles.payment} ${isDivClicked ? styles.clickedDiv : ""}`}
+      <div
+        className={`${styles.payment} ${isDivClicked ? styles.clickedDiv : ""}`}
         onClick={handleDivClick}
         style={{
-         
           background: isDivClicked ? "var(--Grey)" : "none",
         }}
       >
@@ -40,29 +40,29 @@ export const Payment = () => {
       </div>
 
       {isContentVisible && (
-          <div className={styles.optionsContainer}>
-            <div
-              className={`${styles.option} ${
-                paymentOption === "debit" ? styles.selected : ""
-              }`}
-              onClick={() => setPaymentOption("debit")}
-            >
-              <p>Debit Card</p>
-              <img src={paymentOption === "debit" ? select : selectCheckbox} />
-            </div>
-
-            <div
-              className={`${styles.option} ${
-                paymentOption === "credit" ? styles.selected : ""
-              }`}
-              onClick={() => setPaymentOption("credit")}
-            >
-              <p>Credit Card</p>
-              <img src={paymentOption === "credit" ? select : selectCheckbox} />
-            </div>
+        <div className={styles.optionsContainer}>
+          <div
+            className={`${styles.option} ${
+              paymentOption === "debit" ? styles.selected : ""
+            }`}
+            onClick={() => setPaymentOption("debit")}
+          >
+            <p>Debit Card</p>
+            <img src={paymentOption === "debit" ? select : selectCheckbox} />
           </div>
-       
+
+          <div
+            className={`${styles.option} ${
+              paymentOption === "credit" ? styles.selected : ""
+            }`}
+            onClick={() => setPaymentOption("credit")}
+          >
+            <p>Credit Card</p>
+            <img src={paymentOption === "credit" ? select : selectCheckbox} />
+          </div>
+        </div>
       )}
+
     </>
   );
 };
