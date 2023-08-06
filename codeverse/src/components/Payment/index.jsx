@@ -9,6 +9,9 @@ export const Payment = () => {
   const [isContentVisible, setIsContentVisible] = useState(false);
   const [isDivClicked, setIsDivClicked] = useState(false);
   const [paymentOption, setPaymentOption] = useState("");
+  const [ContentVisible, setContentVisible] = useState(false);
+  const [divClicked, setDivClicked] = useState(false)
+  const [payment, setPayment] = useState('')
 
   const handleToggleClick = () => {
     setIsContentVisible(!isContentVisible);
@@ -16,6 +19,15 @@ export const Payment = () => {
 
   const handleDivClick = (event) => {
     setIsDivClicked(!isDivClicked);
+    event.stopPropagation();
+  };
+
+  const handleToggle = () => {
+    setContentVisible(!ContentVisible);
+  };
+
+  const handleClick = (event) => {
+    setDivClicked(!divClicked);
     event.stopPropagation();
   };
 
@@ -62,6 +74,26 @@ export const Payment = () => {
           </div>
         </div>
       )}
+
+
+ <div className={`${styles.payment} ${divClicked ? styles.clickedDiv : ""}`}
+        onClick={handleClick}
+        style={{
+          background: divClicked ? "var(--Grey)" : "none",
+        }}
+      >
+        <div className={styles.toggleContainer} onClick={handleToggle}>
+          <h1>UPI</h1>
+          <img
+            src={isContentVisible ? minusIcon : plusIcon}
+            className={styles.toggleIcon}
+            id="toggleIcon"
+            onClick={handleToggle}
+          />
+        </div>
+      </div>
+
+
 
     </>
   );
