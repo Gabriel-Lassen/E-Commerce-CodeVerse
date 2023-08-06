@@ -54,7 +54,16 @@
     }
   }
 
+  .cardContainer::-webkit-scrollbar {
+    display: none;
+  }
+
   .cardContainer {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 394px;
+    height: 290px;
+
     .card {
       display: flex;
       width: 383px;
@@ -92,6 +101,14 @@
         height: 114px;
         flex-direction: column;
         gap: 8px;
+
+        .info {
+          color: var(--TypeLowEmphasis);
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+        }
       }
     }
     .separator {

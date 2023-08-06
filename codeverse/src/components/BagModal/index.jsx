@@ -3,12 +3,43 @@ import arrow from "../../assets/imgs/arrowLong.svg";
 import X from "../../assets/imgs/icon-cross-small.svg";
 import { Link } from "react-router-dom";
 import Qty from "../Products/Qty";
+import { ProductsContext } from "../../contexts/products";
+import { BagActionsContext } from "../../contexts/bagActions";
+import { useContext, useState, useEffect } from "react";
 
-// eslint-disable-next-line react/prop-types
 const BagModal = ({ active }) => {
+  const { listProducts } = useContext(ProductsContext);
+  const { userBag, handleDeleteOneProductUserBag } =
+    useContext(BagActionsContext);
+  const [productQty, setProductQty] = useState({});
+
   const close = () => {
     active(false);
   };
+
+  const getProductById = (productId) => {
+    return listProducts.find((product) => product.id === productId);
+  };
+
+  const handleProductQuantityChange = (productId, quantity) => {
+    setProductQty((prevQty) => ({
+      ...prevQty,
+      [productId]: quantity,
+    }));
+  };
+
+  const getProductTotalPrice = (productId) => {
+    const product = getProductById(productId);
+    const quantity = productQty[productId] || 1;
+    return product.price * quantity;
+  };
+
+  useEffect(() => {
+    const totalPrice = userBag.reduce(
+      (totalPrice, item) => totalPrice + getProductTotalPrice(item.productId),
+      0
+    );
+  }, [userBag, productQty]);
 
   return (
     <div className={styles.container}>
@@ -21,23 +52,49 @@ const BagModal = ({ active }) => {
         </nav>
       </header>
       <div className={styles.cardContainer}>
-        <div className={styles.card}>
-          <img src="" alt="" />
+        {userBag.map((item) => {
+          const product = getProductById(item.productId);
+          if (!product) {
+            return null;
+          }
 
-          <div className={styles.prodDesc}>
-            <span>Coach</span>
-            <span>Leather Coach Bag</span>
-            <Qty />
-          </div>
-          <div className={styles.cardRight}>
-            <button>
-              <img src={X} alt="" />
-            </button>
-            <span>$54.69</span>
-          </div>
-        </div>
-        <div className={styles.separator}></div>
+          const productTotalPrice = getProductTotalPrice(item.productId);
+
+          const handleRemoveFromBag = () => {
+            handleDeleteOneProductUserBag(item.productId);
+          };
+          const discountedPrice = productTotalPrice * (1 - product.discount);
+
+          return (
+            <>
+              <div className={styles.card} key={item.productId}>
+                <Link to={`/products/${product.id}`}>
+                  <img src={product.url} alt={product.name} />
+                </Link>
+                <div className={styles.prodDesc}>
+                  <span>{product.brand}</span>
+                  <span>{product.name}</span>
+                  <Qty
+                    qty={product.qty}
+                    quantity={productQty[item.productId] || 1}
+                    onQuantityChange={(quantity) =>
+                      handleProductQuantityChange(item.productId, quantity)
+                    }
+                  />
+                </div>
+                <div className={styles.cardRight}>
+                  <button onClick={handleRemoveFromBag}>
+                    <img src={X} alt="Remove" />
+                  </button>
+                  <span>${discountedPrice.toFixed(2)}</span>
+                </div>
+              </div>
+              <div className={styles.separator}></div>
+            </>
+          );
+        })}
       </div>
+
       <div className={styles.price}>
         <div className={styles.subTotal}>
           <p>Subtotal: </p>
