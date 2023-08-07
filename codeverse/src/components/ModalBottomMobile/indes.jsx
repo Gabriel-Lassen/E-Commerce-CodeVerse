@@ -2,7 +2,8 @@ import styles from './styles.module.scss';
 
 const ModalBottomMobile = ({children, title, setShowModal}) => {
   return (
-    <div className={styles.wrapper} onClick={() => setShowModal(false)}>
+    <div className={styles.wrapper}>
+      <div className={styles.close} onClick={() => setShowModal(false)}></div>
         <div className={styles.modal}>
             {title &&
                 <div className={styles.title}>
