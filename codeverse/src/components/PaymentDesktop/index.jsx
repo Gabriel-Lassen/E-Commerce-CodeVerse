@@ -10,6 +10,7 @@ import { useState } from "react";
 import EnterUpi from "../EnterUpi";
 import pay from '../../assets/imgs/Pay.png'
 import phonePe from '../../assets/imgs/PhonePeDesk.png'
+import debit from '../../assets/imgs/credit.jpg'
 
 export const PaymentDesktop = () => {
   const [optionSelected, setOptionSelected] = useState("");
@@ -125,7 +126,7 @@ export const PaymentDesktop = () => {
             <div>
               <div className={styles.nameMethod} onClick={() => setPayment(payment === "Credit" ? "" : "Credit")}>
                 <div className={styles.imgBox}>
-                  <img src={google} alt="" />
+                  <img className={styles.debitCard} src={debit} alt="" />
                 </div>
                 <span>Credit Card</span>
               </div>
@@ -140,7 +141,7 @@ export const PaymentDesktop = () => {
             <div>
               <div className={styles.nameMethod} onClick={() => setPayment(payment === "Debit" ? "" : "Debit")}>
                 <div className={styles.imgBox}>
-                  <img src={google} alt="" />
+                  <img className={styles.debitCard} src={debit} alt="" />
                 </div>
                 <span>Debit Card</span>
               </div>
