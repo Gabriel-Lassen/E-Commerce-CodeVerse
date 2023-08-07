@@ -12,6 +12,7 @@ import pay from '../../assets/imgs/Pay.png'
 import phonePe from '../../assets/imgs/PhonePeDesk.png'
 import debit from '../../assets/imgs/credit.jpg'
 import amazonImg from '../../assets/imgs/amazon.jpg'
+import appleImg from '../../assets/imgs/AppleImg.jpg'
 
 export const PaymentDesktop = () => {
   const [optionSelected, setOptionSelected] = useState("");
@@ -159,7 +160,7 @@ export const PaymentDesktop = () => {
            <div>
              <div className={styles.nameMethod} onClick={() => setPayment(payment === "Apple" ? "" : "Apple")}>
                <div className={styles.imgBox}>
-                 <img src={google} alt="" />
+                 <img src={appleImg} alt="" />
                </div>
                <span>Apple Pay</span>
              </div>
