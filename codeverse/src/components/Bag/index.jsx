@@ -193,7 +193,7 @@ const Bag = () => {
             <span>${pay.toFixed(2)}</span>
           </div>
           <button>Place Order</button>
-          <Link to="/home">
+          <Link to="/">
             <button className={styles.cShop}>Continue Shopping</button>
           </Link>
         </div>
