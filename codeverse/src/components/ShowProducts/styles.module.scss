@@ -20,8 +20,8 @@
 }
 
 .products::after {
-    content: ""; /* Cria um pseudo-elemento vazio */
-    flex: auto; /* Força o último item a ocupar o espaço disponível */
+    content: "";
+    flex: auto;
     max-width: clamp(150px, 22.34vw, 284px);
 }
 
