@@ -8,6 +8,8 @@ import amazon from "../../assets/imgs/amazon.png";
 import google from "../../assets/imgs/googledesktop.png";
 import { useState } from "react";
 import EnterUpi from "../EnterUpi";
+import pay from '../../assets/imgs/Pay.png'
+import phonePe from '../../assets/imgs/PhonePeDesk.png'
 
 export const PaymentDesktop = () => {
   const [optionSelected, setOptionSelected] = useState("");
@@ -54,9 +56,9 @@ export const PaymentDesktop = () => {
         </div>
 
         <div className={styles.payment}>
-          <div className={styles.box} onClick={() => setOptionSelected(optionSelected === "PIX" ? "" : "PIX")} style={optionSelected === "PIX" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {}}>
+          <div className={styles.box} onClick={() => setOptionSelected(optionSelected === "Amazon" ? "" : "Amazon")} style={optionSelected === "Amazon" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {}}>
             <div className={styles.content}>
-              <img src={optionSelected === "PIX" ? select : selectCheckbox} alt="" />
+              <img src={optionSelected === "Amazon" ? select : selectCheckbox} alt="" />
             </div>
             <div className={styles.center}>
               <img src={amazon} alt="" />
@@ -89,7 +91,7 @@ export const PaymentDesktop = () => {
             <div>
               <div className={styles.nameMethod} onClick={() => setPayment(payment === "Phone Pe" ? "" : "Phone Pe")}>
                 <div className={styles.imgBox}>
-                  <img src={google} alt="" />
+                  <img src={phonePe} alt="" />
                 </div>
                 <span>Phone Pe</span>
               </div>
@@ -104,7 +106,7 @@ export const PaymentDesktop = () => {
             <div>
               <div className={styles.nameMethod} onClick={() => setPayment(payment === "Paytm" ? "" : "Paytm")}>
                 <div className={styles.imgBox}>
-                  <img src={google} alt="" />
+                  <img src={pay} alt="" />
                 </div>
                 <span>Paytm</span>
               </div>
@@ -166,7 +168,22 @@ export const PaymentDesktop = () => {
            <img src={payment === "Apple" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Apple" ? "" : "Apple")}/>
          </div>
         }
-
+        {optionSelected === 'Amazon' && 
+         <div className={styles.method} style={payment === "Amazon" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
+         <div>
+           <div className={styles.nameMethod} onClick={() => setPayment(payment === "Amazon" ? "" : "Amazon")}>
+             <div className={styles.imgBox}>
+               <img src={google} alt="" />
+             </div>
+             <span>Amazon Pay</span>
+           </div>
+           {payment == "Amazon" &&
+             <EnterUpi />
+           }
+         </div>
+         <img src={payment === "Amazon" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Amazon" ? "" : "Amazon")}/>
+       </div>
+        }
       </div>
     </>
   );
