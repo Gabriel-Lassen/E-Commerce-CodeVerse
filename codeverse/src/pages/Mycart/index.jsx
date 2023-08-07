@@ -4,6 +4,8 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import X from "../../assets/imgs/close.svg";
+import TitlePage from "../../components/Title-pages";
+import RouteHistory from "../../components/Route-history";
 
 const MyCart = () => {
   const [hidden, setHidden] = useState(false);
@@ -23,12 +25,12 @@ const MyCart = () => {
       {hidden && <Header />}
       <BtnBackForPage
         text="My Bag"
-        svg={
-          <img src={X} alt="Arrow" style={{ color: "var(--Primary)" }} />
-        }
+        svg={<img src={X} alt="Arrow" style={{ color: "var(--Primary)" }} />}
       />
+      <RouteHistory />
+      <TitlePage />
       <Bag />
-      {hidden && <Footer />}
+      {hidden && <Footer position={"fixed"} />}
     </>
   );
 };

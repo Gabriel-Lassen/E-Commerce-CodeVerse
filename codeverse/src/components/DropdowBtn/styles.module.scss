@@ -24,13 +24,14 @@
   }
 
   .content {
+    display: block;
     padding: 0 16px 16px;
   }
 
   .separator {
-    width: 100vw;
+    width: 53vw;
     height: 1px;
-    background: var(--Separator);
+    background: var(--Seperator);
     margin-bottom: 29px;
   }
 }
