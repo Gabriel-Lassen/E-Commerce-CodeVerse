@@ -2,19 +2,21 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  //height: 100vh;
   gap: 20px;
 
   .payment {
     display: flex;
     align-items: flex-start;
+    cursor: pointer;
   }
+
   .box {
     width: 160px;
     height: 143px;
     border-radius: 12px;
     border: 1px solid #e3e3e3;
     background: var(--Bright);
+
     .credit {
       color: var(--TypeHighEmphasis);
       text-align: center;
@@ -61,6 +63,7 @@
       padding-right: 15px;
       padding-top: 12px;
     }
+
     .center {
       padding-top: 19px;
       display: flex;
@@ -69,101 +72,51 @@
     }
   }
 }
+
 .contentPay {
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
   border: 1px solid var(--Primary);
   width: 709px;
-  height: 203px;
   margin: 0 auto;
   margin-top: 63px;
-  
-  .options {
-    height: 69px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  // .leftSide {
-  //   // display: flex;
-  //   // flex-direction: column;
-  // }
+}
 
-  .ImagemETexto {
-    display: flex;
-    align-items: center;
+.method {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px;
 
-    span {
-      margin-top: 13px;
-      color: var(--TypeHighEmphasis);
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 20px;
-    }
+  img {
+    cursor: pointer;
   }
-  .ImagemBOx {
+}
+
+.nameMethod {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  cursor: pointer;
+
+  .imgBox {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 68px;
     height: 69px;
-    border-radius: 4px;
+    border-radius: 7px;
     border: 1px solid #dcdcdc;
     background: var(--Bright);
-    margin: 11px 11px 0px 11px;
-  }
-  .center {
-    width: 100%;
-    height: 142px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .contentUPI {
-      width: 328px;
-      height: 142px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      margin-top: 16px;
-    }
   }
 
-  .inputWrapper {
-    position: absolute;
-    top: 42px;
-    left: 11px;
-
-    p {
-      color: var(--LightText);
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 18px;
-      margin-top: 2px;
-    }
-
-    input {
-      width: 287px;
-      height: 40px;
-      border-radius: 4px;
-      border: 1px solid var(--PrimaryTint);
-      background: var(--Bright);
-    }
-    input::placeholder {
-      padding-left: 10px;
-      color: var(--LightText);
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 16px;
-    }
-  }
-  .checkbox {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    gap: 8px;
+  span {
+    color: var(--TypeHighEmphasis);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
   }
 }
+
