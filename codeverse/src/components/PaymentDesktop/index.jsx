@@ -11,6 +11,7 @@ import EnterUpi from "../EnterUpi";
 import pay from '../../assets/imgs/Pay.png'
 import phonePe from '../../assets/imgs/PhonePeDesk.png'
 import debit from '../../assets/imgs/credit.jpg'
+import amazonImg from '../../assets/imgs/amazon.jpg'
 
 export const PaymentDesktop = () => {
   const [optionSelected, setOptionSelected] = useState("");
@@ -174,7 +175,7 @@ export const PaymentDesktop = () => {
          <div>
            <div className={styles.nameMethod} onClick={() => setPayment(payment === "Amazon" ? "" : "Amazon")}>
              <div className={styles.imgBox}>
-               <img src={google} alt="" />
+               <img src={amazonImg} alt="" />
              </div>
              <span>Amazon Pay</span>
            </div>
