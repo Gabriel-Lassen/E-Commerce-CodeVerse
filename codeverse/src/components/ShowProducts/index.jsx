@@ -1,5 +1,8 @@
 import { useContext, useState, useEffect } from "react";
 import { ProductsContext } from "../../contexts/products";
+
+import styles from './styles.module.scss';
+
 import ProductCard from '../ProductCard';
 
 const ShowProducts = ({category}) => {
@@ -17,9 +20,9 @@ const ShowProducts = ({category}) => {
       }, [listProducts, category])
 
   return (
-    <div>
+    <div className={styles.wrapper}>
         <span>{totalProducts} Products</span>
-        <div>
+        <div className={styles.products}>
             {productsCategoryFiltred && 
                 productsCategoryFiltred.map((item ,idx) => {
                     return <ProductCard
