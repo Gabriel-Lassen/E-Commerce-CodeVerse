@@ -18,7 +18,7 @@ export const PaymentDesktop = () => {
       <div className={styles.container}>
 
         <div className={styles.payment}>
-          <div className={styles.box} onClick={() => setOptionSelected(optionSelected === "UPI" ? "" : "UPI")} style={optionSelected === "UPI" ? { backgroundColor: "rgba(0, 0, 0, .03)" } : {}} >
+          <div className={styles.box} onClick={() => setOptionSelected(optionSelected === "UPI" ? "" : "UPI")} style={optionSelected === "UPI" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {}} >
             <div className={styles.content}>
               <img src={optionSelected === "UPI" ? select : selectCheckbox} alt="" />
             </div>
@@ -30,7 +30,7 @@ export const PaymentDesktop = () => {
         </div>
 
         <div className={styles.payment}>
-          <div className={styles.box} onClick={() => setOptionSelected(optionSelected === "Card" ? "" : "Card")} style={optionSelected === "Card" ? { backgroundColor: "rgba(0, 0, 0, .03)" } : {} }>
+          <div className={styles.box} onClick={() => setOptionSelected(optionSelected === "Card" ? "" : "Card")} style={optionSelected === "Card" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
             <div className={styles.content}>
               <img src={optionSelected === "Card" ? select : selectCheckbox} alt="" />
             </div>
@@ -42,9 +42,9 @@ export const PaymentDesktop = () => {
         </div>
         
         <div className={styles.payment}>
-          <div className={styles.box} onClick={() => setOptionSelected(optionSelected === "PAY" ? "" : "PAY")} style={optionSelected === "PAY" ? { backgroundColor: "rgba(0, 0, 0, .03)" } : {}}>
+          <div className={styles.box} onClick={() => setOptionSelected(optionSelected === "Apple" ? "" : "Apple")} style={optionSelected === "Apple" ? { backgroundColor:"rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {}}>
             <div className={styles.content}>
-              <img src={optionSelected === "PAY" ? select : selectCheckbox} alt="" />
+              <img src={optionSelected === "Apple" ? select : selectCheckbox} alt="" />
             </div>
             <div className={styles.center}>
               <img src={apple} alt="" />
@@ -54,7 +54,7 @@ export const PaymentDesktop = () => {
         </div>
 
         <div className={styles.payment}>
-          <div className={styles.box} onClick={() => setOptionSelected(optionSelected === "PIX" ? "" : "PIX")} style={optionSelected === "PIX" ? { backgroundColor: "rgba(0, 0, 0, .03)" } : {}}>
+          <div className={styles.box} onClick={() => setOptionSelected(optionSelected === "PIX" ? "" : "PIX")} style={optionSelected === "PIX" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {}}>
             <div className={styles.content}>
               <img src={optionSelected === "PIX" ? select : selectCheckbox} alt="" />
             </div>
@@ -70,7 +70,7 @@ export const PaymentDesktop = () => {
 
         {optionSelected === "UPI" && (
         <>
-          <div className={styles.method} style={payment === "Google Pay" ? { backgroundColor: "rgba(0, 0, 0, .03)" } : {} }>
+          <div className={styles.method} style={payment === "Google Pay" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
             <div>
               <div className={styles.nameMethod} onClick={() => setPayment(payment === "Google Pay" ? "" : "Google Pay")}>
                 <div className={styles.imgBox}>
@@ -85,7 +85,7 @@ export const PaymentDesktop = () => {
             <img src={payment === "Google Pay" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Google Pay" ? "" : "Google Pay")}/>
           </div>
 
-          <div className={styles.method} style={payment === "Phone Pe" ? { backgroundColor: "rgba(0, 0, 0, .03)" } : {} }>
+          <div className={styles.method} style={payment === "Phone Pe" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
             <div>
               <div className={styles.nameMethod} onClick={() => setPayment(payment === "Phone Pe" ? "" : "Phone Pe")}>
                 <div className={styles.imgBox}>
@@ -100,7 +100,7 @@ export const PaymentDesktop = () => {
             <img src={payment === "Phone Pe" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Phone Pe" ? "" : "Phone Pe")}/>
           </div>
 
-          <div className={styles.method} style={payment === "Paytm" ? { backgroundColor: "rgba(0, 0, 0, .03)" } : {} }>
+          <div className={styles.method} style={payment === "Paytm" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
             <div>
               <div className={styles.nameMethod} onClick={() => setPayment(payment === "Paytm" ? "" : "Paytm")}>
                 <div className={styles.imgBox}>
@@ -119,7 +119,7 @@ export const PaymentDesktop = () => {
 
         {optionSelected === "Card" &&
         <>
-          <div className={styles.method} style={payment === "Credit" ? { backgroundColor: "rgba(0, 0, 0, .03)" } : {} }>
+          <div className={styles.method} style={payment === "Credit" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
             <div>
               <div className={styles.nameMethod} onClick={() => setPayment(payment === "Credit" ? "" : "Credit")}>
                 <div className={styles.imgBox}>
@@ -134,7 +134,7 @@ export const PaymentDesktop = () => {
             <img src={payment === "Credit" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Credit" ? "" : "Credit")}/>
           </div>
 
-          <div className={styles.method} style={payment === "Debit" ? { backgroundColor: "rgba(0, 0, 0, .03)" } : {} }>
+          <div className={styles.method} style={payment === "Debit" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
             <div>
               <div className={styles.nameMethod} onClick={() => setPayment(payment === "Debit" ? "" : "Debit")}>
                 <div className={styles.imgBox}>
@@ -150,6 +150,23 @@ export const PaymentDesktop = () => {
           </div>
         </>
         }
+        {optionSelected === 'Apple' && 
+           <div className={styles.method} style={payment === "Apple" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
+           <div>
+             <div className={styles.nameMethod} onClick={() => setPayment(payment === "Apple" ? "" : "Apple")}>
+               <div className={styles.imgBox}>
+                 <img src={google} alt="" />
+               </div>
+               <span>Apple Pay</span>
+             </div>
+             {payment == "Apple" &&
+               <EnterUpi />
+             }
+           </div>
+           <img src={payment === "Apple" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Apple" ? "" : "Apple")}/>
+         </div>
+        }
+
       </div>
     </>
   );
