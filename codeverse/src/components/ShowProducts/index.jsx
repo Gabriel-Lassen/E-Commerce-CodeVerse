@@ -22,7 +22,7 @@ const ShowProducts = ({category}) => {
   return (
     <div className={styles.wrapper}>
         <span>{totalProducts} Products</span>
-        <div className={styles.products}>
+        <div className={totalProducts % 2 == 0 ? styles.productsPar : styles.productsImpar}>
             {productsCategoryFiltred && 
                 productsCategoryFiltred.map((item ,idx) => {
                     return <ProductCard
