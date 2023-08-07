@@ -2,6 +2,7 @@ import styles from "./styles.module.scss";
 import background from "../../assets/imgs/frame-6.png";
 import DropdowBtn from "../DropdowBtn";
 import { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import Cupom from "../CupomInput";
 import { ProductsContext } from "../../contexts/products";
 import { BagActionsContext } from "../../contexts/bagActions";
@@ -164,10 +165,11 @@ const Bag = () => {
         )}
       </section>
       <img src={background} alt="" className={styles.bg} />
-      <div className={styles.rightWe}>
+      <div className={styles.rightWeb}>
         <div className={styles.order}>
           <h2>Order Details</h2>
           <h3>Order Summary</h3>
+          <div className={styles.separator}></div>
           <div>
             <p>Sub Total</p>
             <span>${subTotal.toFixed(2)}</span>
@@ -191,6 +193,9 @@ const Bag = () => {
             <span>${pay.toFixed(2)}</span>
           </div>
           <button>Place Order</button>
+          <Link to="/home">
+            <button className={styles.cShop}>Continue Shopping</button>
+          </Link>
         </div>
       </div>
     </div>
