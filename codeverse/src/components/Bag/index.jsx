@@ -13,11 +13,26 @@ const Bag = () => {
   const { listProducts } = useContext(ProductsContext);
   const { userBag, handleDeleteOneProductUserBag } =
     useContext(BagActionsContext);
-  const { handleaddToUserWishlist } = useContext(WishlistActionsContext);
   const [subTotal, setSubTotal] = useState(0);
   const [discount, setDiscount] = useState(0);
   const [delivery, setDelivery] = useState(0);
   const [pay, setPay] = useState(0);
+  const {
+    handleaddToUserWishlist,
+    handleDeleteOneProductUserWishlist,
+    userWishlist,
+  } = useContext(WishlistActionsContext);
+  const [isInWishlist, setIsinWishlist] = useState(false);
+
+  function handleClick(productId) {
+    if (userWishlist.some((wishlist) => wishlist.productId === productId)) {
+      handleDeleteOneProductUserWishlist(productId);
+      setIsinWishlist(false);
+    } else {
+      handleaddToUserWishlist(productId);
+      setIsinWishlist(true);
+    }
+  }
 
   useEffect(() => {
     const handleHidden = () => {
@@ -67,50 +82,79 @@ const Bag = () => {
           </div>
         </div>
         <div className={styles.separator}></div>
-        {userBag.map((item) => {
-          const product = getProductById(item.productId);
-          if (!product) {
-            return null;
-          }
+        <div className={styles.productsContainer}>
+          {userBag.map((item) => {
+            const product = getProductById(item.productId);
+            if (!product) {
+              return null;
+            }
 
-          const price = discountedPrice(item.productId);
+            const price = discountedPrice(item.productId);
 
-          const handleRemoveFromBag = () => {
-            handleDeleteOneProductUserBag(item.productId);
-          };
+            const handleRemoveFromBag = () => {
+              handleDeleteOneProductUserBag(item.productId);
+            };
 
-          return (
-            <div className={styles.cards} key={product.id}>
-              <div className={styles.imgAndDesc}>
-                <img src={product.url} alt={product.name} />
+            const isInWishlist = userWishlist.some(
+              (wishlist) => wishlist.productId === item.productId
+            );
 
-                <div className={styles.prodDesc}>
-                  <span className={styles.name}>{product.name}</span>
-                  <span className={styles.desc}>{product.info}</span>
-                  <div className={styles.qtyContainer}>
-                    <p className={styles.qty}>Qty:</p>
-                    <span>1</span>
+            return (
+              <div className={styles.cards} key={product.id}>
+                <div className={styles.imgAndDesc}>
+                  <img src={product.url} alt={product.name} />
+
+                  <div className={styles.prodDesc}>
+                    <div className={styles.info}>
+                      <span className={styles.name}>{product.name}</span>
+                      <span className={styles.desc}>{product.info}</span>
+                      <div className={styles.qtyContainer}>
+                        <p className={styles.qty}>Qty:</p>
+                        <span>1</span>
+                      </div>
+                    </div>
+
+                    <div className={styles.priceContainer}>
+                      <h2>${price.toFixed(2)}</h2>
+                      <span className={styles.originPrice}>
+                        <s>{product.price}</s>
+                      </span>
+
+                      <p className={styles.off}>
+                        {product.discount * 100}% OFF
+                      </p>
+                    </div>
                   </div>
-                  <div className={styles.priceContainer}>
+                </div>
+                <div className={styles.separator}></div>
+                <div className={styles.priceContainerWeb}>
+                  <div className={styles.moneyContainer}>
                     <h2>${price.toFixed(2)}</h2>
-                    <span className={styles.originPrice}>
-                      <s>{product.price}</s>
-                    </span>
-                    <p className={styles.off}>{product.discount * 100}% OFF</p>
+                    <p className={styles.qtyWeb}>1</p>
+                    <p className={styles.subTotalWeb}>${price.toFixed(2)}</p>
+                  </div>
+                  <div className={styles.btns}>
+                    <button
+                      className={styles.wish}
+                      onClick={() => handleClick(item.productId)}
+                    >
+                      {isInWishlist
+                        ? "Remove from wishlist"
+                        : "Move to wishlist"}
+                    </button>
+                    <div className={styles.column}></div>
+                    <button
+                      className={styles.remove}
+                      onClick={handleRemoveFromBag}
+                    >
+                      Remove
+                    </button>
                   </div>
                 </div>
               </div>
-              <div className={styles.separator}></div>
-              <div className={styles.btns}>
-                <button className={styles.wish}>Move to Wishlist</button>
-                <div className={styles.column}></div>
-                <button className={styles.remove} onClick={handleRemoveFromBag}>
-                  Remove
-                </button>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
         {reverse && <Cupom />}
 
         {hidden && (
@@ -120,31 +164,34 @@ const Bag = () => {
         )}
       </section>
       <img src={background} alt="" className={styles.bg} />
-      <div className={styles.order}>
-        <h2>Order Details</h2>
-        <div>
-          <p>Sub Total</p>
-          <span>${subTotal.toFixed(2)}</span>
+      <div className={styles.rightWe}>
+        <div className={styles.order}>
+          <h2>Order Details</h2>
+          <h3>Order Summary</h3>
+          <div>
+            <p>Sub Total</p>
+            <span>${subTotal.toFixed(2)}</span>
+          </div>
+          <div>
+            <p>Discount</p>
+            <span>-${discount}</span>
+          </div>
+          <div>
+            <p>Delivery</p>
+            <span>-${delivery.toFixed(2)}</span>
+          </div>
+          <div>
+            <h2>Grand Total</h2>
+            <span>${pay.toFixed(2)}</span>
+          </div>
         </div>
-        <div>
-          <p>Discount</p>
-          <span>-${discount}</span>
+        <div className={styles.bottom}>
+          <div>
+            <p>Total Bag Amount</p>
+            <span>${pay.toFixed(2)}</span>
+          </div>
+          <button>Place Order</button>
         </div>
-        <div>
-          <p>Delivery</p>
-          <span>-${delivery.toFixed(2)}</span>
-        </div>
-        <div>
-          <h2>Grand Total</h2>
-          <span>${pay.toFixed(2)}</span>
-        </div>
-      </div>
-      <div className={styles.bottom}>
-        <div>
-          <p>Total Bag Amount</p>
-          <span>${pay.toFixed(2)}</span>
-        </div>
-        <button>Place Order</button>
       </div>
     </div>
   );

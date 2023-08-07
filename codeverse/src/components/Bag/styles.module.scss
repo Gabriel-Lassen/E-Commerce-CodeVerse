@@ -42,7 +42,11 @@
             flex-direction: column;
             margin: 8px 0 14px 11px;
             width: auto;
-
+            .info {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            }
             .name {
               color: var(--TypeHighEmphasis);
               font-size: 12px;
@@ -119,15 +123,27 @@
               }
             }
           }
+          .separator {
+            width: 86.6vw;
+            max-width: 434.7px;
+            margin: 0 auto;
+            height: 1px;
+            background: var(--Seperator);
+          }
         }
-        .separator {
-          width: 86.6vw;
-          max-width: 434.7px;
-          margin: 0 auto;
-          height: 1px;
-          background: var(--Seperator);
-        }
+        .priceContainerWeb {
+          h2 {
+            display: none;
+          }
 
+          .qtyWeb {
+            display: none;
+          }
+
+          .subTotalWeb {
+            display: none;
+          }
+        }
         .btns {
           display: flex;
           flex-direction: row;
@@ -173,36 +189,6 @@
             font-weight: 600;
             line-height: 24px;
           }
-        }
-      }
-
-      .cupom {
-        display: flex;
-        position: absolute;
-        position: relative;
-        width: 91vw;
-
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -40%);
-
-        input {
-          width: 100%;
-          height: 46px;
-          border: none;
-          padding: 10px;
-        }
-
-        button {
-          position: absolute;
-          top: 14px;
-          right: 12px;
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 600;
-          line-height: 16px;
-          color: var(--Primary);
-          background: none;
         }
       }
     }
@@ -289,10 +275,14 @@
 
 @media screen and (min-width: 769px) {
   .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 466px;
+
     .products {
       width: 55.4vw;
       height: 466px;
-      overflow: hidden;
       margin-left: 20px;
 
       .label {
@@ -320,8 +310,173 @@
         margin-bottom: 24px;
       }
 
-      .cards {
-        height: 214px;
+      .productsContainer::-webkit-scrollbar {
+        display: none;
+      }
+
+      .productsContainer {
+        height: 26vw;
+        overflow-y: scroll;
+        gap: 16px;
+        margin-bottom: 20px;
+        .cards {
+          width: 55.4vw;
+          height: 99px;
+          display: flex;
+          flex-direction: row;
+          gap: 133px;
+
+          .imgAndDesc {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            img {
+              width: 80px;
+              height: 80px;
+              border-radius: 8px;
+            }
+
+            .prodDesc {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+
+              .info {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                width: 17vw;
+                height: 9vw;
+
+                .name {
+                  color: var(--TypeHighEmphasis);
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: 20px;
+                }
+
+                .desc {
+                  color: var(--TypeLowEmphasis);
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 20px;
+                }
+
+                .qtyContainer {
+                  display: inline-flex;
+                  gap: 4px;
+
+                  .qty {
+                    color: var(--TypeLowEmphasis);
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 20px;
+                  }
+                }
+              }
+
+              .priceContainer {
+                display: none;
+              }
+            }
+          }
+
+          .priceContainerWeb {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            width: 260px;
+            .moneyContainer {
+              display: inline-flex;
+              justify-content: space-between;
+              gap: 54px;
+
+              h2 {
+                color: var(--TypeHighEmphasis);
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 20px;
+                width: 47px;
+              }
+
+              .qtyWeb {
+                display: flex;
+                color: var(--TypeHighEmphasis);
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 20px;
+                width: 47px;
+                margin-right: 10px;
+                justify-content: center;
+              }
+
+              .subTotalWeb {
+                display: flex;
+                color: var(--TypeHighEmphasis);
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 20px;
+                width: 47px;
+                justify-content: flex-start;
+              }
+            }
+
+            .btns {
+              display: flex;
+              gap: 4px;
+
+              .wish {
+                display: flex;
+                width: 300px;
+                padding: 10px 8px;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                border-radius: 8px;
+                background: rgba(23, 73, 77, 0);
+                color: var(--Primary);
+                text-align: center;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 24px;
+                text-decoration-line: underline;
+              }
+
+              .remove {
+                display: flex;
+                width: 136px;
+                padding: 10px 8px;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                border-radius: 8px;
+                background: rgba(23, 73, 77, 0);
+                color: var(--Error);
+                text-align: center;
+
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 24px;
+                text-decoration-line: underline;
+              }
+            }
+          }
+        }
+        .separator {
+          display: none;
+        }
+
+        .btns {
+          display: inline-flex;
+        }
       }
     }
     .bg {
