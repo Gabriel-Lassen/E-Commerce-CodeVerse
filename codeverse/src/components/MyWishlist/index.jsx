@@ -15,44 +15,29 @@ const MyWishlist = () => {
     userWishlist,
   } = useContext(WishlistActionsContext);
 
-  const [isInWishlist, setIsinWishlist] = useState(false);
+  const [isInWishlist, setIsinWishlist] = useState(true);
 
   function handleClick(productId) {
     if (userWishlist.some((wishlist) => wishlist.productId === productId)) {
       handleDeleteOneProductUserWishlist(productId);
 
-      setIsinWishlist(false);
+      setIsinWishlist(true);
     } else {
       handleaddToUserWishlist(productId);
-
-      setIsinWishlist(true);
+      setIsinWishlist(false);
     }
   }
   const getProductById = (productId) => {
     return listProducts.find((product) => product.id === productId);
   };
 
-  const discountedPrice = (productId) => {
-    const product = getProductById(productId);
-
-    const quantity = productQty[productId] || 1;
-
-    return product.price * (1 - product.discount) * quantity;
-  };
-
   return (
     <div className={styles.container}>
-      {userbag.map((item) => {
+      {userWishlist.map((item) => {
         const product = getProductById(item.productId);
         if (!product) {
           return null;
         }
-
-        const price = discountedPrice(item.productId);
-
-        const handleAddBag = () => {
-          handleDeleteOneProductUserBag(item.productId);
-        };
 
         return (
           <div key={item.productId}>
