@@ -9,4 +9,12 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    background-color: var(--Bright);
+
+    span {
+        color: var(--TypeHighEmphasis);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+    }
 }
