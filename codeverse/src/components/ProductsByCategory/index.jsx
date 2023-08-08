@@ -1,8 +1,11 @@
+import FilterActionsProvider from '../../contexts/filterActions';
 import ProductsByCategoyMobile from './ProductsByCategoryMobile';
 
 const ProductsByCategoy = () => {
   return (
-    <ProductsByCategoyMobile />
+    <FilterActionsProvider>
+      <ProductsByCategoyMobile />
+    </FilterActionsProvider>
   )
 }
 
