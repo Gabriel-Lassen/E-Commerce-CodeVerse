@@ -22,16 +22,16 @@ const ProductsSortByMobile = () => {
             <img src={SortBy === 'New' ? Active : Inactive} alt="Select" />
             <span>What's New</span>
         </div>
-        <div className={styles.option} onClick={() => setSortBy('Low to High')}>
-            <img src={SortBy === 'Low to High' ? Active : Inactive} alt="Select" />
+        <div className={styles.option} onClick={() => setSortBy('PriceLowToHigh')}>
+            <img src={SortBy === 'PriceLowToHigh' ? Active : Inactive} alt="Select" />
             <span>Price- Low to High</span>
         </div>
-        <div className={styles.option} onClick={() => setSortBy('High to Low')}>
-            <img src={SortBy === 'High to Low' ? Active : Inactive} alt="Select" />
+        <div className={styles.option} onClick={() => setSortBy('PriceHighToLow')}>
+            <img src={SortBy === 'PriceHighToLow' ? Active : Inactive} alt="Select" />
             <span>Price- High to Low</span>
         </div>
-        <div className={styles.option} onClick={() => setSortBy('Sale')}>
-            <img src={SortBy === 'Sale' ? Active : Inactive} alt="Select" />
+        <div className={styles.option} onClick={() => setSortBy('OnSale')}>
+            <img src={SortBy === 'OnSale' ? Active : Inactive} alt="Select" />
             <span>On Sale</span>
         </div>
     </div>
