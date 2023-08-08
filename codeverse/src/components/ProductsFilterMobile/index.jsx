@@ -19,7 +19,9 @@ const ProductsFilterMobile = ({setShowModal}) => {
     <div className={styles.filterModal}>
       <div className={styles.topBar}>
         <span>Filter</span>
-        <img src={Close} alt="Close" onClick={() => setShowModal(false)}/>
+        <button>
+          <img src={Close} alt="Close" onClick={() => setShowModal(false)}/>
+        </button>
       </div>
       <div className={styles.display}>
         <div className={styles.btnsOptions}>
