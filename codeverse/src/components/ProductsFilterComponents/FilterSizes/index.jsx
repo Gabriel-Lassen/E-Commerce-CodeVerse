@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useContext } from "react";
 
 import styles from './styles.module.scss';
 
 import Checkbox from '../../../assets/imgs/checkbox.svg';
 import CheckboxActive from '../../../assets/imgs/checkbox-active.svg';
+import { FilterActionsContext } from "../../../contexts/filterActions";
 
 const FilterSizes = () => {
-    const [filtredSizes, setFiltredSizes] = useState([]);
+    const { filtredSizes, setFiltredSizes} = useContext(FilterActionsContext);
 
     function handleClick(size){
         if(filtredSizes.includes(size)){
