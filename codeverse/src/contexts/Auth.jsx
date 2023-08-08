@@ -17,6 +17,7 @@ import {
   query,
   limit,
   onSnapshot,
+  addDoc,
 } from "@firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import {
@@ -243,6 +244,19 @@ function AuthProvider({ children }) {
     navigate("/getstarted");
   }
 
+  async function registerAddress(addressData) {
+    try {
+      if (user) {
+        const addressCollectionRef = collection(db, "users", user.uid, "address");
+        await addDoc(addressCollectionRef, addressData);
+  
+        toast.success("Address saved successfully!");
+      }
+    } catch (error) {
+      toast.error("Error saving address: " + error.message);
+    }
+  }
+  
   return (
     <AuthContext.Provider
       value={{
@@ -259,6 +273,7 @@ function AuthProvider({ children }) {
         handleSearch,
         searchHistory,
         logout,
+        registerAddress,
       }}
     >
       {children}
