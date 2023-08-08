@@ -5,6 +5,7 @@ export const FilterActionsContext = createContext({});
 const FilterActionsProvider = ({children}) => {
     const [filtredSizes, setFiltredSizes] = useState([]);
     const [filtredColors, setFiltredColors] = useState([]);
+    const [filtredBrands, setFiltredBrands] = useState([]);
 
     return (
         <FilterActionsContext.Provider 
@@ -12,7 +13,9 @@ const FilterActionsProvider = ({children}) => {
                 filtredSizes,
                 setFiltredSizes,
                 filtredColors,
-                setFiltredColors
+                setFiltredColors,
+                filtredBrands,
+                setFiltredBrands
             }}
         >
             {children}

@@ -1,5 +1,6 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ProductsContext } from "../../../contexts/products";
+import { FilterActionsContext } from "../../../contexts/filterActions";
 
 import styles from './styles.module.scss';
 
@@ -8,7 +9,7 @@ import CheckboxActive from '../../../assets/imgs/checkbox-active.svg';
 
 const FilterBrands = () => {
   const { listBrands } = useContext(ProductsContext);
-  const [filtredBrands, setFiltredBrands] = useState([]);
+  const {filtredBrands, setFiltredBrands} = useContext(FilterActionsContext);
 
   function handleClick(brand){
     if(filtredBrands.includes(brand)){
