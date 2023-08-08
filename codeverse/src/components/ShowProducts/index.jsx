@@ -37,6 +37,35 @@ const ShowProducts = ({category}) => {
         setTotalProducts(productsToShow.length)
     }, [productsToShow]);
 
+    useEffect(() => {
+        switch (SortBy) {
+            case 'Popular':
+                productsToShow.sort(function(a, b) {return a.popularity > b.popularity ? -1 : a.popularity < b.popularity ? 1 : 0 });
+                break;
+            case 'Relevance':
+                productsToShow.sort(function(a, b) {return a.reviews > b.reviews ? -1 : a.reviews < b.reviews ? 1 : 0 });
+                break;
+            case 'New':
+                productsToShow.sort(function(a, b) {
+                    const dataA = new Date(a.releaseDate);
+                    const dataB = new Date(b.releaseDate);
+                    return dataA > dataB ? -1 : dataA < dataB ? 1 : 0
+                });
+                break;
+            case 'PriceLowToHigh':
+                productsToShow.sort(function(a, b) {return a.price < b.price ? -1 : a.price > b.price ? 1 : 0 });
+                break;
+            case 'PriceHighToLow':
+                productsToShow.sort(function(a, b) {return a.price > b.price ? -1 : a.price < b.price ? 1 : 0 });
+                break;
+            case 'OnSale':
+                productsToShow.sort(function(a, b) {return a.discount > b.discount ? -1 : a.discount < b.discount ? 1 : 0 });
+                break;
+            default:
+                productsToShow.sort(function(a, b) {return a.popularity > b.popularity ? -1 : a.popularity < b.popularity ? 1 : 0 });
+        }
+    }, [SortBy, productsToShow])
+
   return (
     <div className={styles.wrapper}>
         <span>{totalProducts} Products</span>
