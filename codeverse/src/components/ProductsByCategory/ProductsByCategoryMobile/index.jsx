@@ -8,11 +8,11 @@ import ShowProducts from "../../../components/ShowProducts";
 import ArrowSvg from "../../../components/ArrowSvg";
 import MobileFixedBottomBar from "../../../components/MobileFixedBottomBar";
 import BtnTransparent from "../../../components/BtnTransparent";
+import ModalBottomMobile from "../../../components/ModalBottomMobile/indes";
+import ProductsSortByMobile from "../../ProductsSortByMobile";
 
 import Sort from '../../../assets/imgs/sort.svg';
 import Filter from '../../../assets/imgs/filter.svg';
-import ModalBottomMobile from "../../../components/ModalBottomMobile/indes";
-import SortBySelect from "../../../components/SortBySelect";
 
 const ProductsByCategoyMobile = () => {
     const location = useLocation();
@@ -42,7 +42,7 @@ const ProductsByCategoyMobile = () => {
       {showSortBy &&
         <ModalBottomMobile title='Sort by' setShowModal={setShowSortBy}>
           <div className={styles.sortBy}>
-            <SortBySelect />
+            <ProductsSortByMobile />
           </div>
         </ModalBottomMobile>
       }
