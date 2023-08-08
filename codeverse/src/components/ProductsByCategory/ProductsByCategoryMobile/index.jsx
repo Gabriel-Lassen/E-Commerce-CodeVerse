@@ -30,7 +30,7 @@ const ProductsByCategoyMobile = () => {
     }, [location])
 
   return (
-    <div>
+    <div className={styles.wrapper}>
         <BtnBackForPage svg={<ArrowSvg direction='left' color='var(--Primary)' />} text={categoryCapitalized} />
       <div className={styles.products}>
         <ShowProducts category={category} />
