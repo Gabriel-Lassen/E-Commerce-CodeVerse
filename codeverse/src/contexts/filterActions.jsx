@@ -6,6 +6,7 @@ const FilterActionsProvider = ({children}) => {
     const [filtredSizes, setFiltredSizes] = useState([]);
     const [filtredColors, setFiltredColors] = useState([]);
     const [filtredBrands, setFiltredBrands] = useState([]);
+    const [SortBy, setSortBy] = useState('Popular');
 
     return (
         <FilterActionsContext.Provider 
@@ -15,7 +16,9 @@ const FilterActionsProvider = ({children}) => {
                 filtredColors,
                 setFiltredColors,
                 filtredBrands,
-                setFiltredBrands
+                setFiltredBrands,
+                SortBy,
+                setSortBy
             }}
         >
             {children}

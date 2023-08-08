@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import { FilterActionsContext } from '../../contexts/filterActions';
 
 import styles from  './styles.module.scss';
 
@@ -6,7 +7,7 @@ import Active from '../../assets/imgs/radio-active.svg';
 import Inactive from '../../assets/imgs/inactive.svg';
 
 const ProductsSortByMobile = () => {
-    const [SortBy, setSortBy] = useState('Popular');
+    const {SortBy, setSortBy} = useContext(FilterActionsContext);
   return (
     <div className={styles.wrapper}>
         <div className={styles.option} onClick={() => setSortBy('Popular')}>
