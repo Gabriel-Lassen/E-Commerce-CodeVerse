@@ -1,16 +1,19 @@
+import { useContext, useState } from 'react';
+import { FilterActionsContext } from '../../contexts/filterActions';
+
 import styles from './styles.module.scss';
 
 import MobileFixedBottomBar from '../MobileFixedBottomBar';
 import FilterBrands from '../ProductsFilterComponents/FilterBrands';
 import FilterColors from '../ProductsFilterComponents/FilterColors';
 import FilterSizes from '../ProductsFilterComponents/FilterSizes';
+import BtnGeneric from '../BtnGeneric';
 
 import Close from '../../assets/imgs/close.svg';
-import { useState } from 'react';
-import BtnGeneric from '../BtnGeneric';
 
 const ProductsFilterMobile = ({setShowModal}) => {
   const [filterToShow, setFilterToShow] = useState('Size');
+  const { handleClearAllFilters } = useContext(FilterActionsContext);
 
   return (
     <div className={styles.filterModal}>
@@ -40,8 +43,8 @@ const ProductsFilterMobile = ({setShowModal}) => {
       </div>
       <MobileFixedBottomBar>
         <div className={styles.btns}>
-          <BtnGeneric theme='light' text='Clear All' />
-          <BtnGeneric theme='dark' text='Apply' />
+          <BtnGeneric theme='light' text='Clear All' onClick={handleClearAllFilters} />
+          <BtnGeneric theme='dark' text='Apply' onClick={() => setShowModal(false)}/>
         </div>
       </MobileFixedBottomBar>
     </div>
