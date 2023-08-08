@@ -16,6 +16,9 @@ import PersonalInformation from "../pages/PersonalInformation";
 import PriviteRoutes from "./PriviteRoutes";
 import MyOrders from "../pages/MyOrders";
 import MyAddressBook from "../pages/MyAddressBook";
+import { Payment } from "../components/Payment";
+import { PaymentDesktop } from "../components/PaymentDesktop";
+
 
 const Rotas = () => {
   return (
@@ -38,6 +41,8 @@ const Rotas = () => {
       <Route path="/profile/myreviews" element={""} />
       <Route path="/profile/myaddressbook" element={<PriviteRoutes> <MyAddressBook/> </PriviteRoutes>} />
       <Route path="/profile/mysavedcards" element={""} />
+      <Route path="/payment" element={<Payment/>} />
+      <Route path="/paymentdesktop" element={<PaymentDesktop/>} />
     </Routes>
   );
 };
