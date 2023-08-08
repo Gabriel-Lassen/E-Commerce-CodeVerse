@@ -13,12 +13,14 @@ import ProductsSortByMobile from "../../ProductsSortByMobile";
 
 import Sort from '../../../assets/imgs/sort.svg';
 import Filter from '../../../assets/imgs/filter.svg';
+import ProductsFilterMobile from "../../ProductsFilterMobile";
 
 const ProductsByCategoyMobile = () => {
     const location = useLocation();
     const [category, setCategory] = useState();
     const [categoryCapitalized, setCategoryCapitalized] = useState();
     const [showSortBy, setShowSortBy] = useState(false);
+    const [showFilter, setShowFilter] = useState(false);
   
     useEffect(() => {
       const categoryUrl = window.location.pathname.split("/categories/").pop();
@@ -36,7 +38,7 @@ const ProductsByCategoyMobile = () => {
       <MobileFixedBottomBar>
         <div className={styles.btns}>
           <BtnTransparent icon={Sort} text='Sort' onClick={() => setShowSortBy(true)}/>
-          <BtnTransparent icon={Filter} text='Filter' onClick={() => console.log('oi')}/>
+          <BtnTransparent icon={Filter} text='Filter' onClick={() => setShowFilter(true)}/>
         </div>
       </MobileFixedBottomBar>
       {showSortBy &&
@@ -45,6 +47,9 @@ const ProductsByCategoyMobile = () => {
             <ProductsSortByMobile />
           </div>
         </ModalBottomMobile>
+      }
+      {showFilter &&
+        <ProductsFilterMobile setShowModal={setShowFilter}/>
       }
     </div>
   )
