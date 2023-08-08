@@ -1,3 +1,5 @@
+import styles from "./styles.module.scss";
+
 import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -25,12 +27,14 @@ const WishList = () => {
       {hidden && <Header />}
       <BtnBackForPage
         svg={<ArrowSvg color="var(--Primary)" direction="left" />}
-        text="My Adress Book"
+        text="My Wishlist"
       />
       <RouteHistory />
       <TitlePage />
-      {hidden && <SideBarProfile />}
-      <MyWishlist />
+      <div className={styles.container}>
+        {hidden && <SideBarProfile />}
+        <MyWishlist />
+      </div>
       {hidden && <Footer />}
     </div>
   );
