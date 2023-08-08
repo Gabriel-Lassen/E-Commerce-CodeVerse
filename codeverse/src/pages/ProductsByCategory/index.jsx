@@ -11,11 +11,14 @@ import BtnTransparent from "../../components/BtnTransparent";
 
 import Sort from '../../assets/imgs/sort.svg';
 import Filter from '../../assets/imgs/filter.svg';
+import ModalBottomMobile from "../../components/ModalBottomMobile/indes";
+import SortBySelect from "../../components/SortBySelect";
 
 const ProductsByCategoy = () => {
   const location = useLocation();
   const [category, setCategory] = useState();
   const [categoryCapitalized, setCategoryCapitalized] = useState();
+  const [showSortBy, setShowSortBy] = useState(false);
 
   useEffect(() => {
     const categoryUrl = window.location.pathname.split("/categories/").pop();
@@ -33,10 +36,17 @@ const ProductsByCategoy = () => {
       </div>
       <MobileFixedBottomBar>
         <div className={styles.btns}>
-          <BtnTransparent icon={Sort} text='Sort' onClick={() => console.log('oi')}/>
+          <BtnTransparent icon={Sort} text='Sort' onClick={() => setShowSortBy(true)}/>
           <BtnTransparent icon={Filter} text='Filter' onClick={() => console.log('oi')}/>
         </div>
       </MobileFixedBottomBar>
+      {showSortBy &&
+        <ModalBottomMobile title='Sort by' setShowModal={setShowSortBy}>
+          <div className={styles.sortBy}>
+            <SortBySelect />
+          </div>
+        </ModalBottomMobile>
+      }
     </div>
   )
 }
