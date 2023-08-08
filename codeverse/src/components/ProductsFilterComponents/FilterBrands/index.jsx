@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ProductsContext } from "../../../contexts/products";
 import { FilterActionsContext } from "../../../contexts/filterActions";
 
-import styles from './styles.module.scss';
+import styles from '../stylesFilters.module.scss';
 
 import Checkbox from '../../../assets/imgs/checkbox.svg';
 import CheckboxActive from '../../../assets/imgs/checkbox-active.svg';
@@ -24,10 +24,10 @@ const FilterBrands = () => {
       {listBrands && 
         listBrands.map((brand) => {
           return (
-            <div onClick={() => handleClick(brand)} key={brand} className={styles.option}>
+            <button onClick={() => handleClick(brand)} key={brand} className={styles.option}>
               <img src={filtredBrands.includes(brand) ? CheckboxActive : Checkbox} alt="Select" />
               <span>{brand}</span>
-            </div>
+            </button>
           )
         })
       }
