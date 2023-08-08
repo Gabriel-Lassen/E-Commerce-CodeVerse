@@ -6,6 +6,7 @@ import ArrowSvg from "../../components/ArrowSvg";
 import SideBarProfile from "../../components/SideBar-Profile";
 import TitlePage from "../../components/Title-pages";
 import RouteHistory from "../../components/Route-history";
+import MyWishlist from "../../components/MyWishlist";
 
 const WishList = () => {
   const [hidden, setHidden] = useState(false);
@@ -23,12 +24,13 @@ const WishList = () => {
     <div>
       {hidden && <Header />}
       <BtnBackForPage
-         svg={<ArrowSvg color="var(--Primary)" direction="left" />}
+        svg={<ArrowSvg color="var(--Primary)" direction="left" />}
         text="My Adress Book"
       />
       <RouteHistory />
       <TitlePage />
       {hidden && <SideBarProfile />}
+      <MyWishlist />
       {hidden && <Footer />}
     </div>
   );
