@@ -1,0 +1,67 @@
+.wrapper {
+    display: none;
+}
+
+@media only screen and (min-width: 769px) {
+    .wrapper {
+        display: block;
+        padding: 0 20px;
+
+        .h1 {
+            color: var(--Primary);
+            font-size: 34px;
+            font-weight: 600;
+            line-height: 44px;
+            margin-top: 24px;
+        }
+    }
+
+    .heroBanner {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 46px;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .history {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 49px;
+
+        span {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 18px;
+        }
+
+        :first-child {
+            color: var(--Primary);
+            cursor: pointer;
+        }
+
+        :last-child {
+            color: var(--TypeLowEmphasis);
+        }
+    }
+
+    .display {
+        width: 100%;
+        display: flex;
+        gap: 32px;
+        margin-top: 42px;
+
+        .sideBar {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-left: -16px;
+        }
+    }
+}
