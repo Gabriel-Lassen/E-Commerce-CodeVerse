@@ -9,7 +9,7 @@ import ProductCard from '../ProductCard';
 const ShowProducts = ({category}) => {
 
     const { listProducts } = useContext(ProductsContext);
-    const { filtredSizes, filtredColors, filtredBrands, SortBy } = useContext(FilterActionsContext);
+    const { filtredSizes, filtredColors, filtredBrands, filtredPriceRange, SortBy } = useContext(FilterActionsContext);
     const [totalProducts, setTotalProducts] = useState();
     const [productsCategoryFiltred, setProductsCategoryFiltred] = useState([]);
     const [productsToShow, setProductsToShow] = useState([]);
@@ -28,10 +28,31 @@ const ShowProducts = ({category}) => {
             const colorMatch = filtredColors.length === 0 || filtredColors.includes(product.color);
             const sizeMatch = filtredSizes.length === 0 || filtredSizes.includes(product.size);
             const brandMatch = filtredBrands.length === 0 || filtredBrands.includes(product.brand);
-            return colorMatch && sizeMatch && brandMatch;
+
+            let priceMatch = false;
+            if (filtredPriceRange.length === 0) {
+                priceMatch = true;
+            } else {
+                priceMatch = filtredPriceRange.some(range => {
+                    const price = product.price * (1 - product.discount);
+                    if (range === '<50') {
+                        return price <= 50;
+                    } else if (range === '51-100') {
+                        return price > 50 && price <= 100;
+                    } else if (range === '101-150') {
+                        return price > 100 && price <= 150;
+                    } else if (range === '151-200') {
+                        return price > 150 && price <= 200;
+                    } else if (range === '>200') {
+                        return price > 200;
+                    }
+                });
+            }
+            
+            return colorMatch && sizeMatch && brandMatch && priceMatch;
         });
         setProductsToShow(newFilteredProducts);
-    }, [filtredColors, filtredBrands, filtredSizes]);
+    }, [filtredColors, filtredBrands, filtredSizes, filtredPriceRange]);
 
     useEffect(() => {
         setTotalProducts(productsToShow.length)
