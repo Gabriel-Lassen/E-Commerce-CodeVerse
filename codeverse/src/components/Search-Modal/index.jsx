@@ -69,7 +69,6 @@ const Search = ({ active }) => {
     if (e.key === "Enter") {
       handleClick(e.target.value);
       redirectForSearch(e.target.value);
-      console.log(e.target.value);
     }
   };
 
