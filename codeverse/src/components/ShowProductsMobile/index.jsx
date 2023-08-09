@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 
 import ProductCard from '../ProductCard';
 
-const ShowProducts = ({category}) => {
+const ShowProductsMobile = ({category}) => {
 
     const { listProducts } = useContext(ProductsContext);
     const { filtredSizes, filtredColors, filtredBrands, filtredPriceRange, filterDiscounts, SortBy } = useContext(FilterActionsContext);
@@ -130,4 +130,4 @@ const ShowProducts = ({category}) => {
   )
 }
 
-export default ShowProducts
+export default ShowProductsMobile

@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import styles from './styles.module.scss';
 
-import ShowProducts from "../../../components/ShowProducts";
+import ShowProductsMobile from "../../../components/ShowProductsMobile";
 import MobileFixedBottomBar from "../../../components/MobileFixedBottomBar";
 import BtnTransparent from "../../../components/BtnTransparent";
 import ModalBottomMobile from "../../../components/ModalBottomMobile/indes";
@@ -46,7 +46,7 @@ const ProductsByCategoyMobile = () => {
           </div>
         </div>
       <div className={styles.products}>
-        <ShowProducts category={category} />
+        <ShowProductsMobile category={category} />
       </div>
       <MobileFixedBottomBar>
         <div className={styles.btns}>
