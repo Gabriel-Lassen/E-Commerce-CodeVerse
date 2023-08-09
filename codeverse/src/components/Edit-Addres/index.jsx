@@ -1,11 +1,16 @@
 import {useState, useEffect, useContext} from 'react'
 import { AuthContext } from "../../contexts/Auth";
+import { db } from "../../FirebaseConection";
+import { collection, getDocs } from "firebase/firestore";
 import styles from "./styles.module.scss";
 import { toast } from "react-toastify";
+import ArrowSvg from '../ArrowSvg';
 
-const Addres = () => {
+const Addres = ({active}) => {
 
-  const { user, registerAddress } = useContext(AuthContext);
+  const close = () => { active(false) }
+
+  const { user, registerAddress, updateAddress } = useContext(AuthContext);
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -25,6 +30,20 @@ const Addres = () => {
         setDdd(user.ddd);
         setNumber(user.number);
       }
+      const addressCollectionRef = collection(db, 'users', user.uid, 'address');
+      const getAddress = async () => {
+        const querySnapshot = await getDocs(addressCollectionRef);
+        if (!querySnapshot.empty) {
+          const docSnapshot = querySnapshot.docs[0];
+          const addressData = docSnapshot.data();
+          setStreet(addressData.street);
+          setCity(addressData.city);
+          setState(addressData.state);
+          setPinCode(addressData.pinCode);
+          setSelectedOption(addressData.complement);
+        }
+      };
+      getAddress();
     }, [user]);
 
     async function saveAddress() {
@@ -43,7 +62,14 @@ const Addres = () => {
             complement: selectedOption,
           };
   
-          await registerAddress(addressData);
+          const addressCollectionRef = collection(db, 'users', user.uid, 'address');
+          const querySnapshot = await getDocs(addressCollectionRef);
+    
+          if (querySnapshot.size === 0) {
+            await registerAddress(addressData);
+          } else {
+            await updateAddress(addressData);
+          }
         }
       } catch (error) {
         toast.error("Error saving address: " + error.message);
@@ -51,7 +77,14 @@ const Addres = () => {
     }
   
   return (
-<div className={styles.container}>
+    <div className={styles.container}>    
+        <div  className={styles.close}>
+          <button onClick={close}>
+            <ArrowSvg color="var(--Primary)" direction="left" />
+          </button>
+          <h1>Address</h1>
+        </div>
+
       <form className={styles.form} onSubmit={(e) => {
         e.preventDefault();
         saveAddress();
