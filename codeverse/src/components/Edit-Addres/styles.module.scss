@@ -1,5 +1,31 @@
 @media screen and (max-width: 768px) {
+  .container{
+    z-index: 1000;
+    position: absolute;
+    background: var(--Bright);
+    right: 0;
+    left: 0;
+    top: 0;
+
+    .close{
+      display: flex;
+      flex-direction: row;
+      height: 56px;
+      padding: 16px 8px;
+      gap: 20px;
+      button{
+        border: none;
+        background: none;
+      }
+      h1{
+        color: var(--Primary);
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 26px;
+      }
+    }
     .form {
+      padding-top: 8px;
       h3{
         color: var(--TypeLowEmphasis);
         font-size: 14px;
@@ -95,6 +121,7 @@
       }    
     }
   }
+}
   
   @media screen and (min-width: 769px) {
     .container {
@@ -102,11 +129,14 @@
       margin-bottom: 36px;
       width: 50%;
 
+      .close{
+        display: none;
+      }
+
       .form{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        width: 739px;
         gap: 31px;
         
         h3{
@@ -169,11 +199,11 @@
             }
           }
     
-        .smallLabel{
+        .smallLabel, .bigLabel{
             display: flex;
             flex-direction: column;
-            width: 287px;
-        
+            width: 391px;
+
             span {
                 color: var(--TypeHighEmphasis);
                 font-size: 16px;
@@ -199,26 +229,7 @@
             display: flex;
             flex-direction: column;
             width: 391px;
-        
-            span {
-                color: var(--TypeHighEmphasis);
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 500;
-                line-height: 20px;
-                padding-bottom: 8px;
-              }
-              input {
-                display: flex;
-                padding: 16px 12px 16px 16px;
-                align-items: center;
-                gap: 12px;
-                align-self: stretch;
-                border-radius: 4px;
-                background: var(--Grey);
-                border: 0;
-                margin-bottom: 4px;
-              }
+      
           }
           .checkboxContainer {
             display: flex;
@@ -254,3 +265,33 @@
     cursor: not-allowed;
   }
  
+  @media screen and (min-width: 1200px) {
+    .container {
+      .form{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 739px;
+        gap: 31px;
+
+        button {
+            display: flex;
+            width: 136px;
+            padding: 8px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px;
+            background: var(--Primary);
+            color: var(--Bright);
+            text-align: center;
+            margin-left: 12vw;
+          }
+        .smallLabel{
+            display: flex;
+            flex-direction: column;
+            width: 287px;
+          }
+      }
+    }
+  }
