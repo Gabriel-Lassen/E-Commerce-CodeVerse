@@ -53,10 +53,10 @@ const ShowProducts = ({category}) => {
                 });
                 break;
             case 'PriceLowToHigh':
-                productsToShow.sort(function(a, b) {return a.price < b.price ? -1 : a.price > b.price ? 1 : 0 });
+                productsToShow.sort(function(a, b) {return (a.price * (1 - a.discount)) < (b.price * (1 - b.discount)) ? -1 : (a.price * (1 - a.discount)) > (b.price * (1 - b.discount)) ? 1 : 0 });
                 break;
             case 'PriceHighToLow':
-                productsToShow.sort(function(a, b) {return a.price > b.price ? -1 : a.price < b.price ? 1 : 0 });
+                productsToShow.sort(function(a, b) {return (a.price * (1 - a.discount)) > (b.price * (1 - b.discount)) ? -1 : (a.price * (1 - a.discount)) < (b.price * (1 - b.discount)) ? 1 : 0 });
                 break;
             case 'OnSale':
                 productsToShow.sort(function(a, b) {return a.discount > b.discount ? -1 : a.discount < b.discount ? 1 : 0 });
