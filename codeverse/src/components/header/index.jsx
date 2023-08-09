@@ -11,14 +11,18 @@ import Fav from "../../assets/imgs/fav.svg";
 import Profile from "../../assets/imgs/profile.svg";
 import Bag from "../../assets/imgs/bag.svg";
 import Drawer from "../Drawer";
+import BagModal from "../BagModal";
 import Search from "../Search-Modal";
 const Header = () => {
   const [drawer, setDrawer] = useState(false);
+
+  const [bag, setBag] = useState(false);
   const [search, setSearch] = useState(false);
 
   const showDrawer = () => setDrawer(!drawer);
   const showSearch = () => setSearch(!search);
 
+  const showBag = () => setBag(!bag);
   return (
     <header className={styles.header}>
       <div className={styles.header_left_container}>
@@ -82,11 +86,13 @@ const Header = () => {
           <Link to="/profile">
             <img src={Profile} alt="Ícone de Perfil" />
           </Link>
-          <Link to="/mycart">
+
+          <button onClick={showBag}>
             <img src={Bag} alt="Ícone de Bolsa" />
-          </Link>
+          </button>
         </nav>
       </div>
+      {bag && <BagModal active={setBag} />}
     </header>
   );
 };

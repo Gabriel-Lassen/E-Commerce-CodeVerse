@@ -47,7 +47,7 @@
     .header_left_desktop {
       display: flex;
       img {
-        margin: 0 32px;
+        margin: 0 32px 0 20px;
       }
 
       ul {
@@ -66,12 +66,17 @@
     }
     .header_right_desktop {
       display: flex;
+
+      button {
+        background: none;
+      }
+
       div {
         position: relative;
         padding-right: 24px;
 
         input {
-          width: 38vw;
+          width: 28.28vw;
           height: 44px;
           flex-shrink: 0;
           border-radius: 4px;
