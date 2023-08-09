@@ -1,21 +1,24 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import styles from './styles.module.scss';
 
-import BtnBackForPage from "../../../components/BtnBackForPage";
 import ShowProducts from "../../../components/ShowProducts";
-import ArrowSvg from "../../../components/ArrowSvg";
 import MobileFixedBottomBar from "../../../components/MobileFixedBottomBar";
 import BtnTransparent from "../../../components/BtnTransparent";
 import ModalBottomMobile from "../../../components/ModalBottomMobile/indes";
 import ProductsSortByMobile from "../../ProductsSortByMobile";
+import ProductsFilterMobile from "../../ProductsFilterMobile";
 
 import Sort from '../../../assets/imgs/sort.svg';
 import Filter from '../../../assets/imgs/filter.svg';
-import ProductsFilterMobile from "../../ProductsFilterMobile";
+import Chevron from '../../../assets/imgs/chevron-left.png';
+import Wishlist from '../../../assets/imgs/fav.svg';
+import Search from '../../../assets/imgs/search.svg';
+import Bag from '../../../assets/imgs/bag.svg';
 
 const ProductsByCategoyMobile = () => {
+    const navigate = useNavigate();
     const location = useLocation();
     const [category, setCategory] = useState();
     const [categoryCapitalized, setCategoryCapitalized] = useState();
@@ -27,11 +30,21 @@ const ProductsByCategoyMobile = () => {
       const capitalized = categoryUrl[0].toUpperCase() + categoryUrl.substr(1);
       setCategoryCapitalized(capitalized)
       setCategory(categoryUrl)
-    }, [location])
+    }, [location]);
 
   return (
     <div className={styles.wrapper}>
-        <BtnBackForPage svg={<ArrowSvg direction='left' color='var(--Primary)' />} text={categoryCapitalized} />
+        <div className={styles.topBar}>
+          <div className={styles.title}>
+            <button onClick={() => navigate(-1)}><img src={Chevron} alt="Back page" /></button>
+            <h1>{categoryCapitalized}</h1>
+          </div>
+          <div className={styles.actions}>
+            <button onClick={() => navigate('/profile/mywishlist')}><img src={Wishlist} alt="My Wishlist" /></button>
+            <button><img src={Search} alt="" /></button>
+            <button onClick={() => navigate('/mycart')}><img src={Bag} alt="My Cart" /></button>
+          </div>
+        </div>
       <div className={styles.products}>
         <ShowProducts category={category} />
       </div>
