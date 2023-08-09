@@ -11,7 +11,7 @@ const ShowProductsMobile = () => {
 
   return (
     <div className={styles.wrapper}>
-        <span>{totalProducts} Products</span>
+        <span className={styles.span}>{totalProducts} Products</span>
         <div className={totalProducts % 2 == 0 ? styles.productsPar : styles.productsImpar}>
             {productsToShow && 
                 productsToShow.map((item ,idx) => {
