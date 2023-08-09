@@ -256,7 +256,32 @@ function AuthProvider({ children }) {
       toast.error("Error saving address: " + error.message);
     }
   }
+
+  async function updateAddress(addressData) {
+    try {
+      if (user) {
+        const addressCollectionRef = collection(db, "users", user.uid, "address");
+        const querySnapshot = await getDocs(addressCollectionRef);
+        
+        if (!querySnapshot.empty) {
+          const docSnapshot = querySnapshot.docs[0];
+          const addressDocRef = docSnapshot.ref;
   
+          await updateDoc(addressDocRef, {
+            street: addressData.street,
+            city: addressData.city,
+            state: addressData.state,
+            pinCode: addressData.pinCode,
+            complement: addressData.complement,
+          });
+  
+          toast.success("Address updated successfully!");
+        }
+      }
+    } catch (error) {
+      toast.error("Error updating address: " + error.message);
+    }
+  }
   return (
     <AuthContext.Provider
       value={{
@@ -274,6 +299,7 @@ function AuthProvider({ children }) {
         searchHistory,
         logout,
         registerAddress,
+        updateAddress,
       }}
     >
       {children}
