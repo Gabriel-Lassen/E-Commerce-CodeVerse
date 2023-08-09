@@ -9,7 +9,7 @@ import SearchIcon from "../../assets/imgs/search_desktop.svg";
 
 import { useState, useContext } from "react";
 import { ProductsContext } from "../../contexts/products";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/Auth";
 
 // eslint-disable-next-line react/prop-types
@@ -19,6 +19,8 @@ const Search = ({ active }) => {
   const { handleSearch, searchHistory } = useContext(AuthContext);
   const [notFound, setNotFound] = useState(false);
   const filteredSearch = search.length > 0 ? handleFilter(search) : null;
+
+  const navigate = useNavigate();
 
   function handleFilter(search) {
     const productByName = listProducts.filter((product) =>
@@ -63,6 +65,25 @@ const Search = ({ active }) => {
     }
   }
 
+  const pressEnter = (e) => {
+    if (e.key === "Enter") {
+      handleClick(e.target.value);
+      redirectForSearch(e.target.value);
+      console.log(e.target.value);
+    }
+  };
+
+  const redirectForSearch = (e) => {
+    const product = listProducts.find((p) => p.name === e);
+    const brand = listBrands.find((b) => b === e);
+
+    if (product) {
+      navigate(`/products/${product.id}`);
+    } else if (brand) {
+      navigate(`/categories/`);
+    }
+  };
+
   return (
     <div className={styles.container}>
       {notFound && <NotFound active={setNotFound} />}
@@ -76,6 +97,7 @@ const Search = ({ active }) => {
             placeholder="Search"
             value={search}
             onChange={(e) => setSearch(capitalize(e.target.value))}
+            onKeyDown={pressEnter}
           />
           <div className={styles.optionsContainer}>
             {filteredSearch?.products &&
