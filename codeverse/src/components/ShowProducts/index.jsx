@@ -9,7 +9,7 @@ import ProductCard from '../ProductCard';
 const ShowProducts = ({category}) => {
 
     const { listProducts } = useContext(ProductsContext);
-    const { filtredSizes, filtredColors, filtredBrands, filtredPriceRange, SortBy } = useContext(FilterActionsContext);
+    const { filtredSizes, filtredColors, filtredBrands, filtredPriceRange, filterDiscounts, SortBy } = useContext(FilterActionsContext);
     const [totalProducts, setTotalProducts] = useState();
     const [productsCategoryFiltred, setProductsCategoryFiltred] = useState([]);
     const [productsToShow, setProductsToShow] = useState([]);
@@ -48,11 +48,26 @@ const ShowProducts = ({category}) => {
                     }
                 });
             }
-            
-            return colorMatch && sizeMatch && brandMatch && priceMatch;
+
+            let discountMatch = false;
+            if (filterDiscounts.length === 0) {
+                discountMatch = true;
+            } else {
+                discountMatch = filterDiscounts.some(discount => {
+                    if (discount === '10-25') {
+                        return product.discount <= 0.25;
+                    } else if (discount === '25-50') {
+                        return product.discount >= 0.25 && product.discount <= 0.5;
+                    } else if (discount === '>50') {
+                        return product.discount > 0.5;
+                    } 
+                });
+            }
+
+            return colorMatch && sizeMatch && brandMatch && priceMatch && discountMatch;
         });
         setProductsToShow(newFilteredProducts);
-    }, [filtredColors, filtredBrands, filtredSizes, filtredPriceRange]);
+    }, [filtredColors, filtredBrands, filtredSizes, filtredPriceRange, filterDiscounts]);
 
     useEffect(() => {
         setTotalProducts(productsToShow.length)
