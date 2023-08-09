@@ -10,6 +10,7 @@ import FilterSizes from '../ProductsFilterComponents/FilterSizes';
 import BtnGeneric from '../BtnGeneric';
 
 import Close from '../../assets/imgs/close.svg';
+import FilterPriceRange from '../ProductsFilterComponents/FilterPriceRange';
 
 const ProductsFilterMobile = ({setShowModal}) => {
   const [filterToShow, setFilterToShow] = useState('Size');
@@ -40,6 +41,9 @@ const ProductsFilterMobile = ({setShowModal}) => {
           }
           { filterToShow === 'Brand' &&
             <FilterBrands />
+          }
+          { filterToShow === 'Price' &&
+            <FilterPriceRange />
           }
         </div>
       </div>
