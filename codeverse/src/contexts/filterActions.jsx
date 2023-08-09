@@ -7,6 +7,7 @@ const FilterActionsProvider = ({children}) => {
     const [filtredColors, setFiltredColors] = useState([]);
     const [filtredBrands, setFiltredBrands] = useState([]);
     const [filtredPriceRange, setFiltredPriceRange] = useState([]);
+    const [filterDiscounts, setFilterDiscounts] = useState([]);
     const [SortBy, setSortBy] = useState('Popular');
 
     function handleClearAllFilters() {
@@ -14,6 +15,7 @@ const FilterActionsProvider = ({children}) => {
         setFiltredColors([]);
         setFiltredBrands([]);
         setFiltredPriceRange([]);
+        setFilterDiscounts([]);
     }
 
     return (
@@ -27,6 +29,8 @@ const FilterActionsProvider = ({children}) => {
                 setFiltredBrands,
                 filtredPriceRange,
                 setFiltredPriceRange,
+                filterDiscounts,
+                setFilterDiscounts,
                 SortBy,
                 setSortBy,
                 handleClearAllFilters
