@@ -18,7 +18,7 @@ const DropdowBtn = ({children, title}) => {
     }
   return (
     <div className={styles.wrapper}>
-        <button onClick={handleClick}>
+        <button onClick={handleClick} className={styles.button}>
             <span>{title}</span>
             <img src={image} alt="Dropdow Button" />
         </button>
