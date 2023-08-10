@@ -1,19 +1,38 @@
 import styles from './styles.module.scss';
 import ChevronUp from '../../assets/imgs/chevron-up.svg';
 import ChevronBottom from '../../assets/imgs/chevron-bottom.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const DropdowBtn = ({children, title}) => {
+import Plus from '../../assets/imgs/plus.svg';
+import Minus from '../../assets/imgs/minus.svg';
+
+const DropdowBtn = ({children, title, iconType}) => {
     const [show, setShow] = useState(false);
-    const [image, setImage] = useState(ChevronBottom)
+    const [image, setImage] = useState();
+
+    useEffect(() => {
+        if(iconType === 'Plus'){
+            setImage(Plus);
+        } else {
+            setImage(ChevronBottom);
+        }
+    }, [])
 
     function handleClick(){
         if(show){
             setShow(false)
-            setImage(ChevronBottom)
+            if(iconType === 'Plus'){
+                setImage(Plus);
+            } else {
+                setImage(ChevronBottom);
+            }
         } else {
             setShow(true)
-            setImage(ChevronUp)
+            if(iconType === 'Plus'){
+                setImage(Minus);
+            } else {
+                setImage(ChevronUp);
+            }
         }
     }
   return (

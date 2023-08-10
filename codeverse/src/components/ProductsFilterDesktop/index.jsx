@@ -10,19 +10,19 @@ import styles from './styles.module.scss';
 const ProductsFilterDesktop = () => {
   return (
     <div className={styles.sideBar}>
-        <DropdowBtn title='Size'>
+        <DropdowBtn title='Size' iconType='Plus'>
             <FilterSizes />
         </DropdowBtn>
-        <DropdowBtn title='Color'>
+        <DropdowBtn title='Color' iconType='Plus'>
             <FilterColors />
         </DropdowBtn>
-        <DropdowBtn title='Brand'>
+        <DropdowBtn title='Brand' iconType='Plus'>
             <FilterBrands />
         </DropdowBtn>
-        <DropdowBtn title='Price Range'>
+        <DropdowBtn title='Price Range' iconType='Plus'>
             <FilterPriceRange />
         </DropdowBtn>
-        <DropdowBtn title='Discount'>
+        <DropdowBtn title='Discount' iconType='Plus'>
             <FilterDiscounts />
         </DropdowBtn>
     </div>
