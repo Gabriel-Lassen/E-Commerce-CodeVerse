@@ -7,12 +7,12 @@ import ChevronBottom from '../../assets/imgs/chevron-bottom.svg';
 import ChevronUp from '../../assets/imgs/chevron-up.svg';
 
 const ProductsSortByDesktop = () => {
-    const {SortBy, setSortBy} = useContext(FilterActionsContext);
-    const [sortMethod, setSortMethod] = useState('');
+    const {sortBy, setSortBy} = useContext(FilterActionsContext);
+    const [sortMethod, setSortMethod] = useState('Popular');
     const [showMethods, setShowMethods] = useState(false);
 
     useEffect(() => {
-        switch(SortBy){
+        switch(sortBy){
             case 'Popular':
                 setSortMethod("Popular Products");
                 break;
@@ -31,9 +31,9 @@ const ProductsSortByDesktop = () => {
             case 'OnSale':
                 setSortMethod("On Sale");
                 break;
-            default: setSortMethod('Popular');
+            default: break;
         }
-    }, [SortBy]);
+    }, [sortBy]);
 
     function handleClick(method) {
         setSortBy(method);
