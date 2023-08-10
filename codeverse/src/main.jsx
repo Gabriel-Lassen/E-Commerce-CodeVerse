@@ -9,6 +9,7 @@ import WishlistActionsProvider, { WishlistActionsContext } from "./contexts/wish
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
+import OrdersActionsProvider from "./contexts/ordersActions";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -17,8 +18,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <ProductsProvider>
           <BagActionsProvider>
             <WishlistActionsProvider>
-              <ToastContainer autoClose={3000} closeButton={false} transition={Slide} />
-              <Rotas />
+              <OrdersActionsProvider>
+                <ToastContainer autoClose={3000} closeButton={false} transition={Slide} />
+                <Rotas />
+              </OrdersActionsProvider>
             </WishlistActionsProvider>
           </BagActionsProvider>
         </ProductsProvider>
