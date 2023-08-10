@@ -7,19 +7,14 @@ import ProductCard from '../ProductCard';
 
 const ShowProductsMobile = () => {
 
-    const { totalProducts, productsToShow, sortBy } = useContext(FilterActionsContext);
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        setProducts(productsToShow);
-    }, [productsToShow, sortBy]);
+    const { totalProducts, productsToShow } = useContext(FilterActionsContext);
 
   return (
     <div className={styles.wrapper}>
         <span className={styles.span}>{totalProducts} Products</span>
         <div className={totalProducts % 2 == 0 ? styles.productsPar : styles.productsImpar}>
-            {products && 
-                products.map((item ,idx) => {
+            {productsToShow && 
+                productsToShow.map((item ,idx) => {
                     return <ProductCard
                         key={idx}
                         id={item.id}
