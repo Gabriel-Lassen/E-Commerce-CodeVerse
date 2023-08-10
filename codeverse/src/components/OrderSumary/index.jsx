@@ -2,6 +2,7 @@ import styles from "./styles.module.scss";
 import { BagActionsContext } from "../../contexts/bagActions";
 import { ProductsContext } from "../../contexts/products";
 import { useContext, useEffect, useState } from "react";
+import OrderSummary from "../OrderSummary";
 
 const OrderSumary = () => {
   const { listProducts } = useContext(ProductsContext);
@@ -41,7 +42,7 @@ const OrderSumary = () => {
 
   return (
     <div className={styles.container}>
-      <h2>Order Sumary</h2>
+      <h2 className={styles.order}>Order Sumary</h2>
       <h3>Expected Delivery</h3>
       <div className={styles.separator}></div>
       {userBag.map((item) => {
@@ -62,6 +63,9 @@ const OrderSumary = () => {
           </>
         );
       })}
+      <OrderSummary
+      subTotal={subTotal}
+      discount={discount} delivery={delivery} pay={pay} button={false}/>
     </div>
   );
 };

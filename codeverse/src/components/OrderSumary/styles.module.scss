@@ -2,19 +2,19 @@
   .container {
     margin: 0 0 0 16px;
     max-width: 411px;
-    h2 {
-      display: none;
-    }
+
     h3 {
       color: var(--TypeLowEmphasis);
       font-size: 14px;
       font-style: normal;
       font-weight: 600;
       line-height: 16px;
-      padding-left: 11px;
+    }
+    .order {
+      display: none;
     }
     .separator {
-     display: none;
+      display: none;
     }
     .cards {
       display: flex;
