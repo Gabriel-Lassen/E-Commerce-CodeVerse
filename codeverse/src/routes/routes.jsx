@@ -18,6 +18,7 @@ import MyOrders from "../pages/MyOrders";
 import MyAddressBook from "../pages/MyAddressBook";
 import { Payment } from "../components/Payment";
 import { PaymentDesktop } from "../components/PaymentDesktop";
+import Checkout from "../pages/Checkout";
 
 
 const Rotas = () => {
@@ -41,8 +42,7 @@ const Rotas = () => {
       <Route path="/profile/myreviews" element={""} />
       <Route path="/profile/myaddressbook" element={<PriviteRoutes> <MyAddressBook/> </PriviteRoutes>} />
       <Route path="/profile/mysavedcards" element={""} />
-      <Route path="/payment" element={<Payment/>} />
-      <Route path="/paymentdesktop" element={<PaymentDesktop/>} />
+      <Route path="/checkout" element={<Checkout/>} />
     </Routes>
   );
 };
