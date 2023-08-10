@@ -129,6 +129,9 @@ const FilterActionsProvider = ({children, category}) => {
     }, [productsToShow, startIndex, endIndex, sortBy]);
 
     function handlePageChange(newPage) {
+        if(newPage > totalPages){
+            return;
+        }
         setCurrentPage(newPage);
         ref.current?.scrollIntoView({ behavior: 'smooth' });
     };
