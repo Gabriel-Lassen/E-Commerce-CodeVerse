@@ -40,12 +40,11 @@
             background: rgba(0, 0, 0, 0.12);
             margin: 8px 16px 16px;
           }
-      label {
+        .smallLabel, .bigLabel, .mobile_number {
         display: flex;
         flex-direction: column;
         width: 94vw;
         margin: 0 auto;
-        flex-direction: column;
         margin-bottom: 16px;
   
         span {
@@ -64,16 +63,18 @@
       }
       button {
         display: flex;
-        width: 136px;
+        width: 94vw;
+        height: 44px;
+        margin: 16px;
+        position: fixed;
+        bottom: 0;
         padding: 8px;
         justify-content: center;
         align-items: center;
-        gap: 8px;
         border-radius: 8px;
         background: var(--Primary);
         color: var(--Bright);
         text-align: center;
-        margin: 20px auto 0;
       }
       .mobile_number {
         display: flex;
@@ -96,13 +97,14 @@
         display: flex;
         align-items: flex-start;
         gap: 16px;
+        padding-left: 20px;
       }
       
       .option,.selected {
         display: flex;
         align-items: center;
         justify-content: center;
-        max-width: 65px;
+        width: 65px;
         height: 32px;
         border-radius: 8px;
         background-color: var(--Grey);
@@ -203,6 +205,7 @@
             display: flex;
             flex-direction: column;
             width: 391px;
+            min-width: 320px;
 
             span {
                 color: var(--TypeHighEmphasis);
@@ -225,12 +228,6 @@
               }
           }
 
-          .bigLabel{
-            display: flex;
-            flex-direction: column;
-            width: 391px;
-      
-          }
           .checkboxContainer {
             display: flex;
             align-items: flex-start;

@@ -5,6 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 import styles from "./styles.module.scss";
 import { toast } from "react-toastify";
 import ArrowSvg from '../ArrowSvg';
+import MobileFixedBottomBar from '../MobileFixedBottomBar';
 
 const Address = ({active}) => {
 
@@ -193,9 +194,9 @@ const Address = ({active}) => {
             </label>
           </div>
 
-          <div>
-            <button type="submit">Save</button>
-          </div>
+            <div>
+              <button type="submit">Save Address</button>
+            </div>
       </form>
     </div>
   );
