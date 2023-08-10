@@ -42,6 +42,7 @@ const OrderSumary = () => {
   return (
     <div className={styles.container}>
       <h2>Order Sumary</h2>
+      <h3>Expected Delivery</h3>
       <div className={styles.separator}></div>
       {userBag.map((item) => {
         const product = getProductById(item.productId);
@@ -61,28 +62,6 @@ const OrderSumary = () => {
           </>
         );
       })}
-      <div className={styles.rightWeb}>
-        <div className={styles.order}>
-          <h3>Order Details</h3>
-          <div className={styles.separator}></div>
-          <div>
-            <p>Sub Total</p>
-            <span>${subTotal.toFixed(2)}</span>
-          </div>
-          <div>
-            <p>Discount</p>
-            <span>-${discount}</span>
-          </div>
-          <div>
-            <p>Delivery</p>
-            <span>-${delivery.toFixed(2)}</span>
-          </div>
-          <div>
-            <h2>Grand Total</h2>
-            <span>${pay.toFixed(2)}</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
