@@ -40,10 +40,24 @@ const OrderSumary = () => {
     setPay(total);
   }, [userBag]);
 
+
+
+  const data = new Date();
+
+  const month = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+
+  const day = String(data.getDate()).padStart(2, '0');
+  const mes = month[data.getMonth()];
+
+  const formatoData = `${day} ${mes}`;
+
   return (
     <div className={styles.container}>
       <h2 className={styles.order}>Order Sumary</h2>
-      <h3>Expected Delivery</h3>
+      <h3 className={styles.expected}>Expected Delivery</h3>
       <div className={styles.separator}></div>
       {userBag.map((item) => {
         const product = getProductById(item.productId);
@@ -55,9 +69,10 @@ const OrderSumary = () => {
             <div className={styles.cards} key={item.productId}>
               <img src={product.url} alt={product.name} />
               <div className={styles.prodDesc}>
+                <span className={styles.data}>{formatoData}</span>
                 <span>{product.name}</span>
                 <span>{product.info}</span>
-                <span>Qty- 1</span>
+                <span className={styles.qty}>Qty- 1</span>
               </div>
             </div>
           </>
@@ -65,7 +80,7 @@ const OrderSumary = () => {
       })}
       <OrderSummary
       subTotal={subTotal}
-      discount={discount} delivery={delivery} pay={pay} button={false}/>
+      discount={discount} delivery={delivery} pay={pay} button={false} titleWeb={"Order Details"} titleMob={"Order Details"} />
     </div>
   );
 };
