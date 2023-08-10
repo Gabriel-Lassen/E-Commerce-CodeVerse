@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FilterActionsContext } from "../../contexts/filterActions";
 
 import styles from './styles.module.scss';
@@ -7,14 +7,19 @@ import ProductCard from '../ProductCard';
 
 const ShowProductsMobile = () => {
 
-    const { totalProducts, productsToShow } = useContext(FilterActionsContext);
+    const { totalProducts, productsToShow, sortBy } = useContext(FilterActionsContext);
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        setProducts(productsToShow);
+    }, [productsToShow, sortBy]);
 
   return (
     <div className={styles.wrapper}>
         <span className={styles.span}>{totalProducts} Products</span>
         <div className={totalProducts % 2 == 0 ? styles.productsPar : styles.productsImpar}>
-            {productsToShow && 
-                productsToShow.map((item ,idx) => {
+            {products && 
+                products.map((item ,idx) => {
                     return <ProductCard
                         key={idx}
                         id={item.id}
