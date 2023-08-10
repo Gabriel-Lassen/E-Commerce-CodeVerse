@@ -4,9 +4,9 @@ import { db } from "../../FirebaseConection";
 import { collection, getDocs } from "firebase/firestore";
 import styles from "./styles.module.scss";
 import pencil from "../../assets/imgs/Pencil.svg";
-import Addres from '../Edit-Addres';
+import Address from '../Address';
 
-const BtnAddres = () => {
+const BtnAddress = () => {
 
     const { user } = useContext(AuthContext);
     
@@ -52,9 +52,9 @@ const BtnAddres = () => {
                 <img src={pencil} alt="" />
             </button>
         </div>
-        {openAddress && <Addres active={setOpenAddress} />}
+        {openAddress && <Address active={setOpenAddress} />}
     </div>
   )
 }
 
-export default BtnAddres
+export default BtnAddress

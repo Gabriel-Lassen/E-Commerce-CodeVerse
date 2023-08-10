@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 import { toast } from "react-toastify";
 import ArrowSvg from '../ArrowSvg';
 
-const Addres = ({active}) => {
+const Address = ({active}) => {
 
   const close = () => { active(false) }
 
@@ -201,4 +201,4 @@ const Addres = ({active}) => {
   );
 }
 
-export default Addres
+export default Address
