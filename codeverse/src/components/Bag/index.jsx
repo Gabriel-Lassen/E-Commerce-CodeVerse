@@ -7,6 +7,7 @@ import Cupom from "../CupomInput";
 import { ProductsContext } from "../../contexts/products";
 import { BagActionsContext } from "../../contexts/bagActions";
 import { WishlistActionsContext } from "../../contexts/wishlistActions";
+import OrderSummary from "../OrderSummary";
 
 const Bag = () => {
   const [hidden, setHidden] = useState(false);
@@ -165,39 +166,13 @@ const Bag = () => {
         )}
       </section>
       <img src={background} alt="" className={styles.bg} />
-      <div className={styles.rightWeb}>
-        <div className={styles.order}>
-          <h2>Order Details</h2>
-          <h3>Order Summary</h3>
-          <div className={styles.separator}></div>
-          <div>
-            <p>Sub Total</p>
-            <span>${subTotal.toFixed(2)}</span>
-          </div>
-          <div>
-            <p>Discount</p>
-            <span>-${discount}</span>
-          </div>
-          <div>
-            <p>Delivery</p>
-            <span>-${delivery.toFixed(2)}</span>
-          </div>
-          <div>
-            <h2>Grand Total</h2>
-            <span>${pay.toFixed(2)}</span>
-          </div>
-        </div>
-        <div className={styles.bottom}>
-          <div>
-            <p>Total Bag Amount</p>
-            <span>${pay.toFixed(2)}</span>
-          </div>
-          <button>Place Order</button>
-          <Link to="/">
-            <button className={styles.cShop}>Continue Shopping</button>
-          </Link>
-        </div>
-      </div>
+      <OrderSummary
+        pay={pay}
+        discount={discount}
+        delivery={delivery}
+        button={true}
+        subTotal={subTotal}
+      />
     </div>
   );
 };
