@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-const OrderSummary = ({subTotal, discount, delivery, pay, button}) => {
+const OrderSummary = ({ subTotal, discount, delivery, pay, button }) => {
   return (
     <div className={styles.rightWeb}>
       <div className={styles.order}>
@@ -26,16 +26,19 @@ const OrderSummary = ({subTotal, discount, delivery, pay, button}) => {
           <span>${pay.toFixed(2)}</span>
         </div>
       </div>
-      <div className={styles.bottom}>
-        <div>
-          <p>Total Bag Amount</p>
-          <span>${pay.toFixed(2)}</span>
+      {button && (
+        <div className={styles.bottom}>
+          <div>
+            <p>Total Bag Amount</p>
+            <span>${pay.toFixed(2)}</span>
+          </div>
+          <button>Place Order</button>
+
+          <Link to="/">
+            <button className={styles.cShop}>Continue Shopping</button>
+          </Link>
         </div>
-        <button>Place Order</button>
-        {button && <Link to="/">
-          <button className={styles.cShop}>Continue Shopping</button>
-        </Link>}
-      </div>
+      )}
     </div>
   );
 };
