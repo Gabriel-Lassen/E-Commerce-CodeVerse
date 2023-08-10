@@ -6,6 +6,11 @@ import ArrowSvg from "../../components/ArrowSvg";
 import SideBarProfile from "../../components/SideBar-Profile";
 import TitlePage from "../../components/Title-pages";
 import RouteHistory from "../../components/Route-history";
+import Address from "../../components/Address";
+import styles from "./styles.module.scss";
+
+import DropdowBtn from "../../components/DropdowBtn";
+import BtnAddress from "../../components/BtnOpenAddress";
 
 const MyAddressBook = () => {
     const [hidden, setHidden] = useState(false);
@@ -28,7 +33,14 @@ return (
       />
       <RouteHistory />
       <TitlePage />
+      <div className={styles.wrapper}>
       {hidden && <SideBarProfile />}
+      <BtnAddress />
+      {hidden && 
+      <DropdowBtn title='Add New Address'>
+            <Address />
+      </DropdowBtn>}
+      </div>
       {hidden && <Footer />}
     </div>
   );
