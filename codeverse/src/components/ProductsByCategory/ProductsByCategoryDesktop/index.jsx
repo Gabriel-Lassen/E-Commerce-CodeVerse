@@ -1,25 +1,27 @@
+import { useEffect, useState, useContext } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+import { FilterActionsContext } from '../../../contexts/filterActions';
 
 import Header from '../../header';
-
-import HeroBanner from '../../../assets/imgs/heroBannerCategories.jpg';
+import Footer from '../../footer';
+import ShowProductsDesktop from '../../ShowProductsDesktop';
+import ProductsFilterDesktop from '../../ProductsFilterDesktop';
+import ProductsSortByDesktop from '../../ProductsSortByDesktop';
 
 import styles from './styles.module.scss';
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import DropdowBtn from '../../DropdowBtn';
-import FilterSizes from '../../ProductsFilterComponents/FilterSizes';
-import FilterColors from '../../ProductsFilterComponents/FilterColors';
-import FilterBrands from '../../ProductsFilterComponents/FilterBrands';
-import FilterPriceRange from '../../ProductsFilterComponents/FilterPriceRange';
-import FilterDiscounts from '../../ProductsFilterComponents/FilterDiscounts';
-import Footer from '../../footer';
 
+import HeroBanner from '../../../assets/imgs/heroBannerCategories.jpg';
 import Chevron from '../../../assets/imgs/chevron-right-small.svg'
+import ShowLayout from '../../../assets/imgs/showlayout.svg';
 
 const ProductsByCategoyDesktop = () => {
 
+    const { totalProducts, productsPerPage, setProductsPerPage, currentPage, startIndex, ref} = useContext(FilterActionsContext);
+
     const location = useLocation();
     const navigate = useNavigate();
+
     const [category, setCategory] = useState('');
 
     useEffect(() => {
@@ -28,44 +30,42 @@ const ProductsByCategoyDesktop = () => {
         setCategory(capitalized);
     }, [location])
 
-
   return (
     <div className={styles.container}>
-    <div className={styles.wrapper}>
-        <Header />
-        <div className={styles.heroBanner}>
-            <img src={HeroBanner} />
-        </div>
-        <div className={styles.history}>
-            <span onClick={() => navigate('/')}>Home</span>
-            <img src={Chevron} alt="" />
-            <span>{category}</span>
-        </div>
-        <h1 className={styles.h1}>{category}</h1>
-        <div className={styles.display}>
-            <div className={styles.sideBar}>
-                <DropdowBtn title='Size'>
-                    <FilterSizes />
-                </DropdowBtn>
-                <DropdowBtn title='Color'>
-                    <FilterColors />
-                </DropdowBtn>
-                <DropdowBtn title='Brand'>
-                    <FilterBrands />
-                </DropdowBtn>
-                <DropdowBtn title='Price Range'>
-                    <FilterPriceRange />
-                </DropdowBtn>
-                <DropdowBtn title='Discount'>
-                    <FilterDiscounts />
-                </DropdowBtn>
+        <div className={styles.wrapper}>
+            <Header />
+            <div className={styles.heroBanner}>
+                <img src={HeroBanner} />
             </div>
-            <div>
-                
+            <div className={styles.history}>
+                <span onClick={() => navigate('/')}>Home</span>
+                <img src={Chevron} alt="" />
+                <span>{category}</span>
+            </div>
+            <h1 className={styles.h1} ref={ref}>{category}</h1>
+            <div className={styles.display}>
+                <ProductsFilterDesktop />
+                <div className={styles.bar}>
+                    <div className={styles.displayOptions}>
+                        <div className={styles.showing}>
+                            <img src={ShowLayout} alt="" />
+                            <span>Showing {startIndex + 1} - {productsPerPage * currentPage} of {totalProducts} items</span>
+                        </div>
+                        <div className={styles.buttons}>
+                            <div className={styles.toShow}>
+                                <span>To Show:</span>
+                                <div>
+                                    <input type="number" value={productsPerPage} onChange={(e) =>setProductsPerPage(e.target.value)}/>
+                                </div>
+                            </div>
+                            <ProductsSortByDesktop  />
+                        </div>
+                    </div>
+                    <ShowProductsDesktop />
+                </div>
             </div>
         </div>
-    </div>
-    <Footer />
+        <Footer />
     </div>
   )
 }
