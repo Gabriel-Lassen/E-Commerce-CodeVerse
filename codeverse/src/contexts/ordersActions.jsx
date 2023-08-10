@@ -1,8 +1,8 @@
-import { useContext } from 'react';
+import { createContext } from 'react';
 
-export const OrdersActionsContext = useContext({});
+export const OrdersActionsContext = createContext({});
 
-const OrdersActionsProvider = () => {
+const OrdersActionsProvider = ({children}) => {
   return (
     <OrdersActionsContext.Provider 
         value={{
