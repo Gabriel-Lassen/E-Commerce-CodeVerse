@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useEffect, useContext, useRef } from "react";
 import { ProductsContext } from "../contexts/products";
 
 export const FilterActionsContext = createContext({});
@@ -6,6 +6,8 @@ export const FilterActionsContext = createContext({});
 const FilterActionsProvider = ({children, category}) => {
 
     const { listProducts } = useContext(ProductsContext);
+
+    const ref = useRef(null);
 
     const [filtredSizes, setFiltredSizes] = useState([]);
     const [filtredColors, setFiltredColors] = useState([]);
@@ -19,6 +21,13 @@ const FilterActionsProvider = ({children, category}) => {
     const [productsToShow, setProductsToShow] = useState([]);
     const [totalProducts, setTotalProducts] = useState();
 
+    const [productsPerPage, setProductsPerPage] = useState(9);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [startIndex, setStartIndex] = useState((currentPage - 1) * productsPerPage);
+    const [totalPages, setTotalPages] = useState();
+    const [endIndex, setEndIndex] = useState();
+    const [currentProducts, setCurrentProducts] = useState([]);
+
     useEffect(() => {
         if(listProducts){
           const list = listProducts.filter((product) => {return product.category.indexOf(category) !== -1});
@@ -27,6 +36,35 @@ const FilterActionsProvider = ({children, category}) => {
           setProductsToShow(list)
         }
     }, [listProducts, category]);
+
+    useEffect(() => {
+        switch (sortBy) {
+            case 'Popular':
+                productsToShow.sort(function(a, b) {return a.popularity > b.popularity ? -1 : a.popularity < b.popularity ? 1 : 0 });
+                break;
+            case 'Relevance':
+                productsToShow.sort(function(a, b) {return a.reviews > b.reviews ? -1 : a.reviews < b.reviews ? 1 : 0 });
+                break;
+            case 'New':
+                productsToShow.sort(function(a, b) {
+                    const dataA = new Date(a.releaseDate);
+                    const dataB = new Date(b.releaseDate);
+                    return dataA > dataB ? -1 : dataA < dataB ? 1 : 0
+                });
+                break;
+            case 'PriceLowToHigh':
+                productsToShow.sort(function(a, b) {return (a.price * (1 - a.discount)) < (b.price * (1 - b.discount)) ? -1 : (a.price * (1 - a.discount)) > (b.price * (1 - b.discount)) ? 1 : 0 });
+                break;
+            case 'PriceHighToLow':
+                productsToShow.sort(function(a, b) {return (a.price * (1 - a.discount)) > (b.price * (1 - b.discount)) ? -1 : (a.price * (1 - a.discount)) < (b.price * (1 - b.discount)) ? 1 : 0 });
+                break;
+            case 'OnSale':
+                productsToShow.sort(function(a, b) {return a.discount > b.discount ? -1 : a.discount < b.discount ? 1 : 0 });
+                break;
+            default:
+                productsToShow.sort(function(a, b) {return a.popularity > b.popularity ? -1 : a.popularity < b.popularity ? 1 : 0 });
+        }
+    }, [sortBy, productsToShow, currentProducts]);
 
     useEffect(() => {
         const newFilteredProducts = productsCategoryFiltred.filter((product) => {
@@ -76,33 +114,24 @@ const FilterActionsProvider = ({children, category}) => {
     }, [filtredColors, filtredBrands, filtredSizes, filtredPriceRange, filterDiscounts]);
 
     useEffect(() => {
-        switch (sortBy) {
-            case 'Popular':
-                productsToShow.sort(function(a, b) {return a.popularity > b.popularity ? -1 : a.popularity < b.popularity ? 1 : 0 });
-                break;
-            case 'Relevance':
-                productsToShow.sort(function(a, b) {return a.reviews > b.reviews ? -1 : a.reviews < b.reviews ? 1 : 0 });
-                break;
-            case 'New':
-                productsToShow.sort(function(a, b) {
-                    const dataA = new Date(a.releaseDate);
-                    const dataB = new Date(b.releaseDate);
-                    return dataA > dataB ? -1 : dataA < dataB ? 1 : 0
-                });
-                break;
-            case 'PriceLowToHigh':
-                productsToShow.sort(function(a, b) {return (a.price * (1 - a.discount)) < (b.price * (1 - b.discount)) ? -1 : (a.price * (1 - a.discount)) > (b.price * (1 - b.discount)) ? 1 : 0 });
-                break;
-            case 'PriceHighToLow':
-                productsToShow.sort(function(a, b) {return (a.price * (1 - a.discount)) > (b.price * (1 - b.discount)) ? -1 : (a.price * (1 - a.discount)) < (b.price * (1 - b.discount)) ? 1 : 0 });
-                break;
-            case 'OnSale':
-                productsToShow.sort(function(a, b) {return a.discount > b.discount ? -1 : a.discount < b.discount ? 1 : 0 });
-                break;
-            default:
-                productsToShow.sort(function(a, b) {return a.popularity > b.popularity ? -1 : a.popularity < b.popularity ? 1 : 0 });
+        if(productsPerPage > 0){
+            setTotalPages(Math.ceil(productsToShow.length / productsPerPage));
         }
-    }, [sortBy, productsToShow])
+    }, [productsToShow, productsPerPage]);
+
+    useEffect(() => {
+        setStartIndex((currentPage - 1) * productsPerPage);
+        setEndIndex(startIndex + productsPerPage);
+    }, [productsToShow, currentPage, startIndex, productsPerPage]);
+
+    useEffect(() => {
+        setCurrentProducts(productsToShow.slice(startIndex, endIndex))
+    }, [productsToShow, startIndex, endIndex, sortBy]);
+
+    function handlePageChange(newPage) {
+        setCurrentPage(newPage);
+        ref.current?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     function handleClearAllFilters() {
         setFiltredSizes([]);
@@ -110,7 +139,7 @@ const FilterActionsProvider = ({children, category}) => {
         setFiltredBrands([]);
         setFiltredPriceRange([]);
         setFilterDiscounts([]);
-    }
+    };
 
     return (
         <FilterActionsContext.Provider 
@@ -125,11 +154,19 @@ const FilterActionsProvider = ({children, category}) => {
                 setFiltredPriceRange,
                 filterDiscounts,
                 setFilterDiscounts,
+                handleClearAllFilters,
                 sortBy,
                 setSortBy,
-                handleClearAllFilters,
                 productsToShow,
                 totalProducts,
+                productsPerPage,
+                setProductsPerPage,
+                currentPage,
+                startIndex,
+                totalPages,
+                currentProducts, 
+                handlePageChange,
+                ref
             }}
         >
             {children}
