@@ -145,8 +145,8 @@ const Header = () => {
           />
           <datalist id="ProductsAndBrands">
             {filteredSearch?.products &&
-              filteredSearch?.products.map((product) => (
-                <option value={product.name} key={product.name} />
+              filteredSearch?.products.map((product, idx) => (
+                <option value={product.name} key={idx} />
               ))}
             {filteredSearch?.brands &&
               filteredSearch?.brands.map((brand) => (
