@@ -29,9 +29,15 @@
         margin: 8px 0 14px 11px;
 
         .info {
-          flex-direction: column;
           display: flex;
+          flex-direction: row;
+
+          .prodInfo {
+            display: flex;
+            flex-direction: column;
+          }
         }
+
         .name {
           font-size: 12px;
           font-style: normal;
@@ -111,8 +117,8 @@
       margin-right: 10px;
 
       .prodImg {
-        width: 15vw;
-        height: 15vw;
+        width: 17vw;
+        height: 17vw;
         border-radius: 8px;
       }
 
@@ -120,34 +126,45 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        max-width: 17vw;
 
         .info {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
+          justify-content: space-between;
           width: 17vw;
-          height: 5vw;
 
-          .name {
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 20px;
-            color: var(--TypeHighEmphasis);
-          }
+          .prodInfo {
+            display: flex;
+            flex-direction: column;
 
-          .desc {
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 20px;
-            color: var(--TypeLowEmphasis);
+            .name {
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 20px;
+              color: var(--TypeHighEmphasis);
+            }
+
+            .desc {
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 20px;
+              color: var(--TypeLowEmphasis);
+            }
           }
         }
+
         .priceContainer {
           align-items: center;
           gap: 5px;
           display: flex;
           flex-direction: row;
+          flex-wrap: wrap;
+          width: 17vw;
+          margin-bottom: 9px;
+          
           p {
             color: var(--Error);
             font-size: 10px;

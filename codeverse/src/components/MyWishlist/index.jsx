@@ -4,6 +4,7 @@ import { ProductsContext } from "../../contexts/products";
 
 import styles from "./styles.module.scss";
 import BtnAddToBag from "../BtnAddToBag";
+import BtnAddToWishlist from "../BtnAddToWishlist";
 
 const MyWishlist = () => {
   const { listProducts } = useContext(ProductsContext);
@@ -55,8 +56,11 @@ const MyWishlist = () => {
             />
             <div className={styles.prodDesc}>
               <div className={styles.info}>
+                <div className={styles.prodInfo}>
                 <span className={styles.name}>{product.name}</span>
                 <span className={styles.desc}>{product.info}</span>
+                </div>
+                <BtnAddToWishlist type="small" id={item.productId} />
               </div>
               <div className={styles.priceContainer}>
                 <h2>${price.toFixed(2)}</h2>
