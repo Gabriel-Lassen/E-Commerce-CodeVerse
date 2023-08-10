@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 
 const ShowProductsDesktop = () => {
 
-    const { productsPerPage, totalPages, currentProducts, handlePageChange } = useContext(FilterActionsContext);
+    const { productsPerPage, totalPages, currentProducts, handlePageChange, currentPage,  } = useContext(FilterActionsContext);
 
   return (
     <div className={styles.wrapper}>
@@ -36,18 +36,7 @@ const ShowProductsDesktop = () => {
                     ))
                 }
             </ul>
-            <div className={styles.pageButtons}>
-                <div className={styles.pageCounters}>
-                    {productsPerPage > 0 &&
-                    Array.from({ length: totalPages }, (_, index) => (
-                    <button key={index} onClick={() => handlePageChange(index + 1)}>
-                        {index + 1}
-                    </button>
-                    ))
-                    }
-                </div>
-                <button>Next</button>
-            </div>
+            {}
         </div>
     </div>
   )
