@@ -36,7 +36,20 @@ const ShowProductsDesktop = () => {
                     ))
                 }
             </ul>
-            {}
+            {productsPerPage > 0 &&
+                <div className={styles.pageButtons}>
+                    <div className={styles.pageCounters}>
+                        {productsPerPage > 0 &&
+                        Array.from({ length: totalPages }, (_, index) => (
+                        <button key={index} onClick={() => handlePageChange(index + 1)} style={index + 1 == currentPage ? {backgroundColor: "var(--Primary)", color: "var(--Bright)"} : {}}>
+                            {index + 1}
+                        </button>
+                        ))
+                        }
+                    </div>
+                    <button className={styles.nextBtn} onClick={() => handlePageChange(currentPage + 1)}>Next</button>
+                </div>
+            }
         </div>
     </div>
   )
