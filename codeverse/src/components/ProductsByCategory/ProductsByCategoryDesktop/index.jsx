@@ -55,7 +55,7 @@ const ProductsByCategoyDesktop = () => {
                             <div className={styles.toShow}>
                                 <span>To Show:</span>
                                 <div>
-                                    <input type="number" value={productsPerPage} onChange={(e) =>setProductsPerPage(e.target.value)}/>
+                                    <input type="number" value={productsPerPage} onChange={(e) => e.target.value === '' ? setProductsPerPage('') : setProductsPerPage(parseInt(e.target.value))}/>
                                 </div>
                             </div>
                             <ProductsSortByDesktop  />
