@@ -1,0 +1,36 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.pageButtons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    button {
+        width: 42px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+    }
+}
+
+.pageCounters {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background-color: var(--Grey);
+}
