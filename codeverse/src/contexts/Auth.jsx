@@ -1,7 +1,7 @@
 import { auth, db, storage } from "../FirebaseConection";
 import { createContext, useState, useEffect } from "react";
 import { createUserWithEmailAndPassword, updatePassword, signOut, signInWithEmailAndPassword } from "@firebase/auth";
-import { setDoc, doc, updateDoc, getDoc, orderBy, collection, getDocs, query, limit } from "@firebase/firestore";
+import { setDoc, doc, updateDoc, getDoc, orderBy, collection, getDocs, query, limit, addDoc, } from "@firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { uploadBytes, ref, getDownloadURL, deleteObject } from "@firebase/storage";
 import { toast } from "react-toastify";
@@ -214,6 +214,44 @@ function AuthProvider({ children }) {
     navigate("/getstarted");
   }
 
+  async function registerAddress(addressData) {
+    try {
+      if (user) {
+        const addressCollectionRef = collection(db, "users", user.uid, "address");
+        await addDoc(addressCollectionRef, addressData);
+  
+        toast.success("Address saved successfully!");
+      }
+    } catch (error) {
+      toast.error("Error saving address: " + error.message);
+    }
+  }
+
+  async function updateAddress(addressData) {
+    try {
+      if (user) {
+        const addressCollectionRef = collection(db, "users", user.uid, "address");
+        const querySnapshot = await getDocs(addressCollectionRef);
+        
+        if (!querySnapshot.empty) {
+          const docSnapshot = querySnapshot.docs[0];
+          const addressDocRef = docSnapshot.ref;
+  
+          await updateDoc(addressDocRef, {
+            street: addressData.street,
+            city: addressData.city,
+            state: addressData.state,
+            pinCode: addressData.pinCode,
+            complement: addressData.complement,
+          });
+  
+          toast.success("Address updated successfully!");
+        }
+      }
+    } catch (error) {
+      toast.error("Error updating address: " + error.message);
+    }
+  }
   return (
     <AuthContext.Provider
       value={{
@@ -230,6 +268,8 @@ function AuthProvider({ children }) {
         handleSearch,
         searchHistory,
         logout,
+        registerAddress,
+        updateAddress,
       }}
     >
       {children}

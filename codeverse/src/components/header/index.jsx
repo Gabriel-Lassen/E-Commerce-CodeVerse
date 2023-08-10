@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styles from "./styles.module.scss";
 import Logo from "../../assets/imgs/logo.svg";
 import Add from "../../assets/imgs/add-to-homescreen.svg";
 import Notification from "../../assets/imgs/notification.svg";
 import searchMob from "../../assets/imgs/search.svg";
 import Menu from "../../assets/imgs/menu.svg";
-import { Link } from "react-router-dom";
+import { ProductsContext } from "../../contexts/products";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/Auth";
 import SearchDk from "../../assets/imgs/search_desktop.svg";
 import Fav from "../../assets/imgs/fav.svg";
 import Profile from "../../assets/imgs/profile.svg";
@@ -13,16 +15,76 @@ import Bag from "../../assets/imgs/bag.svg";
 import Drawer from "../Drawer";
 import BagModal from "../BagModal";
 import Search from "../Search-Modal";
+
 const Header = () => {
   const [drawer, setDrawer] = useState(false);
-
   const [bag, setBag] = useState(false);
-  const [search, setSearch] = useState(false);
+  const [search, setSearch] = useState("");
+  const { listProducts, listBrands } = useContext(ProductsContext);
+  const { handleSearch } = useContext(AuthContext);
 
   const showDrawer = () => setDrawer(!drawer);
   const showSearch = () => setSearch(!search);
 
   const showBag = () => setBag(!bag);
+
+  const navigate = useNavigate();
+
+  const filteredSearch = search.length > 0 ? handleFilter(search) : null;
+  function handleFilter(search) {
+    const productByName = listProducts.filter((product) =>
+      product.name.includes(search)
+    );
+    const brands = listBrands.filter((brand) => brand.includes(search));
+
+    const filterList = {
+      products: productByName,
+      brands: brands,
+    };
+
+    return filterList;
+  }
+
+  function capitalize(string) {
+    const words = string.split(" ");
+
+    const capitalizedWords = words.map((word) => {
+      if (word === "") {
+        return word;
+      } else {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      }
+    });
+    return capitalizedWords.join(" ");
+  }
+
+  function handleClick(e) {
+    if (
+      filteredSearch &&
+      (filteredSearch.products.length > 0 || filteredSearch.brands.length > 0)
+    ) {
+      handleSearch(e);
+    }
+  }
+
+  const pressEnter = (e) => {
+    if (e.key === "Enter") {
+      handleClick(e.target.value);
+      redirectForSearch(e.target.value);
+    }
+  };
+
+  const redirectForSearch = (e) => {
+    const product = listProducts.find((p) => p.name === e);
+    const brand = listBrands.find((b) => b === e);
+
+    if (product) {
+      navigate(`/products/${product.id}`);
+    } else if (brand) {
+      navigate(`/categories/`);
+    }
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.header_left_container}>
@@ -76,7 +138,21 @@ const Header = () => {
           <input
             type="search"
             placeholder="Search for products or brands....."
+            value={search}
+            onChange={(e) => setSearch(capitalize(e.target.value))}
+            onKeyDown={pressEnter}
+            list="ProductsAndBrands"
           />
+          <datalist id="ProductsAndBrands">
+            {filteredSearch?.products &&
+              filteredSearch?.products.map((product, idx) => (
+                <option value={product.name} key={idx} />
+              ))}
+            {filteredSearch?.brands &&
+              filteredSearch?.brands.map((brand) => (
+                <option value={brand.name} key={brand} />
+              ))}
+          </datalist>
           <img className={styles.searchDk} src={SearchDk} />
         </div>
         <nav>
