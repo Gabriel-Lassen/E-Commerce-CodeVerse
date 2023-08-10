@@ -14,8 +14,9 @@ import Sort from '../../../assets/imgs/sort.svg';
 import Filter from '../../../assets/imgs/filter.svg';
 import Chevron from '../../../assets/imgs/chevron-left.png';
 import Wishlist from '../../../assets/imgs/fav.svg';
-import Search from '../../../assets/imgs/search.svg';
+import SearchIcon from '../../../assets/imgs/search.svg';
 import Bag from '../../../assets/imgs/bag.svg';
+import Search from "../../Search-Modal";
 
 const ProductsByCategoyMobile = () => {
     const navigate = useNavigate();
@@ -24,6 +25,7 @@ const ProductsByCategoyMobile = () => {
     const [categoryCapitalized, setCategoryCapitalized] = useState();
     const [showSortBy, setShowSortBy] = useState(false);
     const [showFilter, setShowFilter] = useState(false);
+    const [showSearch, setShowSearch] = useState(false);
   
     useEffect(() => {
       const categoryUrl = window.location.pathname.split("/categories/").pop();
@@ -34,6 +36,7 @@ const ProductsByCategoyMobile = () => {
 
   return (
     <div className={styles.wrapper}>
+        {showSearch && <Search active={setShowSearch} />}
         <div className={styles.topBar}>
           <div className={styles.title}>
             <button onClick={() => navigate(-1)}><img src={Chevron} alt="Back page" /></button>
@@ -41,7 +44,7 @@ const ProductsByCategoyMobile = () => {
           </div>
           <div className={styles.actions}>
             <button onClick={() => navigate('/profile/mywishlist')}><img src={Wishlist} alt="My Wishlist" /></button>
-            <button><img src={Search} alt="" /></button>
+            <button onClick={() => setShowSearch(true)}><img src={SearchIcon} alt="" /></button>
             <button onClick={() => navigate('/mycart')}><img src={Bag} alt="My Cart" /></button>
           </div>
         </div>
