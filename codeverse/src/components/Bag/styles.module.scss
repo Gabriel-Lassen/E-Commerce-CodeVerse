@@ -8,7 +8,6 @@
       display: none;
     }
     .products {
-      margin-top: 7vh;
       height: 58.5vh;
       background: var(--Accent);
       overflow-y: scroll;
@@ -195,92 +194,6 @@
     .bg {
       width: 100vw;
       transform: translateY(-10px);
-    }
-
-    .order {
-      display: flex;
-      flex-direction: column;
-      margin: 7px 16px 70px;
-      gap: 8px;
-
-      .separator {
-        display: none;
-      }
-
-      h2 {
-        color: var(--TypeHighEmphasis);
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 16px;
-      }
-
-      h3 {
-        display: none;
-      }
-
-      div {
-        display: inline-flex;
-        justify-content: space-between;
-
-        p {
-          color: var(--TypeLowEmphasis);
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 18px;
-        }
-
-        span {
-          color: var(--TypeHighEmphasis);
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 600;
-          line-height: 16px;
-        }
-      }
-    }
-    .bottom {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      margin: 0 16px;
-      gap: 18px;
-
-      div {
-        p {
-          color: var(--TypeLowEmphasis);
-          font-size: 12px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 18px;
-        }
-        span {
-          color: var(--TypeHighEmphasis);
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 20px;
-        }
-      }
-
-      button {
-        border-radius: 8px;
-        background: var(--Primary);
-        width: 57.7vw;
-        align-items: center;
-
-        color: var(--Bright);
-        text-align: center;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 24px;
-      }
-
-      .cShop {
-        display: none;
-      }
     }
   }
 }
@@ -495,85 +408,7 @@
       }
     }
 
-    .rightWeb {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-
-      .order {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        h2 {
-          display: none;
-        }
-        .separator {
-          width: 29.3vw;
-          height: 1px;
-          background: var(--Seperator);
-          margin-bottom: 30px;
-        }
-
-        div {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-
-          h2 {
-            display: flex;
-            color: var(--TypeHighEmphasis);
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 20px;
-          }
-        }
-      }
-      .bottom {
-        display: flex;
-        gap: 32px;
-
-        div {
-          display: none;
-        }
-
-        button {
-          display: flex;
-          width: 180px;
-          padding: 10px;
-          justify-content: center;
-          align-items: center;
-
-          border-radius: 8px;
-          background: var(--Primary);
-          color: var(--Bright);
-          text-align: center;
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 20px;
-        }
-
-        .cShop {
-          color: var(--primary, #1b4b66);
-          text-align: center;
-
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 20px;
-          display: flex;
-          width: 180px;
-          padding: 10px;
-          justify-content: center;
-          align-items: center;
-          gap: 8px;
-          border-radius: 8px;
-          border: 2px solid var(--Primary);
-          background: var(--Bright);
-        }
-      }
-    }
+    
 
     .bg {
       display: none;
