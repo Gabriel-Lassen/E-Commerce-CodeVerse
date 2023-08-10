@@ -2,12 +2,20 @@ import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-const OrderSummary = ({ subTotal, discount, delivery, pay, button }) => {
+const OrderSummary = ({
+  subTotal,
+  discount,
+  delivery,
+  pay,
+  button,
+  titleWeb,
+  titleMob,
+}) => {
   return (
     <div className={styles.rightWeb}>
       <div className={styles.order}>
-        <h2>Order Details</h2>
-        <h3>Order Summary</h3>
+        <h2>{titleWeb}</h2>
+        <h3>{titleMob}</h3>
         <div className={styles.separator}></div>
         <div>
           <p>Sub Total</p>

@@ -167,6 +167,8 @@ const Bag = () => {
       </section>
       <img src={background} alt="" className={styles.bg} />
       <OrderSummary
+        titleWeb={"Order Details"}
+        titleMob={"Order Summary"}
         pay={pay}
         discount={discount}
         delivery={delivery}
