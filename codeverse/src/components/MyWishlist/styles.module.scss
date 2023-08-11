@@ -1,109 +1,142 @@
 @media screen and (max-width: 768px) {
-  .container {
+  .productsPar {
     display: flex;
-    
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+  }
 
-    .all {
-      flex-direction: column;
+  .productsImpar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+  }
+
+  @media only screen and (min-width: 354px) {
+    .productsImpar::after {
+      content: "";
+      flex: auto;
+      max-width: clamp(150px, 22.34vw, 284px);
+    }
+  }
+
+  @media only screen and (min-width: 526px) {
+    .productsPar::after {
+      content: "";
+      flex: auto;
+      max-width: clamp(322px, 49.68vw, 572px);
+    }
+  }
+
+  .all {
+    flex-direction: column;
     padding-left: 10px;
 
-      .prodImg {
-        width: 40vw;
-        max-width: 156px;
-        height: 40vw;
-        max-height: 156px;
-        margin: 9px 0 0 9px;
-        border-radius: 8px;
-      }
+    .prodImg {
+      width: 40vw;
+      max-width: 156px;
+      height: 40vw;
+      max-height: 156px;
+      margin: 9px 0 0 9px;
+      border-radius: 8px;
+    }
 
-      .prodDesc {
+    .prodDesc {
+      display: flex;
+      // width: auto;
+      justify-content: center;
+      flex-direction: column;
+      margin: 8px 0 14px 11px;
+
+      .info {
         display: flex;
-       // width: auto;
-        justify-content: center;
-        flex-direction: column;
-        margin: 8px 0 14px 11px;
+        flex-direction: row;
 
-        .info {
+        .prodInfo {
           display: flex;
-          flex-direction: row;
-
-          .prodInfo {
-            display: flex;
-            flex-direction: column;
-          }
-        }
-
-        .name {
-          font-size: 12px;
-          font-style: normal;
-          font-weight: 600;
-          line-height: 16px;
-          margin-bottom: 2px;
-          width: 120px;
-          color: var(--TypeHighEmphasis);
-        }
-
-        .desc {
-          font-size: 12px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 16px;
-          width: 120px;
-          margin-bottom: 7px;
-          color: var(--TypeLowEmphasis);
+          flex-direction: column;
         }
       }
 
-      .priceContainer {
-        margin-bottom: 5px;
-        display: inline-flex;
-        gap: 6px;
-        //width: 45.3vw;
-        h2 {
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 600;
-          line-height: 16px;
-          color: var(--TypeHighEmphasis);
-        }
-
-        .originPrice {
-          font-size: 10px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 16px;
-          color: var(--TypeLowEmphasis);
-        }
-
-        .off {
-          color: #e21d1d;
-
-          font-size: 10px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 16px;
-        }
+      .name {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+        margin-bottom: 2px;
+        width: 120px;
+        color: var(--TypeHighEmphasis);
       }
-      .button {
-        display: flex;
-        justify-content: center;
-        max-width: 151px;
-        width: 40vw;
+
+      .desc {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+        width: 120px;
+        margin-bottom: 7px;
+        color: var(--TypeLowEmphasis);
       }
+    }
+
+    .priceContainer {
+      margin-bottom: 5px;
+      display: inline-flex;
+      gap: 6px;
+      //width: 45.3vw;
+      h2 {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+        color: var(--TypeHighEmphasis);
+      }
+
+      .originPrice {
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+        color: var(--TypeLowEmphasis);
+      }
+
+      .off {
+        color: #e21d1d;
+
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+      }
+    }
+    .button {
+      display: flex;
+      justify-content: center;
+      max-width: 151px;
+      width: 40vw;
     }
   }
 }
 
 @media screen and (min-width: 769px) {
+  .productsPar,
+  .productsImpar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 22px;
+    padding-bottom: 20px;
+  }
   .container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     height: auto;
     width: 75.3vw;
-
+    gap: 20px;
     justify-content: flex-start;
+    padding-bottom: 30px;
 
     .all {
       display: flex;
@@ -160,7 +193,7 @@
           flex-wrap: wrap;
           width: 17vw;
           margin-bottom: 9px;
-          
+
           p {
             color: var(--Error);
             font-size: 10px;

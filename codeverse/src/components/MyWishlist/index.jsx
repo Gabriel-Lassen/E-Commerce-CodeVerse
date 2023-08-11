@@ -1,63 +1,43 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { WishlistActionsContext } from "../../contexts/wishlistActions";
 import { ProductsContext } from "../../contexts/products";
 
 import styles from "./styles.module.scss";
-import BtnAddToBag from "../BtnAddToBag";
-import BtnAddToWishlist from "../BtnAddToWishlist";
 import ProductCard from "../ProductCard";
 
 const MyWishlist = () => {
+  const { userWishlist } = useContext(WishlistActionsContext);
   const { listProducts } = useContext(ProductsContext);
-  const {
-    handleaddToUserWishlist,
 
-    handleDeleteOneProductUserWishlist,
-
-    userWishlist,
-  } = useContext(WishlistActionsContext);
-
-  const [isInWishlist, setIsinWishlist] = useState(true);
-
-  const discountedPrice = (productId) => {
-    const product = getProductById(productId);
-
-    return product.price * (1 - product.discount);
-  };
-
-  function handleClick(productId) {
-    if (userWishlist.some((wishlist) => wishlist.productId === productId)) {
-      handleDeleteOneProductUserWishlist(productId);
-
-      setIsinWishlist(true);
-    } else {
-      handleaddToUserWishlist(productId);
-      setIsinWishlist(false);
-    }
-  }
   const getProductById = (productId) => {
     return listProducts.find((product) => product.id === productId);
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={
+        userWishlist.length % 2 == 0 ? styles.productsPar : styles.productsImpar
+      }
+    >
       {userWishlist.map((item, idx) => {
-       return <ProductCard
-       key={idx}
-       id={item.id}
-       name={item.name}
-       info={item.info}
-       price={item.price}
-       discount={item.discount}
-       averageStars={item.rating.averageStars}
-       totalRatings={item.rating.totalRatings}
-       url={item.url}
-       popularity={item.popularity}
-       reviews={item.reviews}
-       addToBagBtn={true}
-       rating={true}
-   />
-        
+        const product = getProductById(item.productId);
+        return (
+          <ProductCard
+            key={idx}
+            id={product.id}
+            name={product.name}
+            info={product.info}
+            price={product.price}
+            discount={product.discount}
+            averageStars={product.rating.averageStars}
+            totalRatings={product.rating.totalRatings}
+            url={product.url}
+            popularity={product.popularity}
+            reviews={product.reviews}
+            addToBagBtn={true}
+            rating={true}
+          />
+        );
       })}
     </div>
   );
