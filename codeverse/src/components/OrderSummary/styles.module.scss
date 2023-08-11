@@ -66,10 +66,11 @@
       }
     }
 
-    button {
+    .placeOrder {
       border-radius: 8px;
       background: var(--Primary);
       width: 57.7vw;
+      height: 44px;
       align-items: center;
 
       color: var(--Bright);
@@ -129,13 +130,14 @@
         display: none;
       }
 
-      button {
+      .placeOrder {
         display: flex;
-        width: 180px;
+        width: 14vw;
+        height: 44px;
         padding: 10px;
         justify-content: center;
         align-items: center;
-
+        gap: 8px;
         border-radius: 8px;
         background: var(--Primary);
         color: var(--Bright);
@@ -155,7 +157,7 @@
         font-weight: 500;
         line-height: 20px;
         display: flex;
-        width: 180px;
+        width: 14vw;
         padding: 10px;
         justify-content: center;
         align-items: center;

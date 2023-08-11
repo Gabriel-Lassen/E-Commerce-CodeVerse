@@ -40,7 +40,10 @@ const OrderSummary = ({
             <p>Total Bag Amount</p>
             <span>${pay.toFixed(2)}</span>
           </div>
-          <button>Place Order</button>
+
+          <Link to="/checkout">
+            <button className={styles.placeOrder}>Place Order</button>
+          </Link>
 
           <Link to="/">
             <button className={styles.cShop}>Continue Shopping</button>
