@@ -8,7 +8,7 @@ import WishList from "../pages/Wishlist";
 import Profile from "../pages/Profile";
 import Categories from "../pages/Categories";
 import Products from "../pages/Products";
-import ProductsByCategoy from "../pages/ProductsByCategory";
+import CategoriesProducts from "../pages/CategoriesProducts";
 import GetStart from "../pages/GetStart";
 import ReferAndEarn from "../pages/ReferAndEarn";
 import PersonalInformation from "../pages/PersonalInformation";
@@ -16,6 +16,9 @@ import PersonalInformation from "../pages/PersonalInformation";
 import PriviteRoutes from "./PriviteRoutes";
 import MyOrders from "../pages/MyOrders";
 import MyAddressBook from "../pages/MyAddressBook";
+import { Payment } from "../components/Payment";
+import { PaymentDesktop } from "../components/PaymentDesktop";
+
 
 const Rotas = () => {
   return (
@@ -23,7 +26,7 @@ const Rotas = () => {
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/categories" element={<Categories />} />
-      <Route path="/categories/:category" element={<ProductsByCategoy />} />
+      <Route path="/categories/:category" element={<CategoriesProducts />} />
       <Route path="/products/:id" element={<Products />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
@@ -38,6 +41,8 @@ const Rotas = () => {
       <Route path="/profile/myreviews" element={""} />
       <Route path="/profile/myaddressbook" element={<PriviteRoutes> <MyAddressBook/> </PriviteRoutes>} />
       <Route path="/profile/mysavedcards" element={""} />
+      <Route path="/payment" element={<Payment/>} />
+      <Route path="/paymentdesktop" element={<PaymentDesktop/>} />
     </Routes>
   );
 };

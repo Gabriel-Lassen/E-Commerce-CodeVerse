@@ -1,0 +1,53 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.pageButtons {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--TypeLowEmphasis);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+    }
+}
+
+.pageCounters {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 0 6px;
+    border-radius: 12px;
+    background: var(--Grey);
+
+    button {
+        width: 42px;
+        height: 28px;
+        border-radius: 8px;
+    }
+}
+
+.nextBtn {
+    width: 67px;
+    height: 36px;
+    border-radius: 12px;
+}

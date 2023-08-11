@@ -1,0 +1,294 @@
+@media screen and (max-width: 768px) {
+  .container{
+    z-index: 1000;
+    position: absolute;
+    background: var(--Bright);
+    right: 0;
+    left: 0;
+    top: 0;
+
+    .close{
+      display: flex;
+      flex-direction: row;
+      height: 56px;
+      padding: 16px 8px;
+      gap: 20px;
+      button{
+        border: none;
+        background: none;
+      }
+      h1{
+        color: var(--Primary);
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 26px;
+      }
+    }
+    .form {
+      padding-top: 8px;
+      h3{
+        color: var(--TypeLowEmphasis);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 16px;
+        margin-left: 16px;
+        }
+
+        .separator {
+            width: 93vw;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.12);
+            margin: 8px 16px 16px;
+          }
+        .smallLabel, .bigLabel, .mobile_number {
+        display: flex;
+        flex-direction: column;
+        width: 94vw;
+        margin: 0 auto;
+        margin-bottom: 16px;
+  
+        span {
+            display: none;
+        }
+  
+        input {
+          display: flex;
+          padding: 10px;
+          align-items: center;
+          align-self: stretch;
+          border-radius: 4px;
+          background: var(--Grey);
+          border: 0;
+        }
+      }
+      button {
+        display: flex;
+        width: 94vw;
+        height: 44px;
+        margin: 16px;
+        position: fixed;
+        bottom: 0;
+        padding: 8px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background: var(--Primary);
+        color: var(--Bright);
+        text-align: center;
+      }
+      .mobile_number {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 68px;
+        .input_container {
+          display: flex;
+          align-items: center;
+          .inputSmall {
+            width: 55px;
+            margin-right: 8px;
+          }
+          .inputLarge {
+            width: calc(92vw - 55px)
+          }
+        }
+      }
+      .checkboxContainer {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding-left: 20px;
+      }
+      
+      .option,.selected {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 65px;
+        height: 32px;
+        border-radius: 8px;
+        background-color: var(--Grey);
+        color: var(--TypeLowEmphasis);
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+      
+      .selected {
+        background-color: var(--Primary);
+        color: var(--Bright);
+      }    
+    }
+  }
+}
+  
+  @media screen and (min-width: 769px) {
+    .container {
+      margin-left: 30px;
+      margin-bottom: 36px;
+      width: 50%;
+
+      .close{
+        display: none;
+      }
+
+      .form{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 31px;
+        
+        h3{
+            display: none;
+        }
+        .separator{
+            display: none;
+        }
+
+        button {
+            display: flex;
+            width: 136px;
+            padding: 8px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px;
+            background: var(--Primary);
+            color: var(--Bright);
+            text-align: center;
+            margin-left: 12vw;
+          }
+          
+        .mobile_number {
+            display: flex;
+            margin-bottom: 5px;
+            span {
+              color: var(--TypeHighEmphasis);
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 20px;
+              padding-bottom: 8px;
+            }
+            input {
+              display: flex;
+              padding: 16px 12px 16px 16px;
+              align-items: center;
+              gap: 12px;
+              border-radius: 4px;
+              background: var(--Grey);
+              border: 0;
+            }
+          }
+    
+        .mobile_number {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            .input_container {
+              display: flex;
+              align-items: center;
+              .inputSmall {
+                width: 80px;
+                margin-right: 8px;
+              }
+              .inputLarge {
+                width: 304px;
+              }
+            }
+          }
+    
+        .smallLabel, .bigLabel{
+            display: flex;
+            flex-direction: column;
+            width: 391px;
+            min-width: 320px;
+
+            span {
+                color: var(--TypeHighEmphasis);
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 20px;
+                padding-bottom: 8px;
+              }
+              input {
+                display: flex;
+                padding: 16px 12px 16px 16px;
+                align-items: center;
+                gap: 12px;
+                align-self: stretch;
+                border-radius: 4px;
+                background: var(--Grey);
+                border: 0;
+                margin-bottom: 4px;
+              }
+          }
+
+          .checkboxContainer {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+          }
+          
+          .option,.selected {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 32px;
+            border-radius: 8px;
+            background-color: var(--Grey);
+            color: var(--TypeLowEmphasis);
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+          }
+          
+          .selected {
+            background-color: var(--Primary);
+            color: var(--Bright);
+          }        
+      }
+    }
+  }
+  .form input:disabled {
+    cursor: not-allowed;
+  }
+ 
+  @media screen and (min-width: 1200px) {
+    .container {
+      .form{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 739px;
+        gap: 31px;
+
+        button {
+            display: flex;
+            width: 136px;
+            padding: 8px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px;
+            background: var(--Primary);
+            color: var(--Bright);
+            text-align: center;
+            margin-left: 12vw;
+          }
+        .smallLabel{
+            display: flex;
+            flex-direction: column;
+            width: 287px;
+          }
+      }
+    }
+  }

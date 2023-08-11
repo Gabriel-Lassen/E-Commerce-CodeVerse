@@ -1,0 +1,151 @@
+.container {
+    display: none;
+}
+
+@media only screen and (min-width: 769px) {
+    .container {
+        width: 100%;
+        display: block;
+    }
+    .wrapper {
+        display: block;
+        padding: 0 20px 0 26px;
+        margin-bottom: 100px;
+
+        .h1 {
+            color: var(--Primary);
+            font-size: 34px;
+            font-weight: 600;
+            line-height: 44px;
+            margin-top: 24px;
+        }
+    }
+
+    .heroBanner {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 46px;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .history {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 49px;
+
+        span {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 18px;
+        }
+
+        :first-child {
+            color: var(--Primary);
+            cursor: pointer;
+        }
+
+        :last-child {
+            color: var(--TypeLowEmphasis);
+        }
+    }
+
+    .display {
+        width: 100%;
+        display: flex;
+        gap: 32px;
+        margin-top: 42px;
+    }
+
+    .displayOptions {
+        width: 100%;
+        max-width: 912px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+    }
+    
+    .showing {
+        display: none;
+    }
+    
+    .buttons {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 40px;
+    }
+    
+    .toShow {
+        min-width: 131px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    
+        span {
+            color: var(--TypeHighEmphasis);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 20px;
+        }
+    
+        div {
+            width: 56px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            background: var(--Grey);
+    
+            input {
+                max-width: 20px;
+                display: flex;
+                justify-content: center;
+                background-color: transparent;
+                border: none;
+                outline: none;
+    
+                color: var(--TypeLowEmphasis);
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 20px;
+    
+                cursor: pointer;
+            }
+
+            input[type=number]::-webkit-inner-spin-button { 
+                -webkit-appearance: none;
+                
+            }
+            input[type=number] { 
+               -moz-appearance: textfield;
+               appearance: textfield;
+            
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1130px){
+    .buttons {
+        width: 37.18vw;
+        max-width: 476px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .showing {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+    }
+}

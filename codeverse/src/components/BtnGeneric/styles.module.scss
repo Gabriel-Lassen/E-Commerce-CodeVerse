@@ -1,0 +1,23 @@
+.button {
+    width: 100%;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.light {
+    color: var(--Primary);
+    border: 2px solid var(--Primary);
+    background: var(--Bright);
+}
+
+.dark {
+    color: var(--Bright);
+    background: var(--Primary);
+}
