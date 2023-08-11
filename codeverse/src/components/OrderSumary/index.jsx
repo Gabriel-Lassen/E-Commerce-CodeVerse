@@ -67,7 +67,6 @@ const formatoData = `${Day} ${Month}`;
           return null;
         }
         return (
-          <>
             <div className={styles.cards} key={item.productId}>
               <img src={product.url} alt={product.name} />
               <div className={styles.prodDesc}>
@@ -77,7 +76,6 @@ const formatoData = `${Day} ${Month}`;
                 <span className={styles.qty}>Qty- 1</span>
               </div>
             </div>
-          </>
         );
       })}
       <OrderSummary
