@@ -50,44 +50,44 @@ const Footer = ({ position }) => {
         <footer className={styles.footer} style={{ position: position }}>
           <div className={styles.container}>
             <div className={styles.category}>
-              <h4>Shop by Category</h4>
-              <ul className={styles.ulCategory}>
-                <li>
-                  <Link to="/categories/skincare">
-                    <p>Skincare</p>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="categories/personalcare">
-                    <p>Personal Care</p>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="categories/handbags">
-                    <p>Handbags</p>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="categories/apparels">
-                    <p>Apparels</p>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="categories/watches">
-                    <p>Watches</p>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="categories/eyewear">
-                    <p>Eye Wear</p>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="categories/jewellery">
-                    <p>Jewellery</p>
-                  </Link>
-                </li>
-              </ul>
+                <h4>Shop by Category</h4>
+                <ul className={styles.ulCategory}>
+                    <li>
+                        <Link to='/categories/skincare' >
+                            <p>Skincare</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='/categories/personalcare'>
+                            <p>Personal Care</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='/categories/handbags'>
+                            <p>Handbags</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='/categories/apparels'>
+                            <p>Apparels</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='/categories/watches'>
+                            <p>Watches</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='/categories/eyewear'>
+                            <p>Eye Wear</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='/categories/jewellery'>
+                            <p>Jewellery</p>
+                        </Link>
+                    </li>
+                </ul>
             </div>
 
             <div className={styles.policy}>

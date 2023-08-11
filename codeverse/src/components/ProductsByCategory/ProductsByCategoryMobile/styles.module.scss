@@ -1,0 +1,53 @@
+.topBar {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+
+    button {
+        background-color: transparent;
+    }
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    h1 {
+        color: var(--Primary);
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 26px;
+    }
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.products {
+    margin-top: 8px;
+    padding-bottom: 72px;
+}
+
+.btns {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 44px;
+}
+
+.sortBy {
+    padding: 16px 0 17px;
+}
+
+@media only screen and (min-width: 769px){
+    .wrapper {
+        display: none;
+    }
+}

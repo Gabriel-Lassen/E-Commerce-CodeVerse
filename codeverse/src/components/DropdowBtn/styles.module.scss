@@ -3,12 +3,12 @@
   flex-direction: column;
   width: 100%;
 
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    background-color: var(--Bright);
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+        background-color: var(--Bright);
 
     span {
       color: var(--TypeHighEmphasis);
