@@ -17,9 +17,9 @@ const Qty = ({ qty, text, gap, quantity, onQuantityChange }) => {
     <div className={styles.qty} style={{ gap: gap }}>
       <span>{text}</span>
       <div className={styles.btn}>
-        <button onClick={less}>-</button>
+        <button onClick={less} disabled>-</button>
         {quantity}
-        <button onClick={plus}>+</button>
+        <button onClick={plus} disabled>+</button>
       </div>
     </div>
   );
