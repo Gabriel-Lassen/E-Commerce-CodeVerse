@@ -42,17 +42,19 @@ const OrderSumary = () => {
 
 
 
-  const data = new Date();
+const data = new Date();
 
-  const month = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-  ];
+const month = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
 
-  const day = String(data.getDate()).padStart(2, '0');
-  const mes = month[data.getMonth()];
+data.setDate(data.getDate() + 14);
 
-  const formatoData = `${day} ${mes}`;
+const Day = String(data.getDate()).padStart(2, '0');
+const Month = month[data.getMonth()];
+
+const formatoData = `${Day} ${Month}`;
 
   return (
     <div className={styles.container}>
