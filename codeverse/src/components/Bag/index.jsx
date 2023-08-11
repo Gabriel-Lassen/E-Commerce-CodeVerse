@@ -8,6 +8,7 @@ import { ProductsContext } from "../../contexts/products";
 import { BagActionsContext } from "../../contexts/bagActions";
 import { WishlistActionsContext } from "../../contexts/wishlistActions";
 import OrderSummary from "../OrderSummary";
+import MyBagFound from "../NotFoundMyBag";
 
 const Bag = () => {
   const [hidden, setHidden] = useState(false);
@@ -71,6 +72,10 @@ const Bag = () => {
     setDelivery(delive);
     setPay(total);
   }, [userBag]);
+
+  if (userBag.length === 0) {
+    return <MyBagFound/>;
+  }
 
   return (
     <div className={styles.container}>
