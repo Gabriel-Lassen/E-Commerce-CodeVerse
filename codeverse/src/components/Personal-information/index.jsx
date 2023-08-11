@@ -128,7 +128,7 @@ function ProfileInformation() {
               className={styles.input_small}
             />
             <input
-              type="tel"
+              type="number"
               maxLength="9"
               minLength="9"
               value={number}
