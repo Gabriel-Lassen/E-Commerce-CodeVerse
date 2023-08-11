@@ -1,16 +1,12 @@
 @media screen and (max-width: 768px) {
   .container {
     display: flex;
-    justify-content: center;
-    flex-direction: row;
+    
     flex-wrap: wrap;
-    padding-right: 20px;
-    gap: 22px;
 
     .all {
-      display: flex;
       flex-direction: column;
-      width: 151px;
+    padding-left: 10px;
 
       .prodImg {
         width: 40vw;
@@ -23,7 +19,7 @@
 
       .prodDesc {
         display: flex;
-        width: auto;
+       // width: auto;
         justify-content: center;
         flex-direction: column;
         margin: 8px 0 14px 11px;
@@ -63,7 +59,7 @@
         margin-bottom: 5px;
         display: inline-flex;
         gap: 6px;
-        width: 45.3vw;
+        //width: 45.3vw;
         h2 {
           font-size: 14px;
           font-style: normal;
