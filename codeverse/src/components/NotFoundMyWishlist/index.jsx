@@ -12,8 +12,10 @@ const MyWishlistNotFound = () => {
       />
       <div className={styles.section}>
         <img src={imgWishlist} />
-        <h2>Well...</h2>
-        <p>It seems you have not added any products to for wishlist. </p>
+        <div>
+          <h2>Well...</h2>
+          <p>It seems you have not added any products to for wishlist. </p>
+        </div>
         <button>Start Shopping</button>
       </div>
     </div>

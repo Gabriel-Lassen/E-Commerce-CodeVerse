@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { WishlistActionsContext } from "../../contexts/wishlistActions";
 import { ProductsContext } from "../../contexts/products";
 
 import styles from "./styles.module.scss";
 import ProductCard from "../ProductCard";
+import MyWishlistNotFound from "../NotFoundMyWishlist";
 
 const MyWishlist = () => {
   const { userWishlist } = useContext(WishlistActionsContext);
@@ -13,6 +14,9 @@ const MyWishlist = () => {
     return listProducts.find((product) => product.id === productId);
   };
 
+  if (userWishlist.length === 0) {
+    return <MyWishlistNotFound />;
+  }
   return (
     <div
       className={
