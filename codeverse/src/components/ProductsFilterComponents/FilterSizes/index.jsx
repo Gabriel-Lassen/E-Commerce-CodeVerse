@@ -9,11 +9,11 @@ import { FilterActionsContext } from "../../../contexts/filterActions";
 const FilterSizes = () => {
     const { filtredSizes, setFiltredSizes} = useContext(FilterActionsContext);
 
-    function handleClick(size){
-        if(filtredSizes.includes(size)){
-            setFiltredSizes(filtredSizes.filter((s) => s !== size))
+    function handleClick(sizeSelected){
+        if(filtredSizes.includes(sizeSelected)){
+            setFiltredSizes(filtredSizes.filter((size) => size !== sizeSelected));
         } else {
-            setFiltredSizes([...filtredSizes, size])
+            setFiltredSizes([...filtredSizes, sizeSelected]);
         }
     }
     

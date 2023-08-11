@@ -9,11 +9,11 @@ import CheckboxActive from '../../../assets/imgs/checkbox-active.svg';
 const FilterDiscounts = () => {
     const {filterDiscounts, setFilterDiscounts} = useContext(FilterActionsContext);
 
-    function handleClick(priceRange){
-        if(filterDiscounts.includes(priceRange)){
-            setFilterDiscounts(filterDiscounts.filter((p) => p !== priceRange));
+    function handleClick(dicountSelected){
+        if(filterDiscounts.includes(dicountSelected)){
+            setFilterDiscounts(filterDiscounts.filter((discount) => discount !== dicountSelected));
         } else {
-            setFilterDiscounts([...filterDiscounts, priceRange]);
+            setFilterDiscounts([...filterDiscounts, dicountSelected]);
         }
     }
 

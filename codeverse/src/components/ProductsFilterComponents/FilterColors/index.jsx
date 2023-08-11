@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ProductsContext } from "../../../contexts/products";
 import { FilterActionsContext } from "../../../contexts/filterActions";
 
@@ -11,11 +11,15 @@ const FilterColors = () => {
     const { listColors } = useContext(ProductsContext);
     const {filtredColors, setFiltredColors} = useContext(FilterActionsContext);
 
-    function handleClick(color){
-    if(filtredColors.includes(color)){
-        setFiltredColors(filtredColors.filter((color) => color !== color))
+    useEffect(() => {
+      console.log(filtredColors);
+    }, [filtredColors])
+
+    function handleClick(selectedColor){
+    if(filtredColors.includes(selectedColor)){
+        setFiltredColors(filtredColors.filter((color) => color !== selectedColor))
     } else {
-        setFiltredColors([...filtredColors, color])
+        setFiltredColors([...filtredColors, selectedColor])
     }
 
   }

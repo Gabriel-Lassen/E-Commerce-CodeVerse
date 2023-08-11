@@ -9,11 +9,11 @@ import CheckboxActive from '../../../assets/imgs/checkbox-active.svg';
 const FilterPriceRange = () => {
     const {filtredPriceRange, setFiltredPriceRange} = useContext(FilterActionsContext);
 
-    function handleClick(priceRange){
-        if(filtredPriceRange.includes(priceRange)){
-            setFiltredPriceRange(filtredPriceRange.filter((p) => p !== priceRange));
+    function handleClick(priceRangeSelected){
+        if(filtredPriceRange.includes(priceRangeSelected)){
+            setFiltredPriceRange(filtredPriceRange.filter((priceRange) => priceRange !== priceRangeSelected));
         } else {
-            setFiltredPriceRange([...filtredPriceRange, priceRange]);
+            setFiltredPriceRange([...filtredPriceRange, priceRangeSelected]);
         }
     }
 

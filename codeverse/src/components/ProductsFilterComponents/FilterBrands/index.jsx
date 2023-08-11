@@ -11,11 +11,11 @@ const FilterBrands = () => {
   const { listBrands } = useContext(ProductsContext);
   const {filtredBrands, setFiltredBrands} = useContext(FilterActionsContext);
 
-  function handleClick(brand){
-    if(filtredBrands.includes(brand)){
-      setFiltredBrands(filtredBrands.filter((b) => b !== brand))
+  function handleClick(selectedBrand){
+    if(filtredBrands.includes(selectedBrand)){
+      setFiltredBrands(filtredBrands.filter((brand) => brand !== selectedBrand));
     } else {
-      setFiltredBrands([...filtredBrands, brand])
+      setFiltredBrands([...filtredBrands, selectedBrand]);
     }
   }
 
