@@ -11,10 +11,6 @@ const FilterColors = () => {
     const { listColors } = useContext(ProductsContext);
     const {filtredColors, setFiltredColors} = useContext(FilterActionsContext);
 
-    useEffect(() => {
-      console.log(filtredColors);
-    }, [filtredColors])
-
     function handleClick(selectedColor){
     if(filtredColors.includes(selectedColor)){
         setFiltredColors(filtredColors.filter((color) => color !== selectedColor))
