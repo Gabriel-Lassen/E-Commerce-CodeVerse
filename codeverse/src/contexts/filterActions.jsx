@@ -33,7 +33,8 @@ const FilterActionsProvider = ({children, category}) => {
           const list = listProducts.filter((product) => {return product.category.indexOf(category) !== -1});
           setTotalProducts(list.length);
           setProductsCategoryFiltred(list);
-          setProductsToShow(list)
+          setProductsToShow(list);
+          handleClearAllFilters();
         }
     }, [listProducts, category]);
 
