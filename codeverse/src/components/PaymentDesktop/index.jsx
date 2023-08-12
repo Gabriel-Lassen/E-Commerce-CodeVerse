@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { OrdersActionsContext } from "../../contexts/ordersActions";
 
 import styles from "./styles.module.scss";
 
@@ -17,9 +18,9 @@ import amazonImg from '../../assets/imgs/amazon.jpg';
 import appleImg from '../../assets/imgs/AppleImg.jpg';
 
 export const PaymentDesktop = () => {
+  const { paymentMethod, setPaymentMethod } = useContext(OrdersActionsContext);
   const [optionSelected, setOptionSelected] = useState("");
-  const [payment, setPayment] = useState("");
-
+  
   return (
     <>
       <div className={styles.container}>
@@ -78,118 +79,118 @@ export const PaymentDesktop = () => {
 
         {optionSelected === "UPI" && (
           <>
-            <div className={styles.method} style={payment === "Google Pay" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
+            <div className={styles.method} style={paymentMethod === "Google Pay" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
               <div>
-                <div className={styles.nameMethod} onClick={() => setPayment(payment === "Google Pay" ? "" : "Google Pay")}>
+                <div className={styles.nameMethod} onClick={() => setPaymentMethod(paymentMethod === "Google Pay" ? "" : "Google Pay")}>
                   <div className={styles.imgBox}>
                     <img src={google} alt="" />
                   </div>
                   <span>Google Pay</span>
                 </div>
-                {payment == "Google Pay" &&
+                {paymentMethod == "Google Pay" &&
                   <EnterUpi />
                 }
               </div>
-              <img src={payment === "Google Pay" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Google Pay" ? "" : "Google Pay")}/>
+              <img src={paymentMethod === "Google Pay" ? select : selectCheckbox} alt="" onClick={() => setPaymentMethod(paymentMethod === "Google Pay" ? "" : "Google Pay")}/>
             </div>
 
-            <div className={styles.method} style={payment === "Phone Pe" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
+            <div className={styles.method} style={paymentMethod === "Phone Pe" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
               <div>
-                <div className={styles.nameMethod} onClick={() => setPayment(payment === "Phone Pe" ? "" : "Phone Pe")}>
+                <div className={styles.nameMethod} onClick={() => setPaymentMethod(paymentMethod === "Phone Pe" ? "" : "Phone Pe")}>
                   <div className={styles.imgBox}>
                     <img src={phonePe} alt="" />
                   </div>
                   <span>Phone Pe</span>
                 </div>
-                {payment == "Phone Pe" &&
+                {paymentMethod == "Phone Pe" &&
                   <EnterUpi />
                 }
               </div>
-              <img src={payment === "Phone Pe" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Phone Pe" ? "" : "Phone Pe")}/>
+              <img src={paymentMethod === "Phone Pe" ? select : selectCheckbox} alt="" onClick={() => setPaymentMethod(paymentMethod === "Phone Pe" ? "" : "Phone Pe")}/>
             </div>
 
-            <div className={styles.method} style={payment === "Paytm" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
+            <div className={styles.method} style={paymentMethod === "Paytm" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
               <div>
-                <div className={styles.nameMethod} onClick={() => setPayment(payment === "Paytm" ? "" : "Paytm")}>
+                <div className={styles.nameMethod} onClick={() => setPaymentMethod(paymentMethod === "Paytm" ? "" : "Paytm")}>
                   <div className={styles.imgBox}>
                     <img src={pay} alt="" />
                   </div>
                   <span>Paytm</span>
                 </div>
-                {payment == "Paytm" &&
+                {paymentMethod == "Paytm" &&
                   <EnterUpi />
                 }
               </div>
-              <img src={payment === "Paytm" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Paytm" ? "" : "Paytm")}/>
+              <img src={paymentMethod === "Paytm" ? select : selectCheckbox} alt="" onClick={() => setPaymentMethod(paymentMethod === "Paytm" ? "" : "Paytm")}/>
             </div>
           </>
         )}
 
         {optionSelected === "Card" &&
           <>
-            <div className={styles.method} style={payment === "Credit" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
+            <div className={styles.method} style={paymentMethod === "Credit" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
               <div>
-                <div className={styles.nameMethod} onClick={() => setPayment(payment === "Credit" ? "" : "Credit")}>
+                <div className={styles.nameMethod} onClick={() => setPaymentMethod(paymentMethod === "Credit" ? "" : "Credit")}>
                   <div className={styles.imgBox}>
                     <img className={styles.debitCard} src={debit} alt="" />
                   </div>
                   <span>Credit Card</span>
                 </div>
-                {payment == "Credit" &&
+                {paymentMethod == "Credit" &&
                   <EnterUpi />
                 }
               </div>
-              <img src={payment === "Credit" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Credit" ? "" : "Credit")}/>
+              <img src={paymentMethod === "Credit" ? select : selectCheckbox} alt="" onClick={() => setPaymentMethod(paymentMethod === "Credit" ? "" : "Credit")}/>
             </div>
 
-            <div className={styles.method} style={payment === "Debit" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
+            <div className={styles.method} style={paymentMethod === "Debit" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
               <div>
-                <div className={styles.nameMethod} onClick={() => setPayment(payment === "Debit" ? "" : "Debit")}>
+                <div className={styles.nameMethod} onClick={() => setPaymentMethod(paymentMethod === "Debit" ? "" : "Debit")}>
                   <div className={styles.imgBox}>
                     <img className={styles.debitCard} src={debit} alt="" />
                   </div>
                   <span>Debit Card</span>
                 </div>
-                {payment == "Debit" &&
+                {paymentMethod == "Debit" &&
                   <EnterUpi />
                 }
               </div>
-              <img src={payment === "Debit" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Debit" ? "" : "Debit")}/>
+              <img src={paymentMethod === "Debit" ? select : selectCheckbox} alt="" onClick={() => setPaymentMethod(paymentMethod === "Debit" ? "" : "Debit")}/>
             </div>
           </>
         }
 
         {optionSelected === 'Apple' && 
-           <div className={styles.method} style={payment === "Apple" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
+           <div className={styles.method} style={paymentMethod === "Apple" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
             <div>
-              <div className={styles.nameMethod} onClick={() => setPayment(payment === "Apple" ? "" : "Apple")}>
+              <div className={styles.nameMethod} onClick={() => setPaymentMethod(paymentMethod === "Apple" ? "" : "Apple")}>
                 <div className={styles.imgBox}>
                   <img src={appleImg} alt="" />
                 </div>
                 <span>Apple Pay</span>
               </div>
-              {payment == "Apple" &&
+              {paymentMethod == "Apple" &&
                 <EnterUpi />
               }
             </div>
-            <img src={payment === "Apple" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Apple" ? "" : "Apple")}/>
+            <img src={paymentMethod === "Apple" ? select : selectCheckbox} alt="" onClick={() => setPaymentMethod(paymentMethod === "Apple" ? "" : "Apple")}/>
           </div>
         }
 
         {optionSelected === 'Amazon' && 
-          <div className={styles.method} style={payment === "Amazon" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
+          <div className={styles.method} style={paymentMethod === "Amazon" ? { backgroundColor: "rgba(var(--primary-tint, 99, 149, 153), 0.08)" } : {} }>
             <div>
-              <div className={styles.nameMethod} onClick={() => setPayment(payment === "Amazon" ? "" : "Amazon")}>
+              <div className={styles.nameMethod} onClick={() => setPaymentMethod(paymentMethod === "Amazon" ? "" : "Amazon")}>
                 <div className={styles.imgBox}>
                   <img src={amazonImg} alt="" />
                 </div>
                 <span>Amazon Pay</span>
               </div>
-              {payment == "Amazon" &&
+              {paymentMethod == "Amazon" &&
                 <EnterUpi />
               }
             </div>
-            <img src={payment === "Amazon" ? select : selectCheckbox} alt="" onClick={() => setPayment(payment === "Amazon" ? "" : "Amazon")}/>
+            <img src={paymentMethod === "Amazon" ? select : selectCheckbox} alt="" onClick={() => setPaymentMethod(paymentMethod === "Amazon" ? "" : "Amazon")}/>
           </div>
         }
       </div>
