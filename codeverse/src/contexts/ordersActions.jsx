@@ -94,7 +94,6 @@ const OrdersActionsProvider = ({children}) => {
             const newItem = item.data();
             list = [...list, newItem];
         });
-        console.log(list);
         setUserOrders(list);
     }
 
