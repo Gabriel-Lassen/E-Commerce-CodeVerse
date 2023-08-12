@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import ShowFooter from "../../components/ShowFooter";
 import BtnBackForPage from "../../components/BtnBackForPage";
 import ArrowSvg from "../../components/ArrowSvg";
 import SideBarProfile from "../../components/SideBar-Profile";
@@ -30,7 +30,7 @@ const MyOrders = () => {
       <RouteHistory />
       <TitlePage />
       {hidden && <SideBarProfile />}
-      {hidden && <Footer />}
+      {hidden && <ShowFooter />}
     </div>
   );
 };

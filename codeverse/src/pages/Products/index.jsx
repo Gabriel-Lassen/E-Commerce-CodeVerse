@@ -5,7 +5,7 @@ import { ProductsContext } from "../../contexts/products";
 
 import styles from "./styles.module.scss";
 
-import Footer from "../../components/Footer";
+import ShowFooter from "../../components/ShowFooter";
 import Header from "../../components/Header";
 import ProductsInfo from "../../components/Products/Product-Info";
 import BtnBackForPage from "../../components/BtnBackForPage";
@@ -70,7 +70,7 @@ const Products = () => {
         </div>
       </div>
       <ProductOverview />
-      {hidden && <Footer />}
+      {hidden && <ShowFooter />}
     </div>
   );
 };

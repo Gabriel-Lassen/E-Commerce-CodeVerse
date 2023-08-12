@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import ShowFooter from "../../components/ShowFooter";
 import BtnBackForPage from "../../components/BtnBackForPage";
 import ArrowSvg from "../../components/ArrowSvg";
 import styles from "./styles.module.scss";
@@ -40,7 +40,7 @@ const PersonalInformation = () => {
         {hidden && <SideBarProfile />}
         <ProfileInformation />
       </div>
-      {hidden && <Footer />}
+      {hidden && <ShowFooter />}
     </div>
   );
 };

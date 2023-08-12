@@ -1,7 +1,6 @@
 import BannerMsg from "../../components/Banner-msg";
 import Brands from "../../components/Shop-Brands-home";
 import ShortCut from "../../components/Shortcut-home";
-import Footer from "../../components/Footer";
 import Handpicked from "../../components/HandpickedCollections";
 import Header from "../../components/Header";
 import HeroBannerHome from "../../components/HeroBanner-home";
@@ -11,6 +10,7 @@ import Navbar from "../../components/Navbar";
 import { useEffect, useState } from "react";
 import MakeupSkincare from "../../components/MakeupSkincare";
 import styles from './styles.module.scss';
+import ShowFooter from "../../components/ShowFooter";
 
 const Home = () => {
   const [hidden, setHidden] = useState(false);
@@ -44,7 +44,7 @@ const Home = () => {
       <ShortCut />
       <MakeupSkincare />
       {hidden && <HeroBannerHome order="row-reverse" text={true} />}
-      <Footer />
+      <ShowFooter />
       <Navbar />
     </>
   );
