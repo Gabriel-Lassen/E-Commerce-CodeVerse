@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { OrdersActionsContext } from '../../contexts/ordersActions';
 import styles from './styles.module.scss'; 
 
 const SVGContainer = () => {
+  const { setUpiId } = useContext(OrdersActionsContext);
   const [isActivee, setIsActivee] = useState(false);
 
   const toggleSVG = () => {
@@ -12,7 +14,7 @@ const SVGContainer = () => {
     <div className={styles.center}>
       <div className={styles.contentUPI}>
         <div className={styles.inputWrapper}>
-          <input type="text" placeholder="Enter your UPI Id" />
+          <input type="text" placeholder="Enter your UPI Id" onChange={(e) => setUpiId(e.target.value)}/>
           <p>Eg: 1234567890@ybl</p>
           <div className={styles.checkbox} onClick={toggleSVG}>
             {isActivee ? (
