@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from 'react';
-import { setDoc, doc } from "@firebase/firestore";
+import { createContext, useContext, useEffect, useState } from 'react';
+import { setDoc, doc, query, collection, getDocs } from "@firebase/firestore";
 import { db } from "../FirebaseConection";
 import { AuthContext } from "./Auth";
 import { BagActionsContext } from './bagActions';
@@ -14,7 +14,13 @@ const OrdersActionsProvider = ({children}) => {
     const { userBag, handleDeleteAllProductsUserBag } = useContext(BagActionsContext);
     const [paymentMethod, setPaymentMethod] = useState('');
     const [upiId, setUpiId] = useState('');
-    const [userOrders, setUserOrders] = useState([{}]);
+    const [userOrders, setUserOrders] = useState([]);
+
+    useEffect(() => {
+        if(user){
+            handleGetUserOrders();
+        }
+    }, [user])
 
     function generateUniqueID() {
         const randomPart = Math.floor(Math.random() * 1000000000).toString().padStart(9, '0');
@@ -80,8 +86,16 @@ const OrdersActionsProvider = ({children}) => {
         })
     }
 
-    function handleGetUserOrders() {
-
+    async function handleGetUserOrders() {
+        let list = [];
+        const q = query(collection(db, `/users/${user.uid}/orders`));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((item) => {
+            const newItem = item.data();
+            list = [...list, newItem];
+        });
+        console.log(list);
+        setUserOrders(list);
     }
 
   return (
