@@ -1,11 +1,6 @@
-import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 
-import btnDown from "../../assets/imgs/chevron-bottom.svg";
-import btnUp from "../../assets/imgs/chevron-up.svg";
-
 import location from "../../assets/imgs/location.svg";
-
 import insta from "../../assets/imgs/insta logo.svg";
 import twitter from "../../assets/imgs/twitter.svg";
 import youtube from "../../assets/imgs/youtube.svg";
@@ -13,41 +8,10 @@ import fb from "../../assets/imgs/fb logo.svg";
 
 import { Link } from "react-router-dom";
 
-const Footer = ({ position }) => {
-  const [showFooter, setShowFooter] = useState(false);
-
-  const handleClick = () => {
-    setShowFooter(!showFooter);
-  };
-  const handleResize = () => {
-    const windowWidth = window.innerWidth;
-    const breakpointWidth = 768;
-
-    if (windowWidth <= breakpointWidth) {
-      setShowFooter(false);
-    } else {
-      setShowFooter(true);
-    }
-  };
-
-  useEffect(() => {
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+const Footer = () => {
 
   return (
-    <div className={styles.showFooter}>
-      <h2>More about CORA’L</h2>
-      <button className={styles.showFooterBtn} onClick={handleClick}>
-        <img src={showFooter ? btnUp : btnDown} />
-      </button>
-      {showFooter && (
-        <footer className={styles.footer} style={{ position: position }}>
+        <footer className={styles.footer} >
           <div className={styles.container}>
             <div className={styles.category}>
               <h4>Shop by Category</h4>
@@ -163,8 +127,6 @@ const Footer = ({ position }) => {
             <span>© 2021 | Cora Leviene All Rights Reserved</span>
           </div>
         </footer>
-      )}
-    </div>
   );
 };
 
