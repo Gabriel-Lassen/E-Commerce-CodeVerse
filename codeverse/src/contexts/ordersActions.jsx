@@ -11,6 +11,7 @@ const OrdersActionsProvider = ({children}) => {
     const { listProducts } = useContext(ProductsContext);
     const { user } = useContext(AuthContext);
     const { userBag, handleDeleteAllProductsUserBag } = useContext(BagActionsContext);
+    const [paymentMethod, setPaymentMethod] = useState('');
     const [userOrders, setUserOrders] = useState([{}]);
 
     function generateUniqueID() {
@@ -68,6 +69,8 @@ const OrdersActionsProvider = ({children}) => {
   return (
     <OrdersActionsContext.Provider 
         value={{
+            paymentMethod,
+            setPaymentMethod,
             userOrders,
             handleExecuteOrder,
         }}
