@@ -4,6 +4,7 @@ import { db } from "../FirebaseConection";
 import { AuthContext } from "./Auth";
 import { BagActionsContext } from './bagActions';
 import { ProductsContext } from './products';
+import { toast } from 'react-toastify';
 
 export const OrdersActionsContext = createContext({});
 
@@ -12,6 +13,7 @@ const OrdersActionsProvider = ({children}) => {
     const { user } = useContext(AuthContext);
     const { userBag, handleDeleteAllProductsUserBag } = useContext(BagActionsContext);
     const [paymentMethod, setPaymentMethod] = useState('');
+    const [upiId, setUpiId] = useState('');
     const [userOrders, setUserOrders] = useState([{}]);
 
     function generateUniqueID() {
@@ -53,12 +55,28 @@ const OrdersActionsProvider = ({children}) => {
         const orderData = getUserBagProductsData();
         const productsOrdered = orderData.bagProducts;
         const orderTotalPrice = orderData.totalPrice;
+        if(user.address == {}){
+            return toast.warning('Please enter a valid address');
+        }
+        if(paymentMethod === ''){
+            return toast.warning('Please select a payment method');
+        }
+        if(upiId === ''){
+            return toast.warning('Please enter a valid UPI ID');
+        }
         await setDoc(doc(db, `/users/${user.uid}/orders`, orderId), {
             orderId: orderId,
             orderDate: orderDate,
             orderAddress: user.address,
             productsOrdered: productsOrdered,
             orderTotalPrice: orderTotalPrice,
+            paymentMethod: paymentMethod,
+            upiId: upiId,
+        })
+        .then(() => {
+            handleDeleteAllProductsUserBag();
+            setPaymentMethod('');
+            handleGetUserOrders();
         })
     }
 
@@ -71,6 +89,7 @@ const OrdersActionsProvider = ({children}) => {
         value={{
             paymentMethod,
             setPaymentMethod,
+            setUpiId,
             userOrders,
             handleExecuteOrder,
         }}
