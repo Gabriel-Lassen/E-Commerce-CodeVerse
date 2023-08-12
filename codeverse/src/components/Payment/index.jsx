@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
+import { OrdersActionsContext } from "../../contexts/ordersActions";
 import styles from "./styles.module.scss";
 import plusIcon from "../../assets/imgs/small-plus.png";
 import minusIcon from "../../assets/imgs/minus-icon.png";
@@ -9,12 +10,11 @@ import pay from '../../assets/imgs/payTm.png'
 import phone from '../../assets/imgs/phonePe.png'
 
 export const Payment = () => {
+  const { paymentMethod, setPaymentMethod } = useContext(OrdersActionsContext);
   const [isContentVisible, setIsContentVisible] = useState(false);
   const [isDivClicked, setIsDivClicked] = useState(false);
-  const [paymentOption, setPaymentOption] = useState("");
   const [ContentVisible, setContentVisible] = useState(false);
   const [divClicked, setDivClicked] = useState(false);
-  const [payment, setPayment] = useState("");
   const [isActivee, setIsActivee] = useState(false);
 
   const handleToggleClick = () => {
@@ -51,14 +51,14 @@ export const Payment = () => {
 
       {isContentVisible && (
         <div className={styles.optionsContainer}>
-          <div className={`${styles.option} ${paymentOption === "debit" ? styles.selected : "" }`} onClick={() => setPaymentOption("debit")}>
+          <div className={`${styles.option} ${paymentMethod === "debit" ? styles.selected : "" }`} onClick={() => setPaymentMethod("debit")}>
             <p>Debit Card</p>
-            <img src={paymentOption === "debit" ? select : selectCheckbox} />
+            <img src={paymentMethod === "debit" ? select : selectCheckbox} />
           </div>
 
-          <div className={`${styles.option} ${paymentOption === "credit" ? styles.selected : "" }`} onClick={() => setPaymentOption("credit")}>
+          <div className={`${styles.option} ${paymentMethod === "credit" ? styles.selected : "" }`} onClick={() => setPaymentMethod("credit")}>
             <p>Credit Card</p>
-            <img src={paymentOption === "credit" ? select : selectCheckbox} />
+            <img src={paymentMethod === "credit" ? select : selectCheckbox} />
           </div>
         </div>
       )}
@@ -79,7 +79,7 @@ export const Payment = () => {
               </div>
              <span>Google Pay</span>
             </div>
-            <img src={payment === "googlePay" ? select : selectCheckbox} onClick={() => setPayment("googlePay")} />
+            <img src={paymentMethod === "googlePay" ? select : selectCheckbox} onClick={() => setPaymentMethod("googlePay")} />
           </div>
 
           <div className={styles.container}>
@@ -89,7 +89,7 @@ export const Payment = () => {
               </div>
               <span>Phone Pe</span>
             </div>
-            <img src={payment === "phonePe" ? select : selectCheckbox} onClick={() => setPayment("phonePe")}  />
+            <img src={paymentMethod === "phonePe" ? select : selectCheckbox} onClick={() => setPaymentMethod("phonePe")}  />
           </div>
 
           <div className={styles.container}>
@@ -99,7 +99,7 @@ export const Payment = () => {
               </div>
               <span>Paytm</span>
             </div>
-            <img src={payment === "paytm" ? select : selectCheckbox} onClick={() => setPayment("paytm")}  />
+            <img src={paymentMethod === "paytm" ? select : selectCheckbox} onClick={() => setPaymentMethod("paytm")}  />
           </div>
         </>
       )}
