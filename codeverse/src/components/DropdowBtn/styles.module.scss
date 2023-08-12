@@ -28,6 +28,17 @@
     padding: 0 16px 16px;
   }
 
+  .footer{
+    display: block;
+  }
+
+  .textFooter{
+    color: var(--TypeLowEmphasis);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  
   .separator {
     width: 53vw;
     height: 1px;

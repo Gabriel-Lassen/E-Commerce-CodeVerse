@@ -3,7 +3,7 @@ import ChevronUp from "../../assets/imgs/chevron-up.svg";
 import ChevronBottom from "../../assets/imgs/chevron-bottom.svg";
 import { useState } from "react";
 
-const DropdowBtn = ({ children, title, divisor }) => {
+const DropdowBtn = ({ children, title, divisor, footer }) => {
   const [show, setShow] = useState(false);
   const [image, setImage] = useState(ChevronBottom);
 
@@ -16,14 +16,16 @@ const DropdowBtn = ({ children, title, divisor }) => {
       setImage(ChevronUp);
     }
   }
+
+  const contentFooter = footer === "footer"; 
   return (
     <div className={styles.wrapper}>
       <button onClick={handleClick}>
-        <span>{title}</span>
+        <span className={contentFooter ? styles.textFooter : ''}>{title}</span>
         <img src={image} alt="Dropdow Button" />
       </button>
       {show && (
-        <div className={styles.content}>
+        <div className={contentFooter ? styles.footer : styles.content}>
           {divisor && <div className={styles.separator}></div>}
           {children}
         </div>
