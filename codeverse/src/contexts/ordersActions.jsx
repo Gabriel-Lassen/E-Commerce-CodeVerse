@@ -1,16 +1,17 @@
-import { createContext, useEffect, useContext, useState } from 'react';
-import { setDoc, doc, collection, getDocs, query, deleteDoc } from "@firebase/firestore";
+import { createContext, useContext, useState } from 'react';
+import { setDoc, doc } from "@firebase/firestore";
 import { db } from "../FirebaseConection";
 import { AuthContext } from "./Auth";
-import { toast } from "react-toastify";
+import { BagActionsContext } from './bagActions';
+import { ProductsContext } from './products';
 
 export const OrdersActionsContext = createContext({});
 
 const OrdersActionsProvider = ({children}) => {
+    const { listProducts } = useContext(ProductsContext);
     const { user } = useContext(AuthContext);
-    const { userBag, handleDeleteAllProductsUserBag } = useContext(AuthContext);
+    const { userBag, handleDeleteAllProductsUserBag } = useContext(BagActionsContext);
     const [userOrders, setUserOrders] = useState([{}]);
-    const [address, setAddress] = useState({});
 
     function generateUniqueID() {
         const randomPart = Math.floor(Math.random() * 1000000000).toString().padStart(9, '0');
@@ -27,29 +28,36 @@ const OrdersActionsProvider = ({children}) => {
         return formatedDate;
     }
 
-    function getBagData() {
+    function getUserBagProductsData(){
+        if(user && userBag.length > 0){
+            let bagProducts = [];
+            let totalPrice = 0;
+            userBag.forEach((item) => {
+                const product = listProducts.find((product) => {return product.id === item.productId});
+                const newProduct = {
+                    productId: product.id,
+                    productPrice: (product.price * (1 - product.discount)).toFixed(2)
+                }
+                bagProducts = [...bagProducts, newProduct];
+                totalPrice = totalPrice + (product.price * (1 - product.discount)).toFixed(2);
+            })
 
+            return {bagProducts: bagProducts, totalPrice: totalPrice};
+        }
     }
-
-    async function getAddress() {
-        if(user){
-            const querySnapshot = await getDocs(collection(db, 'users', user.uid, 'address'));
-        if (!querySnapshot.empty) {
-          const docSnapshot = querySnapshot.docs[0];
-          const addressData = docSnapshot.data();
-          setAddress(addressData);
-        }
-        }
-    };
 
     async function handleExecuteOrder() {
         const orderId = generateUniqueID();
         const orderDate = getCurrentDate();
-        getAddress();
+        const orderData = getUserBagProductsData();
+        const productsOrdered = orderData.bagProducts;
+        const orderTotalPrice = orderData.totalPrice;
         await setDoc(doc(db, `/users/${user.uid}/orders`, orderId), {
             orderId: orderId,
             orderDate: orderDate,
-            address: address,
+            orderAddress: user.address,
+            productsOrdered: productsOrdered,
+            orderTotalPrice: orderTotalPrice,
         })
     }
 
@@ -61,6 +69,7 @@ const OrdersActionsProvider = ({children}) => {
     <OrdersActionsContext.Provider 
         value={{
             userOrders,
+            handleExecuteOrder,
         }}
     >
         {children}
