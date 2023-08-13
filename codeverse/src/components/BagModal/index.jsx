@@ -65,7 +65,7 @@ const BagModal = ({ active }) => {
         </nav>
       </header>
       <div className={styles.cardContainer}>
-        {userBag.map((item) => {
+        {userBag.map((item, idx) => {
           const product = getProductById(item.productId);
           if (!product) {
             return null;
@@ -78,8 +78,8 @@ const BagModal = ({ active }) => {
           };
 
           return (
-            <>
-              <div className={styles.card} key={item.productId}>
+            <div key={idx}>
+              <div className={styles.card}>
                 <Link to={`/products/${product.id}`}>
                   <img src={product.url} alt={product.name} />
                 </Link>
@@ -102,7 +102,7 @@ const BagModal = ({ active }) => {
                 </div>
               </div>
               <div className={styles.separator}></div>
-            </>
+            </div>
           );
         })}
       </div>
