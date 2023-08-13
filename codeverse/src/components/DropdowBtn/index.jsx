@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import Plus from '../../assets/imgs/plus.svg';
 import Minus from '../../assets/imgs/minus.svg';
 
-const DropdowBtn = ({children, title, divisor, iconType}) => {
+const DropdowBtn = ({children, title, divisor, footer, iconType}) => {
     const [show, setShow] = useState(false);
     const [image, setImage] = useState();
 
@@ -35,14 +35,16 @@ const DropdowBtn = ({children, title, divisor, iconType}) => {
           }
       }
   }
+
+  const contentFooter = footer === "footer"; 
   return (
     <div className={styles.wrapper}>
         <button onClick={handleClick} className={styles.button}>
-            <span>{title}</span>
+            <span className={contentFooter ? styles.textFooter : ''}>{title}</span>
             <img src={image} alt="Dropdow Button" />
         </button>
         {show && (
-            <div className={styles.content}>
+            <div className={contentFooter ? styles.footer : styles.content}>
               {divisor && <div className={styles.separator}></div>}
               {children}
             </div>
