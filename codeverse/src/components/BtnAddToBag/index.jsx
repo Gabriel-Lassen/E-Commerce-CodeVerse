@@ -5,8 +5,10 @@ import CloseWhite from '../../assets/imgs/remove.svg';
 import Close from '../../assets/imgs/close.svg';
 import { useContext, useEffect, useState } from 'react';
 import { BagActionsContext } from '../../contexts/bagActions';
+import { AuthContext } from '../../contexts/Auth';
 
 const BtnAddToBag = ({theme, id}) => {
+  const { user } = useContext(AuthContext);
   const { handleaddToUserBag, handleDeleteOneProductUserBag, userBag } = useContext(BagActionsContext)
   const [themeClassName, setThemeClassName] = useState(theme === 'light' ? 'light' : 'dark');
   const [imageBag, setImageBag] = useState(theme === 'light' ? Bag : BagWhite);
@@ -20,10 +22,14 @@ const BtnAddToBag = ({theme, id}) => {
   function handleClick(){
     if(userBag.some(bag => bag.productId === id)){
       handleDeleteOneProductUserBag(id);
-      setIsinBag(false);
+      if(user) {
+        setIsinBag(false);
+      }
     } else {
       handleaddToUserBag(id);
-      setIsinBag(true);
+      if(user) {
+        setIsinBag(true);
+      }
     }
   };
     
