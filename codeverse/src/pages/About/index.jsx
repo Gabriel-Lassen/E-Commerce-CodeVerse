@@ -6,13 +6,15 @@ import ShowFooter from "../../components/ShowFooter";
 
 const About = () => {
   return (
-    <>
+    <div style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
+      <div>
       <Header />
       <HeroBannerAbout />
       <ContentAbout />
-      <ShowFooter />
       <Navbar />
-    </>
+      </div>
+      <ShowFooter />
+    </div>
   );
 };
 

@@ -55,7 +55,8 @@ const Products = () => {
   }, [location]);
 
   return (
-    <div key={key}>
+    <div key={key} style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
+      <div>
       {hidden && <Header />}
       <RouteHistoryProducts />
       <BtnBackForPage svg={<ArrowSvg color="var(--Dark)" direction="left" />} />
@@ -70,6 +71,7 @@ const Products = () => {
         </div>
       </div>
       <ProductOverview />
+      </div>
       {hidden && <ShowFooter />}
     </div>
   );

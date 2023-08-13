@@ -21,7 +21,8 @@ const MyOrders = () => {
       window.addEventListener("resize", handleHidden);
     });
   return (
-    <div>
+    <div style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
+      <div>
       {hidden && <Header />}
       <BtnBackForPage
         svg={<ArrowSvg color="var(--Primary)" direction="left" />}
@@ -30,6 +31,7 @@ const MyOrders = () => {
       <RouteHistory />
       <TitlePage />
       {hidden && <SideBarProfile />}
+      </div>
       {hidden && <ShowFooter />}
     </div>
   );

@@ -21,7 +21,8 @@ const MyCart = () => {
   });
 
   return (
-    <>
+      <div style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
+      <div>
       {hidden && <Header />}
       <BtnBackForPage
         text="My Bag"
@@ -30,8 +31,9 @@ const MyCart = () => {
       <RouteHistory />
       <TitlePage />
       <Bag />
+      </div>
       {hidden && <ShowFooter/>}
-    </>
+      </div>
   );
 };
 

@@ -26,7 +26,8 @@ const Home = () => {
   });
 
   return (
-    <>
+    <div style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
+      <div>
       <Header />
       <BannerMsg />
       <HeroBannerHome />
@@ -44,9 +45,10 @@ const Home = () => {
       <ShortCut />
       <MakeupSkincare />
       {hidden && <HeroBannerHome order="row-reverse" text={true} />}
-      <ShowFooter />
       <Navbar />
-    </>
+      </div>
+      <ShowFooter />
+      </div>
   );
 };
 

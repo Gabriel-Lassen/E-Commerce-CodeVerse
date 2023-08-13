@@ -23,22 +23,24 @@ const PersonalInformation = () => {
     window.addEventListener("resize", handleHidden);
   });
   return (
-    <div>
-      {hidden && <Header />}
-      <BtnBackForPage
-        svg={<ArrowSvg color="var(--Primary)" direction="left" />}
-        text="Personal Information"
-      />
-      <RouteHistory />
-      {hidden && 
-        <div className={styles.container}>
-          <TitlePage />
-          <Logout/>
+    <div style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
+      <div>
+        {hidden && <Header />}
+        <BtnBackForPage
+          svg={<ArrowSvg color="var(--Primary)" direction="left" />}
+          text="Personal Information"
+        />
+        <RouteHistory />
+        {hidden && 
+          <div className={styles.container}>
+            <TitlePage />
+            <Logout/>
+          </div>
+        }
+        <div className={styles.wrapper}>
+          {hidden && <SideBarProfile />}
+          <ProfileInformation />
         </div>
-      }
-      <div className={styles.wrapper}>
-        {hidden && <SideBarProfile />}
-        <ProfileInformation />
       </div>
       {hidden && <ShowFooter />}
     </div>
