@@ -60,7 +60,6 @@ const WishlistActionsProvider = ({children}) => {
             const item = product.data();
             deleteDoc(doc(db, `/users/${user.uid}/wishlist`, item.productId));
         });
-        toast.success("Delete all products");
         setUserWishlist([]);
     };
 
