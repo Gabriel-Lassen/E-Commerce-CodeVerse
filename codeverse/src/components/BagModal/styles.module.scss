@@ -200,4 +200,50 @@
     text-decoration-line: underline;
     margin-bottom: 10px;
   }
+
+  .empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 16px 16px;
+    padding-top: 0;
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+
+      h1 {
+        color: var(--Primary);
+        font-size: 34px;
+        font-weight: 600;
+        line-height: 44px;
+      }
+
+      .buy {
+        color: var(--TypeLowEmphasis);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 18px;
+      }
+    }
+
+    .actions {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+
+      a {
+        color: var(--TypeLowEmphasis);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 18px;
+      }
+    }
+    
+  }
 }
