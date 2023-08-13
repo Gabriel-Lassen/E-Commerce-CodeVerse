@@ -170,6 +170,7 @@ function ProfileInformation() {
               maxLength="12"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
+              disabled={true}
             />
           </label>
           <label>
@@ -179,6 +180,7 @@ function ProfileInformation() {
               maxLength="12"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              disabled={true}
             />
           </label>
           <div>
