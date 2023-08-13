@@ -23,7 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <BagActionsProvider>
             <WishlistActionsProvider>
               <OrdersActionsProvider>
-                <ToastContainer autoClose={3000} closeButton={false} transition={Slide} />
+                <ToastContainer autoClose={1200} closeButton={false} transition={Slide} />
                 <Rotas />
               </OrdersActionsProvider>
             </WishlistActionsProvider>
