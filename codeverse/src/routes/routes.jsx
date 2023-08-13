@@ -32,7 +32,6 @@ const Rotas = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/getstarted" element={<GetStart />} />
-      <Route path="/mycart" element={<MyCart />} />
       
       <Route path="/profile" element={<PriviteRoutes> <Profile/> </PriviteRoutes>} />
       <Route path="/profile/personalinformation" element={<PriviteRoutes> <PersonalInformation/> </PriviteRoutes>} />
@@ -42,6 +41,7 @@ const Rotas = () => {
       <Route path="/profile/myreviews" element={""} />
       <Route path="/profile/myaddressbook" element={<PriviteRoutes> <MyAddressBook/> </PriviteRoutes>} />
       <Route path="/profile/mysavedcards" element={""} />
+      <Route path="/profile/mycart" element={<PriviteRoutes> <MyCart /> </PriviteRoutes>} />
       <Route path="/checkout" element={<Checkout/>} />
     </Routes>
   );

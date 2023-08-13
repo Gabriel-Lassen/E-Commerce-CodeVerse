@@ -127,7 +127,7 @@ const BagModal = ({ active }) => {
         <button>CHECK</button>
       </div>
 
-      <Link to="/mycart">
+      <Link to="/profile/mycart">
         <button className={styles.order}>Place Order</button>
       </Link>
 
