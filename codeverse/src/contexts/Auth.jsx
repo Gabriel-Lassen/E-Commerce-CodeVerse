@@ -66,6 +66,13 @@ function AuthProvider({ children }) {
           ddd: ddd,
           number: number,
           inviteCode: Math.random().toString(36).slice(3).toUpperCase(),
+          address: {
+            street: '',
+            city: '',
+            state: '',
+            pinCode: '',
+            complement: '',
+          },
         }).then(() => {
           toast.success("successfully registered");
           navigate("/login");
@@ -95,6 +102,7 @@ function AuthProvider({ children }) {
           ddd: docSnap.data().ddd,
           number: docSnap.data().number,
           inviteCode: docSnap.data().inviteCode,
+          address: docSnap.data().address
         };
 
         setUser(data);
@@ -214,44 +222,39 @@ function AuthProvider({ children }) {
     navigate("/getstarted");
   }
 
-  async function registerAddress(addressData) {
-    try {
-      if (user) {
-        const addressCollectionRef = collection(db, "users", user.uid, "address");
-        await addDoc(addressCollectionRef, addressData);
-  
-        toast.success("Address saved successfully!");
-      }
-    } catch (error) {
-      toast.error("Error saving address: " + error.message);
-    }
-  }
-
   async function updateAddress(addressData) {
-    try {
       if (user) {
-        const addressCollectionRef = collection(db, "users", user.uid, "address");
-        const querySnapshot = await getDocs(addressCollectionRef);
-        
-        if (!querySnapshot.empty) {
-          const docSnapshot = querySnapshot.docs[0];
-          const addressDocRef = docSnapshot.ref;
-  
-          await updateDoc(addressDocRef, {
+        await updateDoc(doc(db, "users", user.uid), {
+          address: {
             street: addressData.street,
             city: addressData.city,
             state: addressData.state,
             pinCode: addressData.pinCode,
             complement: addressData.complement,
-          });
-  
+          }
+        })
+        .then(() => {
+          let data = {
+            ...user,
+            address: {
+              street: addressData.street,
+              city: addressData.city,
+              state: addressData.state,
+              pinCode: addressData.pinCode,
+              complement: addressData.complement,
+            }
+          };
+          setUser(data);
+          localStorageUser(data);
+          loadUser();
           toast.success("Address updated successfully!");
-        }
+        })
+        .catch((error) => {
+          toast.error("Error updating address: " + error.message);
+        })
       }
-    } catch (error) {
-      toast.error("Error updating address: " + error.message);
-    }
   }
+
   return (
     <AuthContext.Provider
       value={{
@@ -268,7 +271,6 @@ function AuthProvider({ children }) {
         handleSearch,
         searchHistory,
         logout,
-        registerAddress,
         updateAddress,
       }}
     >

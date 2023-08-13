@@ -1,17 +1,14 @@
 import {useState, useEffect, useContext} from 'react'
 import { AuthContext } from "../../contexts/Auth";
-import { db } from "../../FirebaseConection";
-import { collection, getDocs } from "firebase/firestore";
 import styles from "./styles.module.scss";
 import { toast } from "react-toastify";
 import ArrowSvg from '../ArrowSvg';
-import MobileFixedBottomBar from '../MobileFixedBottomBar';
 
 const Address = ({active}) => {
 
   const close = () => { active(false) }
 
-  const { user, registerAddress, updateAddress } = useContext(AuthContext);
+  const { user, updateAddress } = useContext(AuthContext);
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -23,28 +20,19 @@ const Address = ({active}) => {
     const [pinCode, setPinCode] = useState("")
     const [selectedOption, setSelectedOption] = useState("home");
 
-
     useEffect(() => {
       if (user) {
+        console.log(user);
         setFirstName(user.firstName);
         setLastName(user.lastName);
         setDdd(user.ddd);
         setNumber(user.number);
+        setStreet(user.address.street);
+        setCity(user.address.city);
+        setState(user.address.state);
+        setPinCode(user.address.pinCode);
+        setSelectedOption(user.address.complement);
       }
-      const addressCollectionRef = collection(db, 'users', user.uid, 'address');
-      const getAddress = async () => {
-        const querySnapshot = await getDocs(addressCollectionRef);
-        if (!querySnapshot.empty) {
-          const docSnapshot = querySnapshot.docs[0];
-          const addressData = docSnapshot.data();
-          setStreet(addressData.street);
-          setCity(addressData.city);
-          setState(addressData.state);
-          setPinCode(addressData.pinCode);
-          setSelectedOption(addressData.complement);
-        }
-      };
-      getAddress();
     }, [user]);
 
     async function saveAddress() {
@@ -53,23 +41,16 @@ const Address = ({active}) => {
           if (street === "" || city === "" || state === "" || pinCode === "") {
             toast.warning("Fill in all fields please");
             return;
-          }
-  
-          const addressData = {
-            street: street,
-            city: city,
-            state: state,
-            pinCode: pinCode,
-            complement: selectedOption,
-          };
-  
-          const addressCollectionRef = collection(db, 'users', user.uid, 'address');
-          const querySnapshot = await getDocs(addressCollectionRef);
-    
-          if (querySnapshot.size === 0) {
-            await registerAddress(addressData);
           } else {
-            await updateAddress(addressData);
+            const addressData = {
+              street: street,
+              city: city,
+              state: state,
+              pinCode: pinCode,
+              complement: selectedOption,
+            };
+
+            updateAddress(addressData);
           }
         }
       } catch (error) {
