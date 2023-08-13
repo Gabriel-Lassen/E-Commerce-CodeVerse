@@ -17,24 +17,30 @@ const WishlistActionsProvider = ({children}) => {
     }, [user])
 
     async function handleaddToUserWishlist(productId){
-        await setDoc(doc(db, `/users/${user.uid}/wishlist`, productId), {
-            productId,
-        })
-        .then(() => {
-            toast.success("Product added to Wishlist");
-            handleGetUserWishlist();
-        });
+        if(user){
+            await setDoc(doc(db, `/users/${user.uid}/wishlist`, productId), {
+                productId,
+            })
+            .then(() => {
+                toast.success("Product added to Wishlist");
+                handleGetUserWishlist();
+            });
+        } else {
+            return toast.warning('Please loggin to add a product to your wishlist')
+        }
     };
 
     async function handleGetUserWishlist() {
-        let list = [];
-        const q = query(collection(db, `/users/${user.uid}/wishlist`));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((item) => {
-            const newItem = item.data();
-            list = [...list, newItem];
-        });
-        setUserWishlist(list);
+        if(user){
+            let list = [];
+            const q = query(collection(db, `/users/${user.uid}/wishlist`));
+            const querySnapshot = await getDocs(q);
+            querySnapshot.forEach((item) => {
+                const newItem = item.data();
+                list = [...list, newItem];
+            });
+            setUserWishlist(list);
+        }
     };
 
     async function handleDeleteOneProductUserWishlist(productId){
