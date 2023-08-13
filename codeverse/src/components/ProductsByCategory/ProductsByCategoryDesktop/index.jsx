@@ -49,7 +49,7 @@ const ProductsByCategoyDesktop = () => {
                     <div className={styles.displayOptions}>
                         <div className={styles.showing}>
                             <img src={ShowLayout} alt="" />
-                            <span>Showing {startIndex + 1} - {productsPerPage * currentPage} of {totalProducts} items</span>
+                            <span>Showing {startIndex + 1} - {productsPerPage * currentPage > totalProducts ? totalProducts : productsPerPage * currentPage} of {totalProducts} items</span>
                         </div>
                         <div className={styles.buttons}>
                             <div className={styles.toShow}>
