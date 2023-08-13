@@ -22,7 +22,6 @@ const Address = ({active}) => {
 
     useEffect(() => {
       if (user) {
-        console.log(user);
         setFirstName(user.firstName);
         setLastName(user.lastName);
         setDdd(user.ddd);
