@@ -204,13 +204,12 @@
     flex-direction: row;
     justify-content: space-around;
     gap: 59px;
-    height: 466px;
     width: 70.3vw;
     justify-content: flex-start;
+    margin-bottom: 36px;
 
     .products {
       width: 55.4vw;
-      height: 466px;
 
       .label {
         display: flex;
@@ -244,7 +243,6 @@
       .productsContainer {
         display: flex;
         flex-wrap: wrap;
-        height: 26vw;
         overflow-y: scroll;
         gap: 16px;
         margin-bottom: 20px;
@@ -417,14 +415,12 @@
   @media screen and (min-width: 1200px) {
     .container {
       gap: 108px;
-      height: 50vh;
-      max-height: 466px;
       justify-content: space-around;
       width: 98.3vw;
+      margin-bottom: 36px;
 
       .products {
         width: 55.4vw;
-        height: 466px;
 
         .label {
           display: flex;
@@ -458,8 +454,6 @@
         .productsContainer {
           display: flex;
           flex-wrap: wrap;
-          height: 26vw;
-          max-height: 320px;
           overflow-y: scroll;
           gap: 16px;
           margin-bottom: 20px;

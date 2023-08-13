@@ -30,7 +30,7 @@ const MyCart = () => {
       <RouteHistory />
       <TitlePage />
       <Bag />
-      {hidden && <Footer position={"fixed"} />}
+      {hidden && <Footer />}
     </>
   );
 };
