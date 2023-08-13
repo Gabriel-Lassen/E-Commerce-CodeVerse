@@ -31,29 +31,19 @@
         font-weight: 500;
         line-height: 18px;
       }
-      button {
-        display: flex;
-        position: fixed;
-        bottom: 11px;
-        padding: 10px 120px;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        border-radius: 8px;
-        background: var(--Primary);
-        color: var(--Bright);
-        text-align: center;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 24px;
+      .btnDesktop {
+        display: none;
       }
+    }
+
+    .btnWrapper {
+      width: 100%;
+      padding: 0 16px;
     }
   }
 }
 @media screen and (min-width: 769px) {
   .container {
-    height: 49.5vh;
     display: flex;
     justify-content: center;
     .section {
@@ -87,19 +77,9 @@
         font-weight: 500;
         line-height: 18px;
       }
-      button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 8px;
-        background: var(--Primary);
-        color: var(--Bright);
-        text-align: center;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 24px;
-        padding: 10px 120px;
+      .btnDesktop {
+        width: 100%;
+        margin-bottom: 30px;
       }
     }
   }
