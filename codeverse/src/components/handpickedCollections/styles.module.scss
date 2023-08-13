@@ -43,6 +43,11 @@
       max-width: 100%;
       overflow: scroll;
       gap: 2vw;
+
+      
+    }
+    .all::-webkit-scrollbar{
+      display: none;
     }
 
     p {
