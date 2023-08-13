@@ -16,8 +16,6 @@ import PersonalInformation from "../pages/PersonalInformation";
 import PriviteRoutes from "./PriviteRoutes";
 import MyOrders from "../pages/MyOrders";
 import MyAddressBook from "../pages/MyAddressBook";
-import { Payment } from "../components/Payment";
-import { PaymentDesktop } from "../components/PaymentDesktop";
 import Checkout from "../pages/Checkout";
 
 
