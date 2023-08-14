@@ -1,7 +1,16 @@
+import styles from "../Completed/styles.module.scss";
 const Processing = () => {
   return (
-    <div>Processing</div>
-  )
-}
+    <div className={styles.container}>
+      <div className={styles.label}>
+        <span>Order ID</span>
+        <span>Date</span>
+        <span>Price</span>
+        <span className={styles.status}>Status</span>
+      </div>
+      <div className={styles.separator}></div>
+    </div>
+  );
+};
 
-export default Processing
+export default Processing;
