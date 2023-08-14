@@ -1,3 +1,6 @@
+import Cancelled from "./Cancelled";
+import Completed from "./Completed";
+import Processing from "./Processing";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 
@@ -33,9 +36,9 @@ const MyOrdersComponente = () => {
         </button>
       </div>
       <div className={styles.inView}>
-        {componentInView === "Completed" && <Pr>}
-        {componentInView === "Processing" && <div>Processing Component</div>}
-        {componentInView === "Cancelled" && <div>Cancelled Component</div>}
+        {componentInView === "Completed" && <Completed />}
+        {componentInView === "Processing" && <Processing />}
+        {componentInView === "Cancelled" && <Cancelled />}
       </div>
     </div>
   );
