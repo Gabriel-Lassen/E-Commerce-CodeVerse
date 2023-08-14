@@ -47,11 +47,11 @@ const OrdersActionsProvider = ({children}) => {
                     productId: product.id,
                     productName: product.name,
                     productInfo: product.info,
-                    productPrice: parseFloat((product.price * (1 - product.discount)).toFixed(2)),
+                    productPrice: (product.price * (1 - product.discount)).toFixed(2),
                     productImage: product.url,
                 }
                 bagProducts = [...bagProducts, newProduct];
-                totalPrice = totalPrice + (product.price * (1 - product.discount)).toFixed(2);
+                totalPrice = totalPrice + (product.price * (1 - product.discount));
             })
 
             return {bagProducts: bagProducts, totalPrice: totalPrice};
@@ -62,9 +62,12 @@ const OrdersActionsProvider = ({children}) => {
         const orderId = generateUniqueID();
         const orderDate = getCurrentDate();
         const orderData = getUserBagProductsData();
+        if(!orderData) {
+            return
+        }
         const productsOrdered = orderData.bagProducts;
         const orderTotalPrice = orderData.totalPrice;
-        const orderedName = user.name + user.lastName
+        const orderedName = user.firstName + ' ' + user.lastName
         if(user.address == {}){
             return toast.warning('Please enter a valid address');
         }
@@ -79,7 +82,7 @@ const OrdersActionsProvider = ({children}) => {
             orderDate: orderDate,
             orderAddress: user.address,
             productsOrdered: productsOrdered,
-            orderTotalPrice: orderTotalPrice,
+            orderTotalPrice: orderTotalPrice.toFixed(2),
             paymentMethod: paymentMethod,
             upiId: upiId,
             orderedName: orderedName,
