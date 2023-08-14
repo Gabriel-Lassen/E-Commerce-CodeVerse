@@ -45,7 +45,7 @@ const ProductsByCategoyMobile = () => {
           <div className={styles.actions}>
             <button onClick={() => navigate('/profile/mywishlist')}><img src={Wishlist} alt="My Wishlist" /></button>
             <button onClick={() => setShowSearch(true)}><img src={SearchIcon} alt="" /></button>
-            <button onClick={() => navigate('/mycart')}><img src={Bag} alt="My Cart" /></button>
+            <button onClick={() => navigate('/profile/mycart')}><img src={Bag} alt="My Cart" /></button>
           </div>
         </div>
       <div className={styles.products}>
