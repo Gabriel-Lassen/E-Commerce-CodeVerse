@@ -4,7 +4,7 @@ import { useContext } from "react";
 import ArrowSvg from "../../ArrowSvg";
 
 const Completed = () => {
-  const { userOrders } = useContext(OrdersActionsContext);
+  //const { userOrders } = useContext(OrdersActionsContext);
 
   return (
     <div className={styles.container}>
