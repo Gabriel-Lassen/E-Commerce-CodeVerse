@@ -1,33 +1,38 @@
 import styles from "./styles.module.scss";
-import OrdersActionsContext from "../../../contexts/ordersActions";
+import { OrdersActionsContext } from "../../../contexts/ordersActions";
 import { useContext } from "react";
 import ArrowSvg from "../../ArrowSvg";
 
 const Completed = () => {
-  //const { userOrders } = useContext(OrdersActionsContext);
+  const { userOrders } = useContext(OrdersActionsContext);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.wrapper}>
       <div className={styles.label}>
         <span>Order ID</span>
         <span>Date</span>
         <span>Price</span>
-        <span>Status</span>
+        <span className={styles.status}>Status</span>
       </div>
+      <div className={styles.separator}></div>
+      <div className={styles.qty}>{userOrders.length} Order(s)</div>
       <div className={styles.ordersContainer}>
-        {/* {userOrders &&
+        {userOrders &&
           userOrders.map((order) => (
             <div className={styles.card} key={order.orderId}>
-              <div>
-                <input type="checkbox" name="" id="" />
-                <span>{order.orderId}</span>
+              <div className={styles.mob}>
+                <div className={styles.id}>
+                  <input type="checkbox" />
+                  <span>{order.orderId}</span>
+                </div>
+
+                <span className={styles.date}>{order.orderDate}</span>
+                <span className={styles.price}>${order.orderTotalPrice}</span>
+                <span className={styles.status}>Paid</span>
               </div>
-              <span>{order.orderDate}</span>
-              <span>{order.orderTotalPrice}</span>
-              <span>Paid</span>
-              <ArrowSvg />
+              <ArrowSvg color="var(--TypeLowEmphasis)" direction="right" />
             </div>
-          ))} */}
+          ))}
       </div>
     </div>
   );
