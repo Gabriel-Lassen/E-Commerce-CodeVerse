@@ -45,7 +45,10 @@ const OrdersActionsProvider = ({children}) => {
                 const product = listProducts.find((product) => {return product.id === item.productId});
                 const newProduct = {
                     productId: product.id,
-                    productPrice: (product.price * (1 - product.discount)).toFixed(2)
+                    productName: product.name,
+                    productInfo: product.info,
+                    productPrice: parseFloat((product.price * (1 - product.discount)).toFixed(2)),
+                    productImage: product.url,
                 }
                 bagProducts = [...bagProducts, newProduct];
                 totalPrice = totalPrice + (product.price * (1 - product.discount)).toFixed(2);
@@ -61,6 +64,7 @@ const OrdersActionsProvider = ({children}) => {
         const orderData = getUserBagProductsData();
         const productsOrdered = orderData.bagProducts;
         const orderTotalPrice = orderData.totalPrice;
+        const orderedName = user.name + user.lastName
         if(user.address == {}){
             return toast.warning('Please enter a valid address');
         }
@@ -78,6 +82,7 @@ const OrdersActionsProvider = ({children}) => {
             orderTotalPrice: orderTotalPrice,
             paymentMethod: paymentMethod,
             upiId: upiId,
+            orderedName: orderedName,
         })
         .then(() => {
             handleDeleteAllProductsUserBag();
