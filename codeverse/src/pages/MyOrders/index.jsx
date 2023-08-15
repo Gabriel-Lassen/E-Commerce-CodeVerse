@@ -11,10 +11,12 @@ import { Link, useNavigate } from "react-router-dom";
 
 const MyOrders = () => {
   const [hidden, setHidden] = useState(false);
+  const [reverse, setReverse] = useState(true);
 
   useEffect(() => {
     const handleHidden = () => {
       setHidden(window.innerWidth >= 769);
+      !setReverse(window.innerWidth <= 768);
     };
 
     handleHidden();
@@ -40,36 +42,41 @@ const MyOrders = () => {
     >
       <div>
         {hidden && <Header />}
-        <header
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            margin: "0 16px",
-            height: "56px",
-          }}
-        >
-          <div
-            style={{ display: "flex", alignItems: "center", gap: "20px" }}
-            onClick={handleBackPage}
+        {reverse && (
+          <header
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              margin: "0 16px",
+              height: "56px",
+            }}
           >
-            <ArrowSvg color="var(--Primary)" direction="left" />
-            <span
-              style={{
-                color: "var(--Primary)",
-                fontSize: "20px",
-                fontStyle: "normal",
-                fontWeight: "600",
-                lineHeight: "26px",
-              }}
+            <div
+              style={{ display: "flex", alignItems: "center", gap: "20px" }}
+              onClick={handleBackPage}
             >
-              My orders
-            </span>
-          </div>
-          <Link to="/profile/mycart" style={{ width: "24px", height: "24px" }}>
-            <img src={bag} />
-          </Link>
-        </header>
+              <ArrowSvg color="var(--Primary)" direction="left" />
+              <span
+                style={{
+                  color: "var(--Primary)",
+                  fontSize: "20px",
+                  fontStyle: "normal",
+                  fontWeight: "600",
+                  lineHeight: "26px",
+                }}
+              >
+                My orders
+              </span>
+            </div>
+            <Link
+              to="/profile/mycart"
+              style={{ width: "24px", height: "24px" }}
+            >
+              <img src={bag} />
+            </Link>
+          </header>
+        )}
         <RouteHistory />
         <TitlePage />
         <div style={{ display: "flex", flexDirection: "row" }}>
