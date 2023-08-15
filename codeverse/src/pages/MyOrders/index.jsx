@@ -56,7 +56,7 @@ const MyOrders = () => {
         )}
         {hidden && <RouteHistory />}
         <TitlePage />
-        <div style={{ display: "flex", flexDirection: "row" }}>
+        <div className={styles.container}>
           {hidden && <SideBarProfile />}
           <MyOrdersComponente />
         </div>
