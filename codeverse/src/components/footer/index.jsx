@@ -22,32 +22,32 @@ const Footer = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to='//categories/personalcare'>
+                    <Link to='/categories/personalcare'>
                         <p>Personal Care</p>
                     </Link>
                 </li>
                 <li>
-                    <Link to='//categories/handbags'>
+                    <Link to='/categories/handbags'>
                         <p>Handbags</p>
                     </Link>
                 </li>
                 <li>
-                    <Link to='//categories/apparels'>
+                    <Link to='/categories/apparels'>
                         <p>Apparels</p>
                     </Link>
                 </li>
                 <li>
-                    <Link to='//categories/watches'>
+                    <Link to='/categories/watches'>
                         <p>Watches</p>
                     </Link>
                 </li>
                 <li>
-                    <Link to='//categories/eyewear'>
+                    <Link to='/categories/eyewear'>
                         <p>Eye Wear</p>
                     </Link>
                 </li>
                 <li>
-                    <Link to='//categories/jewellery'>
+                    <Link to='/categories/jewellery'>
                         <p>Jewellery</p>
                     </Link>
                 </li>
