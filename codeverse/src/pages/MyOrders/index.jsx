@@ -54,7 +54,7 @@ const MyOrders = () => {
             </Link>
           </header>
         )}
-        <RouteHistory />
+        {hidden && <RouteHistory />}
         <TitlePage />
         <div style={{ display: "flex", flexDirection: "row" }}>
           {hidden && <SideBarProfile />}
