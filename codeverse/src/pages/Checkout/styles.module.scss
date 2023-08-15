@@ -1,0 +1,17 @@
+@media screen and (min-width: 769px) {
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      margin: 0 16px 40px 0;
+      justify-content: space-between;
+      gap: 10px;
+
+
+      .info{
+        display: flex;
+        flex-direction: column;
+        width: 780px;
+        gap: 68px;
+      }
+    }
+}
