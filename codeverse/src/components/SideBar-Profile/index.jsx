@@ -47,7 +47,7 @@ const SideBarProfile = () => {
                     </li>
                 </Link>
             
-                <Link className={styles.Link} to={'/profile/myreviews'}>
+                <Link className={styles.Link} to={'#'}>
                     <li className={myReviews ? styles.active  : ''}>
                         My Reviews
                         <ArrowSvg color={myReviews ? 'var(--Primary)' : 'var(--Dark)'} label="My Reviews"/>
@@ -61,7 +61,7 @@ const SideBarProfile = () => {
                     </li>
                 </Link>
             
-                <Link className={styles.Link} to={'/profile/mysavedcards'}>
+                <Link className={styles.Link} to={'#'}>
                     <li className={mySavedCards ? styles.active  : ''}>
                         My Saved Cards
                         <ArrowSvg color={mySavedCards ? 'var(--Primary)' : 'var(--Dark)'} label="My Saved Cards"/>    
