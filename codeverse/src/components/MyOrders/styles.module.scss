@@ -1,4 +1,29 @@
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 360px) {
+    .container {
+        .btns {
+            padding-left: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        button {
+            width: 120px;
+            display: flex;
+            padding: 6px 18px;
+            align-items: flex-start;
+            gap: 10px;
+            border-radius: 8px;
+        }
+            
+        .btnActive {
+            background-color: var(--Primary);
+            color: var(--Bright);
+        }
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 768px) {
  .container {
   width: 100%;
   padding-bottom: 75px;
@@ -6,7 +31,7 @@
 
   .btns {
    display: flex;
-   width: 91vw;
+   width: 95vw;
    padding: 4px;
    flex-direction: row;
    margin: 0 auto;
