@@ -36,28 +36,26 @@ const Preview = () => {
           </button>
         </div>
         <div>
-          <button onClick={() => switchImg(`https://placebear.com/g/200/200`)}>
-            <img src={`https://placebear.com/g/200/200`} alt="" />
+          <button onClick={() => switchImg(imageUrl)}>
+            <img src={selectImage} alt="" />
           </button>
           <button
             onClick={() =>
-              switchImg(
-                `https://cdn.shopify.com/s/files/1/1830/5085/products/VE0007_BCAA_Capsule_90ct_2048x2048.png?v=1494855182`
-              )
+              switchImg(imageUrl)
             }
           >
             <img
-              src={`https://cdn.shopify.com/s/files/1/1830/5085/products/VE0007_BCAA_Capsule_90ct_2048x2048.png?v=1494855182`}
+              src={selectImage}
               alt=""
             />
           </button>
           <button
             onClick={() =>
-              switchImg(`https://source.unsplash.com/user/c_v_r/1900×800`)
+              switchImg(imageUrl)
             }
           >
             <img
-              src={`https://source.unsplash.com/user/c_v_r/1900×800`}
+              src={selectImage}
               alt=""
             />
           </button>
