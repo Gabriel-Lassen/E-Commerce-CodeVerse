@@ -7,6 +7,7 @@ import SideBarProfile from "../../components/SideBar-Profile";
 import TitlePage from "../../components/Title-pages";
 import RouteHistory from "../../components/Route-history";
 import MyOrdersComponente from "../../components/MyOrders";
+import bag from "../../assets/imgs/bag.svg";
 
 const MyOrders = () => {
   const [hidden, setHidden] = useState(false);
@@ -34,6 +35,7 @@ const MyOrders = () => {
         <BtnBackForPage
           svg={<ArrowSvg color="var(--Primary)" direction="left" />}
           text="My Order"
+          secondSvg={bag}
         />
         <RouteHistory />
         <TitlePage />
