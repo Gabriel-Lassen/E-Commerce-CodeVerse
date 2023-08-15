@@ -37,8 +37,6 @@ const MyOrdersComponente = () => {
       </div>
       <div className={styles.inView}>
         {componentInView === "Completed" && <Completed />}
-        {componentInView === "Processing" && <Processing />}
-        {componentInView === "Cancelled" && <Cancelled />}
       </div>
     </div>
   );
