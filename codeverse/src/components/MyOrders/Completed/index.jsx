@@ -15,7 +15,7 @@ const Completed = () => {
         <span className={styles.status}>Status</span>
       </div>
       <div className={styles.separator}></div>
-      <div className={styles.qty}>{userOrders.length} Order(s)</div>
+      <div className={styles.qty}><span>{userOrders.length} Order(s)</span></div>
       <div className={styles.ordersContainer}>
         {userOrders &&
           userOrders.map((order) => (
