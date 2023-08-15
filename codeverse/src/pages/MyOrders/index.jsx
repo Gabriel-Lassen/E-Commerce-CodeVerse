@@ -6,35 +6,45 @@ import ArrowSvg from "../../components/ArrowSvg";
 import SideBarProfile from "../../components/SideBar-Profile";
 import TitlePage from "../../components/Title-pages";
 import RouteHistory from "../../components/Route-history";
-
+import Invoice from "../../components/Invoice";
 
 const MyOrders = () => {
-    const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
-    useEffect(() => {
-      const handleHidden = () => {
-        setHidden(window.innerWidth >= 769);
-      };
-  
-      handleHidden();
-  
-      window.addEventListener("resize", handleHidden);
-    });
+  useEffect(() => {
+    const handleHidden = () => {
+      setHidden(window.innerWidth >= 769);
+    };
+
+    handleHidden();
+
+    window.addEventListener("resize", handleHidden);
+  });
   return (
-    <div style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        height: "100%",
+      }}
+    >
       <div>
-      {hidden && <Header />}
-      <BtnBackForPage
-        svg={<ArrowSvg color="var(--Primary)" direction="left" />}
-        text="My Order"
-      />
-      <RouteHistory />
-      <TitlePage />
-      {hidden && <SideBarProfile />}
+        {hidden && <Header />}
+        <BtnBackForPage
+          svg={<ArrowSvg color="var(--Primary)" direction="left" />}
+          text="My Order"
+        />
+        <RouteHistory />
+        <TitlePage />
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          {hidden && <SideBarProfile />}
+          <Invoice id="#911501881" />
+        </div>
       </div>
       {hidden && <ShowFooter />}
     </div>
   );
 };
 
-export default MyOrders
+export default MyOrders;
