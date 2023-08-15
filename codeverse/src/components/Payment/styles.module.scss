@@ -114,3 +114,23 @@
     gap: 8px;
   }
 }
+@media only screen and (min-width: 769px) {
+  .payment{
+    display: none;
+  }
+  .optionsContainer{
+    display: none;
+  }
+  .container{
+    display: none;
+  }
+  .center{
+    display: none;
+  }
+  .inputWrapper{
+    display: none;
+  }
+  .checkbox{
+    display: none;
+  }
+}
