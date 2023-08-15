@@ -26,12 +26,11 @@
     display: flex;
     flex-direction: row;
     width: 91vw;
-    height: 10vh;
     border-radius: 8px;
     background: var(--Grey);
     justify-content: space-between;
     align-items: center;
-    padding: 0 16px;
+    padding: 16px;
 
     .mob {
      display: flex;
