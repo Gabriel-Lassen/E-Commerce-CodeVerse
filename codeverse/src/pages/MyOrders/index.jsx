@@ -1,3 +1,4 @@
+import styles from "./styles.module.scss";
 import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import ShowFooter from "../../components/ShowFooter";
@@ -43,36 +44,12 @@ const MyOrders = () => {
       <div>
         {hidden && <Header />}
         {reverse && (
-          <header
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              margin: "0 16px",
-              height: "56px",
-            }}
-          >
-            <div
-              style={{ display: "flex", alignItems: "center", gap: "20px" }}
-              onClick={handleBackPage}
-            >
+          <header className={styles.header}>
+            <div className={styles.btn} onClick={handleBackPage}>
               <ArrowSvg color="var(--Primary)" direction="left" />
-              <span
-                style={{
-                  color: "var(--Primary)",
-                  fontSize: "20px",
-                  fontStyle: "normal",
-                  fontWeight: "600",
-                  lineHeight: "26px",
-                }}
-              >
-                My orders
-              </span>
+              <span className={styles.title}>My orders</span>
             </div>
-            <Link
-              to="/profile/mycart"
-              style={{ width: "24px", height: "24px" }}
-            >
+            <Link to="/profile/mycart" className={styles.bag}>
               <img src={bag} />
             </Link>
           </header>

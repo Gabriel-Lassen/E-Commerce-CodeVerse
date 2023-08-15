@@ -1,0 +1,26 @@
+.header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin: 0 16px;
+ height: 56px;
+
+ .btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+ }
+
+ .title {
+  color: var(--Primary);
+  font-Size: 20px;
+  font-Style: normal;
+  font-Weight: 600;
+  line-Height: 26px;
+ }
+
+ .bag {
+  width: 24px;
+  height: 24px
+ }
+}
