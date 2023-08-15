@@ -1,11 +1,7 @@
 import styles from './styles.module.scss';
 import BtnAddToBag from '../BtnAddToBag';
-import { useEffect } from 'react';
 
 const ProductCardOrdered = ({id, imgUrl, name, info, price}) => {
-    useEffect(() => {
-        console.log(imgUrl);
-    }, [imgUrl])
   return (
     <div className={styles.wrapper}>
         <div style={{backgroundImage: `url(${imgUrl})`}} className={styles.img}></div>
