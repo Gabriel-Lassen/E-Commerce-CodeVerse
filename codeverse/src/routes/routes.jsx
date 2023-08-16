@@ -40,7 +40,7 @@ const Rotas = () => {
       <Route path="/profile/myaddressbook" element={<PriviteRoutes> <MyAddressBook/> </PriviteRoutes>} />
       <Route path="/profile/mysavedcards" element={""} />
       <Route path="/profile/mycart" element={<PriviteRoutes> <MyCart /> </PriviteRoutes>} />
-      <Route path="/checkout" element={<Checkout/>} />
+      <Route path="/checkout" element={<PriviteRoutes> <Checkout/> </PriviteRoutes>} />
     </Routes>
   );
 };
