@@ -1,18 +1,29 @@
 import styles from "./styles.module.scss";
+import download from "../../assets/imgs/downloadIcon.svg";
 
 import { OrdersActionsContext } from "../../contexts/ordersActions";
 import { useState, useContext, useEffect } from "react";
 import MobileSeparator from "../MobileSeparator";
-import OrderSummary from "../OrderSummary";
+import OrderDetails from "../OrderDetails";
+import MobileFixedBottomBar from "../MobileFixedBottomBar";
+import BtnGeneric from "../BtnGeneric";
 
 const Invoice = ({ id }) => {
   const { userOrders, handleExecuteOrder } = useContext(OrdersActionsContext);
   const [itemsOrdered, setItemsOrdered] = useState([]);
   const [order, setOrder] = useState();
-  const [subTotal, setSubTotal] = useState(0);
-  const [discount, setDiscount] = useState(0);
-  const [delivery, setDelivery] = useState(0);
   const [pay, setPay] = useState(0);
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    const handleHidden = () => {
+      setHidden(window.innerWidth >= 769);
+    };
+
+    handleHidden();
+
+    window.addEventListener("resize", handleHidden);
+  });
 
   useEffect(() => {
     const order = userOrders.find((item) => {
@@ -21,6 +32,7 @@ const Invoice = ({ id }) => {
     if (order) {
       setOrder(order);
       setItemsOrdered(order.productsOrdered);
+      setPay(order.orderTotalPrice);
     }
   }, [userOrders, id]);
 
@@ -55,12 +67,28 @@ const Invoice = ({ id }) => {
               })}
           </div>
           <MobileSeparator />
-          <OrderSummary
-            pay={pay}
-            subTotal={subTotal}
-            discount={discount}
-            delivery={delivery}
-          />
+          <div className={styles.details}>
+            <OrderDetails totalPrice={pay} />
+            {hidden && (
+              <div className={styles.webButton}>
+                <BtnGeneric
+                  theme={"dark"}
+                  icon={download}
+                  text={"Download Invoice"}
+                />
+              </div>
+            )}
+          </div>
+
+          <MobileFixedBottomBar>
+            <div className={styles.button}>
+              <BtnGeneric
+                theme={"dark"}
+                icon={download}
+                text={"Download Invoice"}
+              />
+            </div>
+          </MobileFixedBottomBar>
         </div>
       )}
     </>

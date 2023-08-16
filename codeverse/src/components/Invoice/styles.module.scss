@@ -1,6 +1,5 @@
 .container {
   .card {
-    margin-left: 16px;
     justify-content: center;
     align-content: center;
     display: flex;
@@ -10,7 +9,7 @@
     gap: 18px;
     padding: 16px;
     border-radius: 8px;
-    margin-bottom: 13px;
+    margin: 16px 16px 13px 16px;
 
     .id {
       color: var(--TypeHighEmphasis);
@@ -51,6 +50,7 @@
   }
 
   .productContainer {
+    height: 38vh;
     margin-top: 13px;
     padding-left: 16px;
     .products {
@@ -97,5 +97,57 @@
         line-height: 16px;
       }
     }
+  }
+
+  .separator {
+    width: 100%;
+  }
+
+  .details {
+    display: flex;
+    justify-content: flex-start;
+    padding: 16px;
+  }
+
+  .button {
+    width: 91vw;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    padding: 33px;
+    width: 60.3vw;
+
+    .card {
+      width: 100%;
+    }
+    .productContainer {
+      height: auto;
+      .products {
+        .separator {
+          width: 100%;
+        }
+      }
+    }
+    .details {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      gap: 16px;
+      align-items: center;
+
+      .webButton {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 918px) {
+  .container {
+    width: 69.3vw;
   }
 }
