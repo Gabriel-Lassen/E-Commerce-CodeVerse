@@ -12,6 +12,7 @@
   --TypeLowEmphasis: #626262;
   --MajorVibrant: #ff404b;
   --Seperator: rgba(0, 0, 0, 0.12);
+  --TextFaded: #7E7E7E;
 }
 
 p,
@@ -49,11 +50,12 @@ li {
   box-sizing: border-box;
 }
 
-html, body{
+html,
+body {
   height: 100%;
 }
 
-#root{
+#root {
   display: flex;
   flex-direction: column;
   height: 100%;
