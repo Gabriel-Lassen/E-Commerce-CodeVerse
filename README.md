@@ -1,10 +1,8 @@
 # Bem-vindo(a) ao nosso E-commerce Coral!
 
-No nosso site, oferecemos uma abordagem inovadora para auxiliar você na organização do seu estilo e na compra de produtos das marcas mais renomadas, como Zara, Biba Channel e outros. Com nosso site, você poderá navegar entre os produtos e simplificar sua experiência de compra, priorizando suas escolhas de moda de maneira eficiente e conveniente.
+No nosso site, oferecemos uma abordagem inovadora para auxiliar você na organização do seu estilo e na compra de produtos das marcas mais renomadas, como Zara, Biba Channel e outros. Com nosso e-commerce, você poderá navegar entre os produtos e simplificar sua experiência de compra, priorizando suas escolhas de moda de maneira eficiente e conveniente. 
 
-A plataforma oferece uma ampla gama de produtos, os compradores podem explorar nosso catálogo, ver detalhes dos produtos e adicionar itens ao carrinho de compras. Você pode adicionar diversos produtos ao carrinho, revisar seu conteúdo e avançar para o pagamento, com várias opções disponíveis.
-
-Além disso, é possível visualizar pedidos anteriores e acompanhar o status de pedidos. As informações do seu perfil, como detalhes pessoais e contato, são editáveis.
+Nosso e-commerce apresenta uma variedade extensa de produtos. Clientes podem explorar o catálogo, ver detalhes e adicionar itens ao carrinho. Revisão e pagamento são simples, oferecendo várias opções. Além disso, veja pedidos anteriores, veja o status e edite suas informações pessoais no perfil.
 
 Para realizar compras na Coral, é necessário criar uma conta no sistema. O processo de registro é rápido e simples, exigindo apenas informações básicas. Ao criar sua conta, você terá acesso a todas as funcionalidades da Coral.
 
@@ -38,6 +36,9 @@ Também oferecemos suporte a diversas plataformas.
 
 **Banco de dados:** Firebase
 
+## Pré requisitos para executar o projeto: 
+
+**Certifique-se de ter o Node instalado em sua máquina**
 
 
 ## Configuração Local
@@ -54,23 +55,21 @@ Para configurar o projeto localmente, siga estes passos:
 ## Navegue até o diretório do projeto:
 
 ```bash
- cd .\E-Commerce-CodeVerse\
+ cd .\E-Commerce-CodeVerse/
 ```
 ```bash
-  cd .\codeverse\
+  cd .\codeverse/
 ```
 
 ## Instale as dependências:
-
-Por favor, certifique-se de ter o Node instalado em sua máquina
 
 ```bash
   npm install
 ```
 
-## Rodando os testes
+## Executar a aplicação
 
-Para rodar os testes, rode o seguinte comando
+Para executar a aplicação, rode o seguinte comando
 
 ```bash
   npm run dev
@@ -79,7 +78,7 @@ Para rodar os testes, rode o seguinte comando
 
 ## Feedback
 
-Se você tiver algum feedback, por favor nos deixe saber por meio de codeVerse.com
+Se você tiver algum feedback, por favor nos deixe saber por meio de versecode036@gmail.com
 
 
 ## 🚀 Desenvolvedores
