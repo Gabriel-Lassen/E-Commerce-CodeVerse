@@ -18,6 +18,7 @@ import MyOrders from "../pages/MyOrders";
 import MyAddressBook from "../pages/MyAddressBook";
 import Checkout from "../pages/Checkout";
 
+import ItemsOrdered from "../components/ItemsOrdered";
 
 const Rotas = () => {
   return (
@@ -35,6 +36,7 @@ const Rotas = () => {
       <Route path="/profile/personalinformation" element={<PriviteRoutes> <PersonalInformation/> </PriviteRoutes>} />
       <Route path="/profile/referandearn" element={<PriviteRoutes> <ReferAndEarn/> </PriviteRoutes>} />
       <Route path="/profile/myorders" element={<PriviteRoutes> <MyOrders/> </PriviteRoutes>} />
+      <Route path="/profile/myorders/:id" element={<PriviteRoutes> <ItemsOrdered /> </PriviteRoutes>} />
       <Route path="/profile/mywishlist" element={<PriviteRoutes> <WishList /> </PriviteRoutes>} />
       <Route path="/profile/myreviews" element={""} />
       <Route path="/profile/myaddressbook" element={<PriviteRoutes> <MyAddressBook/> </PriviteRoutes>} />

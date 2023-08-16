@@ -6,18 +6,24 @@ import MobileSeparator from '../MobileSeparator';
 import OrderDetails from '../OrderDetails';
 import AddressDetails from '../AddressDetails';
 
-const ItemsOrdered = ({id}) => {
+const ItemsOrdered = () => {
     const { userOrders, handleExecuteOrder } = useContext(OrdersActionsContext);
     const [itemsOrdered, setItemsOrdered] = useState([]);
     const [order, setOrder] = useState();
+    const [orderId, setOrderId] = useState('');
 
     useEffect(() => {
-        const order = userOrders.find((item) => {return item.orderId == id});
+      const orderId = window.location.pathname.split("/profile/myorders/").pop();
+      setOrderId(orderId);
+    }, [])
+
+    useEffect(() => {
+        const order = userOrders.find((item) => {return item.orderId == orderId});
         if(order) {
             setOrder(order);
             setItemsOrdered(order.productsOrdered);
         }
-    }, [userOrders, id]);
+    }, [userOrders, orderId]);
 
   return (
     <>
