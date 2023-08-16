@@ -36,9 +36,13 @@ Também oferecemos suporte a diversas plataformas.
 
 **Banco de dados:** Firebase
 
-## Pré requisitos para executar o projeto: 
+## Requisitos antes de executar o projeto: 
 
-**Certifique-se de ter o Node instalado em sua máquina**
+**Node.js: Certifique-se de ter o Node.js instalado em seu sistema. Você pode baixá-lo em https://nodejs.org/.**
+
+**Git: Se você ainda não o possui, você pode fazer o download em https://git-scm.com/.**
+
+**Visual Studio Code: Recomendamos a utilização do Visual Studio Code como ambiente de desenvolvimento. Caso ainda não o tenha, você pode instalá-lo a partir do link https://code.visualstudio.com/.**
 
 
 ## Configuração Local
