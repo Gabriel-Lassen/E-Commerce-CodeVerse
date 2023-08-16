@@ -85,7 +85,7 @@
     
     .otherFilds {
         display: flex;
-        gap: 75px;
+        gap: 60px;
         
     }
 
@@ -118,8 +118,11 @@
     }
     
     .details {
-        margin-top: 0;
-        padding: 0;
+        display: flex;
+        width: 20vw;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
     
     .payment {
