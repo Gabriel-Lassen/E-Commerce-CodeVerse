@@ -6,6 +6,22 @@
   .wrapper{
     display: none;
   }
+
+  .btnPayConfirm{
+    display: flex;
+    width: 92vw;
+    height: 44px;
+    margin: 16px;
+    position: fixed;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: var(--Primary);
+    color: var(--Bright);
+    text-align: center;
+    border: none;
+  }
 }
 
 @media screen and (min-width: 769px) {
@@ -25,6 +41,31 @@
         flex-direction: column;
         width: 780px;
         gap: 68px;
+
+        .btnsDiv{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .btnPayConfirm, .btnBack {
+            display: flex;
+            width: 136px;
+            height: 44px;
+            padding: 10px 8px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px;
+            background: var(--Primary);
+            color: var(--Bright);
+            text-align: center;
+          }
+      
+          .btnBack{
+            color: var(--Primary);
+            background: var(--Bright);
+            text-decoration-line: underline;
+          }
+        }
       }
     }
 }

@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { OrdersActionsContext } from "../../contexts/ordersActions";
+import { useContext } from "react";
 
 import OrderSumary from "../../components/OrderSumary"
 import Header from "../../components/Header";
@@ -19,6 +22,8 @@ import styles from "./styles.module.scss";
 
 
 const Checkout = () => {
+
+  const { handleExecuteOrder } = useContext(OrdersActionsContext);
   
   const [hidden, setHidden] = useState(false);
 
@@ -52,6 +57,14 @@ const Checkout = () => {
           <DropdowBtn title='Select Payment Method' footer='footer'>
                 <PaymentDesktop/>
           </DropdowBtn>
+
+          <div className={styles.btnsDiv}>
+          <Link to={'/profile/mycart'}>
+          <span className={styles.btnBack}>Back to Cart</span>
+          </Link>
+          <button className={styles.btnPayConfirm} onClick={handleExecuteOrder}> Checkout </button>
+          </div>
+          
           </div>
            <OrderSumary/>
         </div>
@@ -68,6 +81,8 @@ const Checkout = () => {
         <DropdowBtn title='Select Payment Method'>
           <Payment/>
         </DropdowBtn>
+
+        <button className={styles.btnPayConfirm} onClick={handleExecuteOrder}>Checkout</button>
         </div>
      </div>
 
