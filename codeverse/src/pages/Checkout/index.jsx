@@ -39,35 +39,31 @@ const Checkout = () => {
     });
 
   return (
-     <div style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
-     <div>
-     {hidden && <Header />}
-        <BtnBackForPage
-            svg={<ArrowSvg color="var(--Primary)" direction="left" />}
-          text="Order Summary"
-        />
+    <div style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
+      <div>
+        {hidden && <Header />}
+        <BtnBackForPage svg={<ArrowSvg color="var(--Primary)" direction="left" />} text="Order Summary" />
         <RouteHistory />
         <TitlePage />
 
         <div className={styles.wrapper}>
           <div className={styles.info}>
-          <DropdowBtn title='Contact Information'>
-                <Address />
-          </DropdowBtn>
-          
-          <DropdowBtn title='Select Payment Method' footer='footer'>
-                <PaymentDesktop/>
-          </DropdowBtn>
+            <DropdowBtn title='Contact Information'>
+              <Address />
+            </DropdowBtn>
 
-          <div className={styles.btnsDiv}>
-          <Link to={'/profile/mycart'}>
-          <span className={styles.btnBack}>Back to Cart</span>
-          </Link>
-          <button className={styles.btnPayConfirm} onClick={handleExecuteOrder}> Checkout </button>
+            <DropdowBtn title='Select Payment Method' footer='footer'>
+              <PaymentDesktop/>
+            </DropdowBtn>
+
+            <div className={styles.btnsDiv}>
+              <Link to={'/profile/mycart'}>
+                <span className={styles.btnBack}>Back to Cart</span>
+              </Link>
+              <button className={styles.btnPayConfirm} onClick={handleExecuteOrder}> Checkout </button>
+            </div>
           </div>
-          
-          </div>
-           <OrderSumary/>
+          <OrderSumary/>
         </div>
 
         <div className={styles.mobile}>
@@ -91,10 +87,9 @@ const Checkout = () => {
             </div>
           </MobileFixedBottomBar>
         </div>
-     </div>
-
-     {hidden && <ShowFooter />}
-   </div>
+      </div>
+      {hidden && <ShowFooter />}
+    </div>
   )
 }
 
