@@ -16,9 +16,10 @@ import BtnAddress from "../../components/BtnOpenAddress";
 import { Payment } from "../../components/Payment";
 import { PaymentDesktop } from "../../components/PaymentDesktop";
 import MobileSeparator from "../../components/MobileSeparator";
+import MobileFixedBottomBar from "../../components/MobileFixedBottomBar";
+import BtnGeneric from "../../components/BtnGeneric";
 
 import styles from "./styles.module.scss";
-
 
 
 const Checkout = () => {
@@ -70,19 +71,25 @@ const Checkout = () => {
         </div>
 
         <div className={styles.mobile}>
-        <BtnAddress />
+          <BtnAddress />
 
-        <MobileSeparator/>
-        <DropdowBtn title='Product Details'>
-          <OrderSumary/>
-        </DropdowBtn>
+          <MobileSeparator/>
+          <DropdowBtn title='Product Details'>
+            <OrderSumary/>
+          </DropdowBtn>
 
-        <MobileSeparator/>
-        <DropdowBtn title='Select Payment Method'>
-          <Payment/>
-        </DropdowBtn>
+          <MobileSeparator/>
+          <DropdowBtn title='Select Payment Method'>
+            <Payment/>
+          </DropdowBtn>
 
-        <button className={styles.btnPayConfirm} onClick={handleExecuteOrder}>Checkout</button>
+          <button className={styles.btnPayConfirm} onClick={handleExecuteOrder}>Checkout</button>
+
+          <MobileFixedBottomBar>
+            <div className={styles.bottomBar}>
+              <BtnGeneric theme={'dark'} text={'Checkout'} onClick={handleExecuteOrder} />
+            </div>
+          </MobileFixedBottomBar>
         </div>
      </div>
 

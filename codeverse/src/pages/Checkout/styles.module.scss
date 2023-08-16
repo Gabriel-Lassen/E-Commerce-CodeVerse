@@ -2,25 +2,20 @@
   .mobile{
     display: flex;
     flex-direction: column;
+    padding-bottom: 75px;
   }
   .wrapper{
     display: none;
   }
 
   .btnPayConfirm{
+    display: none;
+  }
+
+  .bottomBar {
+    width: 100%;
     display: flex;
-    width: 92vw;
-    height: 44px;
-    margin: 16px;
-    position: fixed;
-    bottom: 0;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    background: var(--Primary);
-    color: var(--Bright);
-    text-align: center;
-    border: none;
+    padding: 0 16px;
   }
 }
 
