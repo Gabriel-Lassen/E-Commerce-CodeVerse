@@ -17,6 +17,7 @@ const OrdersActionsProvider = ({children}) => {
     const [paymentMethod, setPaymentMethod] = useState('');
     const [upiId, setUpiId] = useState('');
     const [userOrders, setUserOrders] = useState([]);
+    const [orderConfirmed, setOrderConfirmed] = useState(false);
 
     useEffect(() => {
         if(user){
@@ -90,7 +91,8 @@ const OrdersActionsProvider = ({children}) => {
             setPaymentMethod('');
             setUpiId('')
             handleGetUserOrders();
-            navigate("/");
+            setOrderConfirmed(true);
+            navigate("/checkout/orderplaced");
         })
     }
 
@@ -113,6 +115,8 @@ const OrdersActionsProvider = ({children}) => {
             setUpiId,
             userOrders,
             handleExecuteOrder,
+            orderConfirmed,
+            setOrderConfirmed,
         }}
     >
         {children}
