@@ -5,10 +5,12 @@ import { AuthContext } from "./Auth";
 import { BagActionsContext } from './bagActions';
 import { ProductsContext } from './products';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 export const OrdersActionsContext = createContext({});
 
 const OrdersActionsProvider = ({children}) => {
+    const navigate = useNavigate();
     const { listProducts } = useContext(ProductsContext);
     const { user } = useContext(AuthContext);
     const { userBag, handleDeleteAllProductsUserBag } = useContext(BagActionsContext);
@@ -61,7 +63,11 @@ const OrdersActionsProvider = ({children}) => {
         const orderData = getUserBagProductsData();
         const productsOrdered = orderData.bagProducts;
         const orderTotalPrice = orderData.totalPrice;
-        if(user.address == {}){
+        if(user.address.street === '' || 
+        user.address.city === '' || 
+        user.address.state === '' || 
+        user.address.pinCode === '' || 
+        user.address.complement === ''){
             return toast.warning('Please enter a valid address');
         }
         if(paymentMethod === ''){
@@ -82,7 +88,9 @@ const OrdersActionsProvider = ({children}) => {
         .then(() => {
             handleDeleteAllProductsUserBag();
             setPaymentMethod('');
+            setUpiId('')
             handleGetUserOrders();
+            navigate("/");
         })
     }
 
