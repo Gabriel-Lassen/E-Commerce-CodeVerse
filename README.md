@@ -55,10 +55,10 @@ Para configurar o projeto localmente, siga estes passos:
 ## Navegue até o diretório do projeto:
 
 ```bash
- cd .\E-Commerce-CodeVerse/
+ cd ./E-Commerce-CodeVerse/
 ```
 ```bash
-  cd .\codeverse/
+  cd ./codeverse/
 ```
 
 ## Instale as dependências:
