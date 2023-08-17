@@ -19,7 +19,7 @@ import MobileFixedBottomBar from "../../components/MobileFixedBottomBar";
 import BtnGeneric from "../../components/BtnGeneric";
 
 const OrderDetail = () => {
-  const { userOrders } = useContext(OrdersActionsContext);
+  const { userOrders, handleReorder } = useContext(OrdersActionsContext);
   const navigate = useNavigate()
 
   const [hidden, setHidden] = useState(false);
@@ -45,7 +45,7 @@ const OrderDetail = () => {
   useEffect(() => {
       const order = userOrders.find((item) => {return item.orderId == orderId});
       if(order) {
-          setOrder(order);
+        setOrder(order);
       }
   }, [userOrders, orderId]);
   
@@ -116,13 +116,13 @@ const OrderDetail = () => {
                 <ItemsOrdered />
                 <MobileFixedBottomBar>
                   <div className={styles.botttomBtn}>
-                    <BtnGeneric theme='dark' text='Reorder' onClick={() => {}} />
+                    <BtnGeneric theme='dark' text='Reorder' onClick={() => handleReorder(order)} />
                   </div>
                 </MobileFixedBottomBar>
                 {hidden &&
                   <div className={styles.desktopBtn}>
                     <div className={styles.btn}>
-                      <BtnGeneric theme='dark' text='Reorder' onClick={() => {}} />
+                      <BtnGeneric theme='dark' text='Reorder' onClick={() => handleReorder(order)} />
                     </div>
                   </div>
                 }
