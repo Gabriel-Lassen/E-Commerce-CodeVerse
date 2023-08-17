@@ -36,8 +36,29 @@ const Invoice = ({ id }) => {
     }
   }, [userOrders, id]);
 
+  function dados() {
+    var dados_user = document.getElementById("dados").innerHTML;
+
+    var janela = window.open("", "_blank", "width=800, height=600");
+    janela.document.write("<html><head>");
+    janela.document.write(
+      '<title style="font-size: 24px;">Download Invoice</title>'
+    );
+    janela.document.write("<style>");
+    janela.document.write(
+      'body { margin: 20px; font-family: "Inter", sans-serif; font-size: 16px; }'
+    );
+    janela.document.write("</style></head>");
+    janela.document.write("<body>");
+    janela.document.write(dados_user);
+    janela.document.write("</body></html>");
+    janela.document.close();
+    janela.print();
+  }
+
   return (
     <>
+    <div id="dados">
       {order && (
         <div className={styles.container}>
           <div className={styles.card}>
@@ -75,23 +96,27 @@ const Invoice = ({ id }) => {
                   theme={"dark"}
                   icon={download}
                   text={"Download Invoice"}
+                  onClick={dados}
                 />
               </div>
             )}
           </div>
-
-          <MobileFixedBottomBar>
-            <div className={styles.button}>
-              <BtnGeneric
-                theme={"dark"}
-                icon={download}
-                text={"Download Invoice"}
-              />
-            </div>
-          </MobileFixedBottomBar>
+           
         </div>
       )}
-    </>
+    </div>
+    
+     <MobileFixedBottomBar>
+     <div className={styles.button}>
+       <BtnGeneric
+         theme={"dark"}
+         icon={download}
+         text={"Download Invoice"}
+         onClick={dados}
+       />
+     </div>
+   </MobileFixedBottomBar>
+   </>
   );
 };
 

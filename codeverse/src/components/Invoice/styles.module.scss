@@ -1,4 +1,5 @@
 .container {
+  padding-bottom: 75px;
   .card {
     justify-content: center;
     align-content: center;
@@ -109,17 +110,16 @@
     padding: 16px;
   }
 
-  .button {
-    width: 91vw;
-    margin: 0 auto;
-  }
+}
+.button {
+  width: 91vw;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 769px) {
   .container {
     padding: 33px;
     width: 60.3vw;
-
     .card {
       width: 100%;
     }
