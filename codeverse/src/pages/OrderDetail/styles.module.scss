@@ -1,5 +1,122 @@
-.container, .title{
+.btns, .title{
   display: none;
+}
+
+.topMobile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+
+  button {
+    background-color: transparent;
+  }
+
+  .leftTopBar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    span {
+      color: var(--Primary);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 26px;
+    }
+  }
+}
+
+.orderCard {
+  width: 100%;
+  min-height: 104px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--Grey);
+
+  .cardTitle {
+    color: var(--TypeHighEmphasis);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  .cardContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .placed {
+      display: flex;
+      flex-direction: column;
+
+      :first-child {
+        color: var(--TypeLowEmphasis);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+      }
+
+      :last-child {
+        color: var(--TypeHighEmphasis);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+      }
+    }
+
+    .status {
+      display: flex;
+      padding: 12px 8px;
+      border-radius: 8px;
+      background: var(--Primary);
+
+      span {
+        color: var(--Bright);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+      }
+    }
+  }
+}
+
+.botttomBtn {
+  width: 100%;
+  display: flex;
+  padding: 0 16px;
+}
+
+.modalWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 14px 0 12px;
+
+  button {
+    display: flex;
+    background-color: transparent;
+
+    span {
+      color: var(--TypeHighEmphasis);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 16px;
+    }
+  }
 }
 
 @media screen and (min-width: 769px) {
@@ -58,6 +175,18 @@
     .btnActive {
         background-color: var(--Primary);
         color: var(--Bright);
+    }
+  }
+
+  .desktopBtn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+
+    .btn {
+      width: 100%;
+      max-width: 136px;
     }
   }
 }
