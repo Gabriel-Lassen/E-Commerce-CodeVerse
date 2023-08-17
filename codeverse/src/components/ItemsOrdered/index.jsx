@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
-import styles from './styles.module.scss';
 import { OrdersActionsContext } from '../../contexts/ordersActions';
+import styles from './styles.module.scss';
 import ProductCardOrdered from '../ProductCardOrdered';
 import MobileSeparator from '../MobileSeparator';
 import OrderDetails from '../OrderDetails';
 import AddressDetails from '../AddressDetails';
 
 const ItemsOrdered = () => {
-    const { userOrders, handleExecuteOrder } = useContext(OrdersActionsContext);
+    const { userOrders } = useContext(OrdersActionsContext);
     const [itemsOrdered, setItemsOrdered] = useState([]);
     const [order, setOrder] = useState();
     const [orderId, setOrderId] = useState('');
@@ -41,6 +41,12 @@ const ItemsOrdered = () => {
             </div>
           </div>
           <hr />
+
+          {itemsOrdered &&
+            <div className={styles.qtyProducts}>
+              <span>{itemsOrdered.length} product(s)</span>
+            </div>
+          }
 
           <div className={styles.products}>
             {itemsOrdered &&
