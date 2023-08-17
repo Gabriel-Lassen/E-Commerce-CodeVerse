@@ -69,7 +69,6 @@
 @media screen and (min-width: 769px) {
   .container {
     margin: 0 0 0 16px;
-    max-width: 411px;
     h3, h2 {
       color: var(--Dark);
       font-size: 20px;
@@ -93,8 +92,6 @@
     }
     .cards {
       display: flex;
-      width: 91vw;
-      max-width: 462px;
       border-radius: 8px;
       background-color: var(--Bright);
       margin-top: 16px;

@@ -1,4 +1,7 @@
 import { Routes, Route } from "react-router-dom";
+
+import PriviteRoutes from "./PriviteRoutes";
+
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Login from "../pages/Login";
@@ -12,11 +15,11 @@ import CategoriesProducts from "../pages/CategoriesProducts";
 import GetStart from "../pages/GetStart";
 import ReferAndEarn from "../pages/ReferAndEarn";
 import PersonalInformation from "../pages/PersonalInformation";
-
-import PriviteRoutes from "./PriviteRoutes";
 import MyOrders from "../pages/MyOrders";
 import MyAddressBook from "../pages/MyAddressBook";
 import Checkout from "../pages/Checkout";
+
+import { OrderPlaced } from "../components/OrderPlaced";
 
 
 const Rotas = () => {
@@ -40,7 +43,8 @@ const Rotas = () => {
       <Route path="/profile/myaddressbook" element={<PriviteRoutes> <MyAddressBook/> </PriviteRoutes>} />
       <Route path="/profile/mysavedcards" element={""} />
       <Route path="/profile/mycart" element={<PriviteRoutes> <MyCart /> </PriviteRoutes>} />
-      <Route path="/checkout" element={<Checkout/>} />
+      <Route path="/checkout" element={<PriviteRoutes> <Checkout/> </PriviteRoutes>} />
+      <Route path="/checkout/orderplaced" element={<PriviteRoutes> <OrderPlaced /> </PriviteRoutes>} />
     </Routes>
   );
 };

@@ -5,16 +5,19 @@ import { AuthContext } from "./Auth";
 import { BagActionsContext } from './bagActions';
 import { ProductsContext } from './products';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 export const OrdersActionsContext = createContext({});
 
 const OrdersActionsProvider = ({children}) => {
+    const navigate = useNavigate();
     const { listProducts } = useContext(ProductsContext);
     const { user } = useContext(AuthContext);
     const { userBag, handleDeleteAllProductsUserBag } = useContext(BagActionsContext);
     const [paymentMethod, setPaymentMethod] = useState('');
     const [upiId, setUpiId] = useState('');
     const [userOrders, setUserOrders] = useState([]);
+    const [orderConfirmed, setOrderConfirmed] = useState(false);
 
     useEffect(() => {
         if(user){
@@ -61,7 +64,11 @@ const OrdersActionsProvider = ({children}) => {
         const orderData = getUserBagProductsData();
         const productsOrdered = orderData.bagProducts;
         const orderTotalPrice = orderData.totalPrice;
-        if(user.address == {}){
+        if(user.address.street === '' || 
+        user.address.city === '' || 
+        user.address.state === '' || 
+        user.address.pinCode === '' || 
+        user.address.complement === ''){
             return toast.warning('Please enter a valid address');
         }
         if(paymentMethod === ''){
@@ -82,7 +89,10 @@ const OrdersActionsProvider = ({children}) => {
         .then(() => {
             handleDeleteAllProductsUserBag();
             setPaymentMethod('');
+            setUpiId('')
             handleGetUserOrders();
+            setOrderConfirmed(true);
+            navigate("/checkout/orderplaced");
         })
     }
 
@@ -105,6 +115,8 @@ const OrdersActionsProvider = ({children}) => {
             setUpiId,
             userOrders,
             handleExecuteOrder,
+            orderConfirmed,
+            setOrderConfirmed,
         }}
     >
         {children}

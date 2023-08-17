@@ -75,42 +75,24 @@
       margin-top: 16px;
     }
   }
-
-  .inputWrapper {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-
-    p {
-      color: var(--LightText);
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 18px;
-      margin-top: 2px;
-    }
-
-    input {
-      display: flex;
-      padding: 16px 96px 16px 16px;
-      align-items: center;
-      gap: 12px;
-      border-radius: 4px;
-      background: var(--Grey);
-      border: 0;
-    }
-    input::placeholder {
-      color: var(--TypeLowEmphasis);
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 20px;
-    }
+}
+@media only screen and (min-width: 769px) {
+  .payment{
+    display: none;
   }
-  .checkbox {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    gap: 8px;
+  .optionsContainer{
+    display: none;
+  }
+  .container{
+    display: none;
+  }
+  .center{
+    display: none;
+  }
+  .inputWrapper{
+    display: none;
+  }
+  .checkbox{
+    display: none;
   }
 }

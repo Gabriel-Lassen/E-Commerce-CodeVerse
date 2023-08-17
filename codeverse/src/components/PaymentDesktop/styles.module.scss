@@ -1,8 +1,7 @@
 .container {
   display: flex;
-  justify-content: center;
   align-items: flex-start;
-  gap: 20px;
+  gap: 10px;
 
   .payment {
     display: flex;
@@ -11,7 +10,7 @@
   }
 
   .box {
-    width: 160px;
+    width: 15vw;
     height: 143px;
     border-radius: 12px;
     border: 1px solid #e3e3e3;
@@ -78,8 +77,7 @@
   flex-direction: column;
   border-radius: 8px;
   border: 1px solid var(--Primary);
-  width: 709px;
-  margin: 0 auto;
+  width: 500px;
   margin-top: 63px;
 }
 
@@ -125,6 +123,19 @@
   }
   img {
     width: 52px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    justify-content: center;
+    .box {
+      width: 160px;
+      height: 143px;
+      border-radius: 12px;
+      border: 1px solid #e3e3e3;
+      background: var(--Bright);
+    }
   }
 }
 

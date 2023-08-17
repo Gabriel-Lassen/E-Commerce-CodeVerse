@@ -30,40 +30,15 @@
       font-weight: 500;
       line-height: 18px;
     }
-    .button {
+
+    .btns {
+      width: 100%;
+      max-width: 330px;
       display: flex;
-      position: fixed;
-      bottom: 68px;
-      //width: 91.11vw;
-      padding: 10px 125px;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      border-radius: 8px;
-      border: 2px solid var(--Primary);
-      background: var(--Bright);
-      color: var(--Primary);
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 24px;
-    }
-    button {
-      display: flex;
-      position: fixed;
-      bottom: 11px;
-      padding: 10px 100px;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      border-radius: 8px;
-      background: var(--Primary);
-      color: var(--Bright);
-      text-align: center;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 24px;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 30px;
+      padding: 0 16px;
     }
   }
 }
