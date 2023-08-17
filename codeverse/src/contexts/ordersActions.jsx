@@ -27,7 +27,7 @@ const OrdersActionsProvider = ({children}) => {
 
     function generateUniqueID() {
         const randomPart = Math.floor(Math.random() * 1000000000).toString().padStart(9, '0');
-        return `#${randomPart}`;
+        return randomPart;
     }
 
     function getCurrentDate() {
@@ -48,10 +48,13 @@ const OrdersActionsProvider = ({children}) => {
                 const product = listProducts.find((product) => {return product.id === item.productId});
                 const newProduct = {
                     productId: product.id,
-                    productPrice: (product.price * (1 - product.discount)).toFixed(2)
+                    productName: product.name,
+                    productInfo: product.info,
+                    productPrice: (product.price * (1 - product.discount)).toFixed(2),
+                    productImage: product.url,
                 }
                 bagProducts = [...bagProducts, newProduct];
-                totalPrice = totalPrice + (product.price * (1 - product.discount)).toFixed(2);
+                totalPrice = totalPrice + (product.price * (1 - product.discount));
             })
 
             return {bagProducts: bagProducts, totalPrice: totalPrice};
@@ -62,8 +65,12 @@ const OrdersActionsProvider = ({children}) => {
         const orderId = generateUniqueID();
         const orderDate = getCurrentDate();
         const orderData = getUserBagProductsData();
+        if(!orderData) {
+            return
+        }
         const productsOrdered = orderData.bagProducts;
         const orderTotalPrice = orderData.totalPrice;
+        const orderedName = user.firstName + ' ' + user.lastName
         if(user.address.street === '' || 
         user.address.city === '' || 
         user.address.state === '' || 
@@ -82,9 +89,10 @@ const OrdersActionsProvider = ({children}) => {
             orderDate: orderDate,
             orderAddress: user.address,
             productsOrdered: productsOrdered,
-            orderTotalPrice: orderTotalPrice,
+            orderTotalPrice: orderTotalPrice.toFixed(2),
             paymentMethod: paymentMethod,
             upiId: upiId,
+            orderedName: orderedName,
         })
         .then(() => {
             handleDeleteAllProductsUserBag();
