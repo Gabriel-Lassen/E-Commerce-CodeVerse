@@ -119,7 +119,7 @@
 @media screen and (min-width: 769px) {
   .container {
     padding: 33px;
-    width: 60.3vw;
+    width: 100%;
     .card {
       width: 100%;
     }
@@ -134,9 +134,9 @@
     .details {
       width: 100%;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-around;
-      gap: 16px;
+      gap: 50px;
       align-items: center;
 
       .webButton {
@@ -148,6 +148,11 @@
 
 @media screen and (min-width: 918px) {
   .container {
-    width: 69.3vw;
+    width:  100%;
+
+    .details {
+      flex-direction: row;
+      gap: 16px;
+    }
   }
 }
