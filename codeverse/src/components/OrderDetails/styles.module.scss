@@ -57,6 +57,7 @@
 @media only screen and (min-width: 769px){
     .wrapper {
         max-width: 260px;
+        min-width: 260px;
         gap: 8px;
     }
     
@@ -87,5 +88,11 @@
     
     .grandValue {
         font-weight: 600;
+    }
+}
+
+@media only screen and (min-width: 920px) {
+    .wrapper {
+        min-width: 165px;
     }
 }
