@@ -101,6 +101,7 @@ const OrdersActionsProvider = ({children}) => {
             handleGetUserOrders();
             setOrderConfirmed(true);
             navigate("/checkout/orderplaced");
+            toast.success('Your order has been confirmed!');
         })
     }
 
@@ -115,6 +116,31 @@ const OrdersActionsProvider = ({children}) => {
         setUserOrders(list);
     }
 
+    async function handleReorder(order) {
+        if(order){
+            const orderId = generateUniqueID();
+            const orderDate = getCurrentDate();
+            await setDoc(doc(db, `/users/${user.uid}/orders`, orderId), {
+                orderId: orderId,
+                orderDate: orderDate,
+                orderAddress: order.orderAddress,
+                productsOrdered: order.productsOrdered,
+                orderTotalPrice: order.orderTotalPrice,
+                paymentMethod: order.paymentMethod,
+                upiId: order.upiId,
+                orderedName: order.orderedName,
+            })
+            .then(() => {
+                setPaymentMethod('');
+                setUpiId('');
+                handleGetUserOrders();
+                setOrderConfirmed(true);
+                navigate("/checkout/orderplaced");
+                toast.success('Your reorder has been confirmed!');
+            })
+        }
+    }
+
   return (
     <OrdersActionsContext.Provider 
         value={{
@@ -125,6 +151,7 @@ const OrdersActionsProvider = ({children}) => {
             handleExecuteOrder,
             orderConfirmed,
             setOrderConfirmed,
+            handleReorder
         }}
     >
         {children}
