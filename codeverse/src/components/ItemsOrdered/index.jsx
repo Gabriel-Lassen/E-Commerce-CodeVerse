@@ -5,6 +5,7 @@ import ProductCardOrdered from '../ProductCardOrdered';
 import MobileSeparator from '../MobileSeparator';
 import OrderDetails from '../OrderDetails';
 import AddressDetails from '../AddressDetails';
+import Invoice from '../Invoice';
 
 const ItemsOrdered = () => {
     const { userOrders, handleExecuteOrder } = useContext(OrdersActionsContext);
@@ -86,7 +87,7 @@ const ItemsOrdered = () => {
               <AddressDetails name={order.orderedName} complement={order.orderAddress.complement} street={order.orderAddress.street} city={order.orderAddress.city} pinCode={order.orderAddress.pinCode} /> 
             </div>
           </div>
-
+            <Invoice id={orderId}/>
         </div>
       }
     </>

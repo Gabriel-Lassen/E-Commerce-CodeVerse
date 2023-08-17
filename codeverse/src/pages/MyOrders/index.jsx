@@ -32,15 +32,7 @@ const MyOrders = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-
-        height: "100%",
-      }}
-    >
+    <div style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
       <div>
         {hidden && <Header />}
         {reverse && (
