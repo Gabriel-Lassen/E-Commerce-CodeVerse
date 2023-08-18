@@ -148,7 +148,7 @@ const BagModal = ({ active }) => {
             <span className={styles.buy}>Buy deals of the day!</span>
           </div>
           <div className={styles.actions}>
-            <BtnGeneric theme='light' text='Go shopping!' onClick={close} />
+            <BtnGeneric theme='light' text='Go shopping!' onClick={() => navigate('/')} />
           </div>
         </div>
       }
