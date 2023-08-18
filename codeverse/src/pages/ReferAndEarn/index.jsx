@@ -1,6 +1,6 @@
 import ReferandEarn from "../../components/Refer-Earn";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import ShowFooter from "../../components/ShowFooter";
 import BtnBackForPage from "../../components/BtnBackForPage";
 import ArrowSvg from "../../components/ArrowSvg";
 import styles from "./styles.module.scss";
@@ -22,7 +22,8 @@ const ReferAndEarn = () => {
     window.addEventListener("resize", handleHidden);
   });
   return (
-    <div>
+    <div style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
+      <div>
       {hidden && <Header />}
       <BtnBackForPage
         svg={<ArrowSvg color="var(--Primary)" direction="left" />}
@@ -34,7 +35,8 @@ const ReferAndEarn = () => {
         {hidden && <SideBarProfile />}
         <ReferandEarn />
       </div>
-      {hidden && <Footer />}
+      </div>
+      {hidden && <ShowFooter />}
     </div>
   );
 };

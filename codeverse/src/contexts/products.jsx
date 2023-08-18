@@ -6,6 +6,7 @@ export const ProductsContext = createContext({});
 function ProductsProvider({ children }) {
   const [listProducts, setListProducts] = useState();
   const [listBrands, setListBrands] = useState();
+  const [listColors, setListColors] = useState()
 
   useEffect(() => {
     const products = db.products;
@@ -13,6 +14,9 @@ function ProductsProvider({ children }) {
 
     const brands = db.brands;
     setListBrands(brands);
+
+    const colors = db.colors;
+    setListColors(colors);
   }, []);
 
   return (
@@ -20,6 +24,7 @@ function ProductsProvider({ children }) {
       value={{
         listProducts,
         listBrands,
+        listColors,
       }}
     >
       {children}

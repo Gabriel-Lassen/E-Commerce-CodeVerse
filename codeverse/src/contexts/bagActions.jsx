@@ -17,13 +17,17 @@ const BagActionsProvider = ({children}) => {
     }, [user])
 
     async function handleaddToUserBag(productId){
-        await setDoc(doc(db, `/users/${user.uid}/bag`, productId), {
-            productId,
-        })
-        .then(() => {
-            toast.success("Product added to bag");
-            handleGetUserBag();
-        });
+        if(user) {
+            await setDoc(doc(db, `/users/${user.uid}/bag`, productId), {
+                productId,
+            })
+            .then(() => {
+                toast.success("Product added to bag");
+                handleGetUserBag();
+            });
+        } else {
+            return toast.warning('Please loggin to add a product to your bag');
+        }
     };
 
     async function handleGetUserBag() {

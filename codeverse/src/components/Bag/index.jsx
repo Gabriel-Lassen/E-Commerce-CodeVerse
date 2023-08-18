@@ -7,6 +7,8 @@ import Cupom from "../CupomInput";
 import { ProductsContext } from "../../contexts/products";
 import { BagActionsContext } from "../../contexts/bagActions";
 import { WishlistActionsContext } from "../../contexts/wishlistActions";
+import OrderSummary from "../OrderSummary";
+import MyBagFound from "../NotFoundMyBag";
 
 const Bag = () => {
   const [hidden, setHidden] = useState(false);
@@ -70,6 +72,10 @@ const Bag = () => {
     setDelivery(delive);
     setPay(total);
   }, [userBag]);
+
+  if (userBag.length === 0) {
+    return <MyBagFound/>;
+  }
 
   return (
     <div className={styles.container}>
@@ -165,39 +171,15 @@ const Bag = () => {
         )}
       </section>
       <img src={background} alt="" className={styles.bg} />
-      <div className={styles.rightWeb}>
-        <div className={styles.order}>
-          <h2>Order Details</h2>
-          <h3>Order Summary</h3>
-          <div className={styles.separator}></div>
-          <div>
-            <p>Sub Total</p>
-            <span>${subTotal.toFixed(2)}</span>
-          </div>
-          <div>
-            <p>Discount</p>
-            <span>-${discount}</span>
-          </div>
-          <div>
-            <p>Delivery</p>
-            <span>-${delivery.toFixed(2)}</span>
-          </div>
-          <div>
-            <h2>Grand Total</h2>
-            <span>${pay.toFixed(2)}</span>
-          </div>
-        </div>
-        <div className={styles.bottom}>
-          <div>
-            <p>Total Bag Amount</p>
-            <span>${pay.toFixed(2)}</span>
-          </div>
-          <button>Place Order</button>
-          <Link to="/">
-            <button className={styles.cShop}>Continue Shopping</button>
-          </Link>
-        </div>
-      </div>
+      <OrderSummary
+        titleWeb={"Order Details"}
+        titleMob={"Order Summary"}
+        pay={pay}
+        discount={discount}
+        delivery={delivery}
+        button={true}
+        subTotal={subTotal}
+      />
     </div>
   );
 };

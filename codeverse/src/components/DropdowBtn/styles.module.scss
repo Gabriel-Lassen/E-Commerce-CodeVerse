@@ -3,12 +3,12 @@
   flex-direction: column;
   width: 100%;
 
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    background-color: var(--Bright);
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+        background-color: var(--Bright);
 
     span {
       color: var(--TypeHighEmphasis);
@@ -28,6 +28,17 @@
     padding: 0 16px 16px;
   }
 
+  .footer{
+    display: block;
+  }
+
+  .textFooter{
+    color: var(--TypeLowEmphasis);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  
   .separator {
     width: 53vw;
     height: 1px;

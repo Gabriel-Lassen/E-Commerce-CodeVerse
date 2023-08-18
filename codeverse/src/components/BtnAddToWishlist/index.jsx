@@ -3,22 +3,28 @@ import Wishlist from '../../assets/imgs/fav.svg';
 import AddedWishlist from '../../assets/imgs/addedWishlist.svg';
 import { useContext, useEffect, useState } from 'react';
 import { WishlistActionsContext } from '../../contexts/wishlistActions';
+import { AuthContext } from '../../contexts/Auth';
 
 const BtnAddToWishlist = ({type, id}) => {
+  const { user } = useContext(AuthContext);
   const { handleaddToUserWishlist, handleDeleteOneProductUserWishlist, userWishlist } = useContext(WishlistActionsContext);
-  const [isInWishlist, setIsinWishlist] = useState(userWishlist.some(wishlist => wishlist.productId === id));
+  const [isInWishlist, setIsinWishlist] = useState();
 
   useEffect(() => {
     setIsinWishlist(userWishlist.some(wishlist => wishlist.productId === id));
   }, [id, userWishlist]);
 
   function handleClick(){
-    if(userWishlist.some(wishlist => wishlist.productId === id)){
+    if( userWishlist.some(wishlist => wishlist.productId === id)){
       handleDeleteOneProductUserWishlist(id);
-      setIsinWishlist(false);
+      if(user) {
+        setIsinWishlist(false);
+      }
     } else {
       handleaddToUserWishlist(id);
-      setIsinWishlist(true);
+      if(user) {
+        setIsinWishlist(true);
+      }
     }
   }
 

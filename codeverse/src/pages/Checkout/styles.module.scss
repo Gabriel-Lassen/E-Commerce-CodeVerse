@@ -1,0 +1,66 @@
+@media screen and (max-width: 768px) {
+  .mobile{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 75px;
+  }
+  .wrapper{
+    display: none;
+  }
+
+  .btnPayConfirm{
+    display: none;
+  }
+
+  .bottomBar {
+    width: 100%;
+    display: flex;
+    padding: 0 16px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+    .mobile{
+      display: none;
+    } 
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      margin: 0 16px 40px 0;
+      justify-content: space-between;
+      gap: 10px;
+
+
+      .info{
+        display: flex;
+        flex-direction: column;
+        width: 780px;
+        gap: 68px;
+
+        .btnsDiv{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .btnPayConfirm, .btnBack {
+            display: flex;
+            width: 136px;
+            height: 44px;
+            padding: 10px 8px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px;
+            background: var(--Primary);
+            color: var(--Bright);
+            text-align: center;
+          }
+      
+          .btnBack{
+            color: var(--Primary);
+            background: var(--Bright);
+            text-decoration-line: underline;
+          }
+        }
+      }
+    }
+}

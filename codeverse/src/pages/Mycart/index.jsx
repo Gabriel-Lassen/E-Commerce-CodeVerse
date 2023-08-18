@@ -1,11 +1,11 @@
 import Bag from "../../components/Bag";
 import BtnBackForPage from "../../components/BtnBackForPage";
-import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import X from "../../assets/imgs/close.svg";
 import TitlePage from "../../components/Title-pages";
 import RouteHistory from "../../components/Route-history";
+import ShowFooter from "../../components/ShowFooter";
 
 const MyCart = () => {
   const [hidden, setHidden] = useState(false);
@@ -21,7 +21,8 @@ const MyCart = () => {
   });
 
   return (
-    <>
+      <div style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
+      <div>
       {hidden && <Header />}
       <BtnBackForPage
         text="My Bag"
@@ -30,8 +31,9 @@ const MyCart = () => {
       <RouteHistory />
       <TitlePage />
       <Bag />
-      {hidden && <Footer position={"fixed"} />}
-    </>
+      </div>
+      {hidden && <ShowFooter/>}
+      </div>
   );
 };
 

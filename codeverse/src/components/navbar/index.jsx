@@ -47,11 +47,11 @@ function Navbar() {
   
   
           <li>
-              <Link className={styles.navLink}  to="/mycart">
+              <Link className={styles.navLink}  to="/profile/mycart">
                 <div className={styles.iconContainer}>
-                    <img src={location.pathname === '/mycart' ? bagActive : bag} alt={bag} />
+                    <img src={location.pathname === '/profile/mycart' ? bagActive : bag} alt={bag} />
                 </div>
-                    <span className={location.pathname === '/mycart' ? '' : styles.spanNone}>Bag</span>
+                    <span className={location.pathname === '/profile/mycart' ? '' : styles.spanNone}>Bag</span>
               </Link>
           </li>
         </ul>

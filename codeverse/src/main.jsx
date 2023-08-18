@@ -1,14 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Rotas from "./routes/routes";
-import "./global.scss";
+import { BrowserRouter } from "react-router-dom";
+
 import ProductsProvider from "./contexts/products";
 import AuthProvider from "./contexts/Auth";
 import BagActionsProvider from "./contexts/bagActions";
-import WishlistActionsProvider, { WishlistActionsContext } from "./contexts/wishlistActions";
-import { BrowserRouter } from "react-router-dom";
+import WishlistActionsProvider from "./contexts/wishlistActions";
+import OrdersActionsProvider from "./contexts/ordersActions";
+
+import Rotas from "./routes/routes";
+
 import { ToastContainer, Slide } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"
+
+import "./global.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -17,8 +22,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <ProductsProvider>
           <BagActionsProvider>
             <WishlistActionsProvider>
-              <ToastContainer autoClose={3000} closeButton={false} transition={Slide} />
-              <Rotas />
+              <OrdersActionsProvider>
+                <ToastContainer autoClose={1200} closeButton={false} transition={Slide} />
+                <Rotas />
+              </OrdersActionsProvider>
             </WishlistActionsProvider>
           </BagActionsProvider>
         </ProductsProvider>

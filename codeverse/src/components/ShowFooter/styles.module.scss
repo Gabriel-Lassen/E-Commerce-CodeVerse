@@ -1,0 +1,14 @@
+@media screen and (max-width: 768px) {
+    .web{
+        display: none;
+    }
+    .mobile{
+        padding-bottom: 60px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .mobile{
+        display: none;
+    }
+}

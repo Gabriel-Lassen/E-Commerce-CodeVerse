@@ -5,7 +5,7 @@ import { ProductsContext } from "../../contexts/products";
 
 import styles from "./styles.module.scss";
 
-import Footer from "../../components/Footer";
+import ShowFooter from "../../components/ShowFooter";
 import Header from "../../components/Header";
 import ProductsInfo from "../../components/Products/Product-Info";
 import BtnBackForPage from "../../components/BtnBackForPage";
@@ -55,7 +55,8 @@ const Products = () => {
   }, [location]);
 
   return (
-    <div key={key}>
+    <div key={key} style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
+      <div>
       {hidden && <Header />}
       <RouteHistoryProducts />
       <BtnBackForPage svg={<ArrowSvg color="var(--Dark)" direction="left" />} />
@@ -70,7 +71,8 @@ const Products = () => {
         </div>
       </div>
       <ProductOverview />
-      {hidden && <Footer />}
+      </div>
+      {hidden && <ShowFooter />}
     </div>
   );
 };

@@ -1,0 +1,138 @@
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 0 0 0 16px;
+    max-width: 411px;
+
+    h3 {
+      color: var(--TypeLowEmphasis);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 16px;
+    }
+    .order {
+      display: none;
+    }
+    .separator {
+      display: none;
+    }
+    .cards {
+      display: flex;
+      width: 91vw;
+      max-width: 462px;
+      border-radius: 8px;
+      background-color: var(--Bright);
+      margin-top: 12px;
+      img {
+        margin: 7px 16px 24px 10px;
+        width: 75px;
+        height: 80px;
+        border-radius: 8px;
+      }
+
+      .prodDesc {
+        display: flex;
+        height: 90px;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 8px;
+        .info {
+          display: flex;
+          flex-direction: row;
+          gap: 8px;
+        }
+        .name {
+          color: var(--TypeHighEmphasis);
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 16px;
+          margin-bottom: 2px;
+          width: 120px;
+        }
+        span {
+          color: var(--TypeLowEmphasis);
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+        }
+
+       .qty {
+          display:none
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    margin: 0 0 0 16px;
+    h3, h2 {
+      color: var(--Dark);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 26px;
+      margin-bottom: 8px;
+    }
+    h3 {
+      margin: 0;
+    }
+    .expected {
+      display: none;
+    }
+   
+    .separator {
+      width: 32vw;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.12);
+      margin-bottom: 37px;
+    }
+    .cards {
+      display: flex;
+      border-radius: 8px;
+      background-color: var(--Bright);
+      margin-top: 16px;
+      img {
+        margin: 7px 16px 24px 10px;
+        width: 75px;
+        height: 80px;
+        border-radius: 8px;
+      }
+
+      .prodDesc {
+        display: flex;
+        height: 90px;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 8px;
+        .info {
+          display: flex;
+          flex-direction: row;
+          gap: 8px;
+        }
+        .name {
+          color: var(--TypeHighEmphasis);
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 16px;
+          margin-bottom: 2px;
+          width: 120px;
+        }
+        span {
+          color: var(--TypeLowEmphasis);
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+        }
+        .data {
+          display: none;
+        }
+      }
+    }
+  }
+}

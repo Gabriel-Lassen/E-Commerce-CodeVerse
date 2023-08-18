@@ -1,5 +1,5 @@
 .container {
-  z-index: 2;
+  z-index: 20;
   overflow: auto;
   position: fixed;
   top: 0;
@@ -24,7 +24,7 @@
 
       input {
         border-radius: 4px;
-        width: 296px;
+        width: 82vw;
         height: 40px;
         background: var(--grey, #f1f1f1);
         flex-shrink: 0;
@@ -121,5 +121,6 @@
     display: flex;
     justify-content: center;
     margin-top: 24px;
+    padding-left: 16px;
   }
 }

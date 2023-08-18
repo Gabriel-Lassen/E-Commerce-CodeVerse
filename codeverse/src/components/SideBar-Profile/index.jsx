@@ -7,9 +7,12 @@ const SideBarProfile = () => {
 
     const location = useLocation();
 
+    const myOrdersPattern = /^\/profile\/myorders\/\d+$/;
+
     const personalInformation = location.pathname === "/profile/personalinformation";
     const referAndEarn = location.pathname === "/profile/referandearn";
     const myOrders = location.pathname === "/profile/myorders";
+    const myOrdersOrderId = location.pathname.match(myOrdersPattern);
     const myWishlist = location.pathname === "/profile/mywishlist";
     const myReviews = location.pathname === "/profile/myreviews";
     const myAddressBook = location.pathname === "/profile/myaddressbook";
@@ -34,7 +37,7 @@ const SideBarProfile = () => {
                 </Link>
             
                 <Link className={styles.Link} to={'/profile/myorders'}>
-                    <li className={myOrders ? styles.active  : ''}>
+                    <li className={myOrders ? styles.active  : '' || myOrdersOrderId ? styles.active : ''}>
                         My Orders
                         <ArrowSvg color={myOrders ? 'var(--Primary)' : 'var(--Dark)'} label="My Orders"/>
                     </li>
@@ -47,7 +50,7 @@ const SideBarProfile = () => {
                     </li>
                 </Link>
             
-                <Link className={styles.Link} to={'/profile/myreviews'}>
+                <Link className={styles.Link} to={'#'}>
                     <li className={myReviews ? styles.active  : ''}>
                         My Reviews
                         <ArrowSvg color={myReviews ? 'var(--Primary)' : 'var(--Dark)'} label="My Reviews"/>
@@ -61,7 +64,7 @@ const SideBarProfile = () => {
                     </li>
                 </Link>
             
-                <Link className={styles.Link} to={'/profile/mysavedcards'}>
+                <Link className={styles.Link} to={'#'}>
                     <li className={mySavedCards ? styles.active  : ''}>
                         My Saved Cards
                         <ArrowSvg color={mySavedCards ? 'var(--Primary)' : 'var(--Dark)'} label="My Saved Cards"/>    

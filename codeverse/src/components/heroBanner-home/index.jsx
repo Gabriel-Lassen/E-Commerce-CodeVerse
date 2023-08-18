@@ -9,12 +9,6 @@ import { useEffect, useRef } from "react";
 const HeroBannerHome = ({ order, text }) => {
   const list = useRef(null);
 
-  useEffect(() => {
-    if (order == "row-reverse") {
-      list.current.scrollIntoView({ inline: "end" });
-    }
-  }, []);
-
   return (
     <div>
       {text && (
@@ -40,7 +34,7 @@ const HeroBannerHome = ({ order, text }) => {
           </div>
         </Link>
 
-        <div className={styles.HeroBannerHomeMob2} ref={list}>
+        <div className={styles.HeroBannerHomeMob2}>
           <img src={Banner2} alt="" />
         </div>
       </div>

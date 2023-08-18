@@ -1,0 +1,247 @@
+@media screen and (max-width: 768px) {
+  .productsPar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+    gap: 22px;
+  }
+
+  .productsImpar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+    gap: 22px;
+  }
+
+  @media only screen and (min-width: 354px) {
+    .productsImpar::after {
+      content: "";
+      flex: auto;
+      max-width: clamp(150px, 22.34vw, 284px);
+    }
+  }
+
+  @media only screen and (min-width: 526px) {
+    .productsPar::after {
+      content: "";
+      flex: auto;
+      max-width: clamp(322px, 49.68vw, 572px);
+    }
+  }
+
+  @media only screen and (min-width: 547px) {
+    .productsPar::after {
+      content: "";
+      flex: auto;
+      max-width: 0px;
+    }
+  }
+
+  .wrapper {
+    padding: 0 16px;
+  }
+
+  .productsQty {
+    color: var(--TypeLow-Emphasis);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    margin-bottom: 8px;
+  }
+
+  .all {
+    flex-direction: column;
+    padding-left: 10px;
+
+    .prodImg {
+      width: 40vw;
+      max-width: 156px;
+      height: 40vw;
+      max-height: 156px;
+      margin: 9px 0 0 9px;
+      border-radius: 8px;
+    }
+
+    .prodDesc {
+      display: flex;
+      // width: auto;
+      justify-content: center;
+      flex-direction: column;
+      margin: 8px 0 14px 11px;
+
+      .info {
+        display: flex;
+        flex-direction: row;
+
+        .prodInfo {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      .name {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+        margin-bottom: 2px;
+        width: 120px;
+        color: var(--TypeHighEmphasis);
+      }
+
+      .desc {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+        width: 120px;
+        margin-bottom: 7px;
+        color: var(--TypeLowEmphasis);
+      }
+    }
+
+    .priceContainer {
+      margin-bottom: 5px;
+      display: inline-flex;
+      gap: 6px;
+      //width: 45.3vw;
+      h2 {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+        color: var(--TypeHighEmphasis);
+      }
+
+      .originPrice {
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+        color: var(--TypeLowEmphasis);
+      }
+
+      .off {
+        color: #e21d1d;
+
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+      }
+    }
+    .button {
+      display: flex;
+      justify-content: center;
+      max-width: 151px;
+      width: 40vw;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .wrapper {
+    padding: 0 16px;
+  }
+
+  .productsQty {
+    color: var(--TypeLow-Emphasis);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  .productsPar,
+  .productsImpar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 22px;
+    margin-top: 8px;
+    padding-bottom: 20px;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: auto;
+    width: 75.3vw;
+    gap: 20px;
+    justify-content: flex-start;
+    padding-bottom: 30px;
+
+    .all {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+      margin-right: 10px;
+
+      .prodImg {
+        width: 17vw;
+        height: 17vw;
+        border-radius: 8px;
+      }
+
+      .prodDesc {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: 17vw;
+
+        .info {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 17vw;
+
+          .prodInfo {
+            display: flex;
+            flex-direction: column;
+
+            .name {
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 20px;
+              color: var(--TypeHighEmphasis);
+            }
+
+            .desc {
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 20px;
+              color: var(--TypeLowEmphasis);
+            }
+          }
+        }
+
+        .priceContainer {
+          align-items: center;
+          gap: 5px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 17vw;
+          margin-bottom: 9px;
+
+          p {
+            color: var(--Error);
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+          }
+        }
+
+        .button {
+          width: 20vw;
+          max-width: 170px !important;
+        }
+      }
+    }
+  }
+}
