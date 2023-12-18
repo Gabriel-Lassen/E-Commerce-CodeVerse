@@ -42,6 +42,7 @@
       }
     }
   }
+
   .bottom {
     display: flex;
     flex-direction: row;
@@ -57,6 +58,7 @@
         font-weight: 500;
         line-height: 18px;
       }
+
       span {
         color: var(--TypeHighEmphasis);
         font-size: 16px;
@@ -97,9 +99,17 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+
+      p,
+      h3,
+      span {
+        color: var(--TypeHighEmphasis);
+      }
+
       h2 {
         display: none;
       }
+
       .separator {
         width: 32vw;
         height: 1px;
@@ -122,6 +132,7 @@
         }
       }
     }
+
     .bottom {
       display: flex;
       gap: 32px;
@@ -164,7 +175,7 @@
         gap: 8px;
         border-radius: 8px;
         border: 2px solid var(--Primary);
-        background: var(--Bright);
+        background: var(--Bg);
       }
     }
   }

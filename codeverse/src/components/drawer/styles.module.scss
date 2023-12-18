@@ -1,107 +1,108 @@
-.background{
+.background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.20);
-    backdrop-filter: blur(1px); 
+    backdrop-filter: blur(1px);
     z-index: 1;
 }
 
-    .drawer{
-        width: 297px;
-        height: 100%;
-        background-color: var(--Bright);
-        z-index: 2;
-        position: fixed;
-        top: 0;
-        left: 0;
+.drawer {
+    width: 297px;
+    height: 100%;
+    background-color: var(--Bg);
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    animation: animationDrawer .4s;
+
+    .boxProfile {
+        width: 265px;
+        height: 74px;
         display: flex;
-        flex-direction: column;
-        overflow: auto;
-        animation: animationDrawer .4s;
+        border-radius: 8px;
+        background-color: var(--Accent);
+        margin: 16px;
+        align-items: center;
 
-        .boxProfile{
-            width: 265px;
-            height: 74px;
-            display: flex;
-            border-radius: 8px;
-            background-color: var(--Accent);
-            margin: 16px;
-            align-items: center;
-
-            img{
-                width: 42px;
-                height: 42px;
-                border-radius: 42px;
-                border: 2px solid var(--Primary);
-                margin: 16px 8px 16px 16px;
-                object-fit: cover;
-            }
-
-            h2{
-                color: var(--TypeHighEmphasis);
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 500;
-                line-height: 20px;
-                padding-right: 78px;
-            }
+        img {
+            width: 42px;
+            height: 42px;
+            border-radius: 42px;
+            border: 2px solid var(--Primary);
+            margin: 16px 8px 16px 16px;
+            object-fit: cover;
         }
-    
-        ul{
-            display: flex;
-            flex-direction: column;
-            padding: 16px 8px;
-            align-items: flex-start;
-            gap: 24px;
-    
-            li{
-                width: 269px;
-                display: flex;
-                color: var(--TypeHighEmphasis);
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 16px;
-                align-items: center;
-                justify-content: space-between;
-            }
-        }
-       
-        span{
-            color: var(--TypeLowEmphasis);
-            font-size: 14px;
+
+        h2 {
+            color: var(--TypeHighEmphasis);
+            font-size: 16px;
             font-style: normal;
             font-weight: 500;
-            line-height: 18px;
-        }
-        
-        .Link{
-            text-decoration: none;
-        }
-
-        .divider {
-            width:296px;
-            height: 8px;
-            background: var(--Grey);
-        }
-
-        .contactText{
-            color: var(--Dark);
-            font-weight: 500;
-            line-height: 18px;
+            line-height: 20px;
+            padding-right: 78px;
         }
     }
 
+    ul {
+        display: flex;
+        flex-direction: column;
+        padding: 16px 8px;
+        align-items: flex-start;
+        gap: 24px;
 
-@keyframes animationDrawer{
-    from{
+        li {
+            width: 269px;
+            display: flex;
+            color: var(--TypeHighEmphasis);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 16px;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    span {
+        color: var(--TypeLowEmphasis);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+    }
+
+    .Link {
+        text-decoration: none;
+    }
+
+    .divider {
+        width: 296px;
+        height: 8px;
+        background: var(--Grey);
+    }
+
+    .contactText {
+        color: var(--Dark);
+        font-weight: 500;
+        line-height: 18px;
+    }
+}
+
+
+@keyframes animationDrawer {
+    from {
         opacity: 0;
         width: 0;
     }
-    to{
+
+    to {
         opacity: 1;
         width: 297px;
     }

@@ -7,7 +7,7 @@
     margin-bottom: 25px;
 
     h2 {
-        color: var(--TypeHighemphasis);
+        color: var(--TypeHighEmphasis);
         font-size: clamp(14px, 3.88vw, 18px);
         font-weight: 600;
         line-height: clamp(16px, 4.44vw, 22px);
@@ -34,7 +34,7 @@
     }
 }
 
-@media only screen and (min-width: 720px){
+@media only screen and (min-width: 720px) {
     .wrapper {
         margin-bottom: 68px;
     }
@@ -47,4 +47,3 @@
         }
     }
 }
-
