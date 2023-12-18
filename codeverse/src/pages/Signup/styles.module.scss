@@ -20,6 +20,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .avatar {
       display: flex;
       align-items: flex-end;
@@ -31,6 +32,7 @@
         width: 80px;
         height: 80px;
       }
+
       input[type="file"] {
         display: none;
       }
@@ -54,6 +56,7 @@
       }
     }
   }
+
   .labels {
     label {
       display: flex;
@@ -84,9 +87,10 @@
         font-size: 1rem;
         border: 0;
       }
-      input::-webkit-calendar-picker-indicator{
+
+      input::-webkit-calendar-picker-indicator {
         display: none;
-    }
+      }
 
       button {
         margin-top: 15px;
@@ -103,17 +107,20 @@
         background: linear-gradient(90deg, #1a234b 0%, #416fb4 100%);
       }
     }
+
     .mobile_number {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       width: 78%;
+
       .input_container {
         width: 100%;
         display: flex;
         align-items: center;
+
         select {
-          width:75px;
+          width: 75px;
           margin-right: 10px;
           padding: 10px;
           border: 2px solid #7f8fa6;
@@ -124,6 +131,7 @@
           border: 0;
           appearance: none;
         }
+
         .input_large {
           width: 37vw;
         }
@@ -141,7 +149,7 @@
     background-size: cover;
 
     .modal {
-      background-color: #fff;
+      background-color: var(--Bright);
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
       border-radius: 15px;
       width: 40%;
@@ -150,6 +158,7 @@
       left: 40px;
       padding-bottom: 30px;
     }
+
     .user {
       h1 {
         background: linear-gradient(90deg, #416fb4 0%, #1a234b 100%);
@@ -165,6 +174,7 @@
         align-items: center;
         justify-content: center;
       }
+
       .avatar {
         display: flex;
         align-items: flex-end;
@@ -176,6 +186,7 @@
           width: 80px;
           height: 80px;
         }
+
         input[type="file"] {
           display: none;
         }
@@ -199,11 +210,13 @@
         }
       }
     }
+
     .row {
       display: flex;
       flex-direction: row;
       gap: 5px;
     }
+
     .labels {
       width: 25vw;
       margin-left: 20px;
@@ -221,6 +234,7 @@
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
+
         input {
           width: 90%;
           min-width: 70%;
@@ -231,9 +245,10 @@
           padding-top: 10px;
           margin-bottom: 25px;
         }
-        input::-webkit-calendar-picker-indicator{
+
+        input::-webkit-calendar-picker-indicator {
           display: none;
-      }
+        }
 
         button {
           display: inline-block;
@@ -264,6 +279,7 @@
             border-radius: 10rem;
             z-index: -2;
           }
+
           &:before {
             content: "";
             position: absolute;
@@ -276,25 +292,30 @@
             border-radius: 10rem;
             z-index: -1;
           }
+
           &:hover {
             color: var(--Bright);
             transform: scale(1.02);
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
             &:before {
               width: 100%;
             }
           }
         }
       }
+
       .mobile_number {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         width: 25vw;
+
         .input_container {
           display: flex;
           align-items: center;
           gap: 20px;
+
           select {
             width: 45px;
             outline: none;
@@ -304,10 +325,11 @@
             margin-bottom: 25px;
             appearance: none;
           }
+
           .input_large {
             width: 100%;
             min-width: 200px;
-            max-width: 600px; 
+            max-width: 600px;
           }
         }
       }
