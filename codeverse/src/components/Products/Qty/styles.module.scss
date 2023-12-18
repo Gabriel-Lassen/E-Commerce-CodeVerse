@@ -8,6 +8,7 @@
     flex-direction: row;
     margin-bottom: 50px;
     order: 7;
+
     .btn {
       display: flex;
 
@@ -15,10 +16,12 @@
       border: 1px solid var(--Primary);
       justify-content: center;
       align-items: center;
+
       button {
         display: flex;
         background: none;
         padding: 4px 9px;
+        color: var(--Dark);
       }
     }
   }

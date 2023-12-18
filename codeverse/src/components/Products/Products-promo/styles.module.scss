@@ -9,7 +9,7 @@
     padding-right: 8px;
     border-radius: 8px;
     border: 1px solid var(--Primary);
-    background: var(--Bright);
+    background: var(--Bg);
 }
 
 .cardInfo {
@@ -58,7 +58,7 @@
     line-height: 18px;
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px) {
     .wrapper {
         max-width: none;
         width: 391px;
@@ -67,31 +67,31 @@
         padding-right: 16px;
         gap: 8px;
     }
-    
+
     .cardInfo {
         width: 229px;
     }
-    
+
     .infoDiscount {
         color: var(--TypeHighemphasis);
         font-size: 16px;
         line-height: normal;
     }
-    
+
     .infoPolicy {
         font-size: 14px;
     }
-    
+
     .cardCode {
         width: 110px;
         height: 66px;
         gap: 8px;
     }
-    
+
     .codeUser {
         font-size: 14px;
     }
-    
+
     .codeNumber {
         font-size: 16px;
     }
