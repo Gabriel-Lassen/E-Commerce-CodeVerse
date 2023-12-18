@@ -9,6 +9,7 @@
     border-radius: 8px;
     background: var(--Primary);
     max-width: 400px;
+
     .icon {
       display: flex;
       justify-content: center;
@@ -19,7 +20,8 @@
       height: 104px;
       margin: 8px;
       border-radius: 8px;
-      background: #ffe6ca;
+      background: var(--Icon);
+
       img {
         width: 13.61vw;
         max-width: 49px;
@@ -27,10 +29,12 @@
         max-height: 82px;
       }
     }
+
     div {
       display: flex;
       flex-direction: column;
       gap: 20px;
+
       p {
         display: flex;
         max-width: 195px;
@@ -48,6 +52,7 @@
         flex-direction: row;
         gap: 0;
         margin: 0px;
+
         h3 {
           display: flex;
           width: 95px;
@@ -68,6 +73,7 @@
     }
   }
 }
+
 @media screen and (min-width: 769px) {
   .ShortCut {
     display: none;

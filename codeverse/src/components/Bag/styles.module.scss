@@ -7,6 +7,7 @@
     .products::-webkit-scrollbar {
       display: none;
     }
+
     .products {
       height: 58.5vh;
       background: var(--Accent);
@@ -25,6 +26,7 @@
         .imgAndDesc {
           display: flex;
           flex-direction: row;
+
           img {
             margin: 8px 0 0 9px;
             width: 29vw;
@@ -41,11 +43,13 @@
             flex-direction: column;
             margin: 8px 0 14px 11px;
             width: auto;
+
             .info {
               display: flex;
               flex-direction: column;
               gap: 8px;
             }
+
             .name {
               color: var(--TypeHighEmphasis);
               font-size: 12px;
@@ -83,6 +87,7 @@
                 font-weight: 500;
                 line-height: 18px;
               }
+
               span {
                 color: var(--TypeHighEmphasis);
                 font-size: 12px;
@@ -96,6 +101,7 @@
               display: inline-flex;
               gap: 6px;
               width: 42.3vw;
+
               h2 {
                 color: var(--TypeHighEmphasis);
                 font-size: 14px;
@@ -113,8 +119,7 @@
               }
 
               .off {
-                color: #e21d1d;
-
+                color: var(--Red);
                 font-size: 10px;
                 font-style: normal;
                 font-weight: 500;
@@ -122,6 +127,7 @@
               }
             }
           }
+
           .separator {
             width: 86.6vw;
             max-width: 434.7px;
@@ -130,6 +136,7 @@
             background: var(--Seperator);
           }
         }
+
         .priceContainerWeb {
           h2 {
             display: none;
@@ -143,6 +150,7 @@
             display: none;
           }
         }
+
         .btns {
           display: flex;
           flex-direction: row;
@@ -191,6 +199,7 @@
         }
       }
     }
+
     .bg {
       width: 100vw;
       transform: translateY(-10px);
@@ -246,6 +255,7 @@
         overflow-y: scroll;
         gap: 16px;
         margin-bottom: 20px;
+
         .cards {
           width: 55.4vw;
           height: 99px;
@@ -257,6 +267,7 @@
             flex-direction: row;
             justify-content: flex-start;
             gap: 16px;
+
             img {
               width: 80px;
               height: 80px;
@@ -397,21 +408,24 @@
             }
           }
         }
+
         .separator {
           display: none;
         }
+
         .btns {
           display: inline-flex;
         }
       }
     }
 
-    
+
 
     .bg {
       display: none;
     }
   }
+
   @media screen and (min-width: 1200px) {
     .container {
       gap: 108px;
@@ -457,6 +471,7 @@
           overflow-y: scroll;
           gap: 16px;
           margin-bottom: 20px;
+
           .cards {
             width: 55.4vw;
             height: 99px;
@@ -468,6 +483,7 @@
               display: flex;
               flex-direction: row;
               gap: 16px;
+
               img {
                 width: 80px;
                 height: 80px;
@@ -527,6 +543,7 @@
               flex-direction: column;
               gap: 35px;
               width: 260px;
+
               .moneyContainer {
                 display: inline-flex;
                 justify-content: space-between;

@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
 }
+
 .modal {
     display: flex;
     flex-direction: column;
@@ -15,6 +16,7 @@
     align-items: flex-start;
     gap: 16px;
     cursor: pointer;
+
     img {
         width: 75px;
         height: 75px;
@@ -82,7 +84,7 @@
         .reviewText {
             display: flex;
             flex-direction: column;
-            
+
             .avarage {
                 color: var(--typeHighemphasis);
                 font-size: 14px;
@@ -143,20 +145,21 @@
             font-style: normal;
             font-weight: 700;
             line-height: 16px;
-            padding:  5px 8px;
+            padding: 5px 8px;
             background-color: var(--Bright);
             border: 2px solid var(--LightText);
             border-radius: 20px;
             cursor: pointer;
         }
+
         input {
             display: none;
-          }
-          
-          input:checked+label {
-            background-color: #D9EFF1;
+        }
+
+        input:checked+label {
+            background-color: var(--Checked);
             border-color: var(--Primary);
-          }
+        }
     }
 }
 
@@ -176,7 +179,7 @@
         border-radius: 8px;
         border: 2px solid var(--Primary);
         background: var(--Primary);
-    
+
         span {
             color: var(--Bright);
             font-size: 14px;
@@ -186,7 +189,7 @@
     }
 }
 
-@media only screen and (min-width: 769px){
+@media only screen and (min-width: 769px) {
     .wrapper {
         display: none;
     }

@@ -93,7 +93,7 @@
     }
 
     .discount {
-        color: #E21D1D;
+        color: var(--Red);
         font-size: clamp(10px, 1.25vw, 16px);
         font-weight: 400;
         line-height: clamp(16px, 1.56vw, 20px);

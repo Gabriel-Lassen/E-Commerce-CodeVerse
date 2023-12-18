@@ -13,7 +13,7 @@
     width: 15vw;
     height: 143px;
     border-radius: 12px;
-    border: 1px solid #e3e3e3;
+    border: 1px solid var(--Box);
     background: var(--Bright);
 
     .credit {
@@ -111,7 +111,7 @@
     width: 68px;
     height: 69px;
     border-radius: 7px;
-    border: 1px solid #dcdcdc;
+    border: 1px solid var(--ImgBox);
     background: var(--Bright);
   }
 
@@ -133,7 +133,7 @@
       width: 160px;
       height: 143px;
       border-radius: 12px;
-      border: 1px solid #e3e3e3;
+      border: 1px solid var(--Box);
       background: var(--Bright);
     }
   }

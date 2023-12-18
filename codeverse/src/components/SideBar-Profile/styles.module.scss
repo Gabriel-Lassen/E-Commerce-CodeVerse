@@ -1,4 +1,4 @@
-.sideBar{
+.sideBar {
     width: 286px;
     height: 504px;
     display: flex;
@@ -8,14 +8,14 @@
     margin-left: 20px;
 
 
-    ul{
+    ul {
         display: flex;
         flex-direction: column;
         padding: 16px 0px;
         align-items: flex-start;
         gap: 14px;
-   
-        li{
+
+        li {
             width: 269px;
             padding: 16px 8px;
             display: flex;
@@ -27,9 +27,10 @@
             align-items: center;
             justify-content: space-between;
         }
-        .active{
+
+        .active {
             color: var(--Primary);
-            border-left: 4px solid #17494D;
+            border-left: 4px solid var(--ActiveBorder);
             height: 54px;
             padding-left: 4px;
             border-radius: 4px;
@@ -37,38 +38,40 @@
     }
 
 
-    .Link{
+    .Link {
         text-decoration: none;
     }
 
 
 }
 
-@media screen and (max-width: 768px){
-    .sideBar{
+@media screen and (max-width: 768px) {
+    .sideBar {
         background-color: var(--Bright);
         margin-left: 16px;
         width: 91.11%;
         height: 420px;
         align-items: center;
-        
-        ul{
-            li{
+
+        ul {
+            li {
                 width: 90vw;
                 padding: 10px 0;
             }
-            .active{
+
+            .active {
                 padding-left: 4px;
             }
         }
     }
 }
 
-@media screen and (min-width: 1400px){
-    .sideBar{
+@media screen and (min-width: 1400px) {
+    .sideBar {
         width: 22vw;
-        ul{
-            li{
+
+        ul {
+            li {
                 width: 21vw;
             }
         }
