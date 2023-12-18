@@ -4,6 +4,7 @@
 
     opacity: 0;
   }
+
   to {
     top: 80px;
 
@@ -17,11 +18,16 @@
   right: 10px;
   width: 394px;
   max-height: 700px;
-  background: var(--Bright);
+  background: var(--Bg);
   z-index: 2;
   overflow-y: scroll;
   animation: slideDown 0.5s ease;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+
+  span,
+  p {
+    color: var(--TypeHighEmphasis);
+  }
 
   header {
     width: 377px;
@@ -73,12 +79,14 @@
       align-items: flex-start;
       gap: 16px;
 
+
       img {
         width: 75px;
         height: 80px;
         flex-shrink: 0;
         border-radius: 8px;
       }
+
       .cardRight {
         display: flex;
         flex-direction: column;
@@ -97,6 +105,7 @@
           }
         }
       }
+
       .prodDesc {
         display: flex;
         width: 220px;
@@ -113,6 +122,7 @@
         }
       }
     }
+
     .separator {
       width: 372px;
       height: 1px;
@@ -120,6 +130,7 @@
       margin: 0 auto 24px;
     }
   }
+
   .price {
     display: flex;
     flex-direction: column;
@@ -244,6 +255,6 @@
         line-height: 18px;
       }
     }
-    
+
   }
 }
