@@ -13,7 +13,7 @@
   --MajorVibrant: #ff404b;
   --Seperator: rgba(0, 0, 0, 0.12);
   --TextFaded: #7E7E7E;
-  -Footer: #3e6f73;
+  --Footer: #3e6f73;
   --Red: #e21d1d;
   --Icon: #ffe6ca;
   --Checked: #D9EFF1;
@@ -24,6 +24,10 @@
   --Box: #e3e3e3;
   --ImgBox: #dcdcdc;
   --FadeLowToTopWhite: linear-gradient(180deg, rgba(255, 244, 229, 0) 0%, rgba(255, 250, 244, 0.96) 51.9%);
+}
+
+[data-theme='light'] {
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 p,
@@ -44,15 +48,18 @@ textarea {
 
 a {
   text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 button {
   border: none;
   cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 li {
   list-style: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 * {
@@ -63,8 +70,10 @@ li {
 
 html,
 body {
-  height: 100%;
+  min-height: 100vh;
+  height: auto;
   background: var(--Bg);
+
 }
 
 #root {
@@ -73,32 +82,31 @@ body {
   height: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --Primary: #1b4b66;
-    --PrimaryTint: #639599;
-    --Error: #b00020;
-    --Highlight: #ff8c4b;
-    --Accent: #414141;
-    --Dark: #ECEFE1;
-    --Bright: #fff;
-    --Grey: #3f3f3f;
-    --LightText: #b6b6b6;
-    --TypeHighEmphasis: #fff;
-    --TypeLowEmphasis: #626262;
-    --MajorVibrant: #ff404b;
-    --Seperator: rgba(0, 0, 0, 0.12);
-    --TextFaded: #7E7E7E;
-    -Footer: #3e6f73;
-    --Red: #e21d1d;
-    --Icon: #ffe6ca;
-    --Checked: #D9EFF1;
-    --Msg: #303030;
-    --Bg: #1A1A1B;
-    --Bg2: #F9F9F9;
-    --ActiveBorder: #17494D;
-    --Box: #e3e3e3;
-    --ImgBox: #dcdcdc;
-    --FadeLowToTopWhite: linear-gradient(180deg, rgba(24, 39, 48, 0) 0%, rgba(36, 42, 46, 0.96) 51.9%);
-  }
+[data-theme='dark'] {
+  --Primary: #1b4b66;
+  --PrimaryTint: #639599;
+  --Error: #b00020;
+  --Highlight: #ff8c4b;
+  --Accent: #414141;
+  --Dark: #ECEFE1;
+  --Bright: #fff;
+  --Grey: #3f3f3f;
+  --LightText: #b6b6b6;
+  --TypeHighEmphasis: #fff;
+  --TypeLowEmphasis: #626262;
+  --MajorVibrant: #ff404b;
+  --Seperator: rgba(0, 0, 0, 0.12);
+  --TextFaded: #7E7E7E;
+  --Footer: #3e6f73;
+  --Red: #e21d1d;
+  --Icon: #ffe6ca;
+  --Checked: #D9EFF1;
+  --Msg: #303030;
+  --Bg: #1A1A1B;
+  --Bg2: #F9F9F9;
+  --ActiveBorder: #17494D;
+  --Box: #e3e3e3;
+  --ImgBox: #dcdcdc;
+  --FadeLowToTopWhite: linear-gradient(180deg, rgba(24, 39, 48, 0) 0%, rgba(36, 42, 46, 0.96) 51.9%);
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
