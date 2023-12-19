@@ -86,6 +86,7 @@
         outline: none;
         font-size: 1rem;
         border: 0;
+        color: var(--Dark);
       }
 
       input::-webkit-calendar-picker-indicator {
@@ -105,6 +106,7 @@
         transition: all 0.3s;
         border: 0;
         background: linear-gradient(90deg, #1a234b 0%, #416fb4 100%);
+
       }
     }
 
@@ -113,6 +115,7 @@
       flex-direction: column;
       align-items: flex-start;
       width: 78%;
+      color: var(--Dark);
 
       .input_container {
         width: 100%;
@@ -130,6 +133,7 @@
           font-size: 1rem;
           border: 0;
           appearance: none;
+          color: var(--Dark);
         }
 
         .input_large {
@@ -149,7 +153,7 @@
     background-size: cover;
 
     .modal {
-      background-color: var(--Bright);
+      background-color: var(--Bg);
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
       border-radius: 15px;
       width: 40%;
@@ -189,6 +193,10 @@
 
         input[type="file"] {
           display: none;
+        }
+
+        span {
+          color: var(--Bright);
         }
 
         label {
@@ -244,6 +252,8 @@
           border-bottom: 1px solid var(--Primary);
           padding-top: 10px;
           margin-bottom: 25px;
+          background-color: var(--Bg);
+          color: var(--Dark);
         }
 
         input::-webkit-calendar-picker-indicator {
@@ -324,6 +334,8 @@
             padding-top: 10px;
             margin-bottom: 25px;
             appearance: none;
+            background-color: var(--Bg);
+            color: var(--Dark);
           }
 
           .input_large {

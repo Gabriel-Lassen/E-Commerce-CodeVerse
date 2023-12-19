@@ -1,10 +1,11 @@
 .container {
   z-index: 1000;
   position: absolute;
-  background: var(--Bright);
+  background: var(--Bg);
   right: 0;
   left: 0;
   top: 0;
+
   .topBar {
     display: flex;
     flex-direction: row;
@@ -21,6 +22,7 @@
       gap: 20px;
     }
   }
+
   .section {
     width: 100%;
     margin: 0 auto;
@@ -37,6 +39,7 @@
       margin-bottom: 17px;
       margin-top: 137px;
     }
+
     h2 {
       color: var(--Dark);
       text-align: center;
@@ -46,6 +49,7 @@
       line-height: 26px;
       padding-bottom: 16px;
     }
+
     p {
       width: 74vw;
       color: var(--Dark);
@@ -55,6 +59,7 @@
       font-weight: 500;
       line-height: 18px;
     }
+
     button {
       display: flex;
       position: fixed;
