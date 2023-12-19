@@ -26,6 +26,7 @@ Também oferecemos suporte a diversas plataformas.
 - Navegação Intuitiva
 - Personalização do Perfil
 - Métodos de pagamentos
+- Dark Mode
 
 
 ## 🛠 Stack utilizada
