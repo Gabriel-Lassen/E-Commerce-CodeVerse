@@ -9,7 +9,7 @@ import ProductsCarousel from "../../components/productsCarousel";
 import Navbar from "../../components/Navbar";
 import { useEffect, useState } from "react";
 import MakeupSkincare from "../../components/MakeupSkincare";
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
 import ShowFooter from "../../components/ShowFooter";
 
 const Home = () => {
@@ -26,29 +26,36 @@ const Home = () => {
   });
 
   return (
-    <div style={{display: "flex", flexDirection:"column", justifyContent: 'space-between', height: "100%"}}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        height: "100%",
+      }}
+    >
       <div>
-      <Header />
-      <BannerMsg />
-      <HeroBannerHome />
-      <TopCategories />
-      <div className={styles.carousel}>
-        <ProductsCarousel
-          title='New Arrivals'
-          showViewAll={true}
-          keyToFilter='releaseDate'
-          expectedOutcome='2023-06'
-        />
-      </div>
-      <Handpicked />
-      <Brands />
-      <ShortCut />
-      <MakeupSkincare />
-      {hidden && <HeroBannerHome order="row-reverse" text={true} />}
-      <Navbar />
+        <Header />
+        <BannerMsg />
+        <HeroBannerHome />
+        <TopCategories />
+        <div className={styles.carousel}>
+          <ProductsCarousel
+            title="New Arrivals"
+            showViewAll={true}
+            keyToFilter="releaseDate"
+            expectedOutcome="2023-06"
+          />
+        </div>
+        <Handpicked />
+        <Brands />
+        <ShortCut />
+        <MakeupSkincare />
+        {hidden && <HeroBannerHome order="row-reverse" text={true} />}
+        <Navbar />
       </div>
       <ShowFooter />
-      </div>
+    </div>
   );
 };
 

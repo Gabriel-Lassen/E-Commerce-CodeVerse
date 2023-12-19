@@ -15,6 +15,7 @@ import Bag from "../../assets/imgs/bag.svg";
 import Drawer from "../Drawer";
 import BagModal from "../BagModal";
 import Search from "../Search-Modal";
+import DarkModeBtn from "../DarkMode";
 
 const Header = () => {
   const [drawer, setDrawer] = useState(false);
@@ -120,6 +121,7 @@ const Header = () => {
                 {" "}
                 <Link to="/categories/apparels"> Apparels</Link>
               </li>
+              <DarkModeBtn />
             </ul>
           </nav>
         </div>
