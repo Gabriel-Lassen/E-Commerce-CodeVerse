@@ -22,6 +22,7 @@ import Checkout from "../pages/Checkout";
 import { OrderPlaced } from "../components/OrderPlaced";
 
 import OrderDetail from "../pages/OrderDetail";
+import Error404 from "../pages/Error404";
 
 const Rotas = () => {
   return (
@@ -47,6 +48,7 @@ const Rotas = () => {
       <Route path="/profile/mycart" element={<PriviteRoutes> <MyCart /> </PriviteRoutes>} />
       <Route path="/checkout" element={<PriviteRoutes> <Checkout/> </PriviteRoutes>} />
       <Route path="/checkout/orderplaced" element={<PriviteRoutes> <OrderPlaced /> </PriviteRoutes>} />
+      <Route path="*" element={<PriviteRoutes> <Error404/> </PriviteRoutes>} />
     </Routes>
   );
 };

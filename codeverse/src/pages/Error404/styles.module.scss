@@ -1,0 +1,109 @@
+.container {
+  background: url("../../assets/imgs/Img2.jpeg") center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+
+  .errorModal {
+    border: 2px solid var(--Bg);
+    border-radius: 7px;
+    padding: 1vw;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h1 {
+        color: var(--Dark);
+      font-size: clamp(4em, 15vw, 10em);
+      font-weight: bold;
+      margin-bottom: 10px;
+    //   background: url("../../assets/imgs/imgParalax.jpeg") center/cover no-repeat;
+    //   background-clip: text;
+    //   -webkit-background-clip: text;
+    //   color: transparent;
+
+    }
+
+    span {
+        color: var(--Dark);
+      font-size: clamp(2em, 5vw, 10em);
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    //   background: url("../../assets/imgs/imgParalax.jpeg") center/cover no-repeat;
+    //   background-clip: text;
+    //   -webkit-background-clip: text;
+    //   color: transparent;
+    }
+    div {
+        position: relative;
+        padding-right: 24px;
+        width: 38.28vw;
+        display: flex;
+        flex-direction: row;
+        input {
+          width: 28.28vw;
+          height: 44px;
+          flex-shrink: 0;
+          border-radius: 4px;
+          background: var(--Grey);
+          padding: 13px 40px;
+          border: 0;
+        }
+        input::placeholder {
+          font-size: 14px;
+          font-style: normal;
+
+          font-weight: 500;
+          line-height: 18px;
+          color: var(--TypeLowEmphasis);
+        }
+        button {
+            width: 10vw;
+            background: var(--Primary);
+            p {
+                color: var(--Bright);
+            }
+        }
+        .searchDk {
+          position: absolute;
+          left: 8px;
+          top: 10px;
+        }
+      }
+
+    a {
+      padding: 8px 16px;
+      color: var(--Dark);
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+
+      &:hover {
+        border-bottom: 2px solid var(--Bg);
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        .errorModal {
+          div {
+              button {
+                  display: none;
+              }
+            }
+        }
+      }
+}
