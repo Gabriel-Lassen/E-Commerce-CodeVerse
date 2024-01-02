@@ -7,6 +7,7 @@
         width: 100%;
         display: block;
     }
+
     .wrapper {
         display: block;
         padding: 0 20px 0 26px;
@@ -70,11 +71,11 @@
         justify-content: space-between;
         margin-bottom: 24px;
     }
-    
+
     .showing {
         display: none;
     }
-    
+
     .buttons {
         width: 100%;
         display: flex;
@@ -82,20 +83,20 @@
         justify-content: flex-start;
         gap: 40px;
     }
-    
+
     .toShow {
         min-width: 131px;
         display: flex;
         align-items: center;
         gap: 4px;
-    
+
         span {
             color: var(--TypeHighEmphasis);
             font-size: 16px;
             font-weight: 500;
             line-height: 20px;
         }
-    
+
         div {
             width: 56px;
             height: 52px;
@@ -104,7 +105,7 @@
             justify-content: center;
             border-radius: 4px;
             background: var(--Grey);
-    
+
             input {
                 max-width: 20px;
                 display: flex;
@@ -112,29 +113,30 @@
                 background-color: transparent;
                 border: none;
                 outline: none;
-    
+
                 color: var(--TypeLowEmphasis);
                 font-size: 16px;
                 font-weight: 500;
                 line-height: 20px;
-    
+
                 cursor: pointer;
             }
 
-            input[type=number]::-webkit-inner-spin-button { 
+            input[type=number]::-webkit-inner-spin-button {
                 -webkit-appearance: none;
-                
+
             }
-            input[type=number] { 
-               -moz-appearance: textfield;
-               appearance: textfield;
-            
+
+            input[type=number] {
+                -moz-appearance: textfield;
+                appearance: textfield;
+
             }
         }
     }
 }
 
-@media only screen and (min-width: 1130px){
+@media only screen and (min-width: 1130px) {
     .buttons {
         width: 37.18vw;
         max-width: 476px;
@@ -147,5 +149,9 @@
         display: flex;
         align-items: center;
         gap: 13px;
+
+        span {
+            color: var(--Dark);
+        }
     }
 }

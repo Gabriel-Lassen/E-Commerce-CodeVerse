@@ -3,7 +3,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: var(--Bright);
+    background-color: var(--Bg);
     position: fixed;
     z-index: 300;
     top: 0;
@@ -17,6 +17,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 16px;
+    background: var(--Bg);
 
     span {
         color: var(--Primary);
@@ -59,6 +60,7 @@
         font-size: 16px;
         font-weight: 500;
         line-height: 20px;
+        background-color: var(--Bg);
     }
 }
 
@@ -70,9 +72,10 @@
     justify-content: space-around;
     gap: 8px;
     padding: 0 16px;
+
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px) {
     .filterModal {
         display: none;
     }

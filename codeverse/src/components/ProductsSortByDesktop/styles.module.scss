@@ -41,6 +41,10 @@
         width: 24px;
         height: 24px;
     }
+
+    button {
+        background-color: var(--Grey);
+    }
 }
 
 .options {
@@ -67,5 +71,6 @@
         font-weight: 500;
         line-height: 20px;
         border-bottom: 2px solid var(--Bright);
+
     }
 }

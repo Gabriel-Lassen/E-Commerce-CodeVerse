@@ -79,6 +79,9 @@
 
 @media screen and (min-width: 769px) {
  .wrapper {
+  span {
+   color: var(--Dark);
+  }
 
   .label {
    display: flex;
