@@ -3,6 +3,7 @@ import { AuthContext } from "../../contexts/Auth";
 import styles from "./styles.module.scss";
 import { toast } from "react-toastify";
 import ArrowSvg from '../ArrowSvg';
+import axios from 'axios';
 
 const Address = ({active}) => {
 
@@ -19,6 +20,23 @@ const Address = ({active}) => {
     const [state, setState] = useState("")
     const [pinCode, setPinCode] = useState("")
     const [selectedOption, setSelectedOption] = useState("home");
+    const [stateOptions, setStateOptions] = useState([]);
+    const [cityOptions, setCityOptions] = useState([]);
+
+    useEffect(() => {
+      axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados').then(Response => {
+        setStateOptions(Response.data);
+      })
+    }, []);
+
+    useEffect(() => {
+      if(state && stateOptions) {
+        axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${state}/municipios`).then(Response => {
+          setCityOptions(Response.data);
+          console.log(cityOptions)
+        })
+      }
+    }, [state, stateOptions])
 
     useEffect(() => {
       if (user) {
@@ -116,22 +134,22 @@ const Address = ({active}) => {
           </label>
           <label className={styles.bigLabel}>
             <span>State</span>
-            <input
-              type="text"
-              value={state}
-              onChange={(e) => setState(e.target.value)}
-              placeholder='Enter State'
-            />
+            <select name='state' id='state' onChange={(e) => {setState(e.target.value); setCity('')}}>
+              <option value={state ? state : ''}>{state ? state : 'Enter your state'}</option>
+              {stateOptions.map(state => (
+                <option key={state.id} value={state.sigla}>{state.sigla}</option>
+              ))}
+            </select>         
           </label>
 
         <label className={styles.smallLabel}>
             <span>City</span>
-            <input
-              type="text"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              placeholder='Enter City'
-            />
+            <select name='city' id='city' onChange={(e) => setCity(e.target.value)}>
+              <option value={city ? city : ''}>{city ? city : 'Enter your city'}</option>
+              {cityOptions.map(city => (
+                <option key={city.id} value={city.nome}>{city.nome}</option>
+              ))}
+            </select>
           </label>
           <label className={styles.bigLabel}>
             <span>Pin Code</span>
