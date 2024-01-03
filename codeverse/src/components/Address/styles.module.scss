@@ -2,7 +2,7 @@
   .container {
     z-index: 1000;
     position: absolute;
-    background: var(--Bright);
+    background: var(--Bg);
     height: 100%;
     right: 0;
     left: 0;
@@ -67,6 +67,11 @@
           border-radius: 4px;
           background: var(--Grey);
           border: 0;
+          color: var(--Dark);
+        }
+
+        input:disabled {
+          color: var(--TypeLowEmphasis);
         }
       }
 
